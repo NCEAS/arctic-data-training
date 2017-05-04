@@ -1,0 +1,52 @@
+---
+title: ""
+output: html_document
+---
+<br>
+
+[![arctic_data_logo](../arctic-data-center.png)](https://arcticdata.io)
+
+# Data science training for Arctic research
+
+## Course overview
+
+The [Arctic Data Center](https://arcticdata.io) conducts training in data science and management,
+both of which are critical skills for stewardship of data, software, and other
+products of research that are preserved at the [Arctic Data Center](https://arcticdata.io).
+
+Course topics will include:
+
+- Arctic Data Center and NSF Standards and Policies 
+- Data Management Plans 
+- Effective data management for data preservation
+    - Storing and Preparing Data in Open Source Formats 
+    - Stability, longevity, interoperability 
+    - Metadata 
+- Publishing data at the Arctic Data Center
+    - Web-based submission
+    - Automating submission for large data sets
+- Data and Metadata Quality
+
+## Agenda
+
+```{r library loads, warnings = FALSE, message=FALSE, echo=FALSE}
+library(tidyverse)
+library(knitr)
+```
+
+
+```{r agenda, warnings = FALSE, message=FALSE, echo=FALSE}
+agenda <- read_csv("agenda.csv")
+kable(agenda)
+
+```
+
+
+## Acknowledgements
+Work on this package was supported by:
+
+- [NSF award #1546024](http://www.nsf.gov/awardsearch/showAward?AWD_ID=1546024) to M. B. Jones, S. Baker-Yeboah, A. Budden, J. Dozier, and M. Schildhauer
+
+Additional support was provided for working group collaboration by the National Center for Ecological Analysis and Synthesis, a Center funded by the University of California, Santa Barbara, and the State of California.
+
+

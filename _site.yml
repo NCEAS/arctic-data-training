@@ -1,0 +1,12 @@
+name: "Arctic Data Center Training"
+navbar:
+  title: "ADC Training"
+  left:
+    - text: "Home"
+      href: README.html
+    - text: "July 2017"
+      href: arctic-data-2017/index.html
+output_dir: "."
+output:
+  html_document:
+    theme: yeti
