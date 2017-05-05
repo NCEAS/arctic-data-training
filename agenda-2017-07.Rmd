@@ -1,10 +1,10 @@
 ---
-title: ""
+title: "Arctic Data Training 2017"
 output: html_document
 ---
 <br>
 
-[![arctic_data_logo](../arctic-data-center.png)](https://arcticdata.io)
+[![arctic_data_logo](arctic-data-center.png)](https://arcticdata.io)
 
 # Data science training for Arctic research
 
@@ -36,7 +36,7 @@ library(knitr)
 
 
 ```{r agenda, warnings = FALSE, message=FALSE, echo=FALSE}
-agenda <- read_csv("agenda.csv")
+agenda <- read_csv("agenda-2017-07.csv")
 kable(agenda)
 
 ```

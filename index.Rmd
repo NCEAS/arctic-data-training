@@ -1,3 +1,7 @@
+---
+title: "Arctic Data Training"
+---
+
 <br>
 
 # Data Science Training for the Arctic Data Center
