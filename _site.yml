@@ -3,7 +3,7 @@ navbar:
   title: "ADC Training"
   left:
     - text: "Home"
-      href: README.html
+      href: index.html
     - text: "July 2017"
       href: arctic-data-2017/index.html
 output_dir: "."
