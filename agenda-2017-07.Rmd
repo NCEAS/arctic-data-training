@@ -26,6 +26,7 @@ Course topics will include:
     - Web-based submission
     - Automating submission for large data sets
 - Data and Metadata Quality
+- Provenance for data and software
 
 ## Agenda
 
