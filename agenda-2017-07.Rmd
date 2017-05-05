@@ -8,6 +8,9 @@ output: html_document
 
 # Data science training for Arctic research
 
+- **Dates**: July 31 - Aug 1, 2017
+- **Venue**: [NCEAS](https://www.nceas.ucsb.edu), UC Santa Barbara
+
 ## Course overview
 
 The [Arctic Data Center](https://arcticdata.io) conducts training in data science and management,
