@@ -52,7 +52,7 @@ kable(agenda)
 
 ### Day 1
 
-- Arctic Data Center and NSF Standards and Policies
+- [Arctic Data Center and NSF Standards and Policies](materials/session-1-arctica-overview-mjones-v03.pdf)
 - [Effective data modeling and management](https://nceas.github.io/oss-lessons/sql-database/01-sql-database-intro.html)
 - Authoring Quality metadata
 
