@@ -48,6 +48,21 @@ kable(agenda)
 
 ```
 
+## Materials
+
+### Day 1
+
+- Arctic Data Center and NSF Standards and Policies
+- [Effective data modeling and management](https://nceas.github.io/oss-lessons/sql-database/01-sql-database-intro.html)
+- Authoring Quality metadata
+
+### Day 2
+
+- Writing Good Data Management Plans
+- Programmatic access to the Arctic Data Center via DataONE API
+- Data packaging and file hierarchies
+- Authoring large data sets
+- [Tracking data provenance](https://nceas.github.io/oss-lessons/publishing-data/upload-data.html)
 
 ## Acknowledgements
 Work on this package was supported by:
