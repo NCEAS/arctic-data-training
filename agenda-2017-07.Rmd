@@ -54,14 +54,14 @@ kable(agenda)
 
 - [Arctic Data Center and NSF Standards and Policies](materials/session-1-arctica-overview-mjones-v03.pdf)
 - [Effective data modeling and management](https://nceas.github.io/oss-lessons/sql-database/01-sql-database-intro.html)
-- Authoring Quality metadata
+- [Authoring Quality metadata](materials/session-3_authoring-quality-metadata_mecum.pdf)
 
 ### Day 2
 
 - Writing Good Data Management Plans
-- Programmatic access to the Arctic Data Center via DataONE API
-- Data packaging and file hierarchies
-- Authoring large data sets
+- [Programmatic access to the Arctic Data Center via DataONE API](materials/query-and-download/query-and-download.html)
+- [Data packaging and file hierarchies](materials/hierarchical-packaging/upload-hierarchical.R)
+- [Authoring large data sets](materials/bulk-data-upload/bulk-data-upload.R)
 - [Tracking data provenance](https://nceas.github.io/oss-lessons/publishing-data/upload-data.html)
 
 ## Acknowledgements
