@@ -58,7 +58,7 @@ kable(agenda)
 
 ### Day 2
 
-- Writing Good Data Management Plans
+- [Writing Good Data Management Plans](materials/ArcticDataCenter_DMP.pdf)
 - [Programmatic access to the Arctic Data Center via DataONE API](materials/query-and-download/query-and-download.html)
 - [Data packaging and file hierarchies](materials/hierarchical-packaging/upload-hierarchical.R)
 - [Authoring large data sets](materials/bulk-data-upload/bulk-data-upload.R)
