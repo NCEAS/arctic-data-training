@@ -7,8 +7,10 @@ navbar:
     - text: "Training Events"
       icon: fa-book
       menu:
-        - text: "July 2017"
+        - text: "July 2017 (at NCEAS)"
           href: agenda-2017-07.html
+        - text: "June 2018 (at Polar 2018)"
+          href: agenda-2018-06.html
 output_dir: "."
 output:
   html_document:
