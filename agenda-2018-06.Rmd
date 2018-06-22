@@ -1,5 +1,5 @@
 ---
-title: "Arctic Data Training 2017"
+title: "Arctic Data Training at POLAR 2018"
 output: html_document
 ---
 <br>

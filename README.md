@@ -1,3 +1,7 @@
+---
+title: README
+---
+
 <br>
 
 # Data Science Training for the Arctic Data Center
