@@ -1,0 +1,52 @@
+baseURL = "https://nceas.github.io/sasap-training"
+languageCode = "en-us"
+title = "State of Alaska's Salmon and People"
+theme = "gohugo-theme-ananke"
+googleAnalytics = ""
+disqusShortname = ""
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
+# canonifyURLs
+# keep this true when deployed but false when developing locally
+canonifyURLs = true
+
+[permalinks]
+    post = "/:year/:month/:day/:slug/"
+
+[[menu.main]]
+    name = "Events"
+    url = "/events"
+    weight = 2
+[[menu.main]]
+    name = "Materials"
+    url = "/materials"
+    weight = 5
+
+
+[params]
+    description = "Tools and techniques for salmon data management and analysis"
+    custom_css = ["/css/sasap.css"]
+
+    # options for highlight.js (version, additional languages, and theme)
+    highlightjsVersion = "9.11.0"
+    highlightjsCDN = "//cdn.bootcss.com"
+    highlightjsLang = ["r", "yaml"]
+    highlightjsTheme = "github"
+
+    MathJaxCDN = "//cdn.bootcss.com"
+    MathJaxVersion = "2.7.1"
+
+    facebook = ""
+    twitter = "https://twitter.com/nceas"
+    instagram = ""
+    youtube = ""
+    github = "https://github.com/NCEAS/sasap-training"
+    linkedin = ""
+    # choose a background color from any on this page: http://tachyons.io/docs/themes/skins/ and preface it with "bg-"
+    background_color_class = "bg-black"
+    featured_image = "./images/underwater.jpg"
+
+    [params.logo]
+    url = "./images/logo.png"
+    width = 50
+    height = 50
+    alt = "Logo"
