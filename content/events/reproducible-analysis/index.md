@@ -1,21 +1,14 @@
 ---
-title: "Nov. 2017: Reproducible analysis with R"
+title: "July 2018: ADC Training"
 ---
 
-[![sasap_banner](/images/banner_test.jpg)](https://alaskasalmonandpeople.org)
+[![adc_banner](/images/Troms_Fylke.jpg.jpg)](https://arcticdata.io)
 
-__Dates__: November 28-29, 2017<br>
-__Location__: Juneau, AK<br>
-__Venue__: UAF Fisheries Department
+__Dates__:July 2018<br>
+__Location__: Santa Barbara, CA<br>
+__Venue__: NCEAS
 
-This event will cover techniques for building reproducible analysis workflows using
-the R programming language through a series of hands-on coding sessions.  We will
-use examples from integrating salmon brood data across the state of Alaska to show 
-how heterogeneous data can be cleaned, integrated, and documented through workflows
-written in RMarkdown.  After an overview of the use of RMarkdown for literate
-analysis, we will dive into critical topics in data science, including version 
-control, data modeling, cleaning, and integration, and then data visualization
-both for publications and the web.
+Description of training
 
 ## Prerequisites and Topics:
 
@@ -27,9 +20,7 @@ both for publications and the web.
 
 ## Registration instructions
 
-- [Register online](https://docs.google.com/forms/d/e/1FAIpQLSeGIlXEkt5mLLYRLivWq4oxHzY0_7hi_9rMZyKg_3JIqB13_Q/viewform)
-- Space is limited to 20-25 people, so higher priority to earlier registrants
-- If interest exceeds capacity, we will create a waitlist
+
 
 ## Agenda (draft)
 
@@ -37,34 +28,24 @@ both for publications and the web.
 
 - Welcome and introductions [30 mins]
 - Block 1
-    - Literate analysis with RMarkdown [1hr]
-    - RStudio and git/GitHub setup [30 mins]
-    - Version control with git and GitHub [1hr]
+ 
         
 - Block 2
-    - Data cleaning and integration
-        - Data modeling (tidy data) [30 minutes]
-        - Cleaning and manipulating data with dplyr & tidyr [1.5 hr]
-        - Hands on: Clean and integrate 2 data sets in Rmd w/ dplyr [1 hr]
+    
 
 ### Day 2, November 29, 2017
 
 - Block 3
-    - Publication graphics with ggplot2 [2 hr]
-    - Data documentation and publishing [1 hr]
+    
 - Block 4
-    - Publishing analyses to the web
-        - RMarkdown, Leaflet, and GitHub Pages
+  
 
 ## Organizers
 
 |Name         | Email              |
 |-------------|--------------------|
 |Matthew Jones| jones@nceas.ucsb.edu |
-|Bryce Mecum| mecum@nceas.ucsb.edu |
-|Jeanette Clark| jclark@nceas.ucsb.edu |
-|Jorge Cornejo| cornejo@nceas.ucsb.edu |
-Madeline Jovanovich| mjovanovich@alaska.edu |
+
 
 ## Acknowledgements
 
@@ -146,28 +127,3 @@ In particular, check out:
 
 |Name         | Email              |
 |-------------|--------------------|
-|Milo	Adkison	|Mdadkison@alaska.edu|
-|Bev	Agler	|bev.agler@alaska.gov|
-|Ryan	Bare	|Ryan.bare@noaa.gov|
-|Julie	Bednarski	|julie.bednarski@alaska.gov|
-|Rich	Brenner	|richard.brenner@alaska.gov|
-|Jesse	Coleman	|jmcoleman2@alaska.edu|
-|Mike	Donnellan	|mike.donnellan@alaska.gov|
-|Kari	Fenske	|kari.fenske@noaa.gov|
-|Elizabeth	Figus	|ecfigus@alaska.edu|
-|William 	Gaeuman	|william.gaeuman@alaska.gov|
-|Tania	Lewis	|lupineluna@gmail.com|
-|Megan	McPhee	|mvmcphee@alaska.edu|
-|Sara	Miller	|Saramiller50@hotmail.com|
-|Todd	Miller	|todd.miller@noaa.gov|
-|Krista	Oke	|kristaoke@gmail.com|
-|Andrew	Olson	|andrew.olson@alaska.gov|
-|Sara	Power	|sarah.power@alaska.gov|
-|Wendel	Raymond	|wraymond2@alaska.edu|
-|Tobias	Schwoerer	|tschwoerer@alaska.edu|
-|Kyle	Shedd	|kyle.shedd@alaska.gov|
-|Jennifer	Shriver	|jennifer.shriver@alaska.gov|
-|Tiffany	Stephens	|tastephens@alaska.edu|
-|Lorna	Wilson	|Lorna.wilson@alaska.gov|
-|Jamie	Womble	|Jamie_Womble@nps.gov|
-|Molly	Zaleski	|mzaleski@oceana.org|
