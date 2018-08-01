@@ -1,3 +1,3 @@
 ## Materials
 
-- [Reproducible Analysis in R](/materials/adc_training)
+- [ADC Training](/materials/adc_training)
