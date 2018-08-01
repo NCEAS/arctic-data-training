@@ -54,7 +54,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean feugiat tempor t
 These training events were supported by:
 
 The [National Science Foundation](https://www.nsf.org), __Scientia Arctica__ award to M. B. Jones.
-<img src="/imagesNSF_Logo.jpg" id="moorelogo"/>
+<img src="/imagesNSF_Logo.jpg" id="NSFlogo"/>
 <img src="/images/nceas.png" id="nceaslogo"/>
 
 Additional support was provided for collaboration by the [National Center for Ecological Analysis and Synthesis](https://www.nceas.ucsb.edu), a Center funded by the University of California, Santa Barbara, and the State of California.
