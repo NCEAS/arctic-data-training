@@ -18,7 +18,7 @@ before_script:
     - Rscript -e 'blogdown::install_hugo(version = "0.29")'
 script:
     - Rscript -e 'blogdown::build_site()'
-    - Rscript -e "source('_build_and_merge.R')"
+    - sh _build_and_merge.sh
     - touch public/.nojekyll
 deploy:
   provider: pages
