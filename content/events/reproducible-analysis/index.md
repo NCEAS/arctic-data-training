@@ -2,7 +2,7 @@
 title: "July 2018: ADC Training"
 ---
 
-[![adc_banner](/images/Troms_Fylke.jpg)](https://arcticdata.io)
+[![adc_banner](/images/detroitpublishingco.jpg)](https://arcticdata.io)
 
 __Dates__:July 2018<br>
 __Location__: Santa Barbara, CA<br>
@@ -51,8 +51,8 @@ Description of this ADC Training.
 
 These training events were supported by:
 
-The [Gordon and Betty Moore Foundation](https://www.moore.org), __Salmon Data Task Force__ award to M. B. Jones and I. Dutton.
-<img src="/images/moore-logo-color.jpg" id="moorelogo"/>
+The [National Science Foundation](https://www.nsf.org), __Scientia Arctica__ award to M. B. Jones.
+<img src="/imagesNSF_Logo.jpg" id="moorelogo"/>
 <img src="/images/nceas.png" id="nceaslogo"/>
 
 Additional support was provided for collaboration by the [National Center for Ecological Analysis and Synthesis](https://www.nceas.ucsb.edu), a Center funded by the University of California, Santa Barbara, and the State of California.
