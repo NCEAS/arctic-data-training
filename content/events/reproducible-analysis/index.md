@@ -2,13 +2,13 @@
 title: "July 2018: ADC Training"
 ---
 
-[![adc_banner](/images/Troms_Fylke.jpg.jpg)](https://arcticdata.io)
+[![adc_banner](/images/Troms_Fylke.jpg)](https://arcticdata.io)
 
 __Dates__:July 2018<br>
 __Location__: Santa Barbara, CA<br>
 __Venue__: NCEAS
 
-Description of training
+Description of this ADC Training.
 
 ## Prerequisites and Topics:
 
