@@ -1,4 +1,4 @@
-baseURL = "https://nceas.github.io/arctic-data-training"
+baseURL = "https://jeanetteclark.github.io/arctic-data-training"
 languageCode = "en-us"
 title = "ADC Training"
 theme = "gohugo-theme-ananke"
