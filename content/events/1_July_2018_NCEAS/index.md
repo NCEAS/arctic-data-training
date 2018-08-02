@@ -1,53 +1,41 @@
 ---
-title: "2018-08-13: Arctic Data Center Training"
+title: "August 2018: Arctic Data Center Training"
 ---
 
 
 
-__Dates__:July 2018<br>
+__Dates__: August 13th - August 17th, 2018<br>
 __Location__: Santa Barbara, CA<br>
-__Venue__: NCEAS
+__Venue__: National Center for Ecological Analysis and Synthesis (NCEAS)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean feugiat tempor turpis, non iaculis enim. Etiam vel libero elementum, pulvinar mi in, accumsan diam. Aliquam odio neque, facilisis eget rutrum vitae, gravida at lectus. Vivamus auctor lacinia nulla, in molestie tellus posuere nec. Quisque semper lacinia semper. Morbi vestibulum consectetur urna quis volutpat. Nullam vel aliquam erat. Morbi vitae dolor sit amet mauris tempus blandit. Morbi ac mi leo. Proin efficitur est ut enim feugiat mattis. Vestibulum cursus erat justo, sit amet porta nulla dapibus placerat. Quisque aliquam lectus non risus posuere, eget gravida ante malesuada.
+The Arctic Data Center provides training in data science and data management, as these are critical skills for the stewardship of the data, software, and other research products that are preserved in the Arctic Data Center. A goal of the Arctic Data Center is to advance data archiving and promote reproducible science and data reuse.
 
-
-
-## Prerequisites and Topics:
-
-- __Prerequisite__: familiarity with R and statistical analysis
-    For more detailed information on how to prepare for the workshop, see [Preparing for the Workshop]({{<ref "#preparing-for-the-workshop" >}})
-- Open Science Tools to support synthesis of salmon data and management
-- Effective data management for salmon data management, analysis, and synthesis
-- Practical open science skills for salmon management
-
-## Registration instructions
+This 5-day workshop will provide researchers with an overview of best data management practices, data science tools and concrete steps and methods for more easily documenting and uploading their data to the Arctic Data Center.
 
 
 
-## Agenda (draft)
+## Overview:
 
-### Day 1
+Workshop topics will include:
 
-- Welcome and introductions [30 mins]
-- Block 1
- 
-        
-- Block 2
-    
+* Arctic Data Center and NSF Standards and Policies
+* Data Management Plans
+* Effective Data Management for Data Preservation
+* Publishing Data at the Arctic Data Center
+* Data and Metadata Quality
+* Provenance for Data and Software
+* Data and Metadata Quality
 
-### Day 2
+    For more detailed information on how to prepare for the workshop, see [Preparing for the Workshop](<ref "#preparing-for-the-workshop" >)
 
-- Block 3
-    
-- Block 4
-  
 
 ## Organizers
 
 |Name         | Email              |
 |-------------|--------------------|
 |Matthew Jones| jones@nceas.ucsb.edu |
-
+|Amber Budden | budden@nceas.ucsb.edu|
+|Kathryn Meyer| meyer@nceas.ucsb.edu
 
 ## Acknowledgements
 Work on this package was supported by:
@@ -122,3 +110,25 @@ In particular, check out:
 
 |Name         | Email              |
 |-------------|--------------------|
+|Amanda Moors|amanda.moors@noaa.gov|
+|Anastasia Tarmann|altarmann@alaska.edu|
+|Anya Suslova|asuslova@whrc.org|
+|Apryl Perry|apryl.perry@gmail.com|
+|Erin Whitney|erin.whitney@alaska.edu|
+|Hong Guo|hongguo@uark.edu|
+|Ibrahim Ilhan|iilhan@alaska.edu|
+|Ivan Sudakov|isudakov1@udayton.edu|
+|Jennifer Schmidt|jischmidt@alaska.edu|
+|Kang Wang|Kang.Wang@colorado.edu|
+|Kelsey Aho|ahokelsey@gmail.com|
+|Kirill Dolgikh|kdolgikh@alaska.edu|
+|Priyanka Surio|psurio@gwmail.gwu.edu|
+|Randy Fulweber|rafulweber@alaska.edu|
+|Robert Orttung|rorttung@gmail.com|
+|Sam Dunn|sdunn3@luc.edu|
+|Taejin Park|parktj@bu.edu|
+|Tate Meehan|tatemeehan@u.boisestate.edu|
+|Tobias Schwoerer|tschwoerer@alaska.edu|
+|Vera Kuklina|vvkuklina@gmail.com|
+|Vera Solovyeva|vsolovye@masonlive.gmu.edu|
+|Vibhor Agarwal|vibhor.ism@gmail.com|
