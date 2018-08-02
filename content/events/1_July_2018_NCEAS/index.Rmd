@@ -1,12 +1,7 @@
 ---
 title: "2018-08-13: Arctic Data Center Training"
-blogdown::html_page:
-  toc: false
-  fig_width: 6
-  dev: "svg"
 ---
 
-[![adc_banner](/images/arctic-data-center.png)](https://arcticdata.io)
 
 
 __Dates__:July 2018<br>

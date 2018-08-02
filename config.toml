@@ -8,6 +8,7 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 # canonifyURLs
 # keep this true when deployed but false when developing locally
 canonifyURLs = true
+toc = false
 
 [permalinks]
     post = "/:year/:month/:day/:slug/"
@@ -23,7 +24,7 @@ canonifyURLs = true
 
 
 [params]
-    description = "Tools and techniques for salmon data management and analysis"
+    description = "Tools and techniques for Arctic data management and analysis"
     custom_css = ["/css/sasap.css"]
 
     # options for highlight.js (version, additional languages, and theme)

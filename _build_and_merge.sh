@@ -24,5 +24,3 @@ do
     cd "$TOP"
 done
 
-
-cp -r prior_materials "$TOP/public/materials"
