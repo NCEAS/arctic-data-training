@@ -3,7 +3,7 @@ blogdown::html_page:
   toc: FALSE
 ---
 
-![](/Users/meyer/Documents/Arctic-data-center-training/static/images/logo-w-title_2x.png)
+![](/static/images/logo-w-title_2x.png)
 
 
 ### Arctic Data Center Data Science Training, August 2018
