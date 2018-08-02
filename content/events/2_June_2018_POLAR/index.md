@@ -3,9 +3,9 @@ title: "2018-06-22: Publishing Data with the Arctic Data Center"
 ---
 
 
-__Dates__:June 22, 2018 12:30 to 14:00<br>
+__Dates__: June 22, 2018 12:30 to 14:00<br>
 __Location__: Davos, Switzerland<br>
-__Venue__: POLAR 2018
+__Venue__: POLAR 2018 Open Science Conference
 
 In this hands-on session, we will cover:
 
