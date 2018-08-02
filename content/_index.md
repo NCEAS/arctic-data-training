@@ -3,7 +3,7 @@ blogdown::html_page:
   toc: FALSE
 ---
 
-![](/static/images/logo-w-title_2x.png)
+![](/images/logo-w-title_2x.png)
 
 
 ### Arctic Data Center Data Science Training, August 2018
