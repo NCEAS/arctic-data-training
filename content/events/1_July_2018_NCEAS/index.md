@@ -1,5 +1,5 @@
 ---
-title: "ADC Training"
+title: "2018-08-13: Arctic Data Center Training"
 ---
 
 [![adc_banner](/images/arctic-data-center.png)](https://arcticdata.io)

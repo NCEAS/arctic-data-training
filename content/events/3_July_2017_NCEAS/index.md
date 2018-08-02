@@ -1,5 +1,5 @@
 ---
-title: "Data Science Training for Arctic Research"
+title: "2017-07-31: Data Science Training for Arctic Research"
 ---
 
 [![adc_banner](/images/arctic-data-center.png)](https://arcticdata.io)

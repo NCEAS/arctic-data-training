@@ -1,5 +1,5 @@
 ---
-title: "Publishing Data with the Arctic Data Center"
+title: "2018-06-22: Publishing Data with the Arctic Data Center"
 ---
 
 [![adc_banner](/images/arctic-data-center.png)](https://arcticdata.io)
