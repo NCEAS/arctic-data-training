@@ -2,7 +2,7 @@
 title: "2018-08-13: Arctic Data Center Training"
 ---
 
-[![adc_banner](/images/arctic-data-center.png)](https://arcticdata.io)
+[![adc_banner](/images/arctic-data-center.png)](https://arcticdata.io){width=250px}
 
 __Dates__:July 2018<br>
 __Location__: Santa Barbara, CA<br>

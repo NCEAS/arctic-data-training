@@ -2,7 +2,7 @@
 title: "2018-06-22: Publishing Data with the Arctic Data Center"
 ---
 
-[![adc_banner](/images/arctic-data-center.png)](https://arcticdata.io)
+[![adc_banner](/images/arctic-data-center.png)](https://arcticdata.io){width=250px}
 
 __Dates__:June 22, 2018 12:30 to 14:00<br>
 __Location__: Davos, Switzerland<br>
