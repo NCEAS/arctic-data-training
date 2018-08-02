@@ -1,6 +1,6 @@
 baseURL = "https://jeanetteclark.github.io/arctic-data-training"
 languageCode = "en-us"
-title = "ADC Training"
+title = "Arctic Data Center"
 theme = "gohugo-theme-ananke"
 googleAnalytics = ""
 disqusShortname = ""
