@@ -2,9 +2,9 @@
 title: "2017-07-31: Data Science Training for Arctic Research"
 ---
 
-<div style="width:300px; height:200px">
-[![adc_banner](/images/arctic-data-center.png)](https://arcticdata.io)
-</div>
+
+[![adc_banner](/images/arctic-data-center.png)](https://arcticdata.io){ width=250px }
+
 
 __Dates__:July 31 - Aug 1, 2017<br>
 __Location__: Santa Barbara, CA<br>
