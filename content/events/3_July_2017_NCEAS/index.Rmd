@@ -44,7 +44,7 @@ Course topics will include:
 
 ## Agenda
 
-|Agenda      |Day 1.                                            |Day 2.                                  |
+|            |Day 1.                                            |Day 2.                                  |
 |:-----------|:-------------------------------------------------|:---------------------------------------|
 |8:30-9:00   |Welcome and introductions                         |Writing Good Data Management Plans      |
 |9:00-9:45   |Arctic Data Center and NSF Standards and Policies |Writing Good Data Management Plans      |
