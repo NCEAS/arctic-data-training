@@ -1,9 +1,13 @@
 ---
 title: "2017-07-31: Data Science Training for Arctic Research"
+blogdown::html_page:
+  toc: false
+  fig_width: 6
+  dev: "svg"
 ---
 
 
-[![adc_banner](/images/arctic-data-center.png)](https://arcticdata.io){ width=250px }
+[![adc_banner](/images/arctic-data-center.png)](https://arcticdata.io)
 
 
 __Dates__:July 31 - Aug 1, 2017<br>
