@@ -4,7 +4,7 @@ title: "August 2018: Arctic Data Center Training"
 
 
 
-__Dates__: August 13th - August 17th, 2018<br>
+__Dates__: August 13 - August 17, 2018<br>
 __Location__: Santa Barbara, CA<br>
 __Venue__: [NCEAS](https://www.nceas.ucsb.edu), 735 State St., Suite 300, UC Santa Barbara
 
