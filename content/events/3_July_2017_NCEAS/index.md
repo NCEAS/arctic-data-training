@@ -7,20 +7,6 @@ __Dates__: July 31 - Aug 1, 2017<br>
 __Location__: Santa Barbara, CA<br>
 __Venue__: [NCEAS](https://www.nceas.ucsb.edu), 735 State St., Suite 300, UC Santa Barbara
 
-Course topics will include:
-
-- Arctic Data Center and NSF Standards and Policies 
-- Data Management Plans 
-- Effective data management for data preservation
-    - Storing and Preparing Data in Open Source Formats 
-    - Stability, longevity, interoperability 
-    - Metadata 
-- Publishing data at the Arctic Data Center
-    - Web-based submission
-    - Automating submission for large data sets
-- Data and Metadata Quality
-- Provenance for data and software
-
 
 ## Course overview
 
