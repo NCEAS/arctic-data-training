@@ -6,7 +6,7 @@ title: "August 2018: Arctic Data Center Training"
 
 __Dates__: August 13th - August 17th, 2018<br>
 __Location__: Santa Barbara, CA<br>
-__Venue__: National Center for Ecological Analysis and Synthesis (NCEAS)
+__Venue__: [NCEAS](https://www.nceas.ucsb.edu), 735 State St., Suite 300, UC Santa Barbara
 
 The Arctic Data Center provides training in data science and data management, as these are critical skills for the stewardship of the data, software, and other research products that are preserved in the Arctic Data Center. A goal of the Arctic Data Center is to advance data archiving and promote reproducible science and data reuse.
 
