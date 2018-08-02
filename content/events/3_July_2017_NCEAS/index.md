@@ -3,7 +3,7 @@ title: "2017-07-31: Data Science Training for Arctic Research"
 ---
 
 
-__Dates__:July 31 - Aug 1, 2017<br>
+__Dates__: July 31 - Aug 1, 2017<br>
 __Location__: Santa Barbara, CA<br>
 __Venue__: [NCEAS](https://www.nceas.ucsb.edu), 735 State St., Suite 300, UC Santa Barbara
 
