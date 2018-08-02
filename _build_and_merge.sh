@@ -23,3 +23,6 @@ do
     cp -r _book "$TOP/public/materials/$book"
     cd "$TOP"
 done
+
+
+cp -r prior_materials "$TOP/public/materials"
