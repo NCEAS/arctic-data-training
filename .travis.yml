@@ -28,3 +28,4 @@ deploy:
     branch: master
   local_dir: public
   target_branch: gh-pages
+  fqdn: training.arcticdata.io
