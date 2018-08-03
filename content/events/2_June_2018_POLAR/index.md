@@ -6,7 +6,6 @@ title: "2018-06-22: Publishing Data with the Arctic Data Center"
 __Dates__: June 22, 2018 12:30 to 14:00<br>
 __Location__: Davos, Switzerland<br>
 __Venue__: POLAR 2018 Open Science Conference
-
 This hands-on session will cover (1) Open data archives, especially the Arctic Data Center; (2) What science metadata is and how it can be used; (3) How data and code can be documented and published in open data archives; (4) Web-based submission, and (5) Submission using R (pending sufficient time)
 
 ## Course overview
