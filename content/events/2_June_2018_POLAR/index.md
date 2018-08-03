@@ -1,5 +1,5 @@
 ---
-title: "2018-06-22: Publishing Data with the Arctic Data Center"
+title: "Dataset Publishing with the Arctic Data Center (June 2018)"
 ---
 
 

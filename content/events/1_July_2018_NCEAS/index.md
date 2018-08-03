@@ -1,5 +1,5 @@
 ---
-title: "August 2018: Arctic Data Center Training"
+title: "Arctic Data Center Training (August 2018)"
 ---
 
 

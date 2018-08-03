@@ -1,5 +1,5 @@
 ---
-title: "2017-07-31: Data Science Training for Arctic Research"
+title: "Tools for Data Science in Arctic Research (July 2017)"
 ---
 
 
