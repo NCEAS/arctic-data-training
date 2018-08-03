@@ -1,4 +1,4 @@
-baseURL = "https://jeanetteclark.github.io/arctic-data-training"
+baseURL = "https://training.arctic.io"
 languageCode = "en-us"
 title = "Arctic Data Center"
 theme = "gohugo-theme-ananke"
