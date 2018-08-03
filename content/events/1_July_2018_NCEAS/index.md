@@ -20,9 +20,9 @@ Workshop topics will include:
 * Publishing Data at the Arctic Data Center
 * Data and Metadata Quality
 * Provenance for Data and Software
-* Data and Metadata Quality
 
-    For more detailed information on how to prepare for the workshop, see [Preparing for the Workshop](<ref "#preparing-for-the-workshop" >)
+
+For more detailed information on how to prepare for the workshop, see preparing for the workshop (below).
 
 
 ## Organizers
