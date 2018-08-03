@@ -1,0 +1,30 @@
+language: r
+cache: packages
+git:
+  depth: false
+branches:
+  only:
+  - master
+addons:
+  apt:
+    packages:
+    - librdf0-dev
+r_packages:
+    - blogdown
+    - gh
+    - git2r
+    - remotes
+before_script:
+    - Rscript -e 'blogdown::install_hugo(version = "0.29")'
+script:
+    - Rscript -e 'blogdown::build_site()'
+    - sh _build_and_merge.sh
+    - touch public/.nojekyll
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: "$GITHUB_TOKEN"
+  on:
+    branch: master
+  local_dir: public
+  target_branch: gh-pages

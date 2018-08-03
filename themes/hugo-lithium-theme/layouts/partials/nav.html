@@ -1,0 +1,11 @@
+<nav class="nav">
+  <a href="{{ "/" | relURL }}" class="nav-logo">
+    <h1>SASAP Training</h1>
+  </a>
+
+  <ul class="nav-links">
+    {{ range .Site.Menus.main }}
+    <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+    {{ end }}
+  </ul>
+</nav>
