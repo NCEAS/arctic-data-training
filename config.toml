@@ -9,6 +9,7 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 # keep this true when deployed but false when developing locally
 canonifyURLs = true
 toc = false
+relativeurls = true
 
 [permalinks]
     post = "/:year/:month/:day/:slug/"
