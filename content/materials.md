@@ -1,3 +1,3 @@
 ## Materials
 
-- [ADC Training](/materials/adc_training)
+- [Arctic Data Center Training](/materials/arctic-data-center-training)
