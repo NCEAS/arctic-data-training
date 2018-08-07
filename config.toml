@@ -1,4 +1,4 @@
-baseURL = "http://training.arctic.io"
+baseURL = "http://training.arcticdata.io"
 languageCode = "en-us"
 title = "Arctic Data Center"
 theme = "gohugo-theme-ananke"
