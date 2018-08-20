@@ -55,8 +55,8 @@ Course topics will include:
 
 - [Writing Good Data Management Plans](http://training.arcticdata.io/materials/arctic-data-center-training/files/ArcticDataCenter_DMP.pdf)
 - [Programmatic access to the Arctic Data Center via DataONE API](http://training.arcticdata.io/materials/arctic-data-center-training/files/query-and-download.html)
-- [Data packaging and file hierarchies](https://github.com/NCEAS/arctic-data-training/blob/master/materials/arctic-data-center-training/files/prior_materials/hierarchical-packaging/upload-hierarchical.R)
-- [Authoring large data sets](https://github.com/NCEAS/arctic-data-training/blob/master/materials/arctic-data-center-training/files/prior_materials/bulk-data-upload/bulk-data-upload.R)
+- [Data packaging and file hierarchies](https://github.com/NCEAS/arctic-data-training/blob/master/prior_materials/hierarchical-packaging/upload-hierarchical.R)
+- [Authoring large data sets](https://github.com/NCEAS/arctic-data-training/blob/master/prior_materials/bulk-data-upload/bulk-data-upload.R)
 - [Tracking data provenance](https://nceas.github.io/oss-lessons/publishing-data/upload-data.html)
 
 ## Acknowledgements
