@@ -25,7 +25,7 @@ In this hands-on session, we will cover:
 
 ## Materials
 
-- [Publishing Data with the Arctic Data Center](http://training.arcticdata.io/materials/arctic-data-center-training/data-documentation-and-publishing.html)
+- [Publishing Data with the Arctic Data Center](http://training.arcticdata.io/materials/arctic-data-center-training/files/prior_materials/data-submission/data-documentation-and-publishing.html)
 
 ## Acknowledgements
 Work on this package was supported by:
