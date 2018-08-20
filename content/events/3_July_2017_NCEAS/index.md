@@ -51,14 +51,12 @@ Course topics will include:
 - [Authoring Quality metadata](http://training.arcticdata.io/materials/arctic-data-center-training/files/prior_materials/session-3_authoring-quality-metadata_mecum.pdf)
 
 
-http://training.arcticdata.io/materials/arctic-data-center-training/files/thinking-preferences.html
-
 ### Day 2
 
-- [Writing Good Data Management Plans](http://training.arcticdata.io/materials/arctic-data-center-training/files/prior_materials/ArcticDataCenter_DMP.pdf)
-- [Programmatic access to the Arctic Data Center via DataONE API](http://training.arcticdata.io/materials/arctic-data-center-training/files/prior_materials/query-and-download/query-and-download.html)
-- [Data packaging and file hierarchies](https://github.com/NCEAS/arctic-data-training/blob/master/materials/prior_materials/hierarchical-packaging/upload-hierarchical.R)
-- [Authoring large data sets](https://github.com/NCEAS/arctic-data-training/blob/master/materials/prior_materials/bulk-data-upload/bulk-data-upload.R)
+- [Writing Good Data Management Plans](http://training.arcticdata.io/materials/arctic-data-center-training/files/ArcticDataCenter_DMP.pdf)
+- [Programmatic access to the Arctic Data Center via DataONE API](http://training.arcticdata.io/materials/arctic-data-center-training/files/query-and-download/query-and-download.html)
+- [Data packaging and file hierarchies](https://github.com/NCEAS/arctic-data-training/blob/master/materials/arctic-data-center-training/files/prior_materials/hierarchical-packaging/upload-hierarchical.R)
+- [Authoring large data sets](https://github.com/NCEAS/arctic-data-training/blob/master/materials/arctic-data-center-training/files/prior_materials/bulk-data-upload/bulk-data-upload.R)
 - [Tracking data provenance](https://nceas.github.io/oss-lessons/publishing-data/upload-data.html)
 
 ## Acknowledgements
