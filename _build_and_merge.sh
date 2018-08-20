@@ -20,6 +20,7 @@ do
                                              # defined in DESCRIPTION file
     Rscript -e "bookdown::render_book('index.Rmd', c('bookdown::gitbook'))"
     #Rscript -e "bookdown::render_book('index.Rmd', c('bookdown::gitbook', 'bookdown::pdf_book', 'bookdown::epub_book'))"
+    cp -r "materials/$book/files" _book/files
     cp -r _book "$TOP/public/materials/$book"
     cd "$TOP"
 done
