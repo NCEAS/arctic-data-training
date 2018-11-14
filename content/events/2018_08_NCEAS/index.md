@@ -1,5 +1,6 @@
 ---
 title: "Arctic Data Center Training (August 2018)"
+weight: 2
 ---
 
 
