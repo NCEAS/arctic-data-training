@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Arctic Data Center Training</title>
+  <meta name="description" content="description here">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="Arctic Data Center Training" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="description here" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Arctic Data Center Training" />
+  
+  <meta name="twitter:description" content="description here" />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="creating-r-functions.html">
+<link rel="next" href="data-modeling-tidy-data.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.4/datatables.js"></script>
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.0.2/leaflet.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">ADC Training</a></li>
+<li><a href="/">← Back to main website</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Data Science Training for the Arctic Data Center</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#schedule"><i class="fa fa-check"></i><b>1.1</b> Schedule</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>1.1.1</b> Acknowledgements</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="introduction-to-the-arctic-data-center-and-nsf-standards-and-policies.html"><a href="introduction-to-the-arctic-data-center-and-nsf-standards-and-policies.html"><i class="fa fa-check"></i><b>2</b> Introduction to the Arctic Data Center and NSF Standards and Policies</a><ul>
+<li class="chapter" data-level="2.1" data-path="introduction-to-the-arctic-data-center-and-nsf-standards-and-policies.html"><a href="introduction-to-the-arctic-data-center-and-nsf-standards-and-policies.html#learning-objectives"><i class="fa fa-check"></i><b>2.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="2.2" data-path="introduction-to-the-arctic-data-center-and-nsf-standards-and-policies.html"><a href="introduction-to-the-arctic-data-center-and-nsf-standards-and-policies.html#materials"><i class="fa fa-check"></i><b>2.2</b> Materials</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="best-practices-data-and-metadata.html"><a href="best-practices-data-and-metadata.html"><i class="fa fa-check"></i><b>3</b> Best Practices: Data and Metadata</a><ul>
+<li class="chapter" data-level="3.1" data-path="best-practices-data-and-metadata.html"><a href="best-practices-data-and-metadata.html#learning-objectives-1"><i class="fa fa-check"></i><b>3.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="3.2" data-path="best-practices-data-and-metadata.html"><a href="best-practices-data-and-metadata.html#preserving-computational-workflows"><i class="fa fa-check"></i><b>3.2</b> Preserving computational workflows</a></li>
+<li class="chapter" data-level="3.3" data-path="best-practices-data-and-metadata.html"><a href="best-practices-data-and-metadata.html#best-practices-overview"><i class="fa fa-check"></i><b>3.3</b> Best Practices: Overview</a></li>
+<li class="chapter" data-level="3.4" data-path="best-practices-data-and-metadata.html"><a href="best-practices-data-and-metadata.html#organizing-data-best-practices"><i class="fa fa-check"></i><b>3.4</b> Organizing Data: Best Practices</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html"><i class="fa fa-check"></i><b>4</b> Data Documentation and Publishing</a><ul>
+<li class="chapter" data-level="4.1" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#learning-objectives-2"><i class="fa fa-check"></i><b>4.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="4.2" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#data-sharing-and-preservation"><i class="fa fa-check"></i><b>4.2</b> Data sharing and preservation</a></li>
+<li class="chapter" data-level="4.3" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#data-repositories-built-for-data-and-code"><i class="fa fa-check"></i><b>4.3</b> Data repositories: built for data (and code)</a></li>
+<li class="chapter" data-level="4.4" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#metadata"><i class="fa fa-check"></i><b>4.4</b> Metadata</a></li>
+<li class="chapter" data-level="4.5" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#structure-of-a-data-package"><i class="fa fa-check"></i><b>4.5</b> Structure of a data package</a></li>
+<li class="chapter" data-level="4.6" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#dataone-federation"><i class="fa fa-check"></i><b>4.6</b> DataONE Federation</a></li>
+<li class="chapter" data-level="4.7" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#publishing-data-from-the-web"><i class="fa fa-check"></i><b>4.7</b> Publishing data from the web</a><ul>
+<li class="chapter" data-level="4.7.1" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#download-the-data-to-be-used-for-the-tutorial"><i class="fa fa-check"></i><b>4.7.1</b> Download the data to be used for the tutorial</a></li>
+<li class="chapter" data-level="4.7.2" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#login-via-orcid"><i class="fa fa-check"></i><b>4.7.2</b> Login via ORCID</a></li>
+<li class="chapter" data-level="4.7.3" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#create-and-submit-the-dataset"><i class="fa fa-check"></i><b>4.7.3</b> Create and submit the dataset</a></li>
+<li class="chapter" data-level="4.7.4" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#file-and-variable-level-metadata"><i class="fa fa-check"></i><b>4.7.4</b> File and variable level metadata</a></li>
+<li class="chapter" data-level="4.7.5" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#add-workflow-provenance"><i class="fa fa-check"></i><b>4.7.5</b> Add workflow provenance</a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#publishing-data-from-r"><i class="fa fa-check"></i><b>4.8</b> Publishing data from R</a><ul>
+<li class="chapter" data-level="4.8.1" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#logging-in"><i class="fa fa-check"></i><b>4.8.1</b> Logging in</a></li>
+<li class="chapter" data-level="4.8.2" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#obtain-an-orcid"><i class="fa fa-check"></i><b>4.8.2</b> Obtain an ORCID</a></li>
+<li class="chapter" data-level="4.8.3" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#log-in-to-the-test-repository-and-copy-your-token"><i class="fa fa-check"></i><b>4.8.3</b> Log in to the test repository and copy your token</a></li>
+<li class="chapter" data-level="4.8.4" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#modifying-metadata"><i class="fa fa-check"></i><b>4.8.4</b> Modifying metadata</a></li>
+<li class="chapter" data-level="4.8.5" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#uploading-a-package-using-r-with-uploaddatapackage"><i class="fa fa-check"></i><b>4.8.5</b> Uploading A Package Using R with <code>uploadDataPackage</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="rstudio-and-gitgithub-setup-and-motivation.html"><a href="rstudio-and-gitgithub-setup-and-motivation.html"><i class="fa fa-check"></i><b>5</b> RStudio and Git/GitHub Setup and Motivation</a><ul>
+<li class="chapter" data-level="5.1" data-path="rstudio-and-gitgithub-setup-and-motivation.html"><a href="rstudio-and-gitgithub-setup-and-motivation.html#learning-objectives-3"><i class="fa fa-check"></i><b>5.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="5.2" data-path="rstudio-and-gitgithub-setup-and-motivation.html"><a href="rstudio-and-gitgithub-setup-and-motivation.html#reproducible-research"><i class="fa fa-check"></i><b>5.2</b> Reproducible Research</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="rstudio-and-gitgithub-setup-and-motivation.html"><a href="rstudio-and-gitgithub-setup-and-motivation.html#the-reproducibility-crisis"><i class="fa fa-check"></i><b>5.2.1</b> The Reproducibility Crisis</a></li>
+<li class="chapter" data-level="5.2.2" data-path="rstudio-and-gitgithub-setup-and-motivation.html"><a href="rstudio-and-gitgithub-setup-and-motivation.html#what-is-needed-for-computational-reproducibility"><i class="fa fa-check"></i><b>5.2.2</b> What is needed for computational reproducibility?</a></li>
+<li class="chapter" data-level="5.2.3" data-path="rstudio-and-gitgithub-setup-and-motivation.html"><a href="rstudio-and-gitgithub-setup-and-motivation.html#conceptualizing-workflows"><i class="fa fa-check"></i><b>5.2.3</b> Conceptualizing workflows</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="rstudio-and-gitgithub-setup-and-motivation.html"><a href="rstudio-and-gitgithub-setup-and-motivation.html#why-use-git"><i class="fa fa-check"></i><b>5.3</b> Why use git?</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="rstudio-and-gitgithub-setup-and-motivation.html"><a href="rstudio-and-gitgithub-setup-and-motivation.html#the-problem-with-filenames"><i class="fa fa-check"></i><b>5.3.1</b> The problem with filenames</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="rstudio-and-gitgithub-setup-and-motivation.html"><a href="rstudio-and-gitgithub-setup-and-motivation.html#checking-the-rstudio-environment"><i class="fa fa-check"></i><b>5.4</b> Checking the RStudio environment</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="rstudio-and-gitgithub-setup-and-motivation.html"><a href="rstudio-and-gitgithub-setup-and-motivation.html#r-version"><i class="fa fa-check"></i><b>5.4.1</b> R Version</a></li>
+<li class="chapter" data-level="5.4.2" data-path="rstudio-and-gitgithub-setup-and-motivation.html"><a href="rstudio-and-gitgithub-setup-and-motivation.html#rstudio-version"><i class="fa fa-check"></i><b>5.4.2</b> RStudio Version</a></li>
+<li class="chapter" data-level="5.4.3" data-path="rstudio-and-gitgithub-setup-and-motivation.html"><a href="rstudio-and-gitgithub-setup-and-motivation.html#package-installation"><i class="fa fa-check"></i><b>5.4.3</b> Package installation</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="rstudio-and-gitgithub-setup-and-motivation.html"><a href="rstudio-and-gitgithub-setup-and-motivation.html#setting-up-git"><i class="fa fa-check"></i><b>5.5</b> Setting up git</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="rstudio-and-gitgithub-setup-and-motivation.html"><a href="rstudio-and-gitgithub-setup-and-motivation.html#note-for-windows-users"><i class="fa fa-check"></i><b>5.5.1</b> Note for Windows Users</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html"><i class="fa fa-check"></i><b>6</b> Introduction to R and RMarkdown</a><ul>
+<li class="chapter" data-level="6.1" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#learning-objectives-4"><i class="fa fa-check"></i><b>6.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="6.2" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#introduction-and-motivation"><i class="fa fa-check"></i><b>6.2</b> Introduction and Motivation</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#resources"><i class="fa fa-check"></i><b>6.2.1</b> Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#r-at-the-console"><i class="fa fa-check"></i><b>6.3</b> R at the console</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#error-messages-are-your-friends"><i class="fa fa-check"></i><b>6.3.1</b> Error messages are your friends</a></li>
+<li class="chapter" data-level="6.3.2" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#logical-operators-and-expressions"><i class="fa fa-check"></i><b>6.3.2</b> Logical operators and expressions</a></li>
+<li class="chapter" data-level="6.3.3" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#clearing-the-environment"><i class="fa fa-check"></i><b>6.3.3</b> Clearing the environment</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#rmarkdown"><i class="fa fa-check"></i><b>6.4</b> RMarkdown</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#your-turn"><i class="fa fa-check"></i><b>6.4.1</b> Your Turn</a></li>
+<li class="chapter" data-level="6.4.2" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#code-chunks"><i class="fa fa-check"></i><b>6.4.2</b> Code chunks</a></li>
+<li class="chapter" data-level="6.4.3" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#your-turn-1"><i class="fa fa-check"></i><b>6.4.3</b> Your turn</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#r-functions-help-pages"><i class="fa fa-check"></i><b>6.5</b> R functions, help pages</a><ul>
+<li class="chapter" data-level="6.5.1" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#download-a-file-from-the-arctic-data-center"><i class="fa fa-check"></i><b>6.5.1</b> Download a file from the Arctic Data Center</a></li>
+<li class="chapter" data-level="6.5.2" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#use-a-function-to-read-a-file-into-r"><i class="fa fa-check"></i><b>6.5.2</b> Use a function to read a file into R</a></li>
+<li class="chapter" data-level="6.5.3" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#your-turn-2"><i class="fa fa-check"></i><b>6.5.3</b> Your turn</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#using-data.frames"><i class="fa fa-check"></i><b>6.6</b> Using <code>data.frames</code></a><ul>
+<li class="chapter" data-level="6.6.1" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#your-turn-3"><i class="fa fa-check"></i><b>6.6.1</b> Your Turn</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#troubleshooting"><i class="fa fa-check"></i><b>6.7</b> Troubleshooting</a><ul>
+<li class="chapter" data-level="6.7.1" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#i-just-entered-a-command-and-nothing-is-happening"><i class="fa fa-check"></i><b>6.7.1</b> I just entered a command and nothing is happening</a></li>
+<li class="chapter" data-level="6.7.2" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#r-says-my-object-is-not-found"><i class="fa fa-check"></i><b>6.7.2</b> R says my object is not found</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="writing-good-data-management-plans.html"><a href="writing-good-data-management-plans.html"><i class="fa fa-check"></i><b>7</b> Writing Good Data Management Plans</a><ul>
+<li class="chapter" data-level="7.1" data-path="writing-good-data-management-plans.html"><a href="writing-good-data-management-plans.html#learning-objectives-5"><i class="fa fa-check"></i><b>7.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="7.2" data-path="writing-good-data-management-plans.html"><a href="writing-good-data-management-plans.html#materials-1"><i class="fa fa-check"></i><b>7.2</b> Materials</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="data-packaging-and-managing-large-data-sets.html"><a href="data-packaging-and-managing-large-data-sets.html"><i class="fa fa-check"></i><b>8</b> Data packaging and managing large data sets</a><ul>
+<li class="chapter" data-level="8.1" data-path="data-packaging-and-managing-large-data-sets.html"><a href="data-packaging-and-managing-large-data-sets.html#learning-objectives-6"><i class="fa fa-check"></i><b>8.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="8.2" data-path="data-packaging-and-managing-large-data-sets.html"><a href="data-packaging-and-managing-large-data-sets.html#data-packages"><i class="fa fa-check"></i><b>8.2</b> Data Packages</a></li>
+<li class="chapter" data-level="8.3" data-path="data-packaging-and-managing-large-data-sets.html"><a href="data-packaging-and-managing-large-data-sets.html#reproducible-workflows"><i class="fa fa-check"></i><b>8.3</b> Reproducible workflows</a></li>
+<li class="chapter" data-level="8.4" data-path="data-packaging-and-managing-large-data-sets.html"><a href="data-packaging-and-managing-large-data-sets.html#accessing-and-using-data-from-a-repository"><i class="fa fa-check"></i><b>8.4</b> Accessing and using data from a repository</a></li>
+<li class="chapter" data-level="8.5" data-path="data-packaging-and-managing-large-data-sets.html"><a href="data-packaging-and-managing-large-data-sets.html#setup-for-the-dataone-package"><i class="fa fa-check"></i><b>8.5</b> Setup for the dataone package</a></li>
+<li class="chapter" data-level="8.6" data-path="data-packaging-and-managing-large-data-sets.html"><a href="data-packaging-and-managing-large-data-sets.html#authentication"><i class="fa fa-check"></i><b>8.6</b> Authentication</a></li>
+<li class="chapter" data-level="8.7" data-path="data-packaging-and-managing-large-data-sets.html"><a href="data-packaging-and-managing-large-data-sets.html#upload-a-single-data-file"><i class="fa fa-check"></i><b>8.7</b> Upload a single data file</a></li>
+<li class="chapter" data-level="8.8" data-path="data-packaging-and-managing-large-data-sets.html"><a href="data-packaging-and-managing-large-data-sets.html#upload-a-simple-data-package"><i class="fa fa-check"></i><b>8.8</b> Upload a simple Data Package</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="creating-r-functions.html"><a href="creating-r-functions.html"><i class="fa fa-check"></i><b>9</b> Creating R Functions</a><ul>
+<li class="chapter" data-level="9.1" data-path="creating-r-functions.html"><a href="creating-r-functions.html#leaning-outcomes"><i class="fa fa-check"></i><b>9.1</b> Leaning outcomes</a></li>
+<li class="chapter" data-level="9.2" data-path="creating-r-functions.html"><a href="creating-r-functions.html#why-functions"><i class="fa fa-check"></i><b>9.2</b> Why functions?</a></li>
+<li class="chapter" data-level="9.3" data-path="creating-r-functions.html"><a href="creating-r-functions.html#temperature-conversion"><i class="fa fa-check"></i><b>9.3</b> Temperature conversion</a></li>
+<li class="chapter" data-level="9.4" data-path="creating-r-functions.html"><a href="creating-r-functions.html#creating-a-function"><i class="fa fa-check"></i><b>9.4</b> Creating a function</a></li>
+<li class="chapter" data-level="9.5" data-path="creating-r-functions.html"><a href="creating-r-functions.html#exercise"><i class="fa fa-check"></i><b>9.5</b> Exercise</a></li>
+<li class="chapter" data-level="9.6" data-path="creating-r-functions.html"><a href="creating-r-functions.html#documenting-r-functions"><i class="fa fa-check"></i><b>9.6</b> Documenting R functions</a></li>
+<li class="chapter" data-level="9.7" data-path="creating-r-functions.html"><a href="creating-r-functions.html#summary"><i class="fa fa-check"></i><b>9.7</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="version-control-with-git-and-github.html"><a href="version-control-with-git-and-github.html"><i class="fa fa-check"></i><b>10</b> Version Control With git and GitHub</a><ul>
+<li class="chapter" data-level="10.1" data-path="version-control-with-git-and-github.html"><a href="version-control-with-git-and-github.html#learning-objectives-7"><i class="fa fa-check"></i><b>10.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="10.2" data-path="version-control-with-git-and-github.html"><a href="version-control-with-git-and-github.html#the-problem-with-filenames-1"><i class="fa fa-check"></i><b>10.2</b> The problem with filenames</a></li>
+<li class="chapter" data-level="10.3" data-path="version-control-with-git-and-github.html"><a href="version-control-with-git-and-github.html#version-control-and-collaboration-using-git-and-github"><i class="fa fa-check"></i><b>10.3</b> Version control and Collaboration using Git and GitHub</a></li>
+<li class="chapter" data-level="10.4" data-path="version-control-with-git-and-github.html"><a href="version-control-with-git-and-github.html#lets-look-at-a-github-repository"><i class="fa fa-check"></i><b>10.4</b> Let’s look at a GitHub repository</a></li>
+<li class="chapter" data-level="10.5" data-path="version-control-with-git-and-github.html"><a href="version-control-with-git-and-github.html#the-git-lifecycle"><i class="fa fa-check"></i><b>10.5</b> The Git lifecycle</a></li>
+<li class="chapter" data-level="10.6" data-path="version-control-with-git-and-github.html"><a href="version-control-with-git-and-github.html#create-a-remote-repository-on-github"><i class="fa fa-check"></i><b>10.6</b> Create a remote repository on GitHub</a></li>
+<li class="chapter" data-level="10.7" data-path="version-control-with-git-and-github.html"><a href="version-control-with-git-and-github.html#working-locally-with-git-via-rstudio"><i class="fa fa-check"></i><b>10.7</b> Working locally with Git via RStudio</a></li>
+<li class="chapter" data-level="10.8" data-path="version-control-with-git-and-github.html"><a href="version-control-with-git-and-github.html#on-good-commit-messages"><i class="fa fa-check"></i><b>10.8</b> On good commit messages</a></li>
+<li class="chapter" data-level="10.9" data-path="version-control-with-git-and-github.html"><a href="version-control-with-git-and-github.html#collaboration-and-conflict-free-workflows"><i class="fa fa-check"></i><b>10.9</b> Collaboration and conflict free workflows</a></li>
+<li class="chapter" data-level="10.10" data-path="version-control-with-git-and-github.html"><a href="version-control-with-git-and-github.html#exercise-1"><i class="fa fa-check"></i><b>10.10</b> Exercise</a></li>
+<li class="chapter" data-level="10.11" data-path="version-control-with-git-and-github.html"><a href="version-control-with-git-and-github.html#advanced-topics"><i class="fa fa-check"></i><b>10.11</b> Advanced topics</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html"><i class="fa fa-check"></i><b>11</b> Data Modeling &amp; Tidy Data</a><ul>
+<li class="chapter" data-level="11.1" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#learning-objectives-8"><i class="fa fa-check"></i><b>11.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="11.2" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#benefits-of-relational-data-systems"><i class="fa fa-check"></i><b>11.2</b> Benefits of relational data systems</a></li>
+<li class="chapter" data-level="11.3" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#data-organization"><i class="fa fa-check"></i><b>11.3</b> Data Organization</a></li>
+<li class="chapter" data-level="11.4" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#multiple-tables"><i class="fa fa-check"></i><b>11.4</b> Multiple tables</a></li>
+<li class="chapter" data-level="11.5" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#inconsistent-observations"><i class="fa fa-check"></i><b>11.5</b> Inconsistent observations</a></li>
+<li class="chapter" data-level="11.6" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#inconsistent-variables"><i class="fa fa-check"></i><b>11.6</b> Inconsistent variables</a></li>
+<li class="chapter" data-level="11.7" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#marginal-sums-and-statistics"><i class="fa fa-check"></i><b>11.7</b> Marginal sums and statistics</a></li>
+<li class="chapter" data-level="11.8" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#good-enough-data-modeling"><i class="fa fa-check"></i><b>11.8</b> Good enough data modeling</a><ul>
+<li class="chapter" data-level="11.8.1" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#denormalized-data"><i class="fa fa-check"></i><b>11.8.1</b> Denormalized data</a></li>
+<li class="chapter" data-level="11.8.2" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#tabular-data"><i class="fa fa-check"></i><b>11.8.2</b> Tabular data</a></li>
+</ul></li>
+<li class="chapter" data-level="11.9" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#primary-and-foreign-keys"><i class="fa fa-check"></i><b>11.9</b> Primary and Foreign Keys</a></li>
+<li class="chapter" data-level="11.10" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#entity-relationship-model-er"><i class="fa fa-check"></i><b>11.10</b> Entity-Relationship Model (ER)</a></li>
+<li class="chapter" data-level="11.11" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#merging-data"><i class="fa fa-check"></i><b>11.11</b> Merging data</a></li>
+<li class="chapter" data-level="11.12" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#simple-guidelines-for-effective-data"><i class="fa fa-check"></i><b>11.12</b> Simple Guidelines for Effective Data</a></li>
+<li class="chapter" data-level="11.13" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#data-modeling-exercise"><i class="fa fa-check"></i><b>11.13</b> Data modeling exercise</a></li>
+<li class="chapter" data-level="11.14" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#related-resources"><i class="fa fa-check"></i><b>11.14</b> Related resources</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html"><i class="fa fa-check"></i><b>12</b> Data Cleaning and Manipulation</a><ul>
+<li class="chapter" data-level="12.1" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html#learning-objectives-9"><i class="fa fa-check"></i><b>12.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="12.2" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html#introduction"><i class="fa fa-check"></i><b>12.2</b> Introduction</a></li>
+<li class="chapter" data-level="12.3" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html#setup"><i class="fa fa-check"></i><b>12.3</b> Setup</a></li>
+<li class="chapter" data-level="12.4" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html#about-the-pipe-operator"><i class="fa fa-check"></i><b>12.4</b> About the pipe (<code>%&gt;%</code>) operator</a></li>
+<li class="chapter" data-level="12.5" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html#selectingremoving-columns-select"><i class="fa fa-check"></i><b>12.5</b> Selecting/removing columns: <code>select()</code></a></li>
+<li class="chapter" data-level="12.6" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html#changing-shape-gather-and-spread"><i class="fa fa-check"></i><b>12.6</b> Changing shape: <code>gather()</code> and <code>spread()</code></a></li>
+<li class="chapter" data-level="12.7" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html#renaming-columns-with-rename"><i class="fa fa-check"></i><b>12.7</b> Renaming columns with <code>rename()</code></a></li>
+<li class="chapter" data-level="12.8" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html#adding-columns-mutate"><i class="fa fa-check"></i><b>12.8</b> Adding columns: <code>mutate()</code></a></li>
+<li class="chapter" data-level="12.9" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html#group_by-and-summarise"><i class="fa fa-check"></i><b>12.9</b> <code>group_by</code> and <code>summarise</code></a></li>
+<li class="chapter" data-level="12.10" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html#filtering-rows-filter"><i class="fa fa-check"></i><b>12.10</b> Filtering rows: <code>filter()</code></a></li>
+<li class="chapter" data-level="12.11" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html#sorting-your-data-arrange"><i class="fa fa-check"></i><b>12.11</b> Sorting your data: <code>arrange()</code></a></li>
+<li class="chapter" data-level="12.12" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html#joins-in-dplyr"><i class="fa fa-check"></i><b>12.12</b> Joins in dplyr</a></li>
+<li class="chapter" data-level="12.13" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html#separate-and-unite"><i class="fa fa-check"></i><b>12.13</b> <code>separate()</code> and <code>unite()</code></a></li>
+<li class="chapter" data-level="12.14" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html#summary-1"><i class="fa fa-check"></i><b>12.14</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="arctic-data-center-design-session.html"><a href="arctic-data-center-design-session.html"><i class="fa fa-check"></i><b>13</b> Arctic Data Center Design Session</a><ul>
+<li class="chapter" data-level="13.1" data-path="arctic-data-center-design-session.html"><a href="arctic-data-center-design-session.html#objectives"><i class="fa fa-check"></i><b>13.1</b> Objectives</a></li>
+<li class="chapter" data-level="13.2" data-path="arctic-data-center-design-session.html"><a href="arctic-data-center-design-session.html#project-view-mockups"><i class="fa fa-check"></i><b>13.2</b> Project view mockups</a></li>
+<li class="chapter" data-level="13.3" data-path="arctic-data-center-design-session.html"><a href="arctic-data-center-design-session.html#editor-review"><i class="fa fa-check"></i><b>13.3</b> Editor review</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="data-visualization-for-web-based-maps.html"><a href="data-visualization-for-web-based-maps.html"><i class="fa fa-check"></i><b>14</b> Data visualization for web-based maps</a><ul>
+<li class="chapter" data-level="14.1" data-path="data-visualization-for-web-based-maps.html"><a href="data-visualization-for-web-based-maps.html#learning-objectives-10"><i class="fa fa-check"></i><b>14.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="14.2" data-path="data-visualization-for-web-based-maps.html"><a href="data-visualization-for-web-based-maps.html#introduction-1"><i class="fa fa-check"></i><b>14.2</b> Introduction</a></li>
+<li class="chapter" data-level="14.3" data-path="data-visualization-for-web-based-maps.html"><a href="data-visualization-for-web-based-maps.html#a-minimal-example"><i class="fa fa-check"></i><b>14.3</b> A Minimal Example</a></li>
+<li class="chapter" data-level="14.4" data-path="data-visualization-for-web-based-maps.html"><a href="data-visualization-for-web-based-maps.html#a-less-minimal-example"><i class="fa fa-check"></i><b>14.4</b> A Less Minimal Example</a><ul>
+<li class="chapter" data-level="14.4.1" data-path="data-visualization-for-web-based-maps.html"><a href="data-visualization-for-web-based-maps.html#load-salmon-escapement-data"><i class="fa fa-check"></i><b>14.4.1</b> Load salmon escapement data</a></li>
+<li class="chapter" data-level="14.4.2" data-path="data-visualization-for-web-based-maps.html"><a href="data-visualization-for-web-based-maps.html#plot-median-escapement"><i class="fa fa-check"></i><b>14.4.2</b> Plot median escapement</a></li>
+<li class="chapter" data-level="14.4.3" data-path="data-visualization-for-web-based-maps.html"><a href="data-visualization-for-web-based-maps.html#missing-map-markers"><i class="fa fa-check"></i><b>14.4.3</b> Missing map markers</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="social-aspects-of-collaboration-and-data-policies.html"><a href="social-aspects-of-collaboration-and-data-policies.html"><i class="fa fa-check"></i><b>15</b> Social aspects of collaboration and data policies</a><ul>
+<li class="chapter" data-level="15.1" data-path="social-aspects-of-collaboration-and-data-policies.html"><a href="social-aspects-of-collaboration-and-data-policies.html#learning-objectives-11"><i class="fa fa-check"></i><b>15.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="15.2" data-path="social-aspects-of-collaboration-and-data-policies.html"><a href="social-aspects-of-collaboration-and-data-policies.html#resources-1"><i class="fa fa-check"></i><b>15.2</b> Resources</a></li>
+<li class="chapter" data-level="15.3" data-path="social-aspects-of-collaboration-and-data-policies.html"><a href="social-aspects-of-collaboration-and-data-policies.html#references"><i class="fa fa-check"></i><b>15.3</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="git-collaboration-and-conflict-management.html"><a href="git-collaboration-and-conflict-management.html"><i class="fa fa-check"></i><b>16</b> Git: Collaboration and Conflict Management</a><ul>
+<li class="chapter" data-level="16.1" data-path="git-collaboration-and-conflict-management.html"><a href="git-collaboration-and-conflict-management.html#learning-objectives-12"><i class="fa fa-check"></i><b>16.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="16.2" data-path="git-collaboration-and-conflict-management.html"><a href="git-collaboration-and-conflict-management.html#collaborating-with-git"><i class="fa fa-check"></i><b>16.2</b> Collaborating with Git</a><ul>
+<li class="chapter" data-level="16.2.1" data-path="git-collaboration-and-conflict-management.html"><a href="git-collaboration-and-conflict-management.html#activity-collaborating-with-a-trusted-colleague"><i class="fa fa-check"></i><b>16.2.1</b> Activity: Collaborating with a trusted colleague</a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="git-collaboration-and-conflict-management.html"><a href="git-collaboration-and-conflict-management.html#merge-conflicts"><i class="fa fa-check"></i><b>16.3</b> Merge conflicts</a></li>
+<li class="chapter" data-level="16.4" data-path="git-collaboration-and-conflict-management.html"><a href="git-collaboration-and-conflict-management.html#how-to-resolve-a-conflict"><i class="fa fa-check"></i><b>16.4</b> How to resolve a conflict</a><ul>
+<li class="chapter" data-level="16.4.1" data-path="git-collaboration-and-conflict-management.html"><a href="git-collaboration-and-conflict-management.html#abort-abort-abort"><i class="fa fa-check"></i><b>16.4.1</b> Abort, abort, abort…</a></li>
+<li class="chapter" data-level="16.4.2" data-path="git-collaboration-and-conflict-management.html"><a href="git-collaboration-and-conflict-management.html#checkout"><i class="fa fa-check"></i><b>16.4.2</b> Checkout</a></li>
+<li class="chapter" data-level="16.4.3" data-path="git-collaboration-and-conflict-management.html"><a href="git-collaboration-and-conflict-management.html#pull-and-edit-the-file"><i class="fa fa-check"></i><b>16.4.3</b> Pull and edit the file</a></li>
+</ul></li>
+<li class="chapter" data-level="16.5" data-path="git-collaboration-and-conflict-management.html"><a href="git-collaboration-and-conflict-management.html#workflows-to-avoid-merge-conflicts"><i class="fa fa-check"></i><b>16.5</b> Workflows to avoid merge conflicts</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="practice-session-data-access-synthesis-and-publication.html"><a href="practice-session-data-access-synthesis-and-publication.html"><i class="fa fa-check"></i><b>17</b> Practice session: Data access, synthesis, and publication</a><ul>
+<li class="chapter" data-level="17.1" data-path="practice-session-data-access-synthesis-and-publication.html"><a href="practice-session-data-access-synthesis-and-publication.html#learning-objectives-13"><i class="fa fa-check"></i><b>17.1</b> Learning Objectives</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="open-data-in-r-and-ropensci.html"><a href="open-data-in-r-and-ropensci.html"><i class="fa fa-check"></i><b>18</b> Open Data in R and ROpenSci</a><ul>
+<li class="chapter" data-level="18.1" data-path="open-data-in-r-and-ropensci.html"><a href="open-data-in-r-and-ropensci.html#learning-objectives-14"><i class="fa fa-check"></i><b>18.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="18.2" data-path="open-data-in-r-and-ropensci.html"><a href="open-data-in-r-and-ropensci.html#introduction-2"><i class="fa fa-check"></i><b>18.2</b> Introduction</a></li>
+<li class="chapter" data-level="18.3" data-path="open-data-in-r-and-ropensci.html"><a href="open-data-in-r-and-ropensci.html#open-data"><i class="fa fa-check"></i><b>18.3</b> Open data</a></li>
+<li class="chapter" data-level="18.4" data-path="open-data-in-r-and-ropensci.html"><a href="open-data-in-r-and-ropensci.html#what-is-ropensci"><i class="fa fa-check"></i><b>18.4</b> What is rOpenSci?</a></li>
+<li class="chapter" data-level="18.5" data-path="open-data-in-r-and-ropensci.html"><a href="open-data-in-r-and-ropensci.html#overview-of-some-of-the-interetsing-packages-ropensci-provides"><i class="fa fa-check"></i><b>18.5</b> Overview of some of the interetsing packages rOpenSci provides</a><ul>
+<li class="chapter" data-level="18.5.1" data-path="open-data-in-r-and-ropensci.html"><a href="open-data-in-r-and-ropensci.html#rfishbase-r-interface-to-the-fishbase.org-database"><i class="fa fa-check"></i><b>18.5.1</b> <code>rfishbase</code>: R interface to the fishbase.org database</a></li>
+<li class="chapter" data-level="18.5.2" data-path="open-data-in-r-and-ropensci.html"><a href="open-data-in-r-and-ropensci.html#rnoaa-r-interface-to-many-noaa-data-apis"><i class="fa fa-check"></i><b>18.5.2</b> <code>rnoaa</code>: R interface to many NOAA data APIs</a></li>
+</ul></li>
+<li class="chapter" data-level="18.6" data-path="open-data-in-r-and-ropensci.html"><a href="open-data-in-r-and-ropensci.html#summary-2"><i class="fa fa-check"></i><b>18.6</b> Summary</a></li>
+<li class="chapter" data-level="18.7" data-path="open-data-in-r-and-ropensci.html"><a href="open-data-in-r-and-ropensci.html#resources-2"><i class="fa fa-check"></i><b>18.7</b> Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="reproducibility-and-provenance.html"><a href="reproducibility-and-provenance.html"><i class="fa fa-check"></i><b>19</b> Reproducibility and Provenance</a><ul>
+<li class="chapter" data-level="19.1" data-path="reproducibility-and-provenance.html"><a href="reproducibility-and-provenance.html#learning-objectives-15"><i class="fa fa-check"></i><b>19.1</b> Learning Objectives</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="references-1.html"><a href="references-1.html"><i class="fa fa-check"></i><b>20</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Arctic Data Center Training</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="version-control-with-git-and-github" class="section level1">
+<h1><span class="header-section-number">10</span> Version Control With git and GitHub</h1>
+<div id="learning-objectives-7" class="section level2">
+<h2><span class="header-section-number">10.1</span> Learning Objectives</h2>
+<p>In this lesson, you will learn:</p>
+<ul>
+<li>Why <strong>git</strong> is useful for reproducible analysis</li>
+<li>How to use <strong>git</strong> to track changes to your work over time</li>
+<li>How to use <strong>GitHub</strong> to collaborate with others</li>
+<li>How to structure your commits so your changes are clear to others</li>
+<li>How to write effective commit messages</li>
+</ul>
+</div>
+<div id="the-problem-with-filenames-1" class="section level2">
+<h2><span class="header-section-number">10.2</span> The problem with filenames</h2>
+<div class="figure">
+<img src="images/phd_comics_final.png" />
+
+</div>
+<p>Every file in the scientific process changes. Manuscripts are edited. Figures get revised. Code gets fixed when problems are discovered. Data files get combined together, then errors are fixed, and then they are split and combined again. In the course of a single analysis, one can expect thousands of changes to files. And yet, all we use to track this are simplistic <em>filenames</em>.<br />
+You might think there is a better way, and you’d be right: <strong>version control</strong>.</p>
+<p>Version control systems help you track all of the changes to your files, without the spaghetti mess that ensues from simple file renaming. In version control systems like <code>git</code>, the system tracks not just the name of the file, but also its contents, so that when contents change, it can tell you which pieces went where. It tracks which version of a file a new version came from. So its easy to draw a graph showing all of the versions of a file, like this one:</p>
+<div class="figure">
+<img src="images/version-graph.png" />
+
+</div>
+<p>Version control systems assign an identifier to every version of every file, and track their relationships. They also allow branches in those versions, and merging those branches back into the main line of work. They also support having <em>multiple copies</em> on multiple computers for backup, and for collaboration. And finally, they let you tag particular versions, such that it is easy to return to a set of files exactly as they were when you tagged them. For example, the exact versions of data, code, and narrative that were used when a manuscript was submitted might be <code>R2</code> in the graph above.</p>
+</div>
+<div id="version-control-and-collaboration-using-git-and-github" class="section level2">
+<h2><span class="header-section-number">10.3</span> Version control and Collaboration using Git and GitHub</h2>
+<p>Let’s distinguish between git and GitHub:</p>
+<ul>
+<li><strong>git</strong>: version control software used to track files in a folder (a repository)
+<ul>
+<li>git creates the versioned history of a repository</li>
+</ul></li>
+<li><strong>GitHub</strong>: web site that allows users to store their git repositories and share them with others</li>
+</ul>
+<div class="figure">
+<img src="images/vc-local-github.png" />
+
+</div>
+</div>
+<div id="lets-look-at-a-github-repository" class="section level2">
+<h2><span class="header-section-number">10.4</span> Let’s look at a GitHub repository</h2>
+<p>This screen shows the copy of a repository stored on GitHub, with its list of files, when the files and directories were last modified, and some information on who made the most recent changes.</p>
+<p><img src="images/ss3sim-github.png" /> If we drill into the “commits” for the repository, we can see the history of changes made to all of the files. Looks like <code>kellijohnson</code> and <code>seananderson</code> were fixing things in June and July:</p>
+<div class="figure">
+<img src="images/ss3sim-commits.png" />
+
+</div>
+<p>And finally, if we drill into the changes made on June 13, we can see exactly what was changed in each file:</p>
+<p><img src="images/ss3sim-diff.png" /> Tracking these changes, how they relate to released versions of software and files is exactly what Git and GitHub are good for. And we will show how they can really be effective for tracking versions of scientific code, figures, and manuscripts to accomplish a reproducible workflow.</p>
+</div>
+<div id="the-git-lifecycle" class="section level2">
+<h2><span class="header-section-number">10.5</span> The Git lifecycle</h2>
+<p>As a git user, you’ll need to understand the basic concepts associated with versioned sets of changes, and how they are stored and moved across repositories. Any given git repository can be cloned so that it exist both locally, and remotely. But each of these cloned repositories is simply a copy of all of the files and change history for those files, stored in git’s particular format. For our purposes, we can consider a git repository just a folder with a bunch of additional version-related metadata.</p>
+<p>In a local git-enabled folder, the folder contains a workspace containing the current version of all files in the repository. These working files are linked to a hidden folder containing the ‘Local repository’, which contains all of the other changes made to the files, along with the version metadata.</p>
+<p>So, when working with files using git, you can use git commands to indicate specifically which changes to the local working files should be staged for versioning (using the <code>git add</code> command), and when to record those changes as a version in the local repository (using the command <code>git commit</code>).</p>
+<p>The remaining concepts are involved in synchronizing the changes in your local repository with changes in a remote repository. The <code>git push</code> command is used to send local changes up to a remote repository (possibly on GitHub), and the <code>git pull</code> command is used to fetch changes from a remote repository and merge them into the local repository.</p>
+<div class="figure">
+<img src="images/git-flowchart.png" />
+
+</div>
+<ul>
+<li><code>git clone</code>: to copy a whole remote repository to local</li>
+<li><code>git add</code> (stage): notify git to track particular changes</li>
+<li><code>git commit</code>: store those changes as a version</li>
+<li><code>git pull</code>: merge changes from a remote repository to our local repository</li>
+<li><code>git push</code>: copy changes from our local repository to a remote repository</li>
+<li><code>git status</code>: determine the state of all files in the local repository</li>
+<li><code>git log</code>: print the history of changes in a repository</li>
+</ul>
+<p>Those seven commands are the majority of what you need to successfully use git.<br />
+But this is all super abstract, so let’s explore with some real examples.</p>
+</div>
+<div id="create-a-remote-repository-on-github" class="section level2">
+<h2><span class="header-section-number">10.6</span> Create a remote repository on GitHub</h2>
+<p>Let’s start by creating a repository on GitHub, then we’ll edit some files.</p>
+<ul>
+<li>Log into <a href="https://github.com">GitHub</a></li>
+<li>Click the New repository button</li>
+<li>Name it <code>sasap-test</code></li>
+<li>Create a README.md</li>
+<li>Set the LICENSE to Apache 2.0</li>
+</ul>
+<p><img src="images/new-repo-github.png" /> You’ve now created your first repository! It has a couple of files that GitHub created for you, like the README.md file, and the LICENSE file, and the .gitignore file.</p>
+<div class="figure">
+<img src="images/sasap-test-repo.png" />
+
+</div>
+<p>For simple changes to text files, you can make edits right in the GitHub web interface. For example, navigate to the <code>README.md</code> file in the file listing, and edit it by clicking on the <em>pencil</em> icon. This is a regular Markdown file, so you can just add text, and when done, add a commit message, and hit the <code>Commit changes</code> button.</p>
+<div class="figure">
+<img src="images/sasap-test-edit.png" />
+
+</div>
+<div class="figure">
+<img src="images/sasap-test-commit.png" />
+
+</div>
+<p>Congratulations, you’ve now authored your first versioned commit. If you navigate back to the GitHub page for the repository, you’ll see your commit listed there, as well as the rendered README.md file.</p>
+<p><img src="images/sasap-test-displayed.png" /> Let’s point out a few things about this window. It represents a view of the repository that you created, showing all of the files in the repository so far. For each file, it shows when the file was last modified, and the commit message that was used to last change each file. This is why it is important to write good, descriptive commit messages. In addition, the blue header above the file listing shows the most recent commit, along with its commit message, and its SHA identifer. That SHA identifier is the key to this set of versioned changes. If you click on the SHA identifier (<em>810f314</em>), it will display the set of changes made in that particular commit.</p>
+<p>In the next section we’ll use the GitHub URL for the GitHub repository you created to <code>clone</code> the repository onto your local machine so that you can edit the files in RStudio. To do so, start by copying the GitHub URL, which represents the repository location:</p>
+<div class="figure">
+<img src="images/sasap-test-clone-url.png" />
+
+</div>
+</div>
+<div id="working-locally-with-git-via-rstudio" class="section level2">
+<h2><span class="header-section-number">10.7</span> Working locally with Git via RStudio</h2>
+<p>RStudio knows how to work with files under version control with Git, but only if you are working within an RStudio project folder. In this next section, we will clone the repository that you created on GitHub into a local repository as an RStudio project. Here’s what we’re going to do:</p>
+<ul>
+<li>Create the new project</li>
+<li>Inspect the Git tab and version history</li>
+<li>Commit a change to the README.md file</li>
+<li>Commit the changes that RStudio made</li>
+<li>Inspect the version history</li>
+<li>Add and commit an Rmd file</li>
+<li>Push these changes to GitHub</li>
+<li>View the change history on GitHub</li>
+</ul>
+<p><strong>Create a New Project.</strong> Start by creating a <em>New Project…</em> in R Studio, select the <em>Version Control</em> option, and paste the GitHub URL that you copied into the field for the remote repository <em>Repository URL</em>. While you can name the local copy of the repository anything, its typical to use the same name as the GitHub repository to maintain the correspondence. You can choose any folder for your local copy, in my case I used my standard <code>development</code> folder.</p>
+<p><img src="images/rstudio-clone-repo.png" /> Once you hit `Create Project, a new RStudio windo will open with all of the files from the remote repository copied locally. Depending on how your version of RStudio is configured, the location and size of the panes may differ, but they should all be present, including a <em>Git</em> tab and the normal <em>Files</em> tab listing the files that had been created in the remote repository.</p>
+<p><img src="images/rstudio-sasap-test.png" /> You’ll note that there is one new file <code>sasap-test.Rproj</code>, and three files that we created earlier on GitHub (<code>.gitignore</code>, <code>LICENSE</code>, and <code>README.md</code>).</p>
+<p>In the <em>Git</em> tab, you’ll note that two files are listed. This is the status pane that shows the current modification status of all of the files in the repository. In this case, the <code>.gitignore</code> file is listed as <em>M</em> for Modified, and <code>sasap-test.Rproj</code> is listed with a <em>? ?</em> to indicate that the file is untracked. This means that git has not stored any versions of this file, and knows nothing about the file. As you make version control decisions in RStudio, these icons will change to reflect the current version status of each of the files.</p>
+<p><strong>Inspect the history.</strong> For now, let’s click on the <em>History</em> button in the Git tab, which will show the log of changes that occurred, and will be identical to what we viewed on GitHub. By clicking on each row of the history, you can see exactly what was added and changed in each of the two commits in this repository.</p>
+<p><img src="images/rstudio-history-1.png" /> <strong>Commit a README.md change.</strong> Next let’s make a change to the README.md file in RStudio. Add a new section, with a markdown block like this:</p>
+<pre><code>
+## Git from RStudio
+
+From within RStudio, we can perform the same versioning actions that we can
+in GitHub, and much more.  Plus, we have the natural advantages of the 
+programming IDE with code completion and other features to make our work
+easier.
+
+- Add files to version control
+- Commit changes
+- Push commits to GitHub
+</code></pre>
+<p>Once you save, you’ll immediately see the <em>README.md</em> file show up in the Git tab, marks as a modification. You can select the file in the Git tab, and click <em>Diff</em> to see the differences that you saved (but which are not yet committed to your local repository).</p>
+<div class="figure">
+<img src="images/rstudio-status-pane.png" />
+
+</div>
+<p>And here’s what the newly made changes look like compared to the original file. New lines are highlighted in green, while removed lines are in red.</p>
+<p><img src="images/rstudio-diff.png" /> <strong>Commit the RStudio changes.</strong></p>
+<p>To commit the changes you made to the README.md file, check the <em>Staged</em> checkbox next to the file (which tells Git which changes you want included in the commit), then provide a descriptive Commit message, and then click <em>Commit</em>.</p>
+<div class="figure">
+<img src="images/rstudio-commit-1.png" />
+
+</div>
+<p>Note that some of the changes in the repository, namely <code>.gitignore</code> and <code>sasap-test.Rproj</code> are still listed as having not been committed. This means there are still pending changes to the repository. You can also see the note that says:</p>
+<p><code>Your branch is ahead of ‘origin/master’ by 1 commit.</code></p>
+<p>This means that we have committed 1 change in the local repository, but that commit has not yet been pushed up to the <code>origin</code> repository, where <code>origin</code> is the typical name for our remote repository on GitHub. So, let’s commit the remaining project files by staging them and adding a commit message.</p>
+<div class="figure">
+<img src="images/rstudio-commit-2.png" />
+
+</div>
+<p>When finished, you’ll see that no changes remain in the <em>Git</em> tab, and the repository is clean.</p>
+<p><strong>Inspect the history.</strong> Note that the message now says:</p>
+<p><code>Your branch is ahead of ‘origin/master’ by 2 commits.</code></p>
+<p>These 2 commits are the two we just made, and have not yet been pushed to GitHub. By clicking on the <em>History</em> button, we can see that there are now a total of four commits in the local repository (while there had only been two on GitHub).</p>
+<div class="figure">
+<img src="images/rstudio-history-2.png" />
+
+</div>
+<p><strong>Push these changes to GitHub.</strong> Now that everything has been changed as desired locally, you can <em>push</em> the changes to GitHub using the <em>Push</em> button. This will prompt you for your GitHub username and password, and upload the changes, leaving your repository in a totally clean and synchronized state. When finished, looking at the history shows all four commits, including the two that were done on GitHub and the two that were done locally on RStudio.</p>
+<p><img src="images/rstudio-history-3.png" /> And note that the labels indicate that both the local repository (<code>HEAD</code>) and the remote repository (<code>origin/HEAD</code>) are pointing at the same version in the history. So, if we go look at the commit history on GitHub, all the commits will be shown there as well.</p>
+<div class="figure">
+<img src="images/github-history.png" />
+
+</div>
+</div>
+<div id="on-good-commit-messages" class="section level2">
+<h2><span class="header-section-number">10.8</span> On good commit messages</h2>
+<p>Clearly, good documentation of what you’ve done is critical to making the version history of your repository meaningful and helpful. Its tempting to skip the commit message altogether, or to add some stock blurd like ‘Updates’. Its better to use messages that will be helpful to your future self in deducing not just what you did, but why you did it. Also, commit messaged are best understood if they follow the active verb convention. For example, you can see that my commit messages all started with a past tense verb, and then explained what was changed.</p>
+<p>While some of the changes we illustrated here were simple and so easily explained in a short phrase, for more complext changes, its best to provide a more complete message. The convention, however, is to always have a short, terse first sentence, followed by a more verbose explanation of the details and rationale for the change. This keeps the high level details readable in the version log. I can’t count the number of times I’ve looked at the commit log from 2, 3, or 10 years prior and been so grateful for diligence of my past self and collaborators.</p>
+</div>
+<div id="collaboration-and-conflict-free-workflows" class="section level2">
+<h2><span class="header-section-number">10.9</span> Collaboration and conflict free workflows</h2>
+<p>Up to now, we have been focused on using Git and GitHub for yourself, which is a great use. But equally powerful is to share a GitHib repository with other researchers so that you can work on code, analyses, and models together. When working together, you will need to pay careful attention to the state of the remote repository to avoid and handle merge conflicts. A <em>merge conflict</em> occurs when two collaborators make two separate commits that change the same lines of the same file. When this happens, git can’t merge the changes together automatically, and will give you back an error asking you to resolve the conflict. Don’t be afraid of merge conflicts, they are pretty easy to handle. and there are some <a href="https://help.github.com/articles/resolving-a-merge-conflict-using-the-command-line/">great</a> <a href="https://stackoverflow.com/questions/161813/how-to-resolve-merge-conflicts-in-git">guides</a>.</p>
+<p>That said, its truly painless if you can avoid merge conflicts in the first place. You can minimize conflicts by:</p>
+<ul>
+<li>Ensure that you pull down changes just before you commit</li>
+<li>Ensures that you have the most recent changes</li>
+<li>But you may have to fix your code if conflict would have occurred</li>
+<li>Coordinate with your collaborators on who is touching which files</li>
+<li>You still need to comunicate to collaborate</li>
+</ul>
+</div>
+<div id="exercise-1" class="section level2">
+<h2><span class="header-section-number">10.10</span> Exercise</h2>
+<p>Use RStudio to add a new RMarkdown file to your <code>sasap-test</code> repository, build a basic structure for the file, and then save it.</p>
+<p>Next, stage and commit the file locally, and push it up to GitHub.</p>
+</div>
+<div id="advanced-topics" class="section level2">
+<h2><span class="header-section-number">10.11</span> Advanced topics</h2>
+<p>There’s a lot we haven’t covered in this brief tutorial. There are some great and much longer tutorials that cover advanced topics, such as:</p>
+<ul>
+<li>Using git on the command line</li>
+<li>Resolving conflicts</li>
+<li>Branching and merging</li>
+<li>Pull requests versus direct contributions for collaboration</li>
+<li>Using .gitignore to protect sensitive data</li>
+<li>GitHub Issues and why they are useful</li>
+<li><p>and much, much more</p></li>
+<li><a href="https://try.github.io">Try Git</a> is a great interactive tutorial</li>
+<li>Software Carpentry <a href="http://swcarpentry.github.io/git-novice/">Version Control with Git</a></li>
+<li><p>Codecademy <a href="https://www.codecademy.com/learn/learn-git">Learn Git</a> (some paid)</p></li>
+</ul>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="creating-r-functions.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-modeling-tidy-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

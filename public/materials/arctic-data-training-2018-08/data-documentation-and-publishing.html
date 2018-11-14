@@ -34,6 +34,7 @@
 <link rel="next" href="rstudio-and-gitgithub-setup-and-motivation.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -45,6 +46,21 @@
 
 
 
+<script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.4/datatables.js"></script>
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.0.2/leaflet.js"></script>
 
 
 <style type="text/css">
@@ -99,7 +115,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <ul class="summary">
 <li><a href="./">ADC Training</a></li>
-<li><a href="/arctic-data-training/">← Back to main website</a></li>
+<li><a href="/">← Back to main website</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Data Science Training for the Arctic Data Center</a><ul>
@@ -275,6 +291,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="15" data-path="social-aspects-of-collaboration-and-data-policies.html"><a href="social-aspects-of-collaboration-and-data-policies.html"><i class="fa fa-check"></i><b>15</b> Social aspects of collaboration and data policies</a><ul>
 <li class="chapter" data-level="15.1" data-path="social-aspects-of-collaboration-and-data-policies.html"><a href="social-aspects-of-collaboration-and-data-policies.html#learning-objectives-11"><i class="fa fa-check"></i><b>15.1</b> Learning Objectives</a></li>
 <li class="chapter" data-level="15.2" data-path="social-aspects-of-collaboration-and-data-policies.html"><a href="social-aspects-of-collaboration-and-data-policies.html#resources-1"><i class="fa fa-check"></i><b>15.2</b> Resources</a></li>
+<li class="chapter" data-level="15.3" data-path="social-aspects-of-collaboration-and-data-policies.html"><a href="social-aspects-of-collaboration-and-data-policies.html#references"><i class="fa fa-check"></i><b>15.3</b> References</a></li>
 </ul></li>
 <li class="chapter" data-level="16" data-path="git-collaboration-and-conflict-management.html"><a href="git-collaboration-and-conflict-management.html"><i class="fa fa-check"></i><b>16</b> Git: Collaboration and Conflict Management</a><ul>
 <li class="chapter" data-level="16.1" data-path="git-collaboration-and-conflict-management.html"><a href="git-collaboration-and-conflict-management.html#learning-objectives-12"><i class="fa fa-check"></i><b>16.1</b> Learning Objectives</a></li>
@@ -307,6 +324,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="19" data-path="reproducibility-and-provenance.html"><a href="reproducibility-and-provenance.html"><i class="fa fa-check"></i><b>19</b> Reproducibility and Provenance</a><ul>
 <li class="chapter" data-level="19.1" data-path="reproducibility-and-provenance.html"><a href="reproducibility-and-provenance.html#learning-objectives-15"><i class="fa fa-check"></i><b>19.1</b> Learning Objectives</a></li>
 </ul></li>
+<li class="chapter" data-level="20" data-path="references-1.html"><a href="references-1.html"><i class="fa fa-check"></i><b>20</b> References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 </ul>
@@ -696,7 +714,7 @@ gitbook.start({
 },
 "download": null,
 "toc": {
-"collapse": "subsection"
+"collapse": "section"
 }
 });
 });
