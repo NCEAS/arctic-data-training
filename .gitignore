@@ -35,5 +35,5 @@ vignettes/*.pdf
 .Rproj.user
 
 # Bookdown build files
-*/_book/
-*/_bookdown_files/
+_book/
+_bookdown_files/
