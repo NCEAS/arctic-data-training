@@ -112,14 +112,13 @@ In particular, check out:
 |Name         | Email              |Affiliation|
 |-------------|--------------------|-----------|
 Aleksandra Durova|adurova@mit.edu|MIT|
-Angela Bliss|angela.c.bliss@gmail.com|NASA|
+Angela Bliss|acbliss2@gmail.com|NASA|
 Barbara Johnson|bajohnson20@alaska.edu|University of Alaska - Fairbanks|
 Benjamin Keisling|benjaminkeisling@gmail.com|University of Massachusetts - Amherst|
 Bryan Brasher|Bryan.brasher@noaa.gov|NOAA|
 Carolyn M. Kurle|ckurle@ucsd.edu|UC San Diego|
 Clifton Buck|clifton.buck@skio.uga.edu|University of Georgia|
 Gary Holton|holton@hawaii.edu|University of Hawaii at Manoa|
-Hannah E Birge|hannah.birge@tnc.org	|The Nature Conservancy|
 Hunter Snyder|hunter.gr@dartmouth.edu|Dartmouth College|
 Julia Stuart|jms2435@nau.edu|Northern Arizona University|
 Kelly Deuerling|kmdeuerling@gmail.com|University of Florida|
@@ -129,6 +128,7 @@ Michael Loranty|mloranty@colgate.edu|Colgate University|
 Monika Sikand|monikavsikand@gmail.com|Bronx Community College|
 Nicole Trenholm|nicolet3@umbc.edu|University of Maryland Baltimore County|
 Patrick Alexander|pma2107@ldeo.columbia.edu|Lamont Doherty Earth Observatory|
+Patricia DeRepentigny|patricia.derepentigny@colorado.edu|University of Colorado - Boulder|
 Seeta Sistla|ssistla@hampshire.edu|Hampshire College|
 Shayne O'Brien|sro41@txstate.edu|Texas State|
 Shujie Wang|swang@ldeo.columbia.edu|Lamont Doherty Earth Observatory|

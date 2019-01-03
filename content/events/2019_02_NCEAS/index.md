@@ -126,7 +126,6 @@ Ian Baxter|itbaxter@ucsb.edu|UC Santa Barbara|
 Kelly Kapsar|kelly.kapsar@gmail.com|Michigan State|
 Komi Messan|Komi.S.Messan@erdc.dren.mil|US Army Corps of Engineers|
 Olaf Kuhlke|okuhlke@d.umn.edu|University of Minnesota - Duluth|
-Patricia DeRepentigny|patricia.derepentigny@colorado.edu|University of Colorado - Boulder|
 Rebecca Finger-Higgens|rebecca.finger@gmail.com|Dartmouth College|
 Sanghoon Kang|sanghoon_kang@baylor.edu|Baylor University|
 Sara Pedro|sara.pedro@uconn.edu|University of Connecticut|
