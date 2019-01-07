@@ -117,7 +117,6 @@ Barbara Johnson|bajohnson20@alaska.edu|University of Alaska - Fairbanks|
 Benjamin Keisling|benjaminkeisling@gmail.com|University of Massachusetts - Amherst|
 Bryan Brasher|Bryan.brasher@noaa.gov|NOAA|
 Carolyn M. Kurle|ckurle@ucsd.edu|UC San Diego|
-Clifton Buck|clifton.buck@skio.uga.edu|University of Georgia|
 Gary Holton|holton@hawaii.edu|University of Hawaii at Manoa|
 Hunter Snyder|hunter.gr@dartmouth.edu|Dartmouth College|
 Julia Stuart|jms2435@nau.edu|Northern Arizona University|
