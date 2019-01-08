@@ -52,19 +52,18 @@ Additional support was provided for working group collaboration by the National 
 
 We will primarily be using a web browser, `R`, RStudio, and `git`. Please be sure these are all installed on your laptop, as follows:
 
-- **R:** We will use R version 3.4.2, which you can download and install from [CRAN](https://cran.rstudio.com)
+- **R:** We will use R version 3.5.2, which you can download and install from [CRAN](https://cran.rstudio.com)
 
 - **RStudio**: To download RStudio, visit [RStudio's download page](https://www.rstudio.com/products/rstudio/download/).
   *If you don't know how up to date your version of RStudio is, please download an updated copy and install it*
     
 - **R packages:** Please be sure you have installed or updated the following packages:
 
-    - dataone
-    - datapack
     - devtools
     - dplyr
-    - EML
+    - DT
     - ggplot2
+    - leaflet
     - tidyr
     
     You can install these packages quickly by running the following two code snippets:
