@@ -20,7 +20,7 @@ This [R blog post](https://www.r-bloggers.com/a-netcdf-4-in-r-cheatsheet/) also 
 
 First let's load the `ncdf4` package
 
-```{r}
+```{r, warning = F, message = F}
 library(ncdf4)
 library(ggplot2)
 library(dplyr)
