@@ -9,6 +9,7 @@ addons:
   apt:
     packages:
     - librdf0-dev
+    - netcdf
 r_packages:
     - blogdown
     - gh
