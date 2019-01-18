@@ -1,0 +1,93 @@
+# Using NetCDF files
+
+## Learning Objectives
+
+In this lesson, you will:
+
+- Learn to read data from a NetCDF file
+
+## Introduction
+
+NetCDF files are hierarchical data files that contain embedded metadata and allow for efficient extraction of data. They are particularly useful for storing large data, such as raster data and model outputs.
+
+This lesson draws from a previous lesson written by Leah Wasser, available [here](https://nceas.github.io/oss-lessons/spatial-data-gis-law/4-tues-spatial-analysis-in-r.html).
+
+This [R blog post](https://www.r-bloggers.com/a-netcdf-4-in-r-cheatsheet/) also contains some good introduction material.
+
+## Reading in data
+
+First let's load the `ncdf4` package
+
+```{r}
+library(ncdf4)
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+```
+
+Let's grab an example file. Download the .nc file from Fiamma Straneo. 2019. Temperature and salinity profiles adjacent to a tidewater glacier in Sarqardleq Fjord, West Greenland, collected during July 2013. Arctic Data Center. doi:10.18739/A2B853H78. [http://doi.org/10.18739/A2B853H78](http://doi.org/10.18739/A2B853H78)
+
+First we open a connection to our NetCDF file using `nc_open`.
+
+```{r}
+nc <- nc_open("materials/arctic-data-center-training/data/WG2013CTD.nc")
+```
+
+You can print information about what is contained in the file using the `print` function on the `nc` object.
+
+```{r}
+print(nc)
+```
+
+You can return the names of the variables (or attributes) in a list using the attributes function.
+
+```{r}
+vars <- attributes(nc$var)$names
+vars
+```
+
+
+You can retrieve individual variables by calling `ncvar_get`
+
+```{r}
+sal <- ncvar_get(nc, "sal")
+time_mat <- ncvar_get(nc, "time")
+```
+
+Note that if the file also has dimensions, you can retrieve these values the same way as if they were variables.
+
+```{r}
+depth <- ncvar_get(nc, "z")
+```
+
+We might want to convert the MATLAB date-time number to a POSIXct number.
+
+```{r}
+time <- as.POSIXct((time_mat + 719529)*86400, origin = "1970-01-01", tz = "UTC")
+```
+
+Let's wrangle this salinity data into a `data.frame`.
+
+```{r}
+# coerce matrix to data frame
+salinity_data <- as.data.frame(sal) 
+
+# name columns according to depth dimension
+names(salinity_data) <- as.character(depth) 
+
+
+salinity_data <- salinity_data %>% 
+    mutate(time = time) %>% 
+    gather(key = "depth", value = "salinity", -time) %>% 
+    mutate(depth = as.numeric(depth))
+```
+
+And use it to make a plot with `ggplot`
+
+```{r}
+ggplot(salinity_data, aes(x = time, y = depth, fill = salinity)) +
+    geom_raster() +
+    theme_bw() +
+    scale_fill_continuous(low = "gray", high = "red")
+```
+
