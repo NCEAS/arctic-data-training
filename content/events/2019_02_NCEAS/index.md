@@ -35,7 +35,6 @@ For more detailed information on how to prepare for the workshop, see preparing 
 |-------------|--------------------|
 |Matthew Jones| jones@nceas.ucsb.edu |
 |Amber Budden | budden@nceas.ucsb.edu|
-|Kathryn Meyer| meyer@nceas.ucsb.edu |
 |Jeanette Clark| jclark@nceas.ucsb.edu |
 
 ## Acknowledgements
