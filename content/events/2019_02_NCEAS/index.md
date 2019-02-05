@@ -118,7 +118,6 @@ Anna Nesterovich|annanest@iastate.edu|Iowa State|
 Caixia Wang|cwang12@alaska.edu|University of Alaska - Anchorage|
 Christina Minions|cminions@whrc.org|Woods Hole Research Center|
 Desheng Liu|liu.738@osu.edu|Ohio State University|
-Grant B. Deane|gdeane@ucsd.edu|UC San Diego|
 Helene Angot|helene.angot@colorado.edu|University of Colorado - Boulder|
 Ian Baxter|itbaxter@ucsb.edu|UC Santa Barbara|
 Kelly Kapsar|kelly.kapsar@gmail.com|Michigan State|
