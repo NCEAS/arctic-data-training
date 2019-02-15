@@ -9,6 +9,10 @@ addons:
   apt:
     packages:
     - librdf0-dev
+    - libudunits2-dev
+    - libgdal-dev
+    - libgeos-dev
+    - libproj-dev
 r_packages:
     - blogdown
     - gh
