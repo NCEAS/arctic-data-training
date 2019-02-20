@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Arctic Data Center Training</title>
+  <meta name="description" content="Arctic Data Center Training">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="Arctic Data Center Training" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Arctic Data Center Training" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="data-modeling-tidy-data.html">
+<link rel="next" href="creating-r-functions.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.4/datatables.js"></script>
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.0.2/leaflet.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">ADC Training</a></li>
+<li><a href="/">← Back to main website</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Data Science Training for the Arctic Data Center</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#schedule"><i class="fa fa-check"></i><b>1.1</b> Schedule</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#code-of-conduct"><i class="fa fa-check"></i><b>1.1.1</b> Code of Conduct</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="introduction-to-the-arctic-data-center-and-nsf-standards-and-policies.html"><a href="introduction-to-the-arctic-data-center-and-nsf-standards-and-policies.html"><i class="fa fa-check"></i><b>2</b> Introduction to the Arctic Data Center and NSF Standards and Policies</a><ul>
+<li class="chapter" data-level="2.1" data-path="introduction-to-the-arctic-data-center-and-nsf-standards-and-policies.html"><a href="introduction-to-the-arctic-data-center-and-nsf-standards-and-policies.html#learning-objectives"><i class="fa fa-check"></i><b>2.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="2.2" data-path="introduction-to-the-arctic-data-center-and-nsf-standards-and-policies.html"><a href="introduction-to-the-arctic-data-center-and-nsf-standards-and-policies.html#materials"><i class="fa fa-check"></i><b>2.2</b> Materials</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="best-practices-data-and-metadata.html"><a href="best-practices-data-and-metadata.html"><i class="fa fa-check"></i><b>3</b> Best Practices: Data and Metadata</a><ul>
+<li class="chapter" data-level="3.1" data-path="best-practices-data-and-metadata.html"><a href="best-practices-data-and-metadata.html#learning-objectives-1"><i class="fa fa-check"></i><b>3.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="3.2" data-path="best-practices-data-and-metadata.html"><a href="best-practices-data-and-metadata.html#preserving-computational-workflows"><i class="fa fa-check"></i><b>3.2</b> Preserving computational workflows</a></li>
+<li class="chapter" data-level="3.3" data-path="best-practices-data-and-metadata.html"><a href="best-practices-data-and-metadata.html#best-practices-overview"><i class="fa fa-check"></i><b>3.3</b> Best Practices: Overview</a></li>
+<li class="chapter" data-level="3.4" data-path="best-practices-data-and-metadata.html"><a href="best-practices-data-and-metadata.html#organizing-data-best-practices"><i class="fa fa-check"></i><b>3.4</b> Organizing Data: Best Practices</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="thinking-preferences.html"><a href="thinking-preferences.html"><i class="fa fa-check"></i><b>4</b> Thinking preferences</a><ul>
+<li class="chapter" data-level="4.1" data-path="thinking-preferences.html"><a href="thinking-preferences.html#learning-objectives-2"><i class="fa fa-check"></i><b>4.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="4.2" data-path="thinking-preferences.html"><a href="thinking-preferences.html#resources"><i class="fa fa-check"></i><b>4.2</b> Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html"><i class="fa fa-check"></i><b>5</b> Data Documentation and Publishing</a><ul>
+<li class="chapter" data-level="5.1" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#learning-objectives-3"><i class="fa fa-check"></i><b>5.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="5.2" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#data-sharing-and-preservation"><i class="fa fa-check"></i><b>5.2</b> Data sharing and preservation</a></li>
+<li class="chapter" data-level="5.3" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#data-repositories-built-for-data-and-code"><i class="fa fa-check"></i><b>5.3</b> Data repositories: built for data (and code)</a></li>
+<li class="chapter" data-level="5.4" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#metadata"><i class="fa fa-check"></i><b>5.4</b> Metadata</a></li>
+<li class="chapter" data-level="5.5" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#structure-of-a-data-package"><i class="fa fa-check"></i><b>5.5</b> Structure of a data package</a></li>
+<li class="chapter" data-level="5.6" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#dataone-federation"><i class="fa fa-check"></i><b>5.6</b> DataONE Federation</a></li>
+<li class="chapter" data-level="5.7" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#publishing-data-from-the-web"><i class="fa fa-check"></i><b>5.7</b> Publishing data from the web</a><ul>
+<li class="chapter" data-level="5.7.1" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#download-the-data-to-be-used-for-the-tutorial"><i class="fa fa-check"></i><b>5.7.1</b> Download the data to be used for the tutorial</a></li>
+<li class="chapter" data-level="5.7.2" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#login-via-orcid"><i class="fa fa-check"></i><b>5.7.2</b> Login via ORCID</a></li>
+<li class="chapter" data-level="5.7.3" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#create-and-submit-the-dataset"><i class="fa fa-check"></i><b>5.7.3</b> Create and submit the dataset</a></li>
+<li class="chapter" data-level="5.7.4" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#file-and-variable-level-metadata"><i class="fa fa-check"></i><b>5.7.4</b> File and variable level metadata</a></li>
+<li class="chapter" data-level="5.7.5" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#add-workflow-provenance"><i class="fa fa-check"></i><b>5.7.5</b> Add workflow provenance</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#publishing-data-from-r"><i class="fa fa-check"></i><b>5.8</b> Publishing data from R</a><ul>
+<li class="chapter" data-level="5.8.1" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#logging-in"><i class="fa fa-check"></i><b>5.8.1</b> Logging in</a></li>
+<li class="chapter" data-level="5.8.2" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#obtain-an-orcid"><i class="fa fa-check"></i><b>5.8.2</b> Obtain an ORCID</a></li>
+<li class="chapter" data-level="5.8.3" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#log-in-to-the-test-repository-and-copy-your-token"><i class="fa fa-check"></i><b>5.8.3</b> Log in to the test repository and copy your token</a></li>
+<li class="chapter" data-level="5.8.4" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#modifying-metadata"><i class="fa fa-check"></i><b>5.8.4</b> Modifying metadata</a></li>
+<li class="chapter" data-level="5.8.5" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#uploading-a-package-using-r-with-uploaddatapackage"><i class="fa fa-check"></i><b>5.8.5</b> Uploading A Package Using R with <code>uploadDataPackage</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="rstudio-and-gitgithub-setup-and-motivation.html"><a href="rstudio-and-gitgithub-setup-and-motivation.html"><i class="fa fa-check"></i><b>6</b> RStudio and Git/GitHub Setup and Motivation</a><ul>
+<li class="chapter" data-level="6.1" data-path="rstudio-and-gitgithub-setup-and-motivation.html"><a href="rstudio-and-gitgithub-setup-and-motivation.html#learning-objectives-4"><i class="fa fa-check"></i><b>6.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="6.2" data-path="rstudio-and-gitgithub-setup-and-motivation.html"><a href="rstudio-and-gitgithub-setup-and-motivation.html#reproducible-research"><i class="fa fa-check"></i><b>6.2</b> Reproducible Research</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="rstudio-and-gitgithub-setup-and-motivation.html"><a href="rstudio-and-gitgithub-setup-and-motivation.html#what-is-needed-for-computational-reproducibility"><i class="fa fa-check"></i><b>6.2.1</b> What is needed for computational reproducibility?</a></li>
+<li class="chapter" data-level="6.2.2" data-path="rstudio-and-gitgithub-setup-and-motivation.html"><a href="rstudio-and-gitgithub-setup-and-motivation.html#conceptualizing-workflows"><i class="fa fa-check"></i><b>6.2.2</b> Conceptualizing workflows</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="rstudio-and-gitgithub-setup-and-motivation.html"><a href="rstudio-and-gitgithub-setup-and-motivation.html#why-use-git"><i class="fa fa-check"></i><b>6.3</b> Why use git?</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="rstudio-and-gitgithub-setup-and-motivation.html"><a href="rstudio-and-gitgithub-setup-and-motivation.html#the-problem-with-filenames"><i class="fa fa-check"></i><b>6.3.1</b> The problem with filenames</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="rstudio-and-gitgithub-setup-and-motivation.html"><a href="rstudio-and-gitgithub-setup-and-motivation.html#checking-the-rstudio-environment"><i class="fa fa-check"></i><b>6.4</b> Checking the RStudio environment</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="rstudio-and-gitgithub-setup-and-motivation.html"><a href="rstudio-and-gitgithub-setup-and-motivation.html#r-version"><i class="fa fa-check"></i><b>6.4.1</b> R Version</a></li>
+<li class="chapter" data-level="6.4.2" data-path="rstudio-and-gitgithub-setup-and-motivation.html"><a href="rstudio-and-gitgithub-setup-and-motivation.html#rstudio-version"><i class="fa fa-check"></i><b>6.4.2</b> RStudio Version</a></li>
+<li class="chapter" data-level="6.4.3" data-path="rstudio-and-gitgithub-setup-and-motivation.html"><a href="rstudio-and-gitgithub-setup-and-motivation.html#package-installation"><i class="fa fa-check"></i><b>6.4.3</b> Package installation</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="rstudio-and-gitgithub-setup-and-motivation.html"><a href="rstudio-and-gitgithub-setup-and-motivation.html#setting-up-git"><i class="fa fa-check"></i><b>6.5</b> Setting up git</a><ul>
+<li class="chapter" data-level="6.5.1" data-path="rstudio-and-gitgithub-setup-and-motivation.html"><a href="rstudio-and-gitgithub-setup-and-motivation.html#note-for-windows-users"><i class="fa fa-check"></i><b>6.5.1</b> Note for Windows Users</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html"><i class="fa fa-check"></i><b>7</b> Introduction to R and RMarkdown</a><ul>
+<li class="chapter" data-level="7.1" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#learning-objectives-5"><i class="fa fa-check"></i><b>7.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="7.2" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#introduction-and-motivation"><i class="fa fa-check"></i><b>7.2</b> Introduction and Motivation</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#resources-1"><i class="fa fa-check"></i><b>7.2.1</b> Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#r-at-the-console"><i class="fa fa-check"></i><b>7.3</b> R at the console</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#error-messages-are-your-friends"><i class="fa fa-check"></i><b>7.3.1</b> Error messages are your friends</a></li>
+<li class="chapter" data-level="7.3.2" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#logical-operators-and-expressions"><i class="fa fa-check"></i><b>7.3.2</b> Logical operators and expressions</a></li>
+<li class="chapter" data-level="7.3.3" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#clearing-the-environment"><i class="fa fa-check"></i><b>7.3.3</b> Clearing the environment</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#rmarkdown"><i class="fa fa-check"></i><b>7.4</b> RMarkdown</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#your-turn"><i class="fa fa-check"></i><b>7.4.1</b> Your Turn</a></li>
+<li class="chapter" data-level="7.4.2" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#code-chunks"><i class="fa fa-check"></i><b>7.4.2</b> Code chunks</a></li>
+<li class="chapter" data-level="7.4.3" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#your-turn-1"><i class="fa fa-check"></i><b>7.4.3</b> Your turn</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#r-functions-help-pages"><i class="fa fa-check"></i><b>7.5</b> R functions, help pages</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#a-simple-example"><i class="fa fa-check"></i><b>7.5.1</b> A simple example</a></li>
+<li class="chapter" data-level="7.5.2" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#getting-help"><i class="fa fa-check"></i><b>7.5.2</b> Getting help</a></li>
+<li class="chapter" data-level="7.5.3" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#your-turn-2"><i class="fa fa-check"></i><b>7.5.3</b> Your turn</a></li>
+<li class="chapter" data-level="7.5.4" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#use-a-function-to-read-a-file-into-r"><i class="fa fa-check"></i><b>7.5.4</b> Use a function to read a file into R</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#using-data.frames"><i class="fa fa-check"></i><b>7.6</b> Using <code>data.frames</code></a><ul>
+<li class="chapter" data-level="7.6.1" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#your-turn-3"><i class="fa fa-check"></i><b>7.6.1</b> Your Turn</a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#troubleshooting"><i class="fa fa-check"></i><b>7.7</b> Troubleshooting</a><ul>
+<li class="chapter" data-level="7.7.1" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#my-rmarkdown-wont-knit-to-pdf"><i class="fa fa-check"></i><b>7.7.1</b> My RMarkdown won’t knit to PDF</a></li>
+<li class="chapter" data-level="7.7.2" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#i-just-entered-a-command-and-nothing-is-happening"><i class="fa fa-check"></i><b>7.7.2</b> I just entered a command and nothing is happening</a></li>
+<li class="chapter" data-level="7.7.3" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#r-says-my-object-is-not-found"><i class="fa fa-check"></i><b>7.7.3</b> R says my object is not found</a></li>
+</ul></li>
+<li class="chapter" data-level="7.8" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#literate-analysis"><i class="fa fa-check"></i><b>7.8</b> Literate Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="version-control-with-git-and-github.html"><a href="version-control-with-git-and-github.html"><i class="fa fa-check"></i><b>8</b> Version Control With git and GitHub</a><ul>
+<li class="chapter" data-level="8.1" data-path="version-control-with-git-and-github.html"><a href="version-control-with-git-and-github.html#learning-objectives-6"><i class="fa fa-check"></i><b>8.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="8.2" data-path="version-control-with-git-and-github.html"><a href="version-control-with-git-and-github.html#the-problem-with-filenames-1"><i class="fa fa-check"></i><b>8.2</b> The problem with filenames</a></li>
+<li class="chapter" data-level="8.3" data-path="version-control-with-git-and-github.html"><a href="version-control-with-git-and-github.html#version-control-and-collaboration-using-git-and-github"><i class="fa fa-check"></i><b>8.3</b> Version control and Collaboration using Git and GitHub</a></li>
+<li class="chapter" data-level="8.4" data-path="version-control-with-git-and-github.html"><a href="version-control-with-git-and-github.html#lets-look-at-a-github-repository"><i class="fa fa-check"></i><b>8.4</b> Let’s look at a GitHub repository</a></li>
+<li class="chapter" data-level="8.5" data-path="version-control-with-git-and-github.html"><a href="version-control-with-git-and-github.html#the-git-lifecycle"><i class="fa fa-check"></i><b>8.5</b> The Git lifecycle</a></li>
+<li class="chapter" data-level="8.6" data-path="version-control-with-git-and-github.html"><a href="version-control-with-git-and-github.html#create-a-remote-repository-on-github"><i class="fa fa-check"></i><b>8.6</b> Create a remote repository on GitHub</a></li>
+<li class="chapter" data-level="8.7" data-path="version-control-with-git-and-github.html"><a href="version-control-with-git-and-github.html#working-locally-with-git-via-rstudio"><i class="fa fa-check"></i><b>8.7</b> Working locally with Git via RStudio</a></li>
+<li class="chapter" data-level="8.8" data-path="version-control-with-git-and-github.html"><a href="version-control-with-git-and-github.html#on-good-commit-messages"><i class="fa fa-check"></i><b>8.8</b> On good commit messages</a></li>
+<li class="chapter" data-level="8.9" data-path="version-control-with-git-and-github.html"><a href="version-control-with-git-and-github.html#collaboration-and-conflict-free-workflows"><i class="fa fa-check"></i><b>8.9</b> Collaboration and conflict free workflows</a></li>
+<li class="chapter" data-level="8.10" data-path="version-control-with-git-and-github.html"><a href="version-control-with-git-and-github.html#exercise"><i class="fa fa-check"></i><b>8.10</b> Exercise</a></li>
+<li class="chapter" data-level="8.11" data-path="version-control-with-git-and-github.html"><a href="version-control-with-git-and-github.html#advanced-topics"><i class="fa fa-check"></i><b>8.11</b> Advanced topics</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="git-collaboration-and-conflict-management.html"><a href="git-collaboration-and-conflict-management.html"><i class="fa fa-check"></i><b>9</b> Git: Collaboration and Conflict Management</a><ul>
+<li class="chapter" data-level="9.1" data-path="git-collaboration-and-conflict-management.html"><a href="git-collaboration-and-conflict-management.html#learning-objectives-7"><i class="fa fa-check"></i><b>9.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="9.2" data-path="git-collaboration-and-conflict-management.html"><a href="git-collaboration-and-conflict-management.html#collaborating-with-git"><i class="fa fa-check"></i><b>9.2</b> Collaborating with Git</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="git-collaboration-and-conflict-management.html"><a href="git-collaboration-and-conflict-management.html#activity-collaborating-with-a-trusted-colleague"><i class="fa fa-check"></i><b>9.2.1</b> Activity: Collaborating with a trusted colleague</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="git-collaboration-and-conflict-management.html"><a href="git-collaboration-and-conflict-management.html#merge-conflicts"><i class="fa fa-check"></i><b>9.3</b> Merge conflicts</a></li>
+<li class="chapter" data-level="9.4" data-path="git-collaboration-and-conflict-management.html"><a href="git-collaboration-and-conflict-management.html#how-to-resolve-a-conflict"><i class="fa fa-check"></i><b>9.4</b> How to resolve a conflict</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="git-collaboration-and-conflict-management.html"><a href="git-collaboration-and-conflict-management.html#abort-abort-abort"><i class="fa fa-check"></i><b>9.4.1</b> Abort, abort, abort…</a></li>
+<li class="chapter" data-level="9.4.2" data-path="git-collaboration-and-conflict-management.html"><a href="git-collaboration-and-conflict-management.html#checkout"><i class="fa fa-check"></i><b>9.4.2</b> Checkout</a></li>
+<li class="chapter" data-level="9.4.3" data-path="git-collaboration-and-conflict-management.html"><a href="git-collaboration-and-conflict-management.html#pull-and-edit-the-file"><i class="fa fa-check"></i><b>9.4.3</b> Pull and edit the file</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="git-collaboration-and-conflict-management.html"><a href="git-collaboration-and-conflict-management.html#workflows-to-avoid-merge-conflicts"><i class="fa fa-check"></i><b>9.5</b> Workflows to avoid merge conflicts</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html"><i class="fa fa-check"></i><b>10</b> Data Modeling &amp; Tidy Data</a><ul>
+<li class="chapter" data-level="10.1" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#learning-objectives-8"><i class="fa fa-check"></i><b>10.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="10.2" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#benefits-of-relational-data-systems"><i class="fa fa-check"></i><b>10.2</b> Benefits of relational data systems</a></li>
+<li class="chapter" data-level="10.3" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#data-organization"><i class="fa fa-check"></i><b>10.3</b> Data Organization</a></li>
+<li class="chapter" data-level="10.4" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#multiple-tables"><i class="fa fa-check"></i><b>10.4</b> Multiple tables</a></li>
+<li class="chapter" data-level="10.5" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#inconsistent-observations"><i class="fa fa-check"></i><b>10.5</b> Inconsistent observations</a></li>
+<li class="chapter" data-level="10.6" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#inconsistent-variables"><i class="fa fa-check"></i><b>10.6</b> Inconsistent variables</a></li>
+<li class="chapter" data-level="10.7" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#marginal-sums-and-statistics"><i class="fa fa-check"></i><b>10.7</b> Marginal sums and statistics</a></li>
+<li class="chapter" data-level="10.8" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#good-enough-data-modeling"><i class="fa fa-check"></i><b>10.8</b> Good enough data modeling</a><ul>
+<li class="chapter" data-level="10.8.1" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#denormalized-data"><i class="fa fa-check"></i><b>10.8.1</b> Denormalized data</a></li>
+<li class="chapter" data-level="10.8.2" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#tabular-data"><i class="fa fa-check"></i><b>10.8.2</b> Tabular data</a></li>
+</ul></li>
+<li class="chapter" data-level="10.9" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#primary-and-foreign-keys"><i class="fa fa-check"></i><b>10.9</b> Primary and Foreign Keys</a></li>
+<li class="chapter" data-level="10.10" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#entity-relationship-model-er"><i class="fa fa-check"></i><b>10.10</b> Entity-Relationship Model (ER)</a></li>
+<li class="chapter" data-level="10.11" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#merging-data"><i class="fa fa-check"></i><b>10.11</b> Merging data</a></li>
+<li class="chapter" data-level="10.12" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#simple-guidelines-for-effective-data"><i class="fa fa-check"></i><b>10.12</b> Simple Guidelines for Effective Data</a></li>
+<li class="chapter" data-level="10.13" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#data-modeling-exercise"><i class="fa fa-check"></i><b>10.13</b> Data modeling exercise</a></li>
+<li class="chapter" data-level="10.14" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#related-resources"><i class="fa fa-check"></i><b>10.14</b> Related resources</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html"><i class="fa fa-check"></i><b>11</b> Data Cleaning and Manipulation</a><ul>
+<li class="chapter" data-level="11.1" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html#learning-objectives-9"><i class="fa fa-check"></i><b>11.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="11.2" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html#introduction"><i class="fa fa-check"></i><b>11.2</b> Introduction</a></li>
+<li class="chapter" data-level="11.3" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html#setup"><i class="fa fa-check"></i><b>11.3</b> Setup</a></li>
+<li class="chapter" data-level="11.4" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html#about-the-pipe-operator"><i class="fa fa-check"></i><b>11.4</b> About the pipe (<code>%&gt;%</code>) operator</a></li>
+<li class="chapter" data-level="11.5" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html#selectingremoving-columns-select"><i class="fa fa-check"></i><b>11.5</b> Selecting/removing columns: <code>select()</code></a></li>
+<li class="chapter" data-level="11.6" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html#changing-shape-gather-and-spread"><i class="fa fa-check"></i><b>11.6</b> Changing shape: <code>gather()</code> and <code>spread()</code></a></li>
+<li class="chapter" data-level="11.7" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html#renaming-columns-with-rename"><i class="fa fa-check"></i><b>11.7</b> Renaming columns with <code>rename()</code></a></li>
+<li class="chapter" data-level="11.8" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html#adding-columns-mutate"><i class="fa fa-check"></i><b>11.8</b> Adding columns: <code>mutate()</code></a></li>
+<li class="chapter" data-level="11.9" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html#group_by-and-summarise"><i class="fa fa-check"></i><b>11.9</b> <code>group_by</code> and <code>summarise</code></a></li>
+<li class="chapter" data-level="11.10" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html#filtering-rows-filter"><i class="fa fa-check"></i><b>11.10</b> Filtering rows: <code>filter()</code></a></li>
+<li class="chapter" data-level="11.11" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html#sorting-your-data-arrange"><i class="fa fa-check"></i><b>11.11</b> Sorting your data: <code>arrange()</code></a></li>
+<li class="chapter" data-level="11.12" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html#joins-in-dplyr"><i class="fa fa-check"></i><b>11.12</b> Joins in dplyr</a></li>
+<li class="chapter" data-level="11.13" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html#separate-and-unite"><i class="fa fa-check"></i><b>11.13</b> <code>separate()</code> and <code>unite()</code></a></li>
+<li class="chapter" data-level="11.14" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html#summary"><i class="fa fa-check"></i><b>11.14</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="creating-r-functions.html"><a href="creating-r-functions.html"><i class="fa fa-check"></i><b>12</b> Creating R Functions</a><ul>
+<li class="chapter" data-level="12.1" data-path="creating-r-functions.html"><a href="creating-r-functions.html#leaning-outcomes"><i class="fa fa-check"></i><b>12.1</b> Leaning outcomes</a></li>
+<li class="chapter" data-level="12.2" data-path="creating-r-functions.html"><a href="creating-r-functions.html#why-functions"><i class="fa fa-check"></i><b>12.2</b> Why functions?</a></li>
+<li class="chapter" data-level="12.3" data-path="creating-r-functions.html"><a href="creating-r-functions.html#temperature-conversion"><i class="fa fa-check"></i><b>12.3</b> Temperature conversion</a></li>
+<li class="chapter" data-level="12.4" data-path="creating-r-functions.html"><a href="creating-r-functions.html#creating-a-function"><i class="fa fa-check"></i><b>12.4</b> Creating a function</a></li>
+<li class="chapter" data-level="12.5" data-path="creating-r-functions.html"><a href="creating-r-functions.html#exercise-1"><i class="fa fa-check"></i><b>12.5</b> Exercise</a></li>
+<li class="chapter" data-level="12.6" data-path="creating-r-functions.html"><a href="creating-r-functions.html#documenting-r-functions"><i class="fa fa-check"></i><b>12.6</b> Documenting R functions</a></li>
+<li class="chapter" data-level="12.7" data-path="creating-r-functions.html"><a href="creating-r-functions.html#summary-1"><i class="fa fa-check"></i><b>12.7</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="data-visualization-for-web-based-maps.html"><a href="data-visualization-for-web-based-maps.html"><i class="fa fa-check"></i><b>13</b> Data visualization for web-based maps</a><ul>
+<li class="chapter" data-level="13.1" data-path="data-visualization-for-web-based-maps.html"><a href="data-visualization-for-web-based-maps.html#learning-objectives-10"><i class="fa fa-check"></i><b>13.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="13.2" data-path="data-visualization-for-web-based-maps.html"><a href="data-visualization-for-web-based-maps.html#introduction-1"><i class="fa fa-check"></i><b>13.2</b> Introduction</a></li>
+<li class="chapter" data-level="13.3" data-path="data-visualization-for-web-based-maps.html"><a href="data-visualization-for-web-based-maps.html#a-minimal-example"><i class="fa fa-check"></i><b>13.3</b> A Minimal Example</a></li>
+<li class="chapter" data-level="13.4" data-path="data-visualization-for-web-based-maps.html"><a href="data-visualization-for-web-based-maps.html#a-less-minimal-example"><i class="fa fa-check"></i><b>13.4</b> A Less Minimal Example</a><ul>
+<li class="chapter" data-level="13.4.1" data-path="data-visualization-for-web-based-maps.html"><a href="data-visualization-for-web-based-maps.html#load-salmon-escapement-data"><i class="fa fa-check"></i><b>13.4.1</b> Load salmon escapement data</a></li>
+<li class="chapter" data-level="13.4.2" data-path="data-visualization-for-web-based-maps.html"><a href="data-visualization-for-web-based-maps.html#static-plots"><i class="fa fa-check"></i><b>13.4.2</b> Static Plots</a></li>
+<li class="chapter" data-level="13.4.3" data-path="data-visualization-for-web-based-maps.html"><a href="data-visualization-for-web-based-maps.html#interactive-maps"><i class="fa fa-check"></i><b>13.4.3</b> Interactive Maps</a></li>
+</ul></li>
+<li class="chapter" data-level="13.5" data-path="data-visualization-for-web-based-maps.html"><a href="data-visualization-for-web-based-maps.html#static-maps-with-geom_sf"><i class="fa fa-check"></i><b>13.5</b> Static maps with geom_sf</a></li>
+<li class="chapter" data-level="13.6" data-path="data-visualization-for-web-based-maps.html"><a href="data-visualization-for-web-based-maps.html#resources-2"><i class="fa fa-check"></i><b>13.6</b> Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="writing-good-data-management-plans.html"><a href="writing-good-data-management-plans.html"><i class="fa fa-check"></i><b>14</b> Writing Good Data Management Plans</a><ul>
+<li class="chapter" data-level="14.1" data-path="writing-good-data-management-plans.html"><a href="writing-good-data-management-plans.html#learning-objectives-11"><i class="fa fa-check"></i><b>14.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="14.2" data-path="writing-good-data-management-plans.html"><a href="writing-good-data-management-plans.html#materials-1"><i class="fa fa-check"></i><b>14.2</b> Materials</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="social-aspects-of-collaboration-and-data-policies.html"><a href="social-aspects-of-collaboration-and-data-policies.html"><i class="fa fa-check"></i><b>15</b> Social aspects of collaboration and data policies</a><ul>
+<li class="chapter" data-level="15.1" data-path="social-aspects-of-collaboration-and-data-policies.html"><a href="social-aspects-of-collaboration-and-data-policies.html#learning-objectives-12"><i class="fa fa-check"></i><b>15.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="15.2" data-path="social-aspects-of-collaboration-and-data-policies.html"><a href="social-aspects-of-collaboration-and-data-policies.html#resources-3"><i class="fa fa-check"></i><b>15.2</b> Resources</a></li>
+<li class="chapter" data-level="15.3" data-path="social-aspects-of-collaboration-and-data-policies.html"><a href="social-aspects-of-collaboration-and-data-policies.html#references"><i class="fa fa-check"></i><b>15.3</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="creating-r-packages.html"><a href="creating-r-packages.html"><i class="fa fa-check"></i><b>16</b> Creating R Packages</a><ul>
+<li class="chapter" data-level="16.1" data-path="creating-r-packages.html"><a href="creating-r-packages.html#learning-objectives-13"><i class="fa fa-check"></i><b>16.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="16.2" data-path="creating-r-packages.html"><a href="creating-r-packages.html#why-packages"><i class="fa fa-check"></i><b>16.2</b> Why packages?</a></li>
+<li class="chapter" data-level="16.3" data-path="creating-r-packages.html"><a href="creating-r-packages.html#install-and-load-packages"><i class="fa fa-check"></i><b>16.3</b> Install and load packages</a></li>
+<li class="chapter" data-level="16.4" data-path="creating-r-packages.html"><a href="creating-r-packages.html#create-a-basic-package"><i class="fa fa-check"></i><b>16.4</b> Create a basic package</a></li>
+<li class="chapter" data-level="16.5" data-path="creating-r-packages.html"><a href="creating-r-packages.html#add-your-code"><i class="fa fa-check"></i><b>16.5</b> Add your code</a></li>
+<li class="chapter" data-level="16.6" data-path="creating-r-packages.html"><a href="creating-r-packages.html#add-documentation"><i class="fa fa-check"></i><b>16.6</b> Add documentation</a></li>
+<li class="chapter" data-level="16.7" data-path="creating-r-packages.html"><a href="creating-r-packages.html#test-your-package"><i class="fa fa-check"></i><b>16.7</b> Test your package</a></li>
+<li class="chapter" data-level="16.8" data-path="creating-r-packages.html"><a href="creating-r-packages.html#checking-and-installing-your-package"><i class="fa fa-check"></i><b>16.8</b> Checking and installing your package</a></li>
+<li class="chapter" data-level="16.9" data-path="creating-r-packages.html"><a href="creating-r-packages.html#sharing-and-releasing-your-package"><i class="fa fa-check"></i><b>16.9</b> Sharing and releasing your package</a></li>
+<li class="chapter" data-level="16.10" data-path="creating-r-packages.html"><a href="creating-r-packages.html#more-reading"><i class="fa fa-check"></i><b>16.10</b> More reading</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="open-data-in-r-and-ropensci.html"><a href="open-data-in-r-and-ropensci.html"><i class="fa fa-check"></i><b>17</b> Open Data in R and ROpenSci</a><ul>
+<li class="chapter" data-level="17.1" data-path="open-data-in-r-and-ropensci.html"><a href="open-data-in-r-and-ropensci.html#learning-objectives-14"><i class="fa fa-check"></i><b>17.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="17.2" data-path="open-data-in-r-and-ropensci.html"><a href="open-data-in-r-and-ropensci.html#introduction-2"><i class="fa fa-check"></i><b>17.2</b> Introduction</a></li>
+<li class="chapter" data-level="17.3" data-path="open-data-in-r-and-ropensci.html"><a href="open-data-in-r-and-ropensci.html#open-data"><i class="fa fa-check"></i><b>17.3</b> Open data</a></li>
+<li class="chapter" data-level="17.4" data-path="open-data-in-r-and-ropensci.html"><a href="open-data-in-r-and-ropensci.html#what-is-ropensci"><i class="fa fa-check"></i><b>17.4</b> What is rOpenSci?</a></li>
+<li class="chapter" data-level="17.5" data-path="open-data-in-r-and-ropensci.html"><a href="open-data-in-r-and-ropensci.html#overview-of-some-of-the-interetsing-packages-ropensci-provides"><i class="fa fa-check"></i><b>17.5</b> Overview of some of the interetsing packages rOpenSci provides</a><ul>
+<li class="chapter" data-level="17.5.1" data-path="open-data-in-r-and-ropensci.html"><a href="open-data-in-r-and-ropensci.html#rnoaa-r-interface-to-many-noaa-data-apis"><i class="fa fa-check"></i><b>17.5.1</b> <code>rnoaa</code>: R interface to many NOAA data APIs</a></li>
+<li class="chapter" data-level="17.5.2" data-path="open-data-in-r-and-ropensci.html"><a href="open-data-in-r-and-ropensci.html#mapr-mapping-species-occurrence-data"><i class="fa fa-check"></i><b>17.5.2</b> <code>mapr</code>: Mapping Species Occurrence Data</a></li>
+</ul></li>
+<li class="chapter" data-level="17.6" data-path="open-data-in-r-and-ropensci.html"><a href="open-data-in-r-and-ropensci.html#summary-2"><i class="fa fa-check"></i><b>17.6</b> Summary</a></li>
+<li class="chapter" data-level="17.7" data-path="open-data-in-r-and-ropensci.html"><a href="open-data-in-r-and-ropensci.html#resources-4"><i class="fa fa-check"></i><b>17.7</b> Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="reproducibility-and-provenance.html"><a href="reproducibility-and-provenance.html"><i class="fa fa-check"></i><b>18</b> Reproducibility and Provenance</a><ul>
+<li class="chapter" data-level="18.1" data-path="reproducibility-and-provenance.html"><a href="reproducibility-and-provenance.html#learning-objectives-15"><i class="fa fa-check"></i><b>18.1</b> Learning Objectives</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="spatial-vector-analysis-using-sf.html"><a href="spatial-vector-analysis-using-sf.html"><i class="fa fa-check"></i><b>19</b> Spatial vector analysis using <code>sf</code></a><ul>
+<li class="chapter" data-level="19.1" data-path="spatial-vector-analysis-using-sf.html"><a href="spatial-vector-analysis-using-sf.html#learning-objectives-16"><i class="fa fa-check"></i><b>19.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="19.2" data-path="spatial-vector-analysis-using-sf.html"><a href="spatial-vector-analysis-using-sf.html#introduction-3"><i class="fa fa-check"></i><b>19.2</b> Introduction</a></li>
+<li class="chapter" data-level="19.3" data-path="spatial-vector-analysis-using-sf.html"><a href="spatial-vector-analysis-using-sf.html#reading-a-shapefile"><i class="fa fa-check"></i><b>19.3</b> Reading a shapefile</a><ul>
+<li class="chapter" data-level="19.3.1" data-path="spatial-vector-analysis-using-sf.html"><a href="spatial-vector-analysis-using-sf.html#coordinate-reference-system"><i class="fa fa-check"></i><b>19.3.1</b> Coordinate Reference System</a></li>
+<li class="chapter" data-level="19.3.2" data-path="spatial-vector-analysis-using-sf.html"><a href="spatial-vector-analysis-using-sf.html#attributes"><i class="fa fa-check"></i><b>19.3.2</b> Attributes</a></li>
+</ul></li>
+<li class="chapter" data-level="19.4" data-path="spatial-vector-analysis-using-sf.html"><a href="spatial-vector-analysis-using-sf.html#sf-the-tidyverse"><i class="fa fa-check"></i><b>19.4</b> <code>sf</code> &amp; the Tidyverse</a><ul>
+<li class="chapter" data-level="19.4.1" data-path="spatial-vector-analysis-using-sf.html"><a href="spatial-vector-analysis-using-sf.html#joins"><i class="fa fa-check"></i><b>19.4.1</b> Joins</a></li>
+<li class="chapter" data-level="19.4.2" data-path="spatial-vector-analysis-using-sf.html"><a href="spatial-vector-analysis-using-sf.html#group-and-summarize"><i class="fa fa-check"></i><b>19.4.2</b> Group and summarize</a></li>
+<li class="chapter" data-level="19.4.3" data-path="spatial-vector-analysis-using-sf.html"><a href="spatial-vector-analysis-using-sf.html#save"><i class="fa fa-check"></i><b>19.4.3</b> Save</a></li>
+</ul></li>
+<li class="chapter" data-level="19.5" data-path="spatial-vector-analysis-using-sf.html"><a href="spatial-vector-analysis-using-sf.html#visualize-with-ggplot"><i class="fa fa-check"></i><b>19.5</b> Visualize with ggplot</a></li>
+<li class="chapter" data-level="19.6" data-path="spatial-vector-analysis-using-sf.html"><a href="spatial-vector-analysis-using-sf.html#visualize-with-leaflet"><i class="fa fa-check"></i><b>19.6</b> Visualize with leaflet</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="using-netcdf-files.html"><a href="using-netcdf-files.html"><i class="fa fa-check"></i><b>20</b> Using NetCDF files</a><ul>
+<li class="chapter" data-level="20.1" data-path="using-netcdf-files.html"><a href="using-netcdf-files.html#learning-objectives-17"><i class="fa fa-check"></i><b>20.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="20.2" data-path="using-netcdf-files.html"><a href="using-netcdf-files.html#introduction-4"><i class="fa fa-check"></i><b>20.2</b> Introduction</a></li>
+<li class="chapter" data-level="20.3" data-path="using-netcdf-files.html"><a href="using-netcdf-files.html#reading-in-data"><i class="fa fa-check"></i><b>20.3</b> Reading in data</a></li>
+<li class="chapter" data-level="20.4" data-path="using-netcdf-files.html"><a href="using-netcdf-files.html#reshaping-the-data-into-a-data.frame"><i class="fa fa-check"></i><b>20.4</b> Reshaping the data into a data.frame</a></li>
+<li class="chapter" data-level="20.5" data-path="using-netcdf-files.html"><a href="using-netcdf-files.html#plotting"><i class="fa fa-check"></i><b>20.5</b> Plotting</a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="references-1.html"><a href="references-1.html"><i class="fa fa-check"></i><b>21</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Arctic Data Center Training</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-cleaning-and-manipulation" class="section level1">
+<h1><span class="header-section-number">11</span> Data Cleaning and Manipulation</h1>
+<div id="learning-objectives-9" class="section level2">
+<h2><span class="header-section-number">11.1</span> Learning Objectives</h2>
+<p>In this lesson, you will learn:</p>
+<ul>
+<li>What the Split-Apply-Combine strategy is and how it applies to data</li>
+<li>The difference between wide vs. tall table formats and how to convert between them</li>
+<li>How to use <code>dplyr</code> and <code>tidyr</code> to clean and manipulate data for analysis</li>
+<li>How to join multiple <code>data.frame</code>s together using <code>dplyr</code></li>
+</ul>
+</div>
+<div id="introduction" class="section level2">
+<h2><span class="header-section-number">11.2</span> Introduction</h2>
+<p>The data we get to work with are rarely, if ever, in the format we need to do our analyses. It’s often the case that one package requires data in one format, while another package requires the data to be in another format. To be efficient analysts, we should have good tools for reformatting data for our needs so we can do our actual work like making plots and fitting models. The <code>dplyr</code> and <code>tidyr</code> R packages provide a fairly complete and extremely powerful set of functions for us to do this reformatting quickly and learning these tools well will greatly increase your efficiency as an analyst.</p>
+<p>Analyses take many shapes, but they often conform to what is known as the Split-Apply-Combine strategy. This strategy follows a usual set of steps:</p>
+<ul>
+<li><strong>Split</strong>: Split the data into logical groups (e.g., area, stock, year)</li>
+<li><strong>Apply:</strong> Calculate some summary statistic on each group (e.g. mean total length by year)</li>
+<li><strong>Combine:</strong> Combine the groups back together into a single table</li>
+</ul>
+<div class="figure">
+<img src="images/split-apply-combine-diagram.png" alt="Figure 1: diagram of the split apply combine strategy" />
+<p class="caption">Figure 1: diagram of the split apply combine strategy</p>
+</div>
+<p>As shown above (Figure 1), our original table is split into groups by <code>year</code>, we calculate the mean length for each group, and finally combine the per-year means into a single table.</p>
+<p><code>dplyr</code> provides a fast and powerful way to express this. Let’s look at a simple example of how this is done:</p>
+<p>Assuming our length data is already loaded in a <code>data.frame</code> called <code>length_data</code>:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="right">year</th>
+<th align="right">length_cm</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1991</td>
+<td align="right">5.673318</td>
+</tr>
+<tr class="even">
+<td align="right">1991</td>
+<td align="right">3.081224</td>
+</tr>
+<tr class="odd">
+<td align="right">1991</td>
+<td align="right">4.592696</td>
+</tr>
+<tr class="even">
+<td align="right">1992</td>
+<td align="right">4.381523</td>
+</tr>
+<tr class="odd">
+<td align="right">1992</td>
+<td align="right">5.597777</td>
+</tr>
+<tr class="even">
+<td align="right">1992</td>
+<td align="right">4.900052</td>
+</tr>
+<tr class="odd">
+<td align="right">1992</td>
+<td align="right">4.139282</td>
+</tr>
+<tr class="even">
+<td align="right">1992</td>
+<td align="right">5.422823</td>
+</tr>
+<tr class="odd">
+<td align="right">1992</td>
+<td align="right">5.905247</td>
+</tr>
+<tr class="even">
+<td align="right">1992</td>
+<td align="right">5.098922</td>
+</tr>
+</tbody>
+</table>
+<p>We can do this calculation using <code>dplyr</code> like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">length_data <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">group_by</span>(year) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_length_cm =</span> <span class="kw">mean</span>(length_cm))</code></pre></div>
+<p>Another exceedingly common thing we need to do is “reshape” our data. Let’s look at an example table that is in what we will call “wide” format:</p>
+<table>
+<thead>
+<tr class="header">
+<th>site</th>
+<th>1990</th>
+<th>1991</th>
+<th>…</th>
+<th>1993</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>gold</td>
+<td>100</td>
+<td>118</td>
+<td>…</td>
+<td>112</td>
+</tr>
+<tr class="even">
+<td>lake</td>
+<td>100</td>
+<td>118</td>
+<td>…</td>
+<td>112</td>
+</tr>
+<tr class="odd">
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+</tr>
+<tr class="even">
+<td>dredge</td>
+<td>100</td>
+<td>118</td>
+<td>…</td>
+<td>112</td>
+</tr>
+</tbody>
+</table>
+<p>You are probably quite familiar with data in the above format, where values of the variable being observed are spread out across columns (Here: columns for each year). Another way of describing this is that there is more than one measurement per row. This wide format works well for data entry and sometimes works well for analysis but we quickly outgrow it when using R. For example, how would you fit a model with year as a predictor variable? In an ideal world, we’d be able to just run:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lm</span>(length <span class="op">~</span><span class="st"> </span>year)</code></pre></div>
+<p>But this won’t work on our wide data because <code>lm</code> needs <code>length</code> and <code>year</code> to be columns in our table.</p>
+<p>Or how would we make a separate plot for each year? We could call <code>plot</code> one time for each year but this is tedious if we have many years of data and hard to maintain as we add more years of data to our dataset.</p>
+<p>The <code>tidyr</code> package allows us to quickly switch between wide format and what is called tall format using the <code>gather</code> function:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">site_data <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">gather</span>(year, length, <span class="op">-</span>site)</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th>site</th>
+<th>year</th>
+<th align="right">length</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>gold</td>
+<td>1990</td>
+<td align="right">101</td>
+</tr>
+<tr class="even">
+<td>lake</td>
+<td>1990</td>
+<td align="right">104</td>
+</tr>
+<tr class="odd">
+<td>dredge</td>
+<td>1990</td>
+<td align="right">144</td>
+</tr>
+<tr class="even">
+<td>…</td>
+<td>…</td>
+<td align="right">…</td>
+</tr>
+<tr class="odd">
+<td>dredge</td>
+<td>1993</td>
+<td align="right">145</td>
+</tr>
+</tbody>
+</table>
+<p>In this lesson we’re going to walk through the functions you’ll most commonly use from the <code>dplyr</code> and <code>tidyr</code> packages:</p>
+<ul>
+<li><code>dplyr</code>
+<ul>
+<li><code>mutate()</code></li>
+<li><code>group_by()</code></li>
+<li><code>summarise()</code></li>
+<li><code>select()</code></li>
+<li><code>filter()</code></li>
+<li><code>arrange()</code></li>
+<li><code>left_join()</code></li>
+<li><code>rename()</code></li>
+</ul></li>
+<li><code>tidyr</code>
+<ul>
+<li><code>gather()</code></li>
+<li><code>spread()</code></li>
+<li><code>extract()</code></li>
+<li><code>separate()</code></li>
+</ul></li>
+</ul>
+</div>
+<div id="setup" class="section level2">
+<h2><span class="header-section-number">11.3</span> Setup</h2>
+<p>Let’s start going over the most common functions you’ll use from the <code>dplyr</code> package. To demonstrate, we’ll be working with a tidied up version of a dataset from ADF&amp;G containing commercial catch data from 1878-1997. The dataset and reference to the original source can be found at its public archive: <a href="https://knb.ecoinformatics.org/#view/df35b.304.2" class="uri">https://knb.ecoinformatics.org/#view/df35b.304.2</a>.</p>
+<p>First, let’s load <code>dplyr</code> and <code>tidyr</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
+<span class="kw">library</span>(tidyr)</code></pre></div>
+<p>Then let’s read in the data and take a look at it:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">catch_original &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="kw">url</span>(<span class="st">&quot;https://knb.ecoinformatics.org/knb/d1/mn/v2/object/df35b.302.1&quot;</span>, <span class="dt">method =</span> <span class="st">&quot;libcurl&quot;</span>),
+                    <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)
+<span class="kw">head</span>(catch_original)</code></pre></div>
+<pre><code>##   Region Year Chinook Sockeye Coho Pink Chum All notesRegCode
+## 1    SSE 1886       0       5    0    0    0   5             
+## 2    SSE 1887       0     155    0    0    0 155             
+## 3    SSE 1888       0     224   16    0    0 240             
+## 4    SSE 1889       0     182   11   92    0 285             
+## 5    SSE 1890       0     251   42    0    0 292             
+## 6    SSE 1891       0     274   24    0    0 298</code></pre>
+<p>Note: I copied the URL from the Download button on <a href="https://knb.ecoinformatics.org/#view/df35b.304.2" class="uri">https://knb.ecoinformatics.org/#view/df35b.304.2</a></p>
+<p>This dataset is relatively clean and easy to interpret as-is. But while it may be clean, it’s in a shape that makes it hard to use for some types of analyses so we’ll want to fix that first.</p>
+</div>
+<div id="about-the-pipe-operator" class="section level2">
+<h2><span class="header-section-number">11.4</span> About the pipe (<code>%&gt;%</code>) operator</h2>
+<p>Before we jump into learning <code>tidyr</code> and <code>dplyr</code>, we first need to explain the <code>%&gt;%</code>.</p>
+<p>Both the <code>tidyr</code> and the <code>dplyr</code> packages use the pipe operator - <code>%&gt;%</code>, which may look unfamiliar. The pipe is a powerful way to efficiently chain together operations. The pipe will take the output of a previous statement, and use it as the input to the next statement.</p>
+<p>Say you want to both <code>filter</code> out rows of a dataset, and <code>select</code> certain columns. Instead of writing</p>
+<pre><code>df_filtered &lt;- filter(df, ...)
+df_selected &lt;- select(df_filtered, ...)</code></pre>
+<p>You can write</p>
+<pre><code>df_cleaned &lt;- df %&gt;% 
+              filter(...) %&gt;%
+              select(...)</code></pre>
+<p>If you think of the assignment operator (<code>&lt;-</code>) as reading like “gets”, then the pipe operator would read like “then.”</p>
+<p>So you might think of the above chunk being translated as:</p>
+<p>The cleaned dataframe gets the original data, and then a filter (of the original data), and then a select (of the filtered data).</p>
+<p>The benefits to using pipes are that you don’t have to keep track of (or overwrite) intermediate data frames. The drawbacks are that it can be more difficult to explain the reasoning behind each step, especially when many operations are chained together. It is good to strike a balance between writing efficient code (chaining operations), while ensuring that you are still clearly explaining, both to your future self and others, what you are doing and why you are doing it.</p>
+<p>RStudio has a keyboard shortcut for <code>%&gt;%</code> : Ctrl + Shift + M (Windows), Cmd + Shift + M (Mac).</p>
+</div>
+<div id="selectingremoving-columns-select" class="section level2">
+<h2><span class="header-section-number">11.5</span> Selecting/removing columns: <code>select()</code></h2>
+<p>The first issue is the extra columns <code>All</code> and <code>notesRegCode</code>. Let’s select only the columns we want, and assign this to a variable called <code>catch_data</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">catch_data &lt;-<span class="st"> </span>catch_original <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">select</span>(Region, Year, Chinook, Sockeye, Coho, Pink, Chum)
+
+<span class="kw">head</span>(catch_data)</code></pre></div>
+<pre><code>##   Region Year Chinook Sockeye Coho Pink Chum
+## 1    SSE 1886       0       5    0    0    0
+## 2    SSE 1887       0     155    0    0    0
+## 3    SSE 1888       0     224   16    0    0
+## 4    SSE 1889       0     182   11   92    0
+## 5    SSE 1890       0     251   42    0    0
+## 6    SSE 1891       0     274   24    0    0</code></pre>
+<p>Much better!</p>
+<p><code>select</code> also allows you to say which columns you <em>don’t</em> want, by passing unquoted column names preceded by minus (-) signs:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">catch_data &lt;-<span class="st"> </span>catch_original <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>All, <span class="op">-</span>notesRegCode)
+
+<span class="kw">head</span>(catch_data)</code></pre></div>
+<pre><code>##   Region Year Chinook Sockeye Coho Pink Chum
+## 1    SSE 1886       0       5    0    0    0
+## 2    SSE 1887       0     155    0    0    0
+## 3    SSE 1888       0     224   16    0    0
+## 4    SSE 1889       0     182   11   92    0
+## 5    SSE 1890       0     251   42    0    0
+## 6    SSE 1891       0     274   24    0    0</code></pre>
+</div>
+<div id="changing-shape-gather-and-spread" class="section level2">
+<h2><span class="header-section-number">11.6</span> Changing shape: <code>gather()</code> and <code>spread()</code></h2>
+<p>The next issue is that the data are in a wide format and, we want the data in a tall format instead. <code>gather()</code> from the <code>tidyr</code> package helps us do just this conversion:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">catch_long &lt;-<span class="st"> </span>catch_data <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">gather</span>(species, catch, <span class="op">-</span>Region, <span class="op">-</span>Year)
+
+<span class="kw">head</span>(catch_long)</code></pre></div>
+<pre><code>##   Region Year species catch
+## 1    SSE 1886 Chinook     0
+## 2    SSE 1887 Chinook     0
+## 3    SSE 1888 Chinook     0
+## 4    SSE 1889 Chinook     0
+## 5    SSE 1890 Chinook     0
+## 6    SSE 1891 Chinook     0</code></pre>
+<p>The syntax we used above for <code>gather()</code> might be a bit confusing so let’s look at an annotated diagram:</p>
+<div class="figure">
+<img src="images/gather_annotated.png" alt="annotated gather code" />
+<p class="caption">annotated gather code</p>
+</div>
+<p>The first two arguments to <code>gather()</code> are the names of new columns that will be created and the other arguments with <code>-</code> symbols in front of them are columns to keep around in this process. The opposite of <code>gather()</code>, <code>spread()</code>, works in a similar declarative fashion:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">catch_wide &lt;-<span class="st"> </span>catch_long <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">spread</span>(species, catch)
+
+<span class="kw">head</span>(catch_wide)</code></pre></div>
+<pre><code>##   Region Year Chinook Chum Coho Pink Sockeye
+## 1    ALU 1911       0    0    0    0       9
+## 2    ALU 1912       0    0    0    0       0
+## 3    ALU 1913       0    0    0    0       0
+## 4    ALU 1914       0    0    0    0       0
+## 5    ALU 1915       0    0    0    0       0
+## 6    ALU 1916       0    0    1  180      76</code></pre>
+</div>
+<div id="renaming-columns-with-rename" class="section level2">
+<h2><span class="header-section-number">11.7</span> Renaming columns with <code>rename()</code></h2>
+<p>If you scan through the data, you may notice the values in the <code>catch</code> column are very small (these are supposed to be annual catches). If we look at <a href="https://knb.ecoinformatics.org/#view/df35b.304.2">the metadata</a> we can see that the <code>catch</code> column is in thousands of fish so let’s convert it before moving on.</p>
+<p>Let’s first rename the <code>catch</code> column to be called <code>catch_thousands</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">catch_clean &lt;-<span class="st"> </span>catch_long <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">rename</span>(<span class="dt">catch_thousands =</span> catch)
+
+<span class="kw">head</span>(catch_clean)</code></pre></div>
+<pre><code>##   Region Year species catch_thousands
+## 1    SSE 1886 Chinook               0
+## 2    SSE 1887 Chinook               0
+## 3    SSE 1888 Chinook               0
+## 4    SSE 1889 Chinook               0
+## 5    SSE 1890 Chinook               0
+## 6    SSE 1891 Chinook               0</code></pre>
+</div>
+<div id="adding-columns-mutate" class="section level2">
+<h2><span class="header-section-number">11.8</span> Adding columns: <code>mutate()</code></h2>
+<p>Now let’s create a new column called <code>catch</code> with units of fish (instead of thousands of fish). Note that here we have added to the expression we wrote above by adding another function call (<code>mutate</code>) to our expression. This takes advantage of the pipe operator by grouping together a similar set of statements, which all aim to clean up the <code>catch_long</code> <code>data.frame</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">catch_clean &lt;-<span class="st"> </span>catch_long <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">rename</span>(<span class="dt">catch_thousands =</span> catch) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">catch =</span> catch_thousands <span class="op">*</span><span class="st"> </span><span class="dv">1000</span>)
+
+<span class="kw">head</span>(catch_clean)</code></pre></div>
+<p>You’ll notice that we get an error:</p>
+<blockquote>
+<p>Error in mutate_impl(.data, dots) : Evaluation error: non-numeric argument to binary operator.</p>
+</blockquote>
+<p>This is an extremely cryptic error – what is it telling us? These kinds of errors can be very hard to diagnose, but maybe the <code>catch</code> column isn’t quite what we are expecting. How could we find out? R provides a number of handy utility functions for quickly summarizing a large table:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(catch_clean)</code></pre></div>
+<pre><code>##     Region               Year        species          catch_thousands   
+##  Length:8540        Min.   :1878   Length:8540        Length:8540       
+##  Class :character   1st Qu.:1922   Class :character   Class :character  
+##  Mode  :character   Median :1947   Mode  :character   Mode  :character  
+##                     Mean   :1946                                        
+##                     3rd Qu.:1972                                        
+##                     Max.   :1997</code></pre>
+<ul>
+<li><strong>Exercise:</strong> What are some other ways (functions) we could’ve found out what our problem was?</li>
+</ul>
+<p>Notice in the above output that the <code>catch_thousands</code> column shows up as <code>Class :character</code>. That seems wrong since catch should be whole numbers (in R, these show up as integers).</p>
+<p>Let’s try to convert the values to integers and see what happens:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">catch_integers &lt;-<span class="st"> </span><span class="kw">as.integer</span>(catch_clean<span class="op">$</span>catch_thousands)</code></pre></div>
+<pre><code>## Warning: NAs introduced by coercion</code></pre>
+<p>We get an error “NAs introduced by coercion” which is R telling us that it couldn’t convert every value to an integer and, for those values it couldn’t convert, it put an <code>NA</code> in its place. This is behavior we commonly experience when cleaning datasets and it’s important to have the skills to deal with it when it crops up. We can find out which values are NAs with a combination of <code>is.na()</code> and <code>which()</code>, and save that to a variable called <code>i</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">i &lt;-<span class="st"> </span><span class="kw">which</span>(<span class="kw">is.na</span>(catch_integers))
+i</code></pre></div>
+<pre><code>## [1] 401</code></pre>
+<p>It looks like there is only one problem row, lets have a look at it:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">catch_clean[i,]</code></pre></div>
+<pre><code>##     Region Year species catch_thousands
+## 401    GSE 1955 Chinook               I</code></pre>
+<p>Well that’s odd: The value in <code>catch_thousands</code> is <code>I</code> which is isn’t even a number. It turns out that this dataset is from a PDF which was automatically converted into a CSV and this value of <code>I</code> is actually a 1. Let’s fix it:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">catch_clean &lt;-<span class="st"> </span>catch_long <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">rename</span>(<span class="dt">catch_thousands =</span> catch) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">catch_thousands =</span> <span class="kw">ifelse</span>(catch_thousands <span class="op">==</span><span class="st"> &quot;I&quot;</span>, <span class="dv">1</span>, catch_thousands)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">catch_thousands =</span> <span class="kw">as.integer</span>(catch_thousands))
+
+<span class="kw">head</span>(catch_clean)</code></pre></div>
+<pre><code>##   Region Year species catch_thousands
+## 1    SSE 1886 Chinook               0
+## 2    SSE 1887 Chinook               0
+## 3    SSE 1888 Chinook               0
+## 4    SSE 1889 Chinook               0
+## 5    SSE 1890 Chinook               0
+## 6    SSE 1891 Chinook               0</code></pre>
+<p>Note that, in the above pipeline call to <code>mutate()</code>, we mutate <code>catch_thousands</code> twice. This works because <code>mutate()</code> processes each of the mutations in a step-wise fashion so the results of one mutation are available for the next.</p>
+<p>Now let’s try our conversion again by adding it as another function call in our expression.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">catch_clean &lt;-<span class="st"> </span>catch_long <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">rename</span>(<span class="dt">catch_thousands =</span> catch) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">catch_thousands =</span> <span class="kw">ifelse</span>(catch_thousands <span class="op">==</span><span class="st"> &quot;I&quot;</span>, <span class="dv">1</span>, catch_thousands)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">catch_thousands =</span> <span class="kw">as.integer</span>(catch_thousands)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">catch =</span> catch_thousands <span class="op">*</span><span class="st"> </span><span class="dv">1000</span>)
+
+<span class="kw">head</span>(catch_clean)</code></pre></div>
+<pre><code>##   Region Year species catch_thousands catch
+## 1    SSE 1886 Chinook               0     0
+## 2    SSE 1887 Chinook               0     0
+## 3    SSE 1888 Chinook               0     0
+## 4    SSE 1889 Chinook               0     0
+## 5    SSE 1890 Chinook               0     0
+## 6    SSE 1891 Chinook               0     0</code></pre>
+<p>Looks good, no warnings! Now let’s remove the <code>catch_thousands</code> column for now since we don’t need it:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">catch_clean &lt;-<span class="st"> </span>catch_long <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">rename</span>(<span class="dt">catch_thousands =</span> catch) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">catch_thousands =</span> <span class="kw">ifelse</span>(catch_thousands <span class="op">==</span><span class="st"> &quot;I&quot;</span>, <span class="dv">1</span>, catch_thousands)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">catch_thousands =</span> <span class="kw">as.integer</span>(catch_thousands)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">catch =</span> catch_thousands <span class="op">*</span><span class="st"> </span><span class="dv">1000</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>catch_thousands)    
+
+<span class="kw">head</span>(catch_clean)</code></pre></div>
+<pre><code>##   Region Year species catch
+## 1    SSE 1886 Chinook     0
+## 2    SSE 1887 Chinook     0
+## 3    SSE 1888 Chinook     0
+## 4    SSE 1889 Chinook     0
+## 5    SSE 1890 Chinook     0
+## 6    SSE 1891 Chinook     0</code></pre>
+<p>We’re now ready to start analyzing the data.</p>
+</div>
+<div id="group_by-and-summarise" class="section level2">
+<h2><span class="header-section-number">11.9</span> <code>group_by</code> and <code>summarise</code></h2>
+<p>As I outlined in the Introduction, <code>dplyr</code> lets us employ the Split-Apply-Combine strategy and this is exemplified through the use of the <code>group_by()</code> and <code>summarise()</code> functions:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mean_region &lt;-<span class="st"> </span>catch_clean <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">group_by</span>(Region) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="kw">mean</span>(catch))
+
+<span class="kw">head</span>(mean_region)</code></pre></div>
+<pre><code>## # A tibble: 6 x 2
+##   Region `mean(catch)`
+##   &lt;chr&gt;          &lt;dbl&gt;
+## 1 ALU           40384.
+## 2 BER           16373.
+## 3 BRB         2709796.
+## 4 CHG          315487.
+## 5 CKI          683571.
+## 6 COP          179223.</code></pre>
+<ul>
+<li><strong>Exercise:</strong> Find another grouping and statistic to calculate for each group.</li>
+<li><strong>Exercise:</strong> Find out if you can group by multiple variables.</li>
+</ul>
+<p>Another common use of <code>group_by()</code> followed by <code>summarize()</code> is to count the number of rows in each group. We have to use a special function from <code>dplyr</code>, <code>n()</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">n_region &lt;-<span class="st"> </span>catch_clean <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">group_by</span>(Region) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">summarize</span>(<span class="dt">n =</span> <span class="kw">n</span>())
+
+<span class="kw">head</span>(n_region)</code></pre></div>
+<pre><code>## # A tibble: 6 x 2
+##   Region     n
+##   &lt;chr&gt;  &lt;int&gt;
+## 1 ALU      435
+## 2 BER      510
+## 3 BRB      570
+## 4 CHG      550
+## 5 CKI      525
+## 6 COP      470</code></pre>
+</div>
+<div id="filtering-rows-filter" class="section level2">
+<h2><span class="header-section-number">11.10</span> Filtering rows: <code>filter()</code></h2>
+<p><code>filter()</code> is the verb we use to filter our <code>data.frame</code> to rows matching some condition. It’s similar to <code>subset()</code> from base R.</p>
+<p>Let’s go back to our original <code>data.frame</code> and do some <code>filter()</code>ing:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">SSE_catch &lt;-<span class="st"> </span>catch_clean <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(Region <span class="op">==</span><span class="st"> &quot;SSE&quot;</span>)
+
+<span class="kw">head</span>(SSE_catch)</code></pre></div>
+<pre><code>##   Region Year species catch
+## 1    SSE 1886 Chinook     0
+## 2    SSE 1887 Chinook     0
+## 3    SSE 1888 Chinook     0
+## 4    SSE 1889 Chinook     0
+## 5    SSE 1890 Chinook     0
+## 6    SSE 1891 Chinook     0</code></pre>
+<ul>
+<li><strong>Exercise:</strong> Filter to just catches of over one million fish.</li>
+<li><strong>Exercise:</strong> Filter to just SSE Chinook</li>
+</ul>
+</div>
+<div id="sorting-your-data-arrange" class="section level2">
+<h2><span class="header-section-number">11.11</span> Sorting your data: <code>arrange()</code></h2>
+<p><code>arrange()</code> is how we sort the rows of a <code>data.frame</code>. In my experience, I use <code>arrange()</code> in two common cases:</p>
+<ul>
+<li>When I want to calculate a cumulative sum (with <code>cumsum()</code>) so row order matters</li>
+<li>When I want to display a table (like in an <code>.Rmd</code> document) in sorted order</li>
+</ul>
+<p>Let’s re-calculate mean catch by region, and then <code>arrange()</code> the output by mean catch:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mean_region &lt;-<span class="st"> </span>catch_clean <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">group_by</span>(Region) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_catch =</span> <span class="kw">mean</span>(catch)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">arrange</span>(mean_catch)
+
+<span class="kw">head</span>(mean_region)</code></pre></div>
+<pre><code>## # A tibble: 6 x 2
+##   Region mean_catch
+##   &lt;chr&gt;       &lt;dbl&gt;
+## 1 BER        16373.
+## 2 KTZ        18836.
+## 3 ALU        40384.
+## 4 NRS        51503.
+## 5 KSK        67642.
+## 6 YUK        68646.</code></pre>
+<p>The default sorting order of <code>arrange()</code> is to sort in ascending order. To reverse the sort order, wrap the column name inside the <code>desc()</code> function:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mean_region &lt;-<span class="st"> </span>catch_clean <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">group_by</span>(Region) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_catch =</span> <span class="kw">mean</span>(catch)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(mean_catch))
+
+<span class="kw">head</span>(mean_region)</code></pre></div>
+<pre><code>## # A tibble: 6 x 2
+##   Region mean_catch
+##   &lt;chr&gt;       &lt;dbl&gt;
+## 1 SSE      3184661.
+## 2 BRB      2709796.
+## 3 NSE      1825021.
+## 4 KOD      1528350 
+## 5 PWS      1419237.
+## 6 SOP      1110942.</code></pre>
+</div>
+<div id="joins-in-dplyr" class="section level2">
+<h2><span class="header-section-number">11.12</span> Joins in dplyr</h2>
+<p>So now that we’re awesome at manipulating a single <code>data.frame</code>, where do we go from here? Manipulating <strong>more than one</strong> <code>data.frame</code>.</p>
+<p>If you’ve ever used a database, you may have heard of or used what’s called a “join”, which allows us to to intelligently merge two tables together into a single table based upon a shared column between the two. We’ve already covered joins in <a href="data-modeling-tidy-data.html#data-modeling-tidy-data">Data Modeling &amp; Tidy Data</a> so let’s see how it’s done with <code>dplyr</code>.</p>
+<p>The dataset we’re working with, <a href="https://knb.ecoinformatics.org/#view/df35b.304.2" class="uri">https://knb.ecoinformatics.org/#view/df35b.304.2</a>, contains a second CSV which has the definition of each <code>Region</code> code. This is a really common way of storing auxiliary information about our dataset of interest (catch) but, for analylitcal purposes, we often want them in the same <code>data.frame</code>. Joins let us do that easily.</p>
+<p>Let’s look at a preview of what our join will do by looking at a simplified version of our data:</p>
+<div class="figure">
+<img src="images/left_join_catchdata.png" alt="Visualisation of our left_join" />
+<p class="caption">Visualisation of our <code>left_join</code></p>
+</div>
+<p>First, let’s read in the region definitions data table and select only the columns we want. Note that I have piped my <code>read.csv</code> result into a select call, creating a tidy chunk that reads and selects the data that we need.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">region_defs &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="kw">url</span>(<span class="st">&quot;https://knb.ecoinformatics.org/knb/d1/mn/v2/object/df35b.303.1&quot;</span>,
+                            <span class="dt">method =</span> <span class="st">&quot;libcurl&quot;</span>),
+                        <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">select</span>(code, mgmtArea)
+
+<span class="kw">head</span>(region_defs)</code></pre></div>
+<pre><code>##      code                                  mgmtArea
+## 1     GSE              Unallocated Southeast Alaska
+## 2     NSE                 Northern Southeast Alaska
+## 3     SSE                 Southern Southeast Alaska
+## 4     YAK                                   Yakutat
+## 5 PWSmgmt      Prince William Sound Management Area
+## 6     BER Bering River Subarea Copper River Subarea</code></pre>
+<p>If you examine the <code>region_defs</code> <code>data.frame</code>, you’ll see that the column names don’t exactly match the image above. If the names of the key columns are not the same, you can explicitly specify which are the key columns in the left and right side as shown below:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">catch_joined &lt;-<span class="st"> </span><span class="kw">left_join</span>(catch_clean, region_defs, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;Region&quot;</span> =<span class="st"> &quot;code&quot;</span>))
+
+<span class="kw">head</span>(catch_joined)</code></pre></div>
+<pre><code>##   Region Year species catch                  mgmtArea
+## 1    SSE 1886 Chinook     0 Southern Southeast Alaska
+## 2    SSE 1887 Chinook     0 Southern Southeast Alaska
+## 3    SSE 1888 Chinook     0 Southern Southeast Alaska
+## 4    SSE 1889 Chinook     0 Southern Southeast Alaska
+## 5    SSE 1890 Chinook     0 Southern Southeast Alaska
+## 6    SSE 1891 Chinook     0 Southern Southeast Alaska</code></pre>
+<p>Notice that I have deviated from our usual pipe syntax (although it does work here!) because I prefer to see the <code>data.frames</code> that I am joining side by side in the syntax.</p>
+<p>Another way you can do this join is to use <code>rename</code> to change the column name <code>code</code> to <code>Region</code> in the <code>region_defs</code> <code>data.frame</code>, and run the <code>left_join</code> this way:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">region_defs &lt;-<span class="st"> </span>region_defs <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">rename</span>(<span class="dt">Region =</span> code, <span class="dt">Region_Name =</span> mgmtArea)
+
+catch_joined &lt;-<span class="st"> </span><span class="kw">left_join</span>(catch_clean, region_defs, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;Region&quot;</span>))
+
+<span class="kw">head</span>(catch_joined)</code></pre></div>
+<p>Now our catches have the auxiliary information from the region definitions file alongside them. Note: <code>dplyr</code> provides a complete set of joins: inner, left, right, full, semi, anti, not just left_join.</p>
+</div>
+<div id="separate-and-unite" class="section level2">
+<h2><span class="header-section-number">11.13</span> <code>separate()</code> and <code>unite()</code></h2>
+<p><code>separate()</code> and its complement, <code>unite()</code> allow us to easily split a single column into numerous (or numerous into a single). This can come in really handle when we have a date column and we want to group by year or month. Let’s make a new <code>data.frame</code> with fake data to illustrate this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dates_df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">date =</span> <span class="kw">c</span>(<span class="st">&quot;5/24/1930&quot;</span>,
+                                <span class="st">&quot;5/25/1930&quot;</span>,
+                                <span class="st">&quot;5/26/1930&quot;</span>,
+                                <span class="st">&quot;5/27/1930&quot;</span>,
+                                <span class="st">&quot;5/28/1930&quot;</span>),
+                       <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)
+
+dates_df <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">separate</span>(date, <span class="kw">c</span>(<span class="st">&quot;month&quot;</span>, <span class="st">&quot;day&quot;</span>, <span class="st">&quot;year&quot;</span>), <span class="st">&quot;/&quot;</span>)</code></pre></div>
+<pre><code>##   month day year
+## 1     5  24 1930
+## 2     5  25 1930
+## 3     5  26 1930
+## 4     5  27 1930
+## 5     5  28 1930</code></pre>
+<ul>
+<li><strong>Exercise:</strong> Split the <code>city</code> column in the following <code>data.frame</code> into <code>city</code> and <code>state_code</code> columns:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cities_df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">city =</span> <span class="kw">c</span>(<span class="st">&quot;Juneau AK&quot;</span>, 
+                                 <span class="st">&quot;Sitka AK&quot;</span>, 
+                                 <span class="st">&quot;Anchorage AK&quot;</span>),
+                        <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)
+
+<span class="co"># Write your solution here</span></code></pre></div>
+<p><code>unite()</code> does just the reverse of <code>separate()</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dates_df <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">separate</span>(date, <span class="kw">c</span>(<span class="st">&quot;month&quot;</span>, <span class="st">&quot;day&quot;</span>, <span class="st">&quot;year&quot;</span>), <span class="st">&quot;/&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">unite</span>(date, month, day, year, <span class="dt">sep =</span> <span class="st">&quot;/&quot;</span>)</code></pre></div>
+<pre><code>##        date
+## 1 5/24/1930
+## 2 5/25/1930
+## 3 5/26/1930
+## 4 5/27/1930
+## 5 5/28/1930</code></pre>
+<ul>
+<li><strong>Exercise:</strong> Use <code>unite()</code> on your solution above to combine the <code>cities_df</code> back to its original form with just one column, <code>city</code>:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Write your solution here</span></code></pre></div>
+</div>
+<div id="summary" class="section level2">
+<h2><span class="header-section-number">11.14</span> Summary</h2>
+<p>We just ran through the various things we can do with <code>dplyr</code> and <code>tidyr</code> but if you’re wondering how this might look in a real analysis. Let’s look at that now:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">catch_original &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="kw">url</span>(<span class="st">&quot;https://knb.ecoinformatics.org/knb/d1/mn/v2/object/df35b.302.1&quot;</span>, <span class="dt">method =</span> <span class="st">&quot;libcurl&quot;</span>),
+                  <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)
+region_defs &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="kw">url</span>(<span class="st">&quot;https://knb.ecoinformatics.org/knb/d1/mn/v2/object/df35b.303.1&quot;</span>, <span class="dt">method =</span> <span class="st">&quot;libcurl&quot;</span>),
+                        <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">select</span>(code, mgmtArea)
+
+mean_region &lt;-<span class="st"> </span>catch_original <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>All, <span class="op">-</span>notesRegCode) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">gather</span>(species, catch, <span class="op">-</span>Region, <span class="op">-</span>Year) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">catch =</span> <span class="kw">ifelse</span>(catch <span class="op">==</span><span class="st"> &quot;I&quot;</span>, <span class="dv">1</span>, catch)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">catch =</span> <span class="kw">as.integer</span>(catch)<span class="op">*</span><span class="dv">1000</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">group_by</span>(Region) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean_catch =</span> <span class="kw">mean</span>(catch)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">left_join</span>(region_defs, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;Region&quot;</span> =<span class="st"> &quot;code&quot;</span>))
+
+<span class="kw">head</span>(mean_region)</code></pre></div>
+<pre><code>## # A tibble: 6 x 3
+##   Region mean_catch mgmtArea                                 
+##   &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;                                    
+## 1 ALU        40384. Aleutian Islands Subarea                 
+## 2 BER        16373. Bering River Subarea Copper River Subarea
+## 3 BRB      2709796. Bristol Bay Management Area              
+## 4 CHG       315487. Chignik Management Area                  
+## 5 CKI       683571. Cook Inlet Management Area               
+## 6 COP       179223. Copper River Subarea</code></pre>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-modeling-tidy-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="creating-r-functions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
