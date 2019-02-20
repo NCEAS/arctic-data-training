@@ -28,6 +28,10 @@ Workshop topics will include:
 
 For more detailed information on how to prepare for the workshop, see preparing for the workshop (below).
 
+## Materials
+
+- [Arctic Data Center Training](/materials/arctic-data-training-2019-02/index.html)
+
 
 ## Organizers
 
