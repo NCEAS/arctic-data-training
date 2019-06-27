@@ -15,9 +15,8 @@ addons:
     - libproj-dev
 r_packages:
     - blogdown
-    - gh
-    - git2r
     - remotes
+    - devtools
 before_script:
     - Rscript -e 'blogdown::install_hugo(version = "0.29")'
 script:
