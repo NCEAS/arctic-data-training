@@ -1,6 +1,6 @@
 ---
 title: "Dataset Publishing with the Arctic Data Center (June 2018)"
-weight: 4
+weight: 5
 ---
 
 
