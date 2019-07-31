@@ -14,7 +14,9 @@ __Venue__: [NCEAS](https://www.nceas.ucsb.edu), 735 State St., Suite 300, UC San
 The Arctic Data Center provides training in data science and data management, as these are critical skills for the stewardship of the data, software, and other research products that are preserved in the Arctic Data Center. A goal of the Arctic Data Center is to advance data archiving and promote reproducible science and data reuse. This 5-day workshop will provide researchers with an overview of best data management practices, data science tools and concrete steps and methods for more easily documenting and uploading their data to the Arctic Data Center.
 
 
-**[Apply Now](https://forms.gle/LVR8Wmvu4SHnUgbj9)**
+**[Apply by August 15](https://forms.gle/LVR8Wmvu4SHnUgbj9)**
+
+Acceptance to the training includes domestic travel, accommodation, and meals. 
 
 ## Overview:
 
