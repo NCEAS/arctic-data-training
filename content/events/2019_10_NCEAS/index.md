@@ -31,7 +31,7 @@ For more detailed information on how to prepare for the workshop, see preparing 
 
 ## Preliminary Agenda
 
-![](images/schedule.png)
+![](/images/events/2019_10_nceas/images/schedule.png)
 
 ## Organizers
 
