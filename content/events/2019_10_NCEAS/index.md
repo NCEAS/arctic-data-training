@@ -13,9 +13,6 @@ __Location__: Santa Barbara, CA<br>
 __Venue__: [NCEAS](https://www.nceas.ucsb.edu), 735 State St., Suite 300, UC Santa Barbara
 The Arctic Data Center provides training in data science and data management, as these are critical skills for the stewardship of the data, software, and other research products that are preserved in the Arctic Data Center. A goal of the Arctic Data Center is to advance data archiving and promote reproducible science and data reuse. This 5-day workshop will provide researchers with an overview of best data management practices, data science tools and concrete steps and methods for more easily documenting and uploading their data to the Arctic Data Center.
 
-
-**[Apply by August 15](https://forms.gle/LVR8Wmvu4SHnUgbj9)**
-
 Acceptance to the training includes domestic travel, accommodation, and meals. 
 
 ## Overview:
@@ -32,10 +29,9 @@ Workshop topics will include:
 
 For more detailed information on how to prepare for the workshop, see preparing for the workshop (below).
 
-## Materials
+## Preliminary Agenda
 
-- [Arctic Data Center Training](/materials/arctic-data-training-2019-02/index.html)
-
+![](schedule.png)
 
 ## Organizers
 
@@ -72,11 +68,15 @@ We will primarily be using a web browser, `R`, RStudio, and `git`. Please be sur
     - ggplot2
     - leaflet
     - tidyr
+    - EML
+    - dataone
+    - datapack
+    - sf
 
     You can install these packages quickly by running the following two code snippets:
 
     ```r
-    packages <- c("dataone", "datapack", "devtools", "dplyr", "EML", "ggplot2", "readxl", "tidyr")
+    packages <- c("dataone", "datapack", "devtools", "dplyr", "EML", "ggplot2", "readxl", "tidyr", "EML", "dataone", "datapack", "sf")
     ```
 
     ```r
@@ -117,3 +117,17 @@ In particular, check out:
 
 |Name         | Email              |Affiliation           |
 |-------------|--------------------|----------------------|
+|Sharon Kenny |kenny.sharon@epa.gov|Environmental Protection Agency|
+|Anna Talucci|atalucci@colgate.edu|Colgate University|
+|Michael Sousa|sousa014@umn.edu|University of New Mexico|
+|Leslie M. Hartten|Leslie.M.Hartten@noaa.gov|National Oceanographic and Atmospheric Administration
+|Andreas Muenchow|muenchow@udel.edu|University of Delaware|
+|Haley Dunleavy|hd255@nau.edu|Northern Arizona University|
+|Christina Bonsell|cbonsell@utexas.edu|University of Texas|
+|Jennie DeMarco|cbonsell@utexas.edu|University of Texas|
+|Eugenie Euskirchen|cbonsell@utexas.edu|University of Texas|
+|Allen Bondurant|acbondurant@alaska.edu|University of Alaska|
+|Timothy Pasch |timothy.pasch@und.edu|University of North Dakota|
+|Amanda B. Young|ayoung55@alaska.edu|University of Texas|
+|Nikolai Tausnev|nikolai.l.tausnev@nasa.gov|National Aeronautics and Space Administration|
+|Toni Aandroski|aandroski@unm.edu|University of New Mexico|
