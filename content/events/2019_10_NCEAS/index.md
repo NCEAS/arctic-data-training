@@ -31,7 +31,7 @@ For more detailed information on how to prepare for the workshop, see preparing 
 
 ## Preliminary Agenda
 
-![](/images/events/2019_10_nceas/images/schedule.png)
+![](/images/schedule.png)
 
 ## Organizers
 
@@ -119,7 +119,7 @@ In particular, check out:
 |-------------|--------------------|----------------------|
 |Sharon Kenny |kenny.sharon@epa.gov|Environmental Protection Agency|
 |Anna Talucci|atalucci@colgate.edu|Colgate University|
-|Michael Sousa|sousa014@umn.edu|University of New Mexico|
+|Michael Sousa|sousa014@umn.edu|University of Minnesota|
 |Leslie M. Hartten|Leslie.M.Hartten@noaa.gov|National Oceanographic and Atmospheric Administration
 |Andreas Muenchow|muenchow@udel.edu|University of Delaware|
 |Haley Dunleavy|hd255@nau.edu|Northern Arizona University|
