@@ -120,7 +120,7 @@ In particular, check out:
 |Sharon Kenny |kenny.sharon@epa.gov|Environmental Protection Agency|
 |Anna Talucci|atalucci@colgate.edu|Colgate University|
 |Michael Sousa|sousa014@umn.edu|University of Minnesota|
-|Leslie M. Hartten|Leslie.M.Hartten@noaa.gov|National Oceanographic and Atmospheric Administration
+|Leslie M. Hartten|Leslie.M.Hartten@noaa.gov|University of Colorado|
 |Andreas Muenchow|muenchow@udel.edu|University of Delaware|
 |Haley Dunleavy|hd255@nau.edu|Northern Arizona University|
 |Christina Bonsell|cbonsell@utexas.edu|University of Texas|
