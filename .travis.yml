@@ -14,6 +14,7 @@ addons:
     - libgeos-dev
     - libproj-dev
     - libjq-dev
+    - libv8-dev
 r_packages:
     - blogdown
     - remotes
