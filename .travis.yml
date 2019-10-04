@@ -13,6 +13,7 @@ addons:
     - libgdal-dev
     - libgeos-dev
     - libproj-dev
+    - libjq-dev
 r_packages:
     - blogdown
     - remotes
