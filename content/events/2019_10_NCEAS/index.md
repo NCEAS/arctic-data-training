@@ -33,6 +33,10 @@ For more detailed information on how to prepare for the workshop, see preparing 
 
 ![](/images/schedule.png)
 
+## Materials
+
+- [Arctic Data Center Training](/materials/arctic-data-training-2019-10/index.html)
+
 ## Organizers
 
 |Name         | Email              |
