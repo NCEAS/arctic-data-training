@@ -1,6 +1,6 @@
 ---
 title: "Tools for Data Science in Arctic Research (July 2017)"
-weight: 6
+weight: 7
 ---
 
 

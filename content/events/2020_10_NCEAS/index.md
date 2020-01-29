@@ -1,18 +1,19 @@
 ---
-title: "Arctic Data Center Training (February 2019)"
+title: "Arctic Data Center Training (October 2020)"
 output:
   html_document:
     df_print: paged
-weight: 3
+weight: 1
 ---
 
 
 
-__Dates__: February 11 - February 15, 2019<br>
+__Dates__: October 29 - October 23, 2020<br>
 __Location__: Santa Barbara, CA<br>
 __Venue__: [NCEAS](https://www.nceas.ucsb.edu), 735 State St., Suite 300, UC Santa Barbara
 The Arctic Data Center provides training in data science and data management, as these are critical skills for the stewardship of the data, software, and other research products that are preserved in the Arctic Data Center. A goal of the Arctic Data Center is to advance data archiving and promote reproducible science and data reuse. This 5-day workshop will provide researchers with an overview of best data management practices, data science tools and concrete steps and methods for more easily documenting and uploading their data to the Arctic Data Center.
 
+Acceptance to the training includes domestic travel, accommodation, and meals. 
 
 ## Overview:
 
@@ -28,9 +29,9 @@ Workshop topics will include:
 
 For more detailed information on how to prepare for the workshop, see preparing for the workshop (below).
 
-## Materials
+## Preliminary Agenda
 
-- [Arctic Data Center Training](/materials/arctic-data-training-2019-02/index.html)
+![](/images/schedule.png)
 
 
 ## Organizers
@@ -55,11 +56,11 @@ Additional support was provided for working group collaboration by the National 
 
 We will primarily be using a web browser, `R`, RStudio, and `git`. Please be sure these are all installed on your laptop, as follows:
 
-- **R:** We will use R version 3.5.2, which you can download and install from [CRAN](https://cran.rstudio.com)
+- **R:** We will use R version 3.6.2, which you can download and install from [CRAN](https://cran.rstudio.com)
 
 - **RStudio**: To download RStudio, visit [RStudio's download page](https://www.rstudio.com/products/rstudio/download/).
   *If you don't know how up to date your version of RStudio is, please download an updated copy and install it*
-    
+
 - **R packages:** Please be sure you have installed or updated the following packages:
 
     - devtools
@@ -68,13 +69,17 @@ We will primarily be using a web browser, `R`, RStudio, and `git`. Please be sur
     - ggplot2
     - leaflet
     - tidyr
-    
+    - EML
+    - dataone
+    - datapack
+    - sf
+
     You can install these packages quickly by running the following two code snippets:
 
     ```r
-    packages <- c("dataone", "datapack", "devtools", "dplyr", "EML", "ggplot2", "readxl", "tidyr")
+    packages <- c("dataone", "datapack", "devtools", "dplyr", "EML", "ggplot2", "readxl", "tidyr", "EML", "dataone", "datapack", "sf")
     ```
-    
+
     ```r
     for (package in packages) {
       if (!(package %in% installed.packages())) {
@@ -102,33 +107,11 @@ If you're a fan of cheat sheets, [RStudio](https://www.rstudio.com) provides som
 In particular, check out:
 
 * Base R
-* Data Import 
-* Data Transformation with dplyr 
+* Data Import
+* Data Transformation with dplyr
 * R Markdown
 * Data Visualization with ggplot2
-* R Markdown Reference Guide 
+* R Markdown Reference Guide
 * The leaflet package
 
 ## Participants
-
-|Name         | Email              |Affiliation           |
-|-------------|--------------------|----------------------|
-Adam Schneider|amschne@umich.edu|University of Michigan|
-Aleksey Sheshukov|ashesh@ksu.edu|Kansas State University|
-Alexis C Garretson|alexis@garretson.net|Brigham Young University|
-Ali Paulson|alison.paulson@msstate.edu|Mississippi State|
-Anastasija Mensikova|mensikova.anastasija@gmail.com|George Washington University|
-Anna Nesterovich|annanest@iastate.edu|Iowa State|
-Caixia Wang|cwang12@alaska.edu|University of Alaska - Anchorage|
-Christina Minions|cminions@whrc.org|Woods Hole Research Center|
-Desheng Liu|liu.738@osu.edu|Ohio State University|
-Helene Angot|helene.angot@colorado.edu|University of Colorado - Boulder|
-Ian Baxter|itbaxter@ucsb.edu|UC Santa Barbara|
-Kelly Kapsar|kelly.kapsar@gmail.com|Michigan State|
-Komi Messan|Komi.S.Messan@erdc.dren.mil|US Army Corps of Engineers|
-Olaf Kuhlke|okuhlke@d.umn.edu|University of Minnesota - Duluth|
-Rebecca Finger-Higgens|rebecca.finger@gmail.com|Dartmouth College|
-Sanghoon Kang|sanghoon_kang@baylor.edu|Baylor University|
-Sara Pedro|sara.pedro@uconn.edu|University of Connecticut|
-Susan L. Howard|showard@esr.org|Earth and Space Research|
-Yiyi Huang|yiyi063@email.arizona.edu|University of Arizona|

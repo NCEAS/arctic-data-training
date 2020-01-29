@@ -3,7 +3,7 @@ title: "Arctic Data Center Training (January 2019)"
 output:
   html_document:
     df_print: paged
-weight: 3
+weight: 4
 ---
 
 
