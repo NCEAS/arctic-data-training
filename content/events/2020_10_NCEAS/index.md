@@ -8,12 +8,10 @@ weight: 1
 
 
 
-__Dates__: October 29 - October 23, 2020<br>
-__Location__: Santa Barbara, CA<br>
+__Dates__: October 19 - October 23, 2020<br>
+__Location__: Online
 __Venue__: [NCEAS](https://www.nceas.ucsb.edu), 735 State St., Suite 300, UC Santa Barbara
 The Arctic Data Center provides training in data science and data management, as these are critical skills for the stewardship of the data, software, and other research products that are preserved in the Arctic Data Center. A goal of the Arctic Data Center is to advance data archiving and promote reproducible science and data reuse. This 5-day workshop will provide researchers with an overview of best data management practices, data science tools and concrete steps and methods for more easily documenting and uploading their data to the Arctic Data Center.
-
-Acceptance to the training includes domestic travel, accommodation, and meals. 
 
 ## Overview:
 
@@ -97,10 +95,10 @@ This workshop assumes a base level of experience using R for scientific and stat
 However, we realize that not everyone will be at the same place in terms of familiarity with the tools we'll be using.
 If you'd like to brush up on your R skills prior to the workshop, check out this list of resources we like:
 
-- The [Data Scientist with R](https://www.datacamp.com/tracks/data-scientist-with-r) track at [DataCamp](https://www.datacamp.com)
-- The [Introduction to R](http://www.datacarpentry.org/R-ecology-lesson/01-intro-to-r.html) lesson in [Data Carpentry's R for data analysis](http://www.datacarpentry.org/R-ecology-lesson/) course.
-- The QCBS [Introduction to R](https://qcbs.ca/wiki/r) lesson
-- [RStudio's R Programming](https://www.rstudio.com/online-learning/) page
+- Learn R in the console with [swirl](https://swirlstats.com/)
+- The [Introduction to R](http://www.datacarpentry.org/R-ecology-lesson/01-intro-to-r.html) lesson in [Data Carpentry's R for data analysis](http://www.datacarpentry.org/R-ecology-lesson/) course
+- The Stat 545 [course materials](https://stat545.com/r-basics.html)
+- The QCBS [Introduction to R](https://qcbs.ca/wiki/r) lesson (in French)
 
 If you're a fan of cheat sheets, [RStudio](https://www.rstudio.com) provides some fantastic ones on their [Cheat Sheets](https://www.rstudio.com/resources/cheatsheets/) page.
 *Please make sure to print ahead of time if you prefer hard copies.*
