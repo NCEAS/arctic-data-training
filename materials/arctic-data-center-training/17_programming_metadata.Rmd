@@ -391,7 +391,7 @@ First we need to create an R object that describes what coordinating and member 
 
 We'll also create an object that only represents the member node, which is helpful for some functions.
 
-```{r}
+```{r, eval = F}
 d1c <- D1Client("STAGING", "urn:node:mnTestARCTIC")
 mn <- d1c@mn
 ```
