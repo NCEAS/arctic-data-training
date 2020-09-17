@@ -26,7 +26,6 @@ Rscript -e "devtools::install_deps('.')" # Installs book-specific R deps
 Rscript -e "bookdown::render_book('index.Rmd', c('bookdown::gitbook'))"
 cp -r files _book
 mv _book $BRANCH
-cp -r $BRANCH "$TOP/public/"
-cd "$TOP"
-rm -r $BRANCH
+cp -r $BRANCH '$TOP/public/materials/'
+
 
