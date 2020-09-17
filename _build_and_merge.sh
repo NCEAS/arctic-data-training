@@ -2,26 +2,29 @@
 
 set -e
 
+BRANCH=$1
+BRANCH='2020-10-arctic'
+
 export TOP
 TOP=$(pwd)
 
-echo "Building books..."
-
-if [ ! -d public/materials ]; then
-    mkdir -p public/materials
+if [ ! -d public/$BRANCH ]; then
+    mkdir -p public/$BRANCH
 fi
 
-# Build all books in the books subdir
-for book in $(ls materials)
-do
-    echo "Building book in '$book'"
-    cd "materials/$book"
-    Rscript -e "devtools::install_deps('.')" # Installs book-specific R deps
-                                             # defined in DESCRIPTION file
-    Rscript -e "bookdown::render_book('index.Rmd', c('bookdown::gitbook'))"
-    #Rscript -e "bookdown::render_book('index.Rmd', c('bookdown::gitbook', 'bookdown::pdf_book', 'bookdown::epub_book'))"
-    cp -r files _book
-    cp -r _book "$TOP/public/materials/$book"
-    cd "$TOP"
-done
+# Clone the lesson materials from the lessons repo
+rm -rf materials
+git clone https://github.com/NCEAS/nceas-training.git --branch ${BRANCH} --single-branch materials
+#git clone ~/development/nceas-training --branch ${BRANCH} --single-branch materials
+cd materials/
+git filter-branch --subdirectory-filter materials -- --all
 
+# Build all books in the books subdir
+echo "Building book"
+Rscript -e "devtools::install_deps('.')" # Installs book-specific R deps
+                                         # defined in DESCRIPTION file
+Rscript -e "bookdown::render_book('index.Rmd', c('bookdown::gitbook'))"
+cp -r files _book
+mv _book $BRANCH
+cp -r $BRANCH "$TOP/public"
+cd "$TOP"
