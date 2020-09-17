@@ -27,5 +27,6 @@ Rscript -e "bookdown::render_book('index.Rmd', c('bookdown::gitbook'))"
 cp -r files _book
 mv _book $BRANCH
 cp -r $BRANCH "$TOP/public/"
-rm -r $BRANCH
 cd "$TOP"
+rm -r $BRANCH
+
