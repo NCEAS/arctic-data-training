@@ -55,7 +55,7 @@ including your own contact information.
 Information about choosing a LICENSE is provided in the [Extending R](http://cran.r-project.org/doc/manuals/r-release/R-exts.html#Licensing) documentation.
 The DESCRIPTION file expects the license to be chose from a predefined list, but
 you can use it's various utility methods for setting a specific license file, such
-as the `Apacxhe 2` license:
+as the `Apache 2` license:
 
 ```{r, eval=FALSE}
 use_apl2_license(name="Matthew Jones")
