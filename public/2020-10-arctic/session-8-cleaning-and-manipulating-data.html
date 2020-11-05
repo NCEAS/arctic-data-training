@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>8 Session 8: Cleaning and Manipulating Data | Arctic Data Center Training</title>
+  <meta name="description" content="8 Session 8: Cleaning and Manipulating Data | Arctic Data Center Training" />
+  <meta name="generator" content="bookdown 0.20.6 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="8 Session 8: Cleaning and Manipulating Data | Arctic Data Center Training" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="8 Session 8: Cleaning and Manipulating Data | Arctic Data Center Training" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="session-7-data-modeling-essentials.html"/>
+<link rel="next" href="session-9-data-visualisation-and-publishing-to-the-web.html"/>
+<script src="libs/header-attrs-2.3.11/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Data Science Training for the Arctic Data Center</a>
+<ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#schedule"><i class="fa fa-check"></i><b>0.1</b> Schedule</a>
+<ul>
+<li class="chapter" data-level="0.1.1" data-path="index.html"><a href="index.html#code-of-conduct"><i class="fa fa-check"></i><b>0.1.1</b> Code of Conduct</a></li>
+<li class="chapter" data-level="0.1.2" data-path="index.html"><a href="index.html#logistics"><i class="fa fa-check"></i><b>0.1.2</b> Logistics</a></li>
+<li class="chapter" data-level="0.1.3" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>0.1.3</b> Acknowledgements</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html"><i class="fa fa-check"></i><b>1</b> Session 1: Introduction to the Arctic Data Center</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#introduction-to-the-arctic-data-center-and-nsf-standards-and-policies"><i class="fa fa-check"></i><b>1.1</b> Introduction to the Arctic Data Center and NSF Standards and Policies</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#learning-objectives"><i class="fa fa-check"></i><b>1.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="1.1.2" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#arctic-data-center---history-and-introduction"><i class="fa fa-check"></i><b>1.1.2</b> Arctic Data Center - History and Introduction</a></li>
+<li class="chapter" data-level="1.1.3" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#data-discovery-portal"><i class="fa fa-check"></i><b>1.1.3</b> Data Discovery Portal</a></li>
+<li class="chapter" data-level="1.1.4" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#tools-and-infrastructure"><i class="fa fa-check"></i><b>1.1.4</b> Tools and Infrastructure</a></li>
+<li class="chapter" data-level="1.1.5" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#support-services"><i class="fa fa-check"></i><b>1.1.5</b> Support Services</a></li>
+<li class="chapter" data-level="1.1.6" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#training-and-outreach"><i class="fa fa-check"></i><b>1.1.6</b> Training and Outreach</a></li>
+<li class="chapter" data-level="1.1.7" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#data-rescue"><i class="fa fa-check"></i><b>1.1.7</b> Data Rescue</a></li>
+<li class="chapter" data-level="1.1.8" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#who-must-submit"><i class="fa fa-check"></i><b>1.1.8</b> Who Must Submit</a></li>
+<li class="chapter" data-level="1.1.9" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#summary"><i class="fa fa-check"></i><b>1.1.9</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#writing-good-data-management-plans"><i class="fa fa-check"></i><b>1.2</b> Writing Good Data Management Plans</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#learning-objectives-1"><i class="fa fa-check"></i><b>1.2.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="1.2.2" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#when-to-plan-the-data-life-cycle"><i class="fa fa-check"></i><b>1.2.2</b> When to Plan: The Data Life Cycle</a></li>
+<li class="chapter" data-level="1.2.3" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#why-plan"><i class="fa fa-check"></i><b>1.2.3</b> Why Plan?</a></li>
+<li class="chapter" data-level="1.2.4" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#how-to-plan"><i class="fa fa-check"></i><b>1.2.4</b> How to Plan</a></li>
+<li class="chapter" data-level="1.2.5" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#what-to-include-in-a-dmp"><i class="fa fa-check"></i><b>1.2.5</b> What to include in a DMP</a></li>
+<li class="chapter" data-level="1.2.6" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#nsf-dmp-requirements"><i class="fa fa-check"></i><b>1.2.6</b> NSF DMP requirements</a></li>
+<li class="chapter" data-level="1.2.7" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#tools-in-support-of-creating-a-dmp"><i class="fa fa-check"></i><b>1.2.7</b> Tools in Support of Creating a DMP</a></li>
+<li class="chapter" data-level="1.2.8" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#arctic-data-center-support-for-dmps"><i class="fa fa-check"></i><b>1.2.8</b> Arctic Data Center Support for DMPs</a></li>
+<li class="chapter" data-level="1.2.9" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#sharing-your-dmp"><i class="fa fa-check"></i><b>1.2.9</b> Sharing Your DMP</a></li>
+<li class="chapter" data-level="1.2.10" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#additional-resources"><i class="fa fa-check"></i><b>1.2.10</b> Additional Resources</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html"><i class="fa fa-check"></i><b>2</b> Session 2: Documenting and Publishing Data</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#best-practices-data-and-metadata"><i class="fa fa-check"></i><b>2.1</b> Best Practices: Data and Metadata</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#learning-objectives-2"><i class="fa fa-check"></i><b>2.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="2.1.2" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#best-practices-overview"><i class="fa fa-check"></i><b>2.1.2</b> Best Practices: Overview</a></li>
+<li class="chapter" data-level="2.1.3" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#data-identifiers"><i class="fa fa-check"></i><b>2.1.3</b> Data Identifiers</a></li>
+<li class="chapter" data-level="2.1.4" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#data-citation"><i class="fa fa-check"></i><b>2.1.4</b> Data Citation</a></li>
+<li class="chapter" data-level="2.1.5" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#provanance-preserving-computational-workflows"><i class="fa fa-check"></i><b>2.1.5</b> Provanance &amp; Preserving Computational Workflows</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#data-documentation-and-publishing"><i class="fa fa-check"></i><b>2.2</b> Data Documentation and Publishing</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#learning-objectives-3"><i class="fa fa-check"></i><b>2.2.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="2.2.2" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#data-sharing-and-preservation"><i class="fa fa-check"></i><b>2.2.2</b> Data sharing and preservation</a></li>
+<li class="chapter" data-level="2.2.3" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#data-repositories-built-for-data-and-code"><i class="fa fa-check"></i><b>2.2.3</b> Data repositories: built for data (and code)</a></li>
+<li class="chapter" data-level="2.2.4" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#metadata"><i class="fa fa-check"></i><b>2.2.4</b> Metadata</a></li>
+<li class="chapter" data-level="2.2.5" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#structure-of-a-data-package"><i class="fa fa-check"></i><b>2.2.5</b> Structure of a data package</a></li>
+<li class="chapter" data-level="2.2.6" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#dataone-federation"><i class="fa fa-check"></i><b>2.2.6</b> DataONE Federation</a></li>
+<li class="chapter" data-level="2.2.7" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#publishing-data-from-the-web"><i class="fa fa-check"></i><b>2.2.7</b> Publishing data from the web</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html"><i class="fa fa-check"></i><b>3</b> Session 3: Literate Analysis with RMarkdown</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#rstudio-and-gitgithub-setup-and-motivation"><i class="fa fa-check"></i><b>3.1</b> RStudio and Git/GitHub Setup and Motivation</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#learning-objectives-4"><i class="fa fa-check"></i><b>3.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="3.1.2" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#introduction-to-reproducible-research"><i class="fa fa-check"></i><b>3.1.2</b> Introduction to reproducible research</a></li>
+<li class="chapter" data-level="3.1.3" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#logging-into-the-rstudio-server"><i class="fa fa-check"></i><b>3.1.3</b> Logging into the RStudio server</a></li>
+<li class="chapter" data-level="3.1.4" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#setting-up-the-r-environment-on-your-local-computer"><i class="fa fa-check"></i><b>3.1.4</b> Setting up the R environment on your local computer</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#literate-analysis-with-rmarkdown"><i class="fa fa-check"></i><b>3.2</b> Literate Analysis with RMarkdown</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#learning-objectives-5"><i class="fa fa-check"></i><b>3.2.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="3.2.2" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#introduction-and-motivation"><i class="fa fa-check"></i><b>3.2.2</b> Introduction and motivation</a></li>
+<li class="chapter" data-level="3.2.3" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#basic-rmarkdown-syntax"><i class="fa fa-check"></i><b>3.2.3</b> Basic RMarkdown syntax</a></li>
+<li class="chapter" data-level="3.2.4" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#code-chunks"><i class="fa fa-check"></i><b>3.2.4</b> Code chunks</a></li>
+<li class="chapter" data-level="3.2.5" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#literate-analysis-practice"><i class="fa fa-check"></i><b>3.2.5</b> Literate analysis practice</a></li>
+<li class="chapter" data-level="3.2.6" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#rmarkdown-and-environments"><i class="fa fa-check"></i><b>3.2.6</b> RMarkdown and environments</a></li>
+<li class="chapter" data-level="3.2.7" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#go-further"><i class="fa fa-check"></i><b>3.2.7</b> Go Further</a></li>
+<li class="chapter" data-level="3.2.8" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#resources"><i class="fa fa-check"></i><b>3.2.8</b> Resources</a></li>
+<li class="chapter" data-level="3.2.9" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#troubleshooting"><i class="fa fa-check"></i><b>3.2.9</b> Troubleshooting</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html"><i class="fa fa-check"></i><b>4</b> Session 4: Version Control with git and GitHub</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#learning-objectives-6"><i class="fa fa-check"></i><b>4.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="4.2" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#introduction-to-git"><i class="fa fa-check"></i><b>4.2</b> Introduction to git</a>
+<ul>
+<li class="chapter" data-level="" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#version-control-and-collaboration-using-git-and-github"><i class="fa fa-check"></i>Version control and Collaboration using Git and GitHub</a></li>
+<li class="chapter" data-level="" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#lets-look-at-a-github-repository"><i class="fa fa-check"></i>Let’s look at a GitHub repository</a></li>
+<li class="chapter" data-level="" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#the-git-lifecycle"><i class="fa fa-check"></i>The Git lifecycle</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#create-a-remote-repository-on-github"><i class="fa fa-check"></i><b>4.3</b> Create a remote repository on GitHub</a>
+<ul>
+<li class="chapter" data-level="" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#setup-4"><i class="fa fa-check"></i>Setup</a></li>
+<li><a href="session-4-version-control-with-git-and-github.html#section-1"></a></li>
+<li class="chapter" data-level="" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#challenge-5"><i class="fa fa-check"></i>Challenge</a></li>
+<li><a href="session-4-version-control-with-git-and-github.html#section-2"></a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#working-locally-with-git-via-rstudio"><i class="fa fa-check"></i><b>4.4</b> Working locally with Git via RStudio</a>
+<ul>
+<li class="chapter" data-level="" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#setup-5"><i class="fa fa-check"></i>Setup</a></li>
+<li><a href="session-4-version-control-with-git-and-github.html#section-3"></a></li>
+<li class="chapter" data-level="" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#challenge-6"><i class="fa fa-check"></i>Challenge</a></li>
+<li><a href="session-4-version-control-with-git-and-github.html#section-4"></a></li>
+<li class="chapter" data-level="" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#aside-3"><i class="fa fa-check"></i>Aside</a></li>
+<li class="chapter" data-level="" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#collaboration-and-conflict-free-workflows"><i class="fa fa-check"></i>Collaboration and conflict free workflows</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#setting-up-git-on-an-existing-project"><i class="fa fa-check"></i><b>4.5</b> Setting up git on an existing project</a>
+<ul>
+<li class="chapter" data-level="" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#challenge-7"><i class="fa fa-check"></i>Challenge</a></li>
+<li><a href="session-4-version-control-with-git-and-github.html#section-5"></a></li>
+<li class="chapter" data-level="" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#challenge-8"><i class="fa fa-check"></i>Challenge</a></li>
+<li><a href="session-4-version-control-with-git-and-github.html#section-6"></a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#go-further-1"><i class="fa fa-check"></i><b>4.6</b> Go Further</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html"><i class="fa fa-check"></i><b>5</b> Session 5: Git Collaboration and Conflict Management</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#learning-objectives-7"><i class="fa fa-check"></i><b>5.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="5.2" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#introduction"><i class="fa fa-check"></i><b>5.2</b> Introduction</a></li>
+<li class="chapter" data-level="5.3" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#collaborating-with-a-trusted-colleague-without-conflicts"><i class="fa fa-check"></i><b>5.3</b> Collaborating with a trusted colleague <strong>without conflicts</strong></a>
+<ul>
+<li class="chapter" data-level="" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#setup-6"><i class="fa fa-check"></i>Setup</a></li>
+<li><a href="session-5-git-collaboration-and-conflict-management.html#section-7"></a></li>
+<li class="chapter" data-level="5.3.1" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#step-1-collaborator-clone"><i class="fa fa-check"></i><b>5.3.1</b> Step 1: Collaborator clone</a></li>
+<li class="chapter" data-level="5.3.2" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#step-2-collaborator-edits"><i class="fa fa-check"></i><b>5.3.2</b> Step 2: Collaborator Edits</a></li>
+<li class="chapter" data-level="5.3.3" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#step-3-collaborator-commit-and-push"><i class="fa fa-check"></i><b>5.3.3</b> Step 3: Collaborator commit and push</a></li>
+<li class="chapter" data-level="5.3.4" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#step-4-owner-pull"><i class="fa fa-check"></i><b>5.3.4</b> Step 4: Owner pull</a></li>
+<li class="chapter" data-level="5.3.5" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#step-5-owner-edits-commit-and-push"><i class="fa fa-check"></i><b>5.3.5</b> Step 5: Owner edits, commit, and push</a></li>
+<li class="chapter" data-level="5.3.6" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#step-6-collaborator-pull"><i class="fa fa-check"></i><b>5.3.6</b> Step 6: Collaborator pull</a></li>
+<li class="chapter" data-level="" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#challenge-9"><i class="fa fa-check"></i>Challenge</a></li>
+<li><a href="session-5-git-collaboration-and-conflict-management.html#section-8"></a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#merge-conflicts"><i class="fa fa-check"></i><b>5.4</b> Merge conflicts</a></li>
+<li class="chapter" data-level="5.5" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#how-to-resolve-a-conflict"><i class="fa fa-check"></i><b>5.5</b> How to resolve a conflict</a>
+<ul>
+<li class="chapter" data-level="" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#abort-abort-abort"><i class="fa fa-check"></i>Abort, abort, abort…</a></li>
+<li class="chapter" data-level="" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#checkout"><i class="fa fa-check"></i>Checkout</a></li>
+<li class="chapter" data-level="" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#pull-and-edit-the-file"><i class="fa fa-check"></i>Pull and edit the file</a></li>
+<li class="chapter" data-level="5.5.1" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#producing-and-resolving-merge-conflicts"><i class="fa fa-check"></i><b>5.5.1</b> Producing and resolving merge conflicts</a></li>
+<li class="chapter" data-level="" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#merge-conflict-challenge"><i class="fa fa-check"></i>Merge Conflict Challenge</a></li>
+<li><a href="session-5-git-collaboration-and-conflict-management.html#section-9"></a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#workflows-to-avoid-merge-conflicts"><i class="fa fa-check"></i><b>5.6</b> Workflows to avoid merge conflicts</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="session-6-social-aspects-of-collaboration.html"><a href="session-6-social-aspects-of-collaboration.html"><i class="fa fa-check"></i><b>6</b> Session 6: Social Aspects of Collaboration</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="session-6-social-aspects-of-collaboration.html"><a href="session-6-social-aspects-of-collaboration.html#thinking-preferences"><i class="fa fa-check"></i><b>6.1</b> Thinking preferences</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="session-6-social-aspects-of-collaboration.html"><a href="session-6-social-aspects-of-collaboration.html#learning-objectives-8"><i class="fa fa-check"></i><b>6.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="6.1.2" data-path="session-6-social-aspects-of-collaboration.html"><a href="session-6-social-aspects-of-collaboration.html#thinking-preferences-activity"><i class="fa fa-check"></i><b>6.1.2</b> Thinking Preferences Activity</a></li>
+<li class="chapter" data-level="6.1.3" data-path="session-6-social-aspects-of-collaboration.html"><a href="session-6-social-aspects-of-collaboration.html#about-the-whole-brain-thinking-system"><i class="fa fa-check"></i><b>6.1.3</b> About the Whole Brain Thinking System</a></li>
+<li class="chapter" data-level="6.1.4" data-path="session-6-social-aspects-of-collaboration.html"><a href="session-6-social-aspects-of-collaboration.html#bonus-activity-your-complex-self"><i class="fa fa-check"></i><b>6.1.4</b> Bonus Activity: Your Complex Self</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="session-6-social-aspects-of-collaboration.html"><a href="session-6-social-aspects-of-collaboration.html#additional-resources-collaboration-authorship-and-data-policies"><i class="fa fa-check"></i><b>6.2</b> Additional Resources: Collaboration, authorship and data policies</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="session-6-social-aspects-of-collaboration.html"><a href="session-6-social-aspects-of-collaboration.html#resources-1"><i class="fa fa-check"></i><b>6.2.1</b> Resources</a></li>
+<li class="chapter" data-level="6.2.2" data-path="session-6-social-aspects-of-collaboration.html"><a href="session-6-social-aspects-of-collaboration.html#references"><i class="fa fa-check"></i><b>6.2.2</b> References</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="session-7-data-modeling-essentials.html"><a href="session-7-data-modeling-essentials.html"><i class="fa fa-check"></i><b>7</b> Session 7: Data Modeling Essentials</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="session-7-data-modeling-essentials.html"><a href="session-7-data-modeling-essentials.html#data-modeling-tidy-data"><i class="fa fa-check"></i><b>7.1</b> Data Modeling &amp; Tidy Data</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="session-7-data-modeling-essentials.html"><a href="session-7-data-modeling-essentials.html#learning-objectives-9"><i class="fa fa-check"></i><b>7.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="7.1.2" data-path="session-7-data-modeling-essentials.html"><a href="session-7-data-modeling-essentials.html#introduction-1"><i class="fa fa-check"></i><b>7.1.2</b> Introduction</a></li>
+<li class="chapter" data-level="7.1.3" data-path="session-7-data-modeling-essentials.html"><a href="session-7-data-modeling-essentials.html#recognizing-untidy-data"><i class="fa fa-check"></i><b>7.1.3</b> Recognizing untidy data</a></li>
+<li class="chapter" data-level="7.1.4" data-path="session-7-data-modeling-essentials.html"><a href="session-7-data-modeling-essentials.html#good-enough-data-modeling"><i class="fa fa-check"></i><b>7.1.4</b> Good enough data modeling</a></li>
+<li class="chapter" data-level="7.1.5" data-path="session-7-data-modeling-essentials.html"><a href="session-7-data-modeling-essentials.html#using-normalized-data"><i class="fa fa-check"></i><b>7.1.5</b> Using normalized data</a></li>
+<li class="chapter" data-level="7.1.6" data-path="session-7-data-modeling-essentials.html"><a href="session-7-data-modeling-essentials.html#data-modeling-exercise"><i class="fa fa-check"></i><b>7.1.6</b> Data modeling exercise</a></li>
+<li class="chapter" data-level="7.1.7" data-path="session-7-data-modeling-essentials.html"><a href="session-7-data-modeling-essentials.html#resources-2"><i class="fa fa-check"></i><b>7.1.7</b> Resources</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="session-8-cleaning-and-manipulating-data.html"><a href="session-8-cleaning-and-manipulating-data.html"><i class="fa fa-check"></i><b>8</b> Session 8: Cleaning and Manipulating Data</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="session-8-cleaning-and-manipulating-data.html"><a href="session-8-cleaning-and-manipulating-data.html#data-cleaning-and-manipulation"><i class="fa fa-check"></i><b>8.1</b> Data Cleaning and Manipulation</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="session-8-cleaning-and-manipulating-data.html"><a href="session-8-cleaning-and-manipulating-data.html#learning-objectives-10"><i class="fa fa-check"></i><b>8.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="8.1.2" data-path="session-8-cleaning-and-manipulating-data.html"><a href="session-8-cleaning-and-manipulating-data.html#introduction-2"><i class="fa fa-check"></i><b>8.1.2</b> Introduction</a></li>
+<li class="chapter" data-level="8.1.3" data-path="session-8-cleaning-and-manipulating-data.html"><a href="session-8-cleaning-and-manipulating-data.html#data-cleaning-basics"><i class="fa fa-check"></i><b>8.1.3</b> Data Cleaning Basics</a></li>
+<li class="chapter" data-level="8.1.4" data-path="session-8-cleaning-and-manipulating-data.html"><a href="session-8-cleaning-and-manipulating-data.html#joins-in-dplyr"><i class="fa fa-check"></i><b>8.1.4</b> Joins in dplyr</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html"><i class="fa fa-check"></i><b>9</b> Session 9: Data Visualisation and Publishing to the Web</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html#publishing-analyses-to-the-web"><i class="fa fa-check"></i><b>9.1</b> Publishing Analyses to the Web</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html#learning-objectives-11"><i class="fa fa-check"></i><b>9.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="9.1.2" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html#introduction-3"><i class="fa fa-check"></i><b>9.1.2</b> Introduction</a></li>
+<li class="chapter" data-level="9.1.3" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html#a-minimal-example"><i class="fa fa-check"></i><b>9.1.3</b> A Minimal Example</a></li>
+<li class="chapter" data-level="9.1.4" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html#exercise-sharing-your-work"><i class="fa fa-check"></i><b>9.1.4</b> Exercise: Sharing your work</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html#publication-graphics"><i class="fa fa-check"></i><b>9.2</b> Publication Graphics</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html#learning-objectives-12"><i class="fa fa-check"></i><b>9.2.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="9.2.2" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html#overview-1"><i class="fa fa-check"></i><b>9.2.2</b> Overview</a></li>
+<li class="chapter" data-level="9.2.3" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html#static-figures-using-ggplot2"><i class="fa fa-check"></i><b>9.2.3</b> Static figures using <code>ggplot2</code></a></li>
+<li class="chapter" data-level="9.2.4" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html#interactive-visualization-using-leaflet-and-dt"><i class="fa fa-check"></i><b>9.2.4</b> Interactive visualization using <code>leaflet</code> and <code>DT</code></a></li>
+<li class="chapter" data-level="9.2.5" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html#resources-3"><i class="fa fa-check"></i><b>9.2.5</b> Resources</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html"><i class="fa fa-check"></i><b>10</b> Session 10: Writing Functions and Packages</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#creating-r-functions"><i class="fa fa-check"></i><b>10.1</b> Creating R Functions</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#why-functions"><i class="fa fa-check"></i><b>10.1.1</b> Why functions?</a></li>
+<li class="chapter" data-level="10.1.2" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#documenting-r-functions"><i class="fa fa-check"></i><b>10.1.2</b> Documenting R functions</a></li>
+<li class="chapter" data-level="10.1.3" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#summary-2"><i class="fa fa-check"></i><b>10.1.3</b> Summary</a></li>
+<li class="chapter" data-level="10.1.4" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#examples-minimizing-work-with-functions"><i class="fa fa-check"></i><b>10.1.4</b> Examples: Minimizing work with functions</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#creating-r-packages"><i class="fa fa-check"></i><b>10.2</b> Creating R Packages</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#learning-objectives-13"><i class="fa fa-check"></i><b>10.2.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="10.2.2" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#why-packages"><i class="fa fa-check"></i><b>10.2.2</b> Why packages?</a></li>
+<li class="chapter" data-level="10.2.3" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#install-and-load-packages"><i class="fa fa-check"></i><b>10.2.3</b> Install and load packages</a></li>
+<li class="chapter" data-level="10.2.4" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#create-a-basic-package"><i class="fa fa-check"></i><b>10.2.4</b> Create a basic package</a></li>
+<li class="chapter" data-level="10.2.5" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#add-your-code"><i class="fa fa-check"></i><b>10.2.5</b> Add your code</a></li>
+<li class="chapter" data-level="10.2.6" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#add-documentation"><i class="fa fa-check"></i><b>10.2.6</b> Add documentation</a></li>
+<li class="chapter" data-level="10.2.7" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#test-your-package"><i class="fa fa-check"></i><b>10.2.7</b> Test your package</a></li>
+<li class="chapter" data-level="10.2.8" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#checking-and-installing-your-package"><i class="fa fa-check"></i><b>10.2.8</b> Checking and installing your package</a></li>
+<li class="chapter" data-level="10.2.9" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#sharing-and-releasing-your-package"><i class="fa fa-check"></i><b>10.2.9</b> Sharing and releasing your package</a></li>
+<li class="chapter" data-level="10.2.10" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#more-reading"><i class="fa fa-check"></i><b>10.2.10</b> More reading</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html"><i class="fa fa-check"></i><b>11</b> Session 11: Arctic Data Center Data Portals</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#creating-a-data-portal"><i class="fa fa-check"></i><b>11.1</b> Creating a data portal</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#what-is-a-portal"><i class="fa fa-check"></i><b>11.1.1</b> What is a Portal?</a></li>
+<li class="chapter" data-level="11.1.2" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#portal-uses"><i class="fa fa-check"></i><b>11.1.2</b> Portal Uses</a></li>
+<li class="chapter" data-level="11.1.3" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#portal-main-components"><i class="fa fa-check"></i><b>11.1.3</b> Portal Main Components</a></li>
+<li class="chapter" data-level="11.1.4" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#creating-portals"><i class="fa fa-check"></i><b>11.1.4</b> Creating Portals</a></li>
+<li class="chapter" data-level="11.1.5" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#adding-data-to-portals"><i class="fa fa-check"></i><b>11.1.5</b> Adding Data to Portals</a></li>
+<li class="chapter" data-level="11.1.6" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#creating-unique-freeform-pages"><i class="fa fa-check"></i><b>11.1.6</b> Creating Unique Freeform Pages</a></li>
+<li class="chapter" data-level="11.1.7" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#saving-and-editing-portals"><i class="fa fa-check"></i><b>11.1.7</b> Saving and Editing Portals</a></li>
+<li class="chapter" data-level="11.1.8" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#how-to-publish-portals"><i class="fa fa-check"></i><b>11.1.8</b> How to Publish Portals</a></li>
+<li class="chapter" data-level="11.1.9" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#sharing-portals"><i class="fa fa-check"></i><b>11.1.9</b> Sharing Portals</a></li>
+<li class="chapter" data-level="11.1.10" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#tutorial-videos"><i class="fa fa-check"></i><b>11.1.10</b> Tutorial Videos</a></li>
+<li class="chapter" data-level="11.1.11" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#acknowledgements-1"><i class="fa fa-check"></i><b>11.1.11</b> Acknowledgements</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="session-12-exercise-cleaning-and-manipulating-data.html"><a href="session-12-exercise-cleaning-and-manipulating-data.html"><i class="fa fa-check"></i><b>12</b> Session 12: Exercise - Cleaning and Manipulating Data</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="session-12-exercise-cleaning-and-manipulating-data.html"><a href="session-12-exercise-cleaning-and-manipulating-data.html#hands-on-clean-and-integrate-datasets"><i class="fa fa-check"></i><b>12.1</b> Hands On: Clean and Integrate Datasets</a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="session-12-exercise-cleaning-and-manipulating-data.html"><a href="session-12-exercise-cleaning-and-manipulating-data.html#learning-objectives-14"><i class="fa fa-check"></i><b>12.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="12.1.2" data-path="session-12-exercise-cleaning-and-manipulating-data.html"><a href="session-12-exercise-cleaning-and-manipulating-data.html#outline"><i class="fa fa-check"></i><b>12.1.2</b> Outline</a></li>
+<li class="chapter" data-level="12.1.3" data-path="session-12-exercise-cleaning-and-manipulating-data.html"><a href="session-12-exercise-cleaning-and-manipulating-data.html#full-solution.-warning-spoilers-ahead"><i class="fa fa-check"></i><b>12.1.3</b> Full solution. Warning, spoilers ahead!</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="session-13-geospatial-analysis-in-r.html"><a href="session-13-geospatial-analysis-in-r.html"><i class="fa fa-check"></i><b>13</b> Session 13: Geospatial Analysis in R</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="session-13-geospatial-analysis-in-r.html"><a href="session-13-geospatial-analysis-in-r.html#spatial-vector-analysis-using-sf"><i class="fa fa-check"></i><b>13.1</b> Spatial vector analysis using <code>sf</code></a>
+<ul>
+<li class="chapter" data-level="13.1.1" data-path="session-13-geospatial-analysis-in-r.html"><a href="session-13-geospatial-analysis-in-r.html#learning-objectives-15"><i class="fa fa-check"></i><b>13.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="13.1.2" data-path="session-13-geospatial-analysis-in-r.html"><a href="session-13-geospatial-analysis-in-r.html#introduction-4"><i class="fa fa-check"></i><b>13.1.2</b> Introduction</a></li>
+<li class="chapter" data-level="13.1.3" data-path="session-13-geospatial-analysis-in-r.html"><a href="session-13-geospatial-analysis-in-r.html#working-with-geospatial-data"><i class="fa fa-check"></i><b>13.1.3</b> Working with geospatial data</a></li>
+<li class="chapter" data-level="13.1.4" data-path="session-13-geospatial-analysis-in-r.html"><a href="session-13-geospatial-analysis-in-r.html#sf-the-tidyverse"><i class="fa fa-check"></i><b>13.1.4</b> <code>sf</code> &amp; the Tidyverse</a></li>
+<li class="chapter" data-level="13.1.5" data-path="session-13-geospatial-analysis-in-r.html"><a href="session-13-geospatial-analysis-in-r.html#visualize-with-ggplot"><i class="fa fa-check"></i><b>13.1.5</b> Visualize with ggplot</a></li>
+<li class="chapter" data-level="13.1.6" data-path="session-13-geospatial-analysis-in-r.html"><a href="session-13-geospatial-analysis-in-r.html#visualize-sf-objects-with-leaflet"><i class="fa fa-check"></i><b>13.1.6</b> Visualize <code>sf</code> objects with leaflet</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="session-14-reproducibility-and-provenance.html"><a href="session-14-reproducibility-and-provenance.html"><i class="fa fa-check"></i><b>14</b> Session 14: Reproducibility and Provenance</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="session-14-reproducibility-and-provenance.html"><a href="session-14-reproducibility-and-provenance.html#reproducibility-and-provenance"><i class="fa fa-check"></i><b>14.1</b> Reproducibility and Provenance</a>
+<ul>
+<li class="chapter" data-level="14.1.1" data-path="session-14-reproducibility-and-provenance.html"><a href="session-14-reproducibility-and-provenance.html#learning-objectives-16"><i class="fa fa-check"></i><b>14.1.1</b> Learning Objectives</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Arctic Data Center Training</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="session-8-cleaning-and-manipulating-data" class="section level1" number="8">
+<h1><span class="header-section-number">8</span> Session 8: Cleaning and Manipulating Data</h1>
+<div id="data-cleaning-and-manipulation" class="section level2" number="8.1">
+<h2><span class="header-section-number">8.1</span> Data Cleaning and Manipulation</h2>
+<div id="learning-objectives-10" class="section level3" number="8.1.1">
+<h3><span class="header-section-number">8.1.1</span> Learning Objectives</h3>
+<p>In this lesson, you will learn:</p>
+<ul>
+<li>What the Split-Apply-Combine strategy is and how it applies to data</li>
+<li>The difference between wide vs. tall table formats and how to convert between them</li>
+<li>How to use <code>dplyr</code> and <code>tidyr</code> to clean and manipulate data for analysis</li>
+<li>How to join multiple <code>data.frame</code>s together using <code>dplyr</code></li>
+</ul>
+</div>
+<div id="introduction-2" class="section level3" number="8.1.2">
+<h3><span class="header-section-number">8.1.2</span> Introduction</h3>
+<p>The data we get to work with are rarely, if ever, in the format we need to do our analyses. It’s often the case that one package requires data in one format, while another package requires the data to be in another format. To be efficient analysts, we should have good tools for reformatting data for our needs so we can do our actual work like making plots and fitting models. The <code>dplyr</code> and <code>tidyr</code> R packages provide a fairly complete and extremely powerful set of functions for us to do this reformatting quickly and learning these tools well will greatly increase your efficiency as an analyst.</p>
+<p>Analyses take many shapes, but they often conform to what is known as the Split-Apply-Combine strategy. This strategy follows a usual set of steps:</p>
+<ul>
+<li><strong>Split</strong>: Split the data into logical groups (e.g., area, stock, year)</li>
+<li><strong>Apply:</strong> Calculate some summary statistic on each group (e.g. mean total length by year)</li>
+<li><strong>Combine:</strong> Combine the groups back together into a single table</li>
+</ul>
+<div class="figure">
+<img src="images/split-apply-combine-diagram.png" alt="" />
+<p class="caption">Figure 1: diagram of the split apply combine strategy</p>
+</div>
+<p>As shown above (Figure 1), our original table is split into groups by <code>year</code>, we calculate the mean length for each group, and finally combine the per-year means into a single table.</p>
+<p><code>dplyr</code> provides a fast and powerful way to express this. Let’s look at a simple example of how this is done:</p>
+<p>Assuming our length data is already loaded in a <code>data.frame</code> called <code>length_data</code>:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="right">year</th>
+<th align="right">length_cm</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1991</td>
+<td align="right">5.673318</td>
+</tr>
+<tr class="even">
+<td align="right">1991</td>
+<td align="right">3.081224</td>
+</tr>
+<tr class="odd">
+<td align="right">1991</td>
+<td align="right">4.592696</td>
+</tr>
+<tr class="even">
+<td align="right">1992</td>
+<td align="right">4.381523</td>
+</tr>
+<tr class="odd">
+<td align="right">1992</td>
+<td align="right">5.597777</td>
+</tr>
+<tr class="even">
+<td align="right">1992</td>
+<td align="right">4.900052</td>
+</tr>
+<tr class="odd">
+<td align="right">1992</td>
+<td align="right">4.139282</td>
+</tr>
+<tr class="even">
+<td align="right">1992</td>
+<td align="right">5.422823</td>
+</tr>
+<tr class="odd">
+<td align="right">1992</td>
+<td align="right">5.905247</td>
+</tr>
+<tr class="even">
+<td align="right">1992</td>
+<td align="right">5.098922</td>
+</tr>
+</tbody>
+</table>
+<p>We can do this calculation using <code>dplyr</code> like this:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="session-8-cleaning-and-manipulating-data.html#cb28-1"></a>length_data <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb28-2"><a href="session-8-cleaning-and-manipulating-data.html#cb28-2"></a><span class="st">  </span><span class="kw">group_by</span>(year) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb28-3"><a href="session-8-cleaning-and-manipulating-data.html#cb28-3"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_length_cm =</span> <span class="kw">mean</span>(length_cm))</span></code></pre></div>
+<p>Another exceedingly common thing we need to do is “reshape” our data. Let’s look at an example table that is in what we will call “wide” format:</p>
+<table>
+<thead>
+<tr class="header">
+<th>site</th>
+<th>1990</th>
+<th>1991</th>
+<th>…</th>
+<th>1993</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>gold</td>
+<td>100</td>
+<td>118</td>
+<td>…</td>
+<td>112</td>
+</tr>
+<tr class="even">
+<td>lake</td>
+<td>100</td>
+<td>118</td>
+<td>…</td>
+<td>112</td>
+</tr>
+<tr class="odd">
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+</tr>
+<tr class="even">
+<td>dredge</td>
+<td>100</td>
+<td>118</td>
+<td>…</td>
+<td>112</td>
+</tr>
+</tbody>
+</table>
+<p>You are probably quite familiar with data in the above format, where values of the variable being observed are spread out across columns (Here: columns for each year). Another way of describing this is that there is more than one measurement per row. This wide format works well for data entry and sometimes works well for analysis but we quickly outgrow it when using R. For example, how would you fit a model with year as a predictor variable? In an ideal world, we’d be able to just run:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="session-8-cleaning-and-manipulating-data.html#cb29-1"></a><span class="kw">lm</span>(length <span class="op">~</span><span class="st"> </span>year)</span></code></pre></div>
+<p>But this won’t work on our wide data because <code>lm</code> needs <code>length</code> and <code>year</code> to be columns in our table.</p>
+<p>Or how would we make a separate plot for each year? We could call <code>plot</code> one time for each year but this is tedious if we have many years of data and hard to maintain as we add more years of data to our dataset.</p>
+<p>The <code>tidyr</code> package allows us to quickly switch between wide format and what is called tall format using the <code>pivot_longer</code> function:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="session-8-cleaning-and-manipulating-data.html#cb30-1"></a>site_data <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb30-2"><a href="session-8-cleaning-and-manipulating-data.html#cb30-2"></a><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="op">-</span>site, <span class="dt">names_to =</span> <span class="st">&quot;year&quot;</span>, <span class="dt">values_to =</span> <span class="st">&quot;length&quot;</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th>site</th>
+<th>year</th>
+<th align="right">length</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>gold</td>
+<td>1990</td>
+<td align="right">101</td>
+</tr>
+<tr class="even">
+<td>lake</td>
+<td>1990</td>
+<td align="right">104</td>
+</tr>
+<tr class="odd">
+<td>dredge</td>
+<td>1990</td>
+<td align="right">144</td>
+</tr>
+<tr class="even">
+<td>…</td>
+<td>…</td>
+<td align="right">…</td>
+</tr>
+<tr class="odd">
+<td>dredge</td>
+<td>1993</td>
+<td align="right">145</td>
+</tr>
+</tbody>
+</table>
+<p>In this lesson we’re going to walk through the functions you’ll most commonly use from the <code>dplyr</code> and <code>tidyr</code> packages:</p>
+<ul>
+<li><p><code>dplyr</code></p>
+<ul>
+<li><code>mutate()</code></li>
+<li><code>group_by()</code></li>
+<li><code>summarise()</code></li>
+<li><code>select()</code></li>
+<li><code>filter()</code></li>
+<li><code>arrange()</code></li>
+<li><code>left_join()</code></li>
+<li><code>rename()</code></li>
+</ul></li>
+<li><p><code>tidyr</code></p>
+<ul>
+<li><code>pivot_longer()</code></li>
+<li><code>pivot_wider()</code></li>
+<li><code>extract()</code></li>
+<li><code>separate()</code></li>
+</ul></li>
+</ul>
+</div>
+<div id="data-cleaning-basics" class="section level3" number="8.1.3">
+<h3><span class="header-section-number">8.1.3</span> Data Cleaning Basics</h3>
+<p>To demonstrate, we’ll be working with a tidied up version of a dataset from ADF&amp;G containing commercial catch data from 1878-1997. The dataset and reference to the original source can be found at its public archive: <a href="https://knb.ecoinformatics.org/#view/df35b.304.2" class="uri">https://knb.ecoinformatics.org/#view/df35b.304.2</a>.</p>
+<p>First, open a new RMarkdown document. Delete everything below the setup chunk, and add a library chunk that calls <code>dplyr</code>, <code>tidyr</code>, and <code>readr</code>:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="session-8-cleaning-and-manipulating-data.html#cb31-1"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb31-2"><a href="session-8-cleaning-and-manipulating-data.html#cb31-2"></a><span class="kw">library</span>(tidyr)</span>
+<span id="cb31-3"><a href="session-8-cleaning-and-manipulating-data.html#cb31-3"></a><span class="kw">library</span>(readr)</span></code></pre></div>
+<div id="aside-4" class="section level4 unnumbered aside" number="">
+<h4>Aside</h4>
+<p><strong>A note on loading packages.</strong></p>
+<p>You may have noticed the following warning messages pop up when you ran your library chunk.</p>
+<pre><code>Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union</code></pre>
+<p>These are important warnings. They are letting you know that certain functions from the <code>stats</code> and <code>base</code> packages (which are loaded by default when you start R) are masked by <em>different functions</em> with the same name in the <code>dplyr</code> package. It turns out, the order that you load the packages in matters. Since we loaded <code>dplyr</code> after <code>stats</code>, R will assume that if you call <code>filter</code>, you mean the <code>dplyr</code> version unless you specify otherwise.</p>
+<p>Being specific about which version of <code>filter</code>, for example, you call is easy. To explicitly call a function by its unambiguous name, you use the syntax <code>package_name::function_name(...)</code>. So, if I wanted to call the <code>stats</code> version of <code>filter</code> in this Rmarkdown document, I would use the syntax <code>stats::filter(...)</code>.</p>
+</div>
+<div id="section-12" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number=""></h4>
+</div>
+<div id="challenge-13" class="section level4 unnumbered exercise" number="">
+<h4>Challenge</h4>
+<p>The warnings above are important, but we might not want them in our final document. After you have read them, adjust the chunk settings on your library chunk to suppress warnings and messages.</p>
+</div>
+<div id="section-13" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number=""></h4>
+<p>Now that we have learned a little mini-lesson on functions, let’s get the data that we are going to use for this lesson.</p>
+</div>
+<div id="setup-7" class="section level4 unnumbered setup" number="">
+<h4>Setup</h4>
+<ol style="list-style-type: decimal">
+<li><p>Navigate to the salmon catch dataset: <a href="https://knb.ecoinformatics.org/#view/df35b.304.2" class="uri">https://knb.ecoinformatics.org/#view/df35b.304.2</a></p></li>
+<li><p>Right click the “download” button for the file “byerlySalmonByRegion.csv”</p></li>
+<li><p>Select “copy link address” from the dropdown menu</p></li>
+<li><p>Paste the URL into a <code>read_csv</code> call like below</p></li>
+</ol>
+</div>
+<div id="section-14" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number=""></h4>
+<p>The code chunk you use to read in the data should look something like this:</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="session-8-cleaning-and-manipulating-data.html#cb33-1"></a>catch_original &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://knb.ecoinformatics.org/knb/d1/mn/v2/object/df35b.302.1&quot;</span>)</span></code></pre></div>
+</div>
+<div id="aside-5" class="section level4 unnumbered aside" number="">
+<h4>Aside</h4>
+<p>Note that windows users who want to use this method locally also need to use the <code>url</code> function here with the argument <code>method = "libcurl"</code> as below:</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="session-8-cleaning-and-manipulating-data.html#cb34-1"></a>catch_original &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="kw">url</span>(<span class="st">&quot;https://knb.ecoinformatics.org/knb/d1/mn/v2/object/df35b.302.1&quot;</span>, <span class="dt">method =</span> <span class="st">&quot;libcurl&quot;</span>))</span></code></pre></div>
+</div>
+<div id="section-15" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number=""></h4>
+<p>This dataset is relatively clean and easy to interpret as-is. But while it may be clean, it’s in a shape that makes it hard to use for some types of analyses so we’ll want to fix that first.</p>
+</div>
+<div id="challenge-14" class="section level4 unnumbered exercise" number="">
+<h4>Challenge</h4>
+<p>Before we get too much further, spend a minute or two outlining your RMarkdown document so that it includes the following sections and steps:</p>
+<ul>
+<li>Data Sources
+<ul>
+<li>read in the data</li>
+</ul></li>
+<li>Clean and Reshape data
+<ul>
+<li>remove unnecessary columns</li>
+<li>check column typing</li>
+<li>reshape data</li>
+</ul></li>
+<li>Join to Regions dataset</li>
+</ul>
+</div>
+<div id="about-the-pipe-operator" class="section level4 unnumbered" number="">
+<h4>About the pipe (<code>%&gt;%</code>) operator</h4>
+<p>Before we jump into learning <code>tidyr</code> and <code>dplyr</code>, we first need to explain the <code>%&gt;%</code>.</p>
+<p>Both the <code>tidyr</code> and the <code>dplyr</code> packages use the pipe operator - <code>%&gt;%</code>, which may look unfamiliar. The pipe is a powerful way to efficiently chain together operations. The pipe will take the output of a previous statement, and use it as the input to the next statement.</p>
+<p>Say you want to both <code>filter</code> out rows of a dataset, and <code>select</code> certain columns. Instead of writing</p>
+<pre><code>df_filtered &lt;- filter(df, ...)
+df_selected &lt;- select(df_filtered, ...)</code></pre>
+<p>You can write</p>
+<pre><code>df_cleaned &lt;- df %&gt;% 
+              filter(...) %&gt;%
+              select(...)</code></pre>
+<p>If you think of the assignment operator (<code>&lt;-</code>) as reading like “gets”, then the pipe operator would read like “then.”</p>
+<p>So you might think of the above chunk being translated as:</p>
+<p>The cleaned dataframe gets the original data, and then a filter (of the original data), and then a select (of the filtered data).</p>
+<p>The benefits to using pipes are that you don’t have to keep track of (or overwrite) intermediate data frames. The drawbacks are that it can be more difficult to explain the reasoning behind each step, especially when many operations are chained together. It is good to strike a balance between writing efficient code (chaining operations), while ensuring that you are still clearly explaining, both to your future self and others, what you are doing and why you are doing it.</p>
+<p>RStudio has a keyboard shortcut for <code>%&gt;%</code> : Ctrl + Shift + M (Windows), Cmd + Shift + M (Mac).</p>
+</div>
+<div id="selectingremoving-columns-select" class="section level4 unnumbered" number="">
+<h4>Selecting/removing columns: <code>select()</code></h4>
+<p>The first issue is the extra columns <code>All</code> and <code>notesRegCode</code>. Let’s select only the columns we want, and assign this to a variable called <code>catch_data</code>.</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="session-8-cleaning-and-manipulating-data.html#cb37-1"></a>catch_data &lt;-<span class="st"> </span>catch_original <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb37-2"><a href="session-8-cleaning-and-manipulating-data.html#cb37-2"></a><span class="st">  </span><span class="kw">select</span>(Region, Year, Chinook, Sockeye, Coho, Pink, Chum)</span>
+<span id="cb37-3"><a href="session-8-cleaning-and-manipulating-data.html#cb37-3"></a></span>
+<span id="cb37-4"><a href="session-8-cleaning-and-manipulating-data.html#cb37-4"></a><span class="kw">head</span>(catch_data)</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 7
+##   Region  Year Chinook Sockeye  Coho  Pink  Chum
+##   &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1 SSE     1886 0             5     0     0     0
+## 2 SSE     1887 0           155     0     0     0
+## 3 SSE     1888 0           224    16     0     0
+## 4 SSE     1889 0           182    11    92     0
+## 5 SSE     1890 0           251    42     0     0
+## 6 SSE     1891 0           274    24     0     0</code></pre>
+<p>Much better!</p>
+<p><code>select</code> also allows you to say which columns you <em>don’t</em> want, by passing unquoted column names preceded by minus (-) signs:</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="session-8-cleaning-and-manipulating-data.html#cb39-1"></a>catch_data &lt;-<span class="st"> </span>catch_original <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb39-2"><a href="session-8-cleaning-and-manipulating-data.html#cb39-2"></a><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>All, <span class="op">-</span>notesRegCode)</span>
+<span id="cb39-3"><a href="session-8-cleaning-and-manipulating-data.html#cb39-3"></a></span>
+<span id="cb39-4"><a href="session-8-cleaning-and-manipulating-data.html#cb39-4"></a><span class="kw">head</span>(catch_data)</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 7
+##   Region  Year Chinook Sockeye  Coho  Pink  Chum
+##   &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1 SSE     1886 0             5     0     0     0
+## 2 SSE     1887 0           155     0     0     0
+## 3 SSE     1888 0           224    16     0     0
+## 4 SSE     1889 0           182    11    92     0
+## 5 SSE     1890 0           251    42     0     0
+## 6 SSE     1891 0           274    24     0     0</code></pre>
+</div>
+<div id="quality-check" class="section level4 unnumbered" number="">
+<h4>Quality Check</h4>
+<p>Now that we have the data we are interested in using, we should do a little quality check to see that it seems as expected. One nice way of doing this is the <code>summary</code> function.</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="session-8-cleaning-and-manipulating-data.html#cb41-1"></a><span class="kw">summary</span>(catch_data)</span></code></pre></div>
+<pre><code>##     Region               Year        Chinook             Sockeye              Coho       
+##  Length:1708        Min.   :1878   Length:1708        Min.   :    0.00   Min.   :   0.0  
+##  Class :character   1st Qu.:1922   Class :character   1st Qu.:    6.75   1st Qu.:   0.0  
+##  Mode  :character   Median :1947   Mode  :character   Median :  330.50   Median :  41.5  
+##                     Mean   :1946                      Mean   : 1401.09   Mean   : 150.4  
+##                     3rd Qu.:1972                      3rd Qu.:  995.50   3rd Qu.: 175.0  
+##                     Max.   :1997                      Max.   :44269.00   Max.   :3220.0  
+##       Pink              Chum        
+##  Min.   :    0.0   Min.   :    0.0  
+##  1st Qu.:    0.0   1st Qu.:    0.0  
+##  Median :   34.5   Median :   63.0  
+##  Mean   : 2357.8   Mean   :  422.0  
+##  3rd Qu.: 1622.5   3rd Qu.:  507.5  
+##  Max.   :53676.0   Max.   :10459.0</code></pre>
+</div>
+<div id="challenge-15" class="section level4 unnumbered exercise" number="">
+<h4>Challenge</h4>
+<p>Notice the output of the <code>summary</code> function call. Does anything seem amiss with this dataset that might warrant fixing?</p>
+</div>
+<div id="section-16" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number=""></h4>
+<p><strong>Answer:</strong> The Chinook catch data are <code>character</code> class. Let’s fix it using the function <code>mutate</code> before moving on.</p>
+</div>
+<div id="changing-column-content-mutate" class="section level4 unnumbered" number="">
+<h4>Changing column content: <code>mutate()</code></h4>
+<p>We can use the <code>mutate</code> function to change a column, or to create a new column. First Let’s try to just convert the Chinook catch values to <code>numeric</code> type using the <code>as.numeric()</code> function, and overwrite the old Chinook column.</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="session-8-cleaning-and-manipulating-data.html#cb43-1"></a>catch_clean &lt;-<span class="st"> </span>catch_data <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb43-2"><a href="session-8-cleaning-and-manipulating-data.html#cb43-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Chinook =</span> <span class="kw">as.numeric</span>(Chinook))</span></code></pre></div>
+<pre><code>## Warning: Problem with `mutate()` input `Chinook`.
+## ℹ NAs introduced by coercion
+## ℹ Input `Chinook` is `as.numeric(Chinook)`.</code></pre>
+<pre><code>## Warning in mask$eval_all_mutate(dots[[i]]): NAs introduced by coercion</code></pre>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="session-8-cleaning-and-manipulating-data.html#cb46-1"></a><span class="kw">head</span>(catch_clean)</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 7
+##   Region  Year Chinook Sockeye  Coho  Pink  Chum
+##   &lt;chr&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1 SSE     1886       0       5     0     0     0
+## 2 SSE     1887       0     155     0     0     0
+## 3 SSE     1888       0     224    16     0     0
+## 4 SSE     1889       0     182    11    92     0
+## 5 SSE     1890       0     251    42     0     0
+## 6 SSE     1891       0     274    24     0     0</code></pre>
+<p>We get a warning “NAs introduced by coercion” which is R telling us that it couldn’t convert every value to an integer and, for those values it couldn’t convert, it put an <code>NA</code> in its place. This is behavior we commonly experience when cleaning datasets and it’s important to have the skills to deal with it when it crops up.</p>
+<p>To investigate, let’s isolate the issue. We can find out which values are NAs with a combination of <code>is.na()</code> and <code>which()</code>, and save that to a variable called <code>i</code>.</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="session-8-cleaning-and-manipulating-data.html#cb48-1"></a>i &lt;-<span class="st"> </span><span class="kw">which</span>(<span class="kw">is.na</span>(catch_clean<span class="op">$</span>Chinook))</span>
+<span id="cb48-2"><a href="session-8-cleaning-and-manipulating-data.html#cb48-2"></a>i</span></code></pre></div>
+<pre><code>## [1] 401</code></pre>
+<p>It looks like there is only one problem row, lets have a look at it in the original data.</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="session-8-cleaning-and-manipulating-data.html#cb50-1"></a>catch_data[i,]</span></code></pre></div>
+<pre><code>## # A tibble: 1 x 7
+##   Region  Year Chinook Sockeye  Coho  Pink  Chum
+##   &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1 GSE     1955 I            66     0     0     1</code></pre>
+<p>Well that’s odd: The value in <code>catch_thousands</code> is <code>I</code>. It turns out that this dataset is from a PDF which was automatically converted into a CSV and this value of <code>I</code> is actually a 1.</p>
+<p>Let’s fix it by incorporating the <code>ifelse</code> function to our <code>mutate</code> call, which will change the value of the <code>Chinook</code> column to 1 if the value is equal to I, otherwise it will leave the column as the same value.</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="session-8-cleaning-and-manipulating-data.html#cb52-1"></a>catch_clean &lt;-<span class="st"> </span>catch_data <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb52-2"><a href="session-8-cleaning-and-manipulating-data.html#cb52-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Chinook =</span> <span class="kw">ifelse</span>(Chinook <span class="op">==</span><span class="st"> &quot;I&quot;</span>, <span class="dv">1</span>, Chinook)) <span class="op">%&gt;%</span></span>
+<span id="cb52-3"><a href="session-8-cleaning-and-manipulating-data.html#cb52-3"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Chinook =</span> <span class="kw">as.integer</span>(Chinook))</span>
+<span id="cb52-4"><a href="session-8-cleaning-and-manipulating-data.html#cb52-4"></a></span>
+<span id="cb52-5"><a href="session-8-cleaning-and-manipulating-data.html#cb52-5"></a><span class="kw">head</span>(catch_clean)</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 7
+##   Region  Year Chinook Sockeye  Coho  Pink  Chum
+##   &lt;chr&gt;  &lt;dbl&gt;   &lt;int&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1 SSE     1886       0       5     0     0     0
+## 2 SSE     1887       0     155     0     0     0
+## 3 SSE     1888       0     224    16     0     0
+## 4 SSE     1889       0     182    11    92     0
+## 5 SSE     1890       0     251    42     0     0
+## 6 SSE     1891       0     274    24     0     0</code></pre>
+</div>
+<div id="changing-shape-pivot_longer-and-pivot_wider" class="section level4 unnumbered" number="">
+<h4>Changing shape: <code>pivot_longer()</code> and <code>pivot_wider()</code></h4>
+<p>The next issue is that the data are in a wide format and, we want the data in a tall format instead. <code>pivot_longer()</code> from the <code>tidyr</code> package helps us do just this conversion:</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="session-8-cleaning-and-manipulating-data.html#cb54-1"></a>catch_long &lt;-<span class="st"> </span>catch_clean <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb54-2"><a href="session-8-cleaning-and-manipulating-data.html#cb54-2"></a><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> <span class="op">-</span><span class="kw">c</span>(Region, Year), <span class="dt">names_to =</span> <span class="st">&quot;species&quot;</span>, <span class="dt">values_to =</span> <span class="st">&quot;catch&quot;</span>)</span>
+<span id="cb54-3"><a href="session-8-cleaning-and-manipulating-data.html#cb54-3"></a></span>
+<span id="cb54-4"><a href="session-8-cleaning-and-manipulating-data.html#cb54-4"></a><span class="kw">head</span>(catch_long)</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 4
+##   Region  Year species catch
+##   &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt;
+## 1 SSE     1886 Chinook     0
+## 2 SSE     1886 Sockeye     5
+## 3 SSE     1886 Coho        0
+## 4 SSE     1886 Pink        0
+## 5 SSE     1886 Chum        0
+## 6 SSE     1887 Chinook     0</code></pre>
+<p>The syntax we used above for <code>pivot_longer()</code> might be a bit confusing so let’s walk though it.</p>
+<p>The first argument to <code>pivot_longer</code> is the columns over which we are pivoting. You can select these by listing either the names of the columns you do want to pivot, or the names of the columns you are not pivoting over. The <code>names_to</code> argument takes the name of the column that you are creating from the column <strong>names</strong> you are pivoting over. The <code>values_to</code> argument takes the name of the column that you are creating from the <strong>values</strong> in the columns you are pivoting over.</p>
+<p>The opposite of <code>pivot_longer()</code>, <code>pivot_wider()</code>, works in a similar declarative fashion:</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="session-8-cleaning-and-manipulating-data.html#cb56-1"></a>catch_wide &lt;-<span class="st"> </span>catch_long <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb56-2"><a href="session-8-cleaning-and-manipulating-data.html#cb56-2"></a><span class="st">  </span><span class="kw">pivot_wider</span>(<span class="dt">names_from =</span> species, <span class="dt">values_from =</span> catch)</span>
+<span id="cb56-3"><a href="session-8-cleaning-and-manipulating-data.html#cb56-3"></a></span>
+<span id="cb56-4"><a href="session-8-cleaning-and-manipulating-data.html#cb56-4"></a><span class="kw">head</span>(catch_wide)</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 7
+##   Region  Year Chinook Sockeye  Coho  Pink  Chum
+##   &lt;chr&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1 SSE     1886       0       5     0     0     0
+## 2 SSE     1887       0     155     0     0     0
+## 3 SSE     1888       0     224    16     0     0
+## 4 SSE     1889       0     182    11    92     0
+## 5 SSE     1890       0     251    42     0     0
+## 6 SSE     1891       0     274    24     0     0</code></pre>
+</div>
+<div id="renaming-columns-with-rename" class="section level4 unnumbered" number="">
+<h4>Renaming columns with <code>rename()</code></h4>
+<p>If you scan through the data, you may notice the values in the <code>catch</code> column are very small (these are supposed to be annual catches). If we look at <a href="https://knb.ecoinformatics.org/#view/df35b.304.2">the metadata</a> we can see that the <code>catch</code> column is in thousands of fish so let’s convert it before moving on.</p>
+<p>Let’s first rename the <code>catch</code> column to be called <code>catch_thousands</code>:</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="session-8-cleaning-and-manipulating-data.html#cb58-1"></a>catch_long &lt;-<span class="st"> </span>catch_long <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb58-2"><a href="session-8-cleaning-and-manipulating-data.html#cb58-2"></a><span class="st">  </span><span class="kw">rename</span>(<span class="dt">catch_thousands =</span> catch)</span>
+<span id="cb58-3"><a href="session-8-cleaning-and-manipulating-data.html#cb58-3"></a></span>
+<span id="cb58-4"><a href="session-8-cleaning-and-manipulating-data.html#cb58-4"></a><span class="kw">head</span>(catch_long)</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 4
+##   Region  Year species catch_thousands
+##   &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;             &lt;dbl&gt;
+## 1 SSE     1886 Chinook               0
+## 2 SSE     1886 Sockeye               5
+## 3 SSE     1886 Coho                  0
+## 4 SSE     1886 Pink                  0
+## 5 SSE     1886 Chum                  0
+## 6 SSE     1887 Chinook               0</code></pre>
+</div>
+<div id="aside-6" class="section level4 unnumbered aside" number="">
+<h4>Aside</h4>
+<p>Many people use the base R function <code>names</code> to rename columns, often in combination with column indexing that relies on columns being in a particular order. Column indexing is often also used to select columns instead of the <code>select</code> function from <code>dplyr</code>. Although these methods both work just fine, they do have one major drawback: in most implementations they rely on you knowing exactly the column order your data is in.</p>
+<p>To illustrate why your knowledge of column order isn’t reliable enough for these operations, considering the following scenario:</p>
+<p>Your colleague emails you letting you know that she has an updated version of the conductivity-temperature-depth data from this year’s research cruise, and sends it along. Excited, you re-run your scripts that use this data for your phytoplankton research. You run the script and suddenly all of your numbers seem off. You spend hours trying to figure out what is going on.</p>
+<p>Unbeknownst to you, your colleagues bought a new sensor this year that measures dissolved oxygen. Because of the new variables in the dataset, the column order is different. Your script which previously renamed the 4th column, <code>SAL_PSU</code> to <code>salinity</code> now renames the 4th column, <code>O2_MGpL</code> to <code>salinity</code>. No wonder your results looked so weird, good thing you caught it!</p>
+<p>If you had written your code so that it doesn’t rely on column order, but instead renames columns using the <code>rename</code> function, the code would have run just fine (assuming the name of the original salinity column didn’t change, in which case the code would have errored in an obvious way). This is an example of a defensive coding strategy, where you try to anticipate issues before they arise, and write your code in such a way as to keep the issues from happening.</p>
+</div>
+<div id="adding-columns-mutate" class="section level4 unnumbered" number="">
+<h4>Adding columns: <code>mutate()</code></h4>
+<p>Now let’s use <code>mutate</code> again to create a new column called <code>catch</code> with units of fish (instead of thousands of fish).</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="session-8-cleaning-and-manipulating-data.html#cb60-1"></a>catch_long &lt;-<span class="st"> </span>catch_long <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb60-2"><a href="session-8-cleaning-and-manipulating-data.html#cb60-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">catch =</span> catch_thousands <span class="op">*</span><span class="st"> </span><span class="dv">1000</span>)</span>
+<span id="cb60-3"><a href="session-8-cleaning-and-manipulating-data.html#cb60-3"></a></span>
+<span id="cb60-4"><a href="session-8-cleaning-and-manipulating-data.html#cb60-4"></a><span class="kw">head</span>(catch_long)</span></code></pre></div>
+<p>Now let’s remove the <code>catch_thousands</code> column for now since we don’t need it. Note that here we have added to the expression we wrote above by adding another function call (mutate) to our expression. This takes advantage of the pipe operator by grouping together a similar set of statements, which all aim to clean up the <code>catch_long</code> <code>data.frame</code>.</p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="session-8-cleaning-and-manipulating-data.html#cb61-1"></a>catch_long &lt;-<span class="st"> </span>catch_long <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb61-2"><a href="session-8-cleaning-and-manipulating-data.html#cb61-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">catch =</span> catch_thousands <span class="op">*</span><span class="st"> </span><span class="dv">1000</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb61-3"><a href="session-8-cleaning-and-manipulating-data.html#cb61-3"></a><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>catch_thousands)</span>
+<span id="cb61-4"><a href="session-8-cleaning-and-manipulating-data.html#cb61-4"></a></span>
+<span id="cb61-5"><a href="session-8-cleaning-and-manipulating-data.html#cb61-5"></a><span class="kw">head</span>(catch_long)</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 4
+##   Region  Year species catch
+##   &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt;
+## 1 SSE     1886 Chinook     0
+## 2 SSE     1886 Sockeye  5000
+## 3 SSE     1886 Coho        0
+## 4 SSE     1886 Pink        0
+## 5 SSE     1886 Chum        0
+## 6 SSE     1887 Chinook     0</code></pre>
+<p>We’re now ready to start analyzing the data.</p>
+</div>
+<div id="group_by-and-summarise" class="section level4 unnumbered" number="">
+<h4><code>group_by</code> and <code>summarise</code></h4>
+<p>As I outlined in the Introduction, <code>dplyr</code> lets us employ the Split-Apply-Combine strategy and this is exemplified through the use of the <code>group_by()</code> and <code>summarise()</code> functions:</p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="session-8-cleaning-and-manipulating-data.html#cb63-1"></a>mean_region &lt;-<span class="st"> </span>catch_long <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb63-2"><a href="session-8-cleaning-and-manipulating-data.html#cb63-2"></a><span class="st">  </span><span class="kw">group_by</span>(Region) <span class="op">%&gt;%</span></span>
+<span id="cb63-3"><a href="session-8-cleaning-and-manipulating-data.html#cb63-3"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">catch_mean =</span> <span class="kw">mean</span>(catch))</span></code></pre></div>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="session-8-cleaning-and-manipulating-data.html#cb65-1"></a><span class="kw">head</span>(mean_region)</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 2
+##   Region catch_mean
+##   &lt;chr&gt;       &lt;dbl&gt;
+## 1 ALU        40384.
+## 2 BER        16373.
+## 3 BRB      2709796.
+## 4 CHG       315487.
+## 5 CKI       683571.
+## 6 COP       179223.</code></pre>
+<p>Another common use of <code>group_by()</code> followed by <code>summarize()</code> is to count the number of rows in each group. We have to use a special function from <code>dplyr</code>, <code>n()</code>.</p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="session-8-cleaning-and-manipulating-data.html#cb67-1"></a>n_region &lt;-<span class="st"> </span>catch_long <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb67-2"><a href="session-8-cleaning-and-manipulating-data.html#cb67-2"></a><span class="st">  </span><span class="kw">group_by</span>(Region) <span class="op">%&gt;%</span></span>
+<span id="cb67-3"><a href="session-8-cleaning-and-manipulating-data.html#cb67-3"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">n =</span> <span class="kw">n</span>())</span></code></pre></div>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="session-8-cleaning-and-manipulating-data.html#cb69-1"></a><span class="kw">head</span>(n_region)</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 2
+##   Region     n
+##   &lt;chr&gt;  &lt;int&gt;
+## 1 ALU      435
+## 2 BER      510
+## 3 BRB      570
+## 4 CHG      550
+## 5 CKI      525
+## 6 COP      470</code></pre>
+</div>
+<div id="challenge-16" class="section level4 unnumbered exercise" number="">
+<h4>Challenge</h4>
+<ul>
+<li>Find another grouping and statistic to calculate for each group.</li>
+<li>Find out if you can group by multiple variables.</li>
+</ul>
+</div>
+<div id="filtering-rows-filter" class="section level4 unnumbered" number="">
+<h4>Filtering rows: <code>filter()</code></h4>
+<p><code>filter()</code> is the verb we use to filter our <code>data.frame</code> to rows matching some condition. It’s similar to <code>subset()</code> from base R.</p>
+<p>Let’s go back to our original <code>data.frame</code> and do some <code>filter()</code>ing:</p>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="session-8-cleaning-and-manipulating-data.html#cb71-1"></a>SSE_catch &lt;-<span class="st"> </span>catch_long <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb71-2"><a href="session-8-cleaning-and-manipulating-data.html#cb71-2"></a><span class="st">  </span><span class="kw">filter</span>(Region <span class="op">==</span><span class="st"> &quot;SSE&quot;</span>)</span>
+<span id="cb71-3"><a href="session-8-cleaning-and-manipulating-data.html#cb71-3"></a></span>
+<span id="cb71-4"><a href="session-8-cleaning-and-manipulating-data.html#cb71-4"></a><span class="kw">head</span>(SSE_catch)</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 4
+##   Region  Year species catch
+##   &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt;
+## 1 SSE     1886 Chinook     0
+## 2 SSE     1886 Sockeye  5000
+## 3 SSE     1886 Coho        0
+## 4 SSE     1886 Pink        0
+## 5 SSE     1886 Chum        0
+## 6 SSE     1887 Chinook     0</code></pre>
+</div>
+<div id="challenge-17" class="section level4 unnumbered exercise" number="">
+<h4>Challenge</h4>
+<ul>
+<li>Filter to just catches of over one million fish.</li>
+<li>Filter to just Chinook from the SSE region</li>
+</ul>
+</div>
+<div id="sorting-your-data-arrange" class="section level4 unnumbered" number="">
+<h4>Sorting your data: <code>arrange()</code></h4>
+<p><code>arrange()</code> is how we sort the rows of a <code>data.frame</code>. In my experience, I use <code>arrange()</code> in two common cases:</p>
+<ul>
+<li>When I want to calculate a cumulative sum (with <code>cumsum()</code>) so row order matters</li>
+<li>When I want to display a table (like in an <code>.Rmd</code> document) in sorted order</li>
+</ul>
+<p>Let’s re-calculate mean catch by region, and then <code>arrange()</code> the output by mean catch:</p>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="session-8-cleaning-and-manipulating-data.html#cb73-1"></a>mean_region &lt;-<span class="st"> </span>catch_long <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb73-2"><a href="session-8-cleaning-and-manipulating-data.html#cb73-2"></a><span class="st">  </span><span class="kw">group_by</span>(Region) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb73-3"><a href="session-8-cleaning-and-manipulating-data.html#cb73-3"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_catch =</span> <span class="kw">mean</span>(catch)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb73-4"><a href="session-8-cleaning-and-manipulating-data.html#cb73-4"></a><span class="st">  </span><span class="kw">arrange</span>(mean_catch)</span></code></pre></div>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="session-8-cleaning-and-manipulating-data.html#cb75-1"></a><span class="kw">head</span>(mean_region)</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 2
+##   Region mean_catch
+##   &lt;chr&gt;       &lt;dbl&gt;
+## 1 BER        16373.
+## 2 KTZ        18836.
+## 3 ALU        40384.
+## 4 NRS        51503.
+## 5 KSK        67642.
+## 6 YUK        68646.</code></pre>
+<p>The default sorting order of <code>arrange()</code> is to sort in ascending order. To reverse the sort order, wrap the column name inside the <code>desc()</code> function:</p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="session-8-cleaning-and-manipulating-data.html#cb77-1"></a>mean_region &lt;-<span class="st"> </span>catch_long <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb77-2"><a href="session-8-cleaning-and-manipulating-data.html#cb77-2"></a><span class="st">  </span><span class="kw">group_by</span>(Region) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb77-3"><a href="session-8-cleaning-and-manipulating-data.html#cb77-3"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_catch =</span> <span class="kw">mean</span>(catch)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb77-4"><a href="session-8-cleaning-and-manipulating-data.html#cb77-4"></a><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(mean_catch))</span></code></pre></div>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="session-8-cleaning-and-manipulating-data.html#cb79-1"></a><span class="kw">head</span>(mean_region)</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 2
+##   Region mean_catch
+##   &lt;chr&gt;       &lt;dbl&gt;
+## 1 SSE      3184661.
+## 2 BRB      2709796.
+## 3 NSE      1825021.
+## 4 KOD      1528350 
+## 5 PWS      1419237.
+## 6 SOP      1110942.</code></pre>
+</div>
+</div>
+<div id="joins-in-dplyr" class="section level3" number="8.1.4">
+<h3><span class="header-section-number">8.1.4</span> Joins in dplyr</h3>
+<p>So now that we’re awesome at manipulating a single <code>data.frame</code>, where do we go from here? Manipulating <strong>more than one</strong> <code>data.frame</code>.</p>
+<p>If you’ve ever used a database, you may have heard of or used what’s called a “join”, which allows us to to intelligently merge two tables together into a single table based upon a shared column between the two. We’ve already covered joins in <a href="session-7-data-modeling-essentials.html#data-modeling-tidy-data">Data Modeling &amp; Tidy Data</a> so let’s see how it’s done with <code>dplyr</code>.</p>
+<p>The dataset we’re working with, <a href="https://knb.ecoinformatics.org/#view/df35b.304.2" class="uri">https://knb.ecoinformatics.org/#view/df35b.304.2</a>, contains a second CSV which has the definition of each <code>Region</code> code. This is a really common way of storing auxiliary information about our dataset of interest (catch) but, for analylitcal purposes, we often want them in the same <code>data.frame</code>. Joins let us do that easily.</p>
+<p>Let’s look at a preview of what our join will do by looking at a simplified version of our data:</p>
+<div class="figure">
+<img src="images/left_join_catchdata.png" alt="" />
+<p class="caption">Visualisation of our <code>left_join</code></p>
+</div>
+<p>First, let’s read in the region definitions data table and select only the columns we want. Note that I have piped my <code>read.csv</code> result into a select call, creating a tidy chunk that reads and selects the data that we need.</p>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="session-8-cleaning-and-manipulating-data.html#cb81-1"></a>region_defs &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://knb.ecoinformatics.org/knb/d1/mn/v2/object/df35b.303.1&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb81-2"><a href="session-8-cleaning-and-manipulating-data.html#cb81-2"></a><span class="st">    </span><span class="kw">select</span>(code, mgmtArea)</span></code></pre></div>
+<pre><code>## Parsed with column specification:
+## cols(
+##   code = col_character(),
+##   mgmtArea = col_character(),
+##   areaClass = col_character(),
+##   regionCode = col_double(),
+##   notes = col_character()
+## )</code></pre>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="session-8-cleaning-and-manipulating-data.html#cb83-1"></a><span class="kw">head</span>(region_defs)</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 2
+##   code    mgmtArea                                 
+##   &lt;chr&gt;   &lt;chr&gt;                                    
+## 1 GSE     Unallocated Southeast Alaska             
+## 2 NSE     Northern Southeast Alaska                
+## 3 SSE     Southern Southeast Alaska                
+## 4 YAK     Yakutat                                  
+## 5 PWSmgmt Prince William Sound Management Area     
+## 6 BER     Bering River Subarea Copper River Subarea</code></pre>
+<p>If you examine the <code>region_defs</code> <code>data.frame</code>, you’ll see that the column names don’t exactly match the image above. If the names of the key columns are not the same, you can explicitly specify which are the key columns in the left and right side as shown below:</p>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="session-8-cleaning-and-manipulating-data.html#cb85-1"></a>catch_joined &lt;-<span class="st"> </span><span class="kw">left_join</span>(catch_long, region_defs, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;Region&quot;</span> =<span class="st"> &quot;code&quot;</span>))</span>
+<span id="cb85-2"><a href="session-8-cleaning-and-manipulating-data.html#cb85-2"></a></span>
+<span id="cb85-3"><a href="session-8-cleaning-and-manipulating-data.html#cb85-3"></a><span class="kw">head</span>(catch_joined)</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 5
+##   Region  Year species catch mgmtArea                 
+##   &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;                    
+## 1 SSE     1886 Chinook     0 Southern Southeast Alaska
+## 2 SSE     1886 Sockeye  5000 Southern Southeast Alaska
+## 3 SSE     1886 Coho        0 Southern Southeast Alaska
+## 4 SSE     1886 Pink        0 Southern Southeast Alaska
+## 5 SSE     1886 Chum        0 Southern Southeast Alaska
+## 6 SSE     1887 Chinook     0 Southern Southeast Alaska</code></pre>
+<p>Notice that I have deviated from our usual pipe syntax (although it does work here!) because I prefer to see the <code>data.frames</code> that I am joining side by side in the syntax.</p>
+<p>Another way you can do this join is to use <code>rename</code> to change the column name <code>code</code> to <code>Region</code> in the <code>region_defs</code> <code>data.frame</code>, and run the <code>left_join</code> this way:</p>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="session-8-cleaning-and-manipulating-data.html#cb87-1"></a>region_defs &lt;-<span class="st"> </span>region_defs <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb87-2"><a href="session-8-cleaning-and-manipulating-data.html#cb87-2"></a><span class="st">  </span><span class="kw">rename</span>(<span class="dt">Region =</span> code, <span class="dt">Region_Name =</span> mgmtArea)</span>
+<span id="cb87-3"><a href="session-8-cleaning-and-manipulating-data.html#cb87-3"></a></span>
+<span id="cb87-4"><a href="session-8-cleaning-and-manipulating-data.html#cb87-4"></a>catch_joined &lt;-<span class="st"> </span><span class="kw">left_join</span>(catch_long, region_defs, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;Region&quot;</span>))</span>
+<span id="cb87-5"><a href="session-8-cleaning-and-manipulating-data.html#cb87-5"></a></span>
+<span id="cb87-6"><a href="session-8-cleaning-and-manipulating-data.html#cb87-6"></a><span class="kw">head</span>(catch_joined)</span></code></pre></div>
+<p>Now our catches have the auxiliary information from the region definitions file alongside them. Note: <code>dplyr</code> provides a complete set of joins: inner, left, right, full, semi, anti, not just left_join.</p>
+<div id="separate-and-unite" class="section level4 unnumbered" number="">
+<h4><code>separate()</code> and <code>unite()</code></h4>
+<p><code>separate()</code> and its complement, <code>unite()</code> allow us to easily split a single column into numerous (or numerous into a single).</p>
+<p>This can come in really handle when we need to split a column into two pieces by a consistent separator (like a dash).</p>
+<p>Let’s make a new <code>data.frame</code> with fake data to illustrate this. Here we have a set of site identification codes. with information about the island where the site is (the first 3 letters) and a site number (the 3 numbers). If we want to group and summarize by island, we need a column with just the island information.</p>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="session-8-cleaning-and-manipulating-data.html#cb88-1"></a>sites_df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">site =</span> <span class="kw">c</span>(<span class="st">&quot;HAW-101&quot;</span>,</span>
+<span id="cb88-2"><a href="session-8-cleaning-and-manipulating-data.html#cb88-2"></a>                                <span class="st">&quot;HAW-103&quot;</span>,</span>
+<span id="cb88-3"><a href="session-8-cleaning-and-manipulating-data.html#cb88-3"></a>                                <span class="st">&quot;OAH-320&quot;</span>,</span>
+<span id="cb88-4"><a href="session-8-cleaning-and-manipulating-data.html#cb88-4"></a>                                <span class="st">&quot;OAH-219&quot;</span>,</span>
+<span id="cb88-5"><a href="session-8-cleaning-and-manipulating-data.html#cb88-5"></a>                                <span class="st">&quot;MAI-039&quot;</span>),</span>
+<span id="cb88-6"><a href="session-8-cleaning-and-manipulating-data.html#cb88-6"></a>                       <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb88-7"><a href="session-8-cleaning-and-manipulating-data.html#cb88-7"></a></span>
+<span id="cb88-8"><a href="session-8-cleaning-and-manipulating-data.html#cb88-8"></a>sites_df <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb88-9"><a href="session-8-cleaning-and-manipulating-data.html#cb88-9"></a><span class="st">  </span><span class="kw">separate</span>(site, <span class="kw">c</span>(<span class="st">&quot;island&quot;</span>, <span class="st">&quot;site_number&quot;</span>), <span class="st">&quot;-&quot;</span>)</span></code></pre></div>
+<pre><code>##   island site_number
+## 1    HAW         101
+## 2    HAW         103
+## 3    OAH         320
+## 4    OAH         219
+## 5    MAI         039</code></pre>
+<ul>
+<li><strong>Exercise:</strong> Split the <code>city</code> column in the following <code>data.frame</code> into <code>city</code> and <code>state_code</code> columns:</li>
+</ul>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="session-8-cleaning-and-manipulating-data.html#cb90-1"></a>cities_df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">city =</span> <span class="kw">c</span>(<span class="st">&quot;Juneau AK&quot;</span>, </span>
+<span id="cb90-2"><a href="session-8-cleaning-and-manipulating-data.html#cb90-2"></a>                                 <span class="st">&quot;Sitka AK&quot;</span>, </span>
+<span id="cb90-3"><a href="session-8-cleaning-and-manipulating-data.html#cb90-3"></a>                                 <span class="st">&quot;Anchorage AK&quot;</span>),</span>
+<span id="cb90-4"><a href="session-8-cleaning-and-manipulating-data.html#cb90-4"></a>                        <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb90-5"><a href="session-8-cleaning-and-manipulating-data.html#cb90-5"></a></span>
+<span id="cb90-6"><a href="session-8-cleaning-and-manipulating-data.html#cb90-6"></a><span class="co"># Write your solution here</span></span></code></pre></div>
+<p><code>unite()</code> does just the reverse of <code>separate()</code>. If we have a data.frame that contains columns for year, month, and day, we might want to unite these into a single date column.</p>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="session-8-cleaning-and-manipulating-data.html#cb91-1"></a>dates_df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">year =</span> <span class="kw">c</span>(<span class="st">&quot;1930&quot;</span>,</span>
+<span id="cb91-2"><a href="session-8-cleaning-and-manipulating-data.html#cb91-2"></a>                                <span class="st">&quot;1930&quot;</span>,</span>
+<span id="cb91-3"><a href="session-8-cleaning-and-manipulating-data.html#cb91-3"></a>                                <span class="st">&quot;1930&quot;</span>),</span>
+<span id="cb91-4"><a href="session-8-cleaning-and-manipulating-data.html#cb91-4"></a>                       <span class="dt">month =</span> <span class="kw">c</span>(<span class="st">&quot;12&quot;</span>,</span>
+<span id="cb91-5"><a href="session-8-cleaning-and-manipulating-data.html#cb91-5"></a>                                <span class="st">&quot;12&quot;</span>,</span>
+<span id="cb91-6"><a href="session-8-cleaning-and-manipulating-data.html#cb91-6"></a>                                <span class="st">&quot;12&quot;</span>),</span>
+<span id="cb91-7"><a href="session-8-cleaning-and-manipulating-data.html#cb91-7"></a>                       <span class="dt">day =</span> <span class="kw">c</span>(<span class="st">&quot;14&quot;</span>,</span>
+<span id="cb91-8"><a href="session-8-cleaning-and-manipulating-data.html#cb91-8"></a>                               <span class="st">&quot;15&quot;</span>,</span>
+<span id="cb91-9"><a href="session-8-cleaning-and-manipulating-data.html#cb91-9"></a>                               <span class="st">&quot;16&quot;</span>),</span>
+<span id="cb91-10"><a href="session-8-cleaning-and-manipulating-data.html#cb91-10"></a>                       <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb91-11"><a href="session-8-cleaning-and-manipulating-data.html#cb91-11"></a></span>
+<span id="cb91-12"><a href="session-8-cleaning-and-manipulating-data.html#cb91-12"></a>dates_df <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb91-13"><a href="session-8-cleaning-and-manipulating-data.html#cb91-13"></a><span class="st">  </span><span class="kw">unite</span>(date, year, month, day, <span class="dt">sep =</span> <span class="st">&quot;-&quot;</span>)</span></code></pre></div>
+<pre><code>##         date
+## 1 1930-12-14
+## 2 1930-12-15
+## 3 1930-12-16</code></pre>
+<ul>
+<li><strong>Exercise:</strong> Use <code>unite()</code> on your solution above to combine the <code>cities_df</code> back to its original form with just one column, <code>city</code>:</li>
+</ul>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="session-8-cleaning-and-manipulating-data.html#cb93-1"></a><span class="co"># Write your solution here</span></span></code></pre></div>
+</div>
+<div id="summary-1" class="section level4 unnumbered" number="">
+<h4>Summary</h4>
+<p>We just ran through the various things we can do with <code>dplyr</code> and <code>tidyr</code> but if you’re wondering how this might look in a real analysis. Let’s look at that now:</p>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="session-8-cleaning-and-manipulating-data.html#cb94-1"></a>catch_original &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="kw">url</span>(<span class="st">&quot;https://knb.ecoinformatics.org/knb/d1/mn/v2/object/df35b.302.1&quot;</span>, <span class="dt">method =</span> <span class="st">&quot;libcurl&quot;</span>),</span>
+<span id="cb94-2"><a href="session-8-cleaning-and-manipulating-data.html#cb94-2"></a>                  <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb94-3"><a href="session-8-cleaning-and-manipulating-data.html#cb94-3"></a>region_defs &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="kw">url</span>(<span class="st">&quot;https://knb.ecoinformatics.org/knb/d1/mn/v2/object/df35b.303.1&quot;</span>, <span class="dt">method =</span> <span class="st">&quot;libcurl&quot;</span>),</span>
+<span id="cb94-4"><a href="session-8-cleaning-and-manipulating-data.html#cb94-4"></a>                        <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb94-5"><a href="session-8-cleaning-and-manipulating-data.html#cb94-5"></a><span class="st">    </span><span class="kw">select</span>(code, mgmtArea)</span>
+<span id="cb94-6"><a href="session-8-cleaning-and-manipulating-data.html#cb94-6"></a></span>
+<span id="cb94-7"><a href="session-8-cleaning-and-manipulating-data.html#cb94-7"></a>mean_region &lt;-<span class="st"> </span>catch_original <span class="op">%&gt;%</span></span>
+<span id="cb94-8"><a href="session-8-cleaning-and-manipulating-data.html#cb94-8"></a><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>All, <span class="op">-</span>notesRegCode) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb94-9"><a href="session-8-cleaning-and-manipulating-data.html#cb94-9"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Chinook =</span> <span class="kw">ifelse</span>(Chinook <span class="op">==</span><span class="st"> &quot;I&quot;</span>, <span class="dv">1</span>, Chinook)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb94-10"><a href="session-8-cleaning-and-manipulating-data.html#cb94-10"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Chinook =</span> <span class="kw">as.numeric</span>(Chinook)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb94-11"><a href="session-8-cleaning-and-manipulating-data.html#cb94-11"></a><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="op">-</span><span class="kw">c</span>(Region, Year), <span class="dt">names_to =</span> <span class="st">&quot;species&quot;</span>, <span class="dt">values_to =</span> <span class="st">&quot;catch&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb94-12"><a href="session-8-cleaning-and-manipulating-data.html#cb94-12"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">catch =</span> catch<span class="op">*</span><span class="dv">1000</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb94-13"><a href="session-8-cleaning-and-manipulating-data.html#cb94-13"></a><span class="st">  </span><span class="kw">group_by</span>(Region) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb94-14"><a href="session-8-cleaning-and-manipulating-data.html#cb94-14"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean_catch =</span> <span class="kw">mean</span>(catch)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb94-15"><a href="session-8-cleaning-and-manipulating-data.html#cb94-15"></a><span class="st">  </span><span class="kw">left_join</span>(region_defs, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;Region&quot;</span> =<span class="st"> &quot;code&quot;</span>))</span></code></pre></div>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="session-8-cleaning-and-manipulating-data.html#cb96-1"></a><span class="kw">head</span>(mean_region)</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 3
+##   Region mean_catch mgmtArea                                 
+##   &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;                                    
+## 1 ALU        40384. Aleutian Islands Subarea                 
+## 2 BER        16373. Bering River Subarea Copper River Subarea
+## 3 BRB      2709796. Bristol Bay Management Area              
+## 4 CHG       315487. Chignik Management Area                  
+## 5 CKI       683571. Cook Inlet Management Area               
+## 6 COP       179223. Copper River Subarea</code></pre>
+
+</div>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="session-7-data-modeling-essentials.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="session-9-data-visualisation-and-publishing-to-the-web.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

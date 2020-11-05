@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>5 Session 5: Git Collaboration and Conflict Management | Arctic Data Center Training</title>
+  <meta name="description" content="5 Session 5: Git Collaboration and Conflict Management | Arctic Data Center Training" />
+  <meta name="generator" content="bookdown 0.20.6 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="5 Session 5: Git Collaboration and Conflict Management | Arctic Data Center Training" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="5 Session 5: Git Collaboration and Conflict Management | Arctic Data Center Training" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="session-4-version-control-with-git-and-github.html"/>
+<link rel="next" href="session-6-social-aspects-of-collaboration.html"/>
+<script src="libs/header-attrs-2.3.11/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Data Science Training for the Arctic Data Center</a>
+<ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#schedule"><i class="fa fa-check"></i><b>0.1</b> Schedule</a>
+<ul>
+<li class="chapter" data-level="0.1.1" data-path="index.html"><a href="index.html#code-of-conduct"><i class="fa fa-check"></i><b>0.1.1</b> Code of Conduct</a></li>
+<li class="chapter" data-level="0.1.2" data-path="index.html"><a href="index.html#logistics"><i class="fa fa-check"></i><b>0.1.2</b> Logistics</a></li>
+<li class="chapter" data-level="0.1.3" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>0.1.3</b> Acknowledgements</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html"><i class="fa fa-check"></i><b>1</b> Session 1: Introduction to the Arctic Data Center</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#introduction-to-the-arctic-data-center-and-nsf-standards-and-policies"><i class="fa fa-check"></i><b>1.1</b> Introduction to the Arctic Data Center and NSF Standards and Policies</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#learning-objectives"><i class="fa fa-check"></i><b>1.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="1.1.2" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#arctic-data-center---history-and-introduction"><i class="fa fa-check"></i><b>1.1.2</b> Arctic Data Center - History and Introduction</a></li>
+<li class="chapter" data-level="1.1.3" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#data-discovery-portal"><i class="fa fa-check"></i><b>1.1.3</b> Data Discovery Portal</a></li>
+<li class="chapter" data-level="1.1.4" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#tools-and-infrastructure"><i class="fa fa-check"></i><b>1.1.4</b> Tools and Infrastructure</a></li>
+<li class="chapter" data-level="1.1.5" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#support-services"><i class="fa fa-check"></i><b>1.1.5</b> Support Services</a></li>
+<li class="chapter" data-level="1.1.6" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#training-and-outreach"><i class="fa fa-check"></i><b>1.1.6</b> Training and Outreach</a></li>
+<li class="chapter" data-level="1.1.7" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#data-rescue"><i class="fa fa-check"></i><b>1.1.7</b> Data Rescue</a></li>
+<li class="chapter" data-level="1.1.8" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#who-must-submit"><i class="fa fa-check"></i><b>1.1.8</b> Who Must Submit</a></li>
+<li class="chapter" data-level="1.1.9" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#summary"><i class="fa fa-check"></i><b>1.1.9</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#writing-good-data-management-plans"><i class="fa fa-check"></i><b>1.2</b> Writing Good Data Management Plans</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#learning-objectives-1"><i class="fa fa-check"></i><b>1.2.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="1.2.2" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#when-to-plan-the-data-life-cycle"><i class="fa fa-check"></i><b>1.2.2</b> When to Plan: The Data Life Cycle</a></li>
+<li class="chapter" data-level="1.2.3" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#why-plan"><i class="fa fa-check"></i><b>1.2.3</b> Why Plan?</a></li>
+<li class="chapter" data-level="1.2.4" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#how-to-plan"><i class="fa fa-check"></i><b>1.2.4</b> How to Plan</a></li>
+<li class="chapter" data-level="1.2.5" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#what-to-include-in-a-dmp"><i class="fa fa-check"></i><b>1.2.5</b> What to include in a DMP</a></li>
+<li class="chapter" data-level="1.2.6" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#nsf-dmp-requirements"><i class="fa fa-check"></i><b>1.2.6</b> NSF DMP requirements</a></li>
+<li class="chapter" data-level="1.2.7" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#tools-in-support-of-creating-a-dmp"><i class="fa fa-check"></i><b>1.2.7</b> Tools in Support of Creating a DMP</a></li>
+<li class="chapter" data-level="1.2.8" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#arctic-data-center-support-for-dmps"><i class="fa fa-check"></i><b>1.2.8</b> Arctic Data Center Support for DMPs</a></li>
+<li class="chapter" data-level="1.2.9" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#sharing-your-dmp"><i class="fa fa-check"></i><b>1.2.9</b> Sharing Your DMP</a></li>
+<li class="chapter" data-level="1.2.10" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#additional-resources"><i class="fa fa-check"></i><b>1.2.10</b> Additional Resources</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html"><i class="fa fa-check"></i><b>2</b> Session 2: Documenting and Publishing Data</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#best-practices-data-and-metadata"><i class="fa fa-check"></i><b>2.1</b> Best Practices: Data and Metadata</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#learning-objectives-2"><i class="fa fa-check"></i><b>2.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="2.1.2" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#best-practices-overview"><i class="fa fa-check"></i><b>2.1.2</b> Best Practices: Overview</a></li>
+<li class="chapter" data-level="2.1.3" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#data-identifiers"><i class="fa fa-check"></i><b>2.1.3</b> Data Identifiers</a></li>
+<li class="chapter" data-level="2.1.4" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#data-citation"><i class="fa fa-check"></i><b>2.1.4</b> Data Citation</a></li>
+<li class="chapter" data-level="2.1.5" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#provanance-preserving-computational-workflows"><i class="fa fa-check"></i><b>2.1.5</b> Provanance &amp; Preserving Computational Workflows</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#data-documentation-and-publishing"><i class="fa fa-check"></i><b>2.2</b> Data Documentation and Publishing</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#learning-objectives-3"><i class="fa fa-check"></i><b>2.2.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="2.2.2" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#data-sharing-and-preservation"><i class="fa fa-check"></i><b>2.2.2</b> Data sharing and preservation</a></li>
+<li class="chapter" data-level="2.2.3" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#data-repositories-built-for-data-and-code"><i class="fa fa-check"></i><b>2.2.3</b> Data repositories: built for data (and code)</a></li>
+<li class="chapter" data-level="2.2.4" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#metadata"><i class="fa fa-check"></i><b>2.2.4</b> Metadata</a></li>
+<li class="chapter" data-level="2.2.5" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#structure-of-a-data-package"><i class="fa fa-check"></i><b>2.2.5</b> Structure of a data package</a></li>
+<li class="chapter" data-level="2.2.6" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#dataone-federation"><i class="fa fa-check"></i><b>2.2.6</b> DataONE Federation</a></li>
+<li class="chapter" data-level="2.2.7" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#publishing-data-from-the-web"><i class="fa fa-check"></i><b>2.2.7</b> Publishing data from the web</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html"><i class="fa fa-check"></i><b>3</b> Session 3: Literate Analysis with RMarkdown</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#rstudio-and-gitgithub-setup-and-motivation"><i class="fa fa-check"></i><b>3.1</b> RStudio and Git/GitHub Setup and Motivation</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#learning-objectives-4"><i class="fa fa-check"></i><b>3.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="3.1.2" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#introduction-to-reproducible-research"><i class="fa fa-check"></i><b>3.1.2</b> Introduction to reproducible research</a></li>
+<li class="chapter" data-level="3.1.3" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#logging-into-the-rstudio-server"><i class="fa fa-check"></i><b>3.1.3</b> Logging into the RStudio server</a></li>
+<li class="chapter" data-level="3.1.4" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#setting-up-the-r-environment-on-your-local-computer"><i class="fa fa-check"></i><b>3.1.4</b> Setting up the R environment on your local computer</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#literate-analysis-with-rmarkdown"><i class="fa fa-check"></i><b>3.2</b> Literate Analysis with RMarkdown</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#learning-objectives-5"><i class="fa fa-check"></i><b>3.2.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="3.2.2" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#introduction-and-motivation"><i class="fa fa-check"></i><b>3.2.2</b> Introduction and motivation</a></li>
+<li class="chapter" data-level="3.2.3" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#basic-rmarkdown-syntax"><i class="fa fa-check"></i><b>3.2.3</b> Basic RMarkdown syntax</a></li>
+<li class="chapter" data-level="3.2.4" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#code-chunks"><i class="fa fa-check"></i><b>3.2.4</b> Code chunks</a></li>
+<li class="chapter" data-level="3.2.5" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#literate-analysis-practice"><i class="fa fa-check"></i><b>3.2.5</b> Literate analysis practice</a></li>
+<li class="chapter" data-level="3.2.6" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#rmarkdown-and-environments"><i class="fa fa-check"></i><b>3.2.6</b> RMarkdown and environments</a></li>
+<li class="chapter" data-level="3.2.7" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#go-further"><i class="fa fa-check"></i><b>3.2.7</b> Go Further</a></li>
+<li class="chapter" data-level="3.2.8" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#resources"><i class="fa fa-check"></i><b>3.2.8</b> Resources</a></li>
+<li class="chapter" data-level="3.2.9" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#troubleshooting"><i class="fa fa-check"></i><b>3.2.9</b> Troubleshooting</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html"><i class="fa fa-check"></i><b>4</b> Session 4: Version Control with git and GitHub</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#learning-objectives-6"><i class="fa fa-check"></i><b>4.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="4.2" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#introduction-to-git"><i class="fa fa-check"></i><b>4.2</b> Introduction to git</a>
+<ul>
+<li class="chapter" data-level="" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#version-control-and-collaboration-using-git-and-github"><i class="fa fa-check"></i>Version control and Collaboration using Git and GitHub</a></li>
+<li class="chapter" data-level="" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#lets-look-at-a-github-repository"><i class="fa fa-check"></i>Let’s look at a GitHub repository</a></li>
+<li class="chapter" data-level="" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#the-git-lifecycle"><i class="fa fa-check"></i>The Git lifecycle</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#create-a-remote-repository-on-github"><i class="fa fa-check"></i><b>4.3</b> Create a remote repository on GitHub</a>
+<ul>
+<li class="chapter" data-level="" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#setup-4"><i class="fa fa-check"></i>Setup</a></li>
+<li><a href="session-4-version-control-with-git-and-github.html#section-1"></a></li>
+<li class="chapter" data-level="" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#challenge-5"><i class="fa fa-check"></i>Challenge</a></li>
+<li><a href="session-4-version-control-with-git-and-github.html#section-2"></a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#working-locally-with-git-via-rstudio"><i class="fa fa-check"></i><b>4.4</b> Working locally with Git via RStudio</a>
+<ul>
+<li class="chapter" data-level="" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#setup-5"><i class="fa fa-check"></i>Setup</a></li>
+<li><a href="session-4-version-control-with-git-and-github.html#section-3"></a></li>
+<li class="chapter" data-level="" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#challenge-6"><i class="fa fa-check"></i>Challenge</a></li>
+<li><a href="session-4-version-control-with-git-and-github.html#section-4"></a></li>
+<li class="chapter" data-level="" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#aside-3"><i class="fa fa-check"></i>Aside</a></li>
+<li class="chapter" data-level="" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#collaboration-and-conflict-free-workflows"><i class="fa fa-check"></i>Collaboration and conflict free workflows</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#setting-up-git-on-an-existing-project"><i class="fa fa-check"></i><b>4.5</b> Setting up git on an existing project</a>
+<ul>
+<li class="chapter" data-level="" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#challenge-7"><i class="fa fa-check"></i>Challenge</a></li>
+<li><a href="session-4-version-control-with-git-and-github.html#section-5"></a></li>
+<li class="chapter" data-level="" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#challenge-8"><i class="fa fa-check"></i>Challenge</a></li>
+<li><a href="session-4-version-control-with-git-and-github.html#section-6"></a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#go-further-1"><i class="fa fa-check"></i><b>4.6</b> Go Further</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html"><i class="fa fa-check"></i><b>5</b> Session 5: Git Collaboration and Conflict Management</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#learning-objectives-7"><i class="fa fa-check"></i><b>5.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="5.2" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#introduction"><i class="fa fa-check"></i><b>5.2</b> Introduction</a></li>
+<li class="chapter" data-level="5.3" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#collaborating-with-a-trusted-colleague-without-conflicts"><i class="fa fa-check"></i><b>5.3</b> Collaborating with a trusted colleague <strong>without conflicts</strong></a>
+<ul>
+<li class="chapter" data-level="" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#setup-6"><i class="fa fa-check"></i>Setup</a></li>
+<li><a href="session-5-git-collaboration-and-conflict-management.html#section-7"></a></li>
+<li class="chapter" data-level="5.3.1" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#step-1-collaborator-clone"><i class="fa fa-check"></i><b>5.3.1</b> Step 1: Collaborator clone</a></li>
+<li class="chapter" data-level="5.3.2" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#step-2-collaborator-edits"><i class="fa fa-check"></i><b>5.3.2</b> Step 2: Collaborator Edits</a></li>
+<li class="chapter" data-level="5.3.3" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#step-3-collaborator-commit-and-push"><i class="fa fa-check"></i><b>5.3.3</b> Step 3: Collaborator commit and push</a></li>
+<li class="chapter" data-level="5.3.4" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#step-4-owner-pull"><i class="fa fa-check"></i><b>5.3.4</b> Step 4: Owner pull</a></li>
+<li class="chapter" data-level="5.3.5" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#step-5-owner-edits-commit-and-push"><i class="fa fa-check"></i><b>5.3.5</b> Step 5: Owner edits, commit, and push</a></li>
+<li class="chapter" data-level="5.3.6" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#step-6-collaborator-pull"><i class="fa fa-check"></i><b>5.3.6</b> Step 6: Collaborator pull</a></li>
+<li class="chapter" data-level="" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#challenge-9"><i class="fa fa-check"></i>Challenge</a></li>
+<li><a href="session-5-git-collaboration-and-conflict-management.html#section-8"></a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#merge-conflicts"><i class="fa fa-check"></i><b>5.4</b> Merge conflicts</a></li>
+<li class="chapter" data-level="5.5" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#how-to-resolve-a-conflict"><i class="fa fa-check"></i><b>5.5</b> How to resolve a conflict</a>
+<ul>
+<li class="chapter" data-level="" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#abort-abort-abort"><i class="fa fa-check"></i>Abort, abort, abort…</a></li>
+<li class="chapter" data-level="" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#checkout"><i class="fa fa-check"></i>Checkout</a></li>
+<li class="chapter" data-level="" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#pull-and-edit-the-file"><i class="fa fa-check"></i>Pull and edit the file</a></li>
+<li class="chapter" data-level="5.5.1" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#producing-and-resolving-merge-conflicts"><i class="fa fa-check"></i><b>5.5.1</b> Producing and resolving merge conflicts</a></li>
+<li class="chapter" data-level="" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#merge-conflict-challenge"><i class="fa fa-check"></i>Merge Conflict Challenge</a></li>
+<li><a href="session-5-git-collaboration-and-conflict-management.html#section-9"></a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#workflows-to-avoid-merge-conflicts"><i class="fa fa-check"></i><b>5.6</b> Workflows to avoid merge conflicts</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="session-6-social-aspects-of-collaboration.html"><a href="session-6-social-aspects-of-collaboration.html"><i class="fa fa-check"></i><b>6</b> Session 6: Social Aspects of Collaboration</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="session-6-social-aspects-of-collaboration.html"><a href="session-6-social-aspects-of-collaboration.html#thinking-preferences"><i class="fa fa-check"></i><b>6.1</b> Thinking preferences</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="session-6-social-aspects-of-collaboration.html"><a href="session-6-social-aspects-of-collaboration.html#learning-objectives-8"><i class="fa fa-check"></i><b>6.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="6.1.2" data-path="session-6-social-aspects-of-collaboration.html"><a href="session-6-social-aspects-of-collaboration.html#thinking-preferences-activity"><i class="fa fa-check"></i><b>6.1.2</b> Thinking Preferences Activity</a></li>
+<li class="chapter" data-level="6.1.3" data-path="session-6-social-aspects-of-collaboration.html"><a href="session-6-social-aspects-of-collaboration.html#about-the-whole-brain-thinking-system"><i class="fa fa-check"></i><b>6.1.3</b> About the Whole Brain Thinking System</a></li>
+<li class="chapter" data-level="6.1.4" data-path="session-6-social-aspects-of-collaboration.html"><a href="session-6-social-aspects-of-collaboration.html#bonus-activity-your-complex-self"><i class="fa fa-check"></i><b>6.1.4</b> Bonus Activity: Your Complex Self</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="session-6-social-aspects-of-collaboration.html"><a href="session-6-social-aspects-of-collaboration.html#additional-resources-collaboration-authorship-and-data-policies"><i class="fa fa-check"></i><b>6.2</b> Additional Resources: Collaboration, authorship and data policies</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="session-6-social-aspects-of-collaboration.html"><a href="session-6-social-aspects-of-collaboration.html#resources-1"><i class="fa fa-check"></i><b>6.2.1</b> Resources</a></li>
+<li class="chapter" data-level="6.2.2" data-path="session-6-social-aspects-of-collaboration.html"><a href="session-6-social-aspects-of-collaboration.html#references"><i class="fa fa-check"></i><b>6.2.2</b> References</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="session-7-data-modeling-essentials.html"><a href="session-7-data-modeling-essentials.html"><i class="fa fa-check"></i><b>7</b> Session 7: Data Modeling Essentials</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="session-7-data-modeling-essentials.html"><a href="session-7-data-modeling-essentials.html#data-modeling-tidy-data"><i class="fa fa-check"></i><b>7.1</b> Data Modeling &amp; Tidy Data</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="session-7-data-modeling-essentials.html"><a href="session-7-data-modeling-essentials.html#learning-objectives-9"><i class="fa fa-check"></i><b>7.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="7.1.2" data-path="session-7-data-modeling-essentials.html"><a href="session-7-data-modeling-essentials.html#introduction-1"><i class="fa fa-check"></i><b>7.1.2</b> Introduction</a></li>
+<li class="chapter" data-level="7.1.3" data-path="session-7-data-modeling-essentials.html"><a href="session-7-data-modeling-essentials.html#recognizing-untidy-data"><i class="fa fa-check"></i><b>7.1.3</b> Recognizing untidy data</a></li>
+<li class="chapter" data-level="7.1.4" data-path="session-7-data-modeling-essentials.html"><a href="session-7-data-modeling-essentials.html#good-enough-data-modeling"><i class="fa fa-check"></i><b>7.1.4</b> Good enough data modeling</a></li>
+<li class="chapter" data-level="7.1.5" data-path="session-7-data-modeling-essentials.html"><a href="session-7-data-modeling-essentials.html#using-normalized-data"><i class="fa fa-check"></i><b>7.1.5</b> Using normalized data</a></li>
+<li class="chapter" data-level="7.1.6" data-path="session-7-data-modeling-essentials.html"><a href="session-7-data-modeling-essentials.html#data-modeling-exercise"><i class="fa fa-check"></i><b>7.1.6</b> Data modeling exercise</a></li>
+<li class="chapter" data-level="7.1.7" data-path="session-7-data-modeling-essentials.html"><a href="session-7-data-modeling-essentials.html#resources-2"><i class="fa fa-check"></i><b>7.1.7</b> Resources</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="session-8-cleaning-and-manipulating-data.html"><a href="session-8-cleaning-and-manipulating-data.html"><i class="fa fa-check"></i><b>8</b> Session 8: Cleaning and Manipulating Data</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="session-8-cleaning-and-manipulating-data.html"><a href="session-8-cleaning-and-manipulating-data.html#data-cleaning-and-manipulation"><i class="fa fa-check"></i><b>8.1</b> Data Cleaning and Manipulation</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="session-8-cleaning-and-manipulating-data.html"><a href="session-8-cleaning-and-manipulating-data.html#learning-objectives-10"><i class="fa fa-check"></i><b>8.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="8.1.2" data-path="session-8-cleaning-and-manipulating-data.html"><a href="session-8-cleaning-and-manipulating-data.html#introduction-2"><i class="fa fa-check"></i><b>8.1.2</b> Introduction</a></li>
+<li class="chapter" data-level="8.1.3" data-path="session-8-cleaning-and-manipulating-data.html"><a href="session-8-cleaning-and-manipulating-data.html#data-cleaning-basics"><i class="fa fa-check"></i><b>8.1.3</b> Data Cleaning Basics</a></li>
+<li class="chapter" data-level="8.1.4" data-path="session-8-cleaning-and-manipulating-data.html"><a href="session-8-cleaning-and-manipulating-data.html#joins-in-dplyr"><i class="fa fa-check"></i><b>8.1.4</b> Joins in dplyr</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html"><i class="fa fa-check"></i><b>9</b> Session 9: Data Visualisation and Publishing to the Web</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html#publishing-analyses-to-the-web"><i class="fa fa-check"></i><b>9.1</b> Publishing Analyses to the Web</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html#learning-objectives-11"><i class="fa fa-check"></i><b>9.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="9.1.2" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html#introduction-3"><i class="fa fa-check"></i><b>9.1.2</b> Introduction</a></li>
+<li class="chapter" data-level="9.1.3" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html#a-minimal-example"><i class="fa fa-check"></i><b>9.1.3</b> A Minimal Example</a></li>
+<li class="chapter" data-level="9.1.4" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html#exercise-sharing-your-work"><i class="fa fa-check"></i><b>9.1.4</b> Exercise: Sharing your work</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html#publication-graphics"><i class="fa fa-check"></i><b>9.2</b> Publication Graphics</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html#learning-objectives-12"><i class="fa fa-check"></i><b>9.2.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="9.2.2" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html#overview-1"><i class="fa fa-check"></i><b>9.2.2</b> Overview</a></li>
+<li class="chapter" data-level="9.2.3" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html#static-figures-using-ggplot2"><i class="fa fa-check"></i><b>9.2.3</b> Static figures using <code>ggplot2</code></a></li>
+<li class="chapter" data-level="9.2.4" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html#interactive-visualization-using-leaflet-and-dt"><i class="fa fa-check"></i><b>9.2.4</b> Interactive visualization using <code>leaflet</code> and <code>DT</code></a></li>
+<li class="chapter" data-level="9.2.5" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html#resources-3"><i class="fa fa-check"></i><b>9.2.5</b> Resources</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html"><i class="fa fa-check"></i><b>10</b> Session 10: Writing Functions and Packages</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#creating-r-functions"><i class="fa fa-check"></i><b>10.1</b> Creating R Functions</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#why-functions"><i class="fa fa-check"></i><b>10.1.1</b> Why functions?</a></li>
+<li class="chapter" data-level="10.1.2" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#documenting-r-functions"><i class="fa fa-check"></i><b>10.1.2</b> Documenting R functions</a></li>
+<li class="chapter" data-level="10.1.3" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#summary-2"><i class="fa fa-check"></i><b>10.1.3</b> Summary</a></li>
+<li class="chapter" data-level="10.1.4" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#examples-minimizing-work-with-functions"><i class="fa fa-check"></i><b>10.1.4</b> Examples: Minimizing work with functions</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#creating-r-packages"><i class="fa fa-check"></i><b>10.2</b> Creating R Packages</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#learning-objectives-13"><i class="fa fa-check"></i><b>10.2.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="10.2.2" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#why-packages"><i class="fa fa-check"></i><b>10.2.2</b> Why packages?</a></li>
+<li class="chapter" data-level="10.2.3" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#install-and-load-packages"><i class="fa fa-check"></i><b>10.2.3</b> Install and load packages</a></li>
+<li class="chapter" data-level="10.2.4" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#create-a-basic-package"><i class="fa fa-check"></i><b>10.2.4</b> Create a basic package</a></li>
+<li class="chapter" data-level="10.2.5" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#add-your-code"><i class="fa fa-check"></i><b>10.2.5</b> Add your code</a></li>
+<li class="chapter" data-level="10.2.6" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#add-documentation"><i class="fa fa-check"></i><b>10.2.6</b> Add documentation</a></li>
+<li class="chapter" data-level="10.2.7" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#test-your-package"><i class="fa fa-check"></i><b>10.2.7</b> Test your package</a></li>
+<li class="chapter" data-level="10.2.8" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#checking-and-installing-your-package"><i class="fa fa-check"></i><b>10.2.8</b> Checking and installing your package</a></li>
+<li class="chapter" data-level="10.2.9" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#sharing-and-releasing-your-package"><i class="fa fa-check"></i><b>10.2.9</b> Sharing and releasing your package</a></li>
+<li class="chapter" data-level="10.2.10" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#more-reading"><i class="fa fa-check"></i><b>10.2.10</b> More reading</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html"><i class="fa fa-check"></i><b>11</b> Session 11: Arctic Data Center Data Portals</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#creating-a-data-portal"><i class="fa fa-check"></i><b>11.1</b> Creating a data portal</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#what-is-a-portal"><i class="fa fa-check"></i><b>11.1.1</b> What is a Portal?</a></li>
+<li class="chapter" data-level="11.1.2" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#portal-uses"><i class="fa fa-check"></i><b>11.1.2</b> Portal Uses</a></li>
+<li class="chapter" data-level="11.1.3" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#portal-main-components"><i class="fa fa-check"></i><b>11.1.3</b> Portal Main Components</a></li>
+<li class="chapter" data-level="11.1.4" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#creating-portals"><i class="fa fa-check"></i><b>11.1.4</b> Creating Portals</a></li>
+<li class="chapter" data-level="11.1.5" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#adding-data-to-portals"><i class="fa fa-check"></i><b>11.1.5</b> Adding Data to Portals</a></li>
+<li class="chapter" data-level="11.1.6" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#creating-unique-freeform-pages"><i class="fa fa-check"></i><b>11.1.6</b> Creating Unique Freeform Pages</a></li>
+<li class="chapter" data-level="11.1.7" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#saving-and-editing-portals"><i class="fa fa-check"></i><b>11.1.7</b> Saving and Editing Portals</a></li>
+<li class="chapter" data-level="11.1.8" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#how-to-publish-portals"><i class="fa fa-check"></i><b>11.1.8</b> How to Publish Portals</a></li>
+<li class="chapter" data-level="11.1.9" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#sharing-portals"><i class="fa fa-check"></i><b>11.1.9</b> Sharing Portals</a></li>
+<li class="chapter" data-level="11.1.10" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#tutorial-videos"><i class="fa fa-check"></i><b>11.1.10</b> Tutorial Videos</a></li>
+<li class="chapter" data-level="11.1.11" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#acknowledgements-1"><i class="fa fa-check"></i><b>11.1.11</b> Acknowledgements</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="session-12-exercise-cleaning-and-manipulating-data.html"><a href="session-12-exercise-cleaning-and-manipulating-data.html"><i class="fa fa-check"></i><b>12</b> Session 12: Exercise - Cleaning and Manipulating Data</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="session-12-exercise-cleaning-and-manipulating-data.html"><a href="session-12-exercise-cleaning-and-manipulating-data.html#hands-on-clean-and-integrate-datasets"><i class="fa fa-check"></i><b>12.1</b> Hands On: Clean and Integrate Datasets</a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="session-12-exercise-cleaning-and-manipulating-data.html"><a href="session-12-exercise-cleaning-and-manipulating-data.html#learning-objectives-14"><i class="fa fa-check"></i><b>12.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="12.1.2" data-path="session-12-exercise-cleaning-and-manipulating-data.html"><a href="session-12-exercise-cleaning-and-manipulating-data.html#outline"><i class="fa fa-check"></i><b>12.1.2</b> Outline</a></li>
+<li class="chapter" data-level="12.1.3" data-path="session-12-exercise-cleaning-and-manipulating-data.html"><a href="session-12-exercise-cleaning-and-manipulating-data.html#full-solution.-warning-spoilers-ahead"><i class="fa fa-check"></i><b>12.1.3</b> Full solution. Warning, spoilers ahead!</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="session-13-geospatial-analysis-in-r.html"><a href="session-13-geospatial-analysis-in-r.html"><i class="fa fa-check"></i><b>13</b> Session 13: Geospatial Analysis in R</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="session-13-geospatial-analysis-in-r.html"><a href="session-13-geospatial-analysis-in-r.html#spatial-vector-analysis-using-sf"><i class="fa fa-check"></i><b>13.1</b> Spatial vector analysis using <code>sf</code></a>
+<ul>
+<li class="chapter" data-level="13.1.1" data-path="session-13-geospatial-analysis-in-r.html"><a href="session-13-geospatial-analysis-in-r.html#learning-objectives-15"><i class="fa fa-check"></i><b>13.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="13.1.2" data-path="session-13-geospatial-analysis-in-r.html"><a href="session-13-geospatial-analysis-in-r.html#introduction-4"><i class="fa fa-check"></i><b>13.1.2</b> Introduction</a></li>
+<li class="chapter" data-level="13.1.3" data-path="session-13-geospatial-analysis-in-r.html"><a href="session-13-geospatial-analysis-in-r.html#working-with-geospatial-data"><i class="fa fa-check"></i><b>13.1.3</b> Working with geospatial data</a></li>
+<li class="chapter" data-level="13.1.4" data-path="session-13-geospatial-analysis-in-r.html"><a href="session-13-geospatial-analysis-in-r.html#sf-the-tidyverse"><i class="fa fa-check"></i><b>13.1.4</b> <code>sf</code> &amp; the Tidyverse</a></li>
+<li class="chapter" data-level="13.1.5" data-path="session-13-geospatial-analysis-in-r.html"><a href="session-13-geospatial-analysis-in-r.html#visualize-with-ggplot"><i class="fa fa-check"></i><b>13.1.5</b> Visualize with ggplot</a></li>
+<li class="chapter" data-level="13.1.6" data-path="session-13-geospatial-analysis-in-r.html"><a href="session-13-geospatial-analysis-in-r.html#visualize-sf-objects-with-leaflet"><i class="fa fa-check"></i><b>13.1.6</b> Visualize <code>sf</code> objects with leaflet</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="session-14-reproducibility-and-provenance.html"><a href="session-14-reproducibility-and-provenance.html"><i class="fa fa-check"></i><b>14</b> Session 14: Reproducibility and Provenance</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="session-14-reproducibility-and-provenance.html"><a href="session-14-reproducibility-and-provenance.html#reproducibility-and-provenance"><i class="fa fa-check"></i><b>14.1</b> Reproducibility and Provenance</a>
+<ul>
+<li class="chapter" data-level="14.1.1" data-path="session-14-reproducibility-and-provenance.html"><a href="session-14-reproducibility-and-provenance.html#learning-objectives-16"><i class="fa fa-check"></i><b>14.1.1</b> Learning Objectives</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Arctic Data Center Training</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="session-5-git-collaboration-and-conflict-management" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> Session 5: Git Collaboration and Conflict Management</h1>
+<div id="learning-objectives-7" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Learning Objectives</h2>
+<p>In this lesson, you will learn:</p>
+<ul>
+<li>How to use Git and GitHub to collaborate with colleagues on code</li>
+<li>What typically causes conflicts when collaborating</li>
+<li>Workflows to avoid conflicts</li>
+<li>How to resolve a conflict</li>
+</ul>
+</div>
+<div id="introduction" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Introduction</h2>
+<p>Git is a great tool for working on your own, but even better for working with friends
+and colleagues. Git allows you to work with confidence on your own local copy of files
+with the confidence that you will be able to successfully synchronize your changes
+with the changes made by others.</p>
+<p>The simplest way to collaborate with Git is to use a shared repository on a hosting
+service such as <a href="https://github.com">GitHub</a>, and use this shared repository as
+the mechanism to move changes from one collaborator to another. While there are other
+more advanced ways to sync git repositories, this “hub and spoke” model works really
+well due to its simplicity.</p>
+<p>In this model, the collaborator will <code>clone</code> a copy of the owner’s repository from
+GitHub, and the owner will grant them collaborator status, enabling the collaborator
+to directly pull and push from the owner’s GitHub repository.</p>
+<p><img src="images/github-workflows-collab.png" /></p>
+</div>
+<div id="collaborating-with-a-trusted-colleague-without-conflicts" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> Collaborating with a trusted colleague <strong>without conflicts</strong></h2>
+<p>We start by enabling collaboration with a trusted colleague. We will designate the <code>Owner</code> as the person who owns the shared repository, and the <code>Collaborator</code> as the person that they wish to grant the ability to make changes to their reposity. We start by giving that person access to our GitHub repository.</p>
+<div id="setup-6" class="section level3 unnumbered setup" number="">
+<h3>Setup</h3>
+<ul>
+<li>We will break you into pairs, so choose one person as the <code>Owner</code> and one as the <code>Collaborator</code></li>
+<li>Log into <a href="https://github.com">GitHub</a> as the `Owner</li>
+<li>Navigate to the <code>Owner</code>’s training repository (e.g., <code>training_jones</code>)</li>
+</ul>
+<p>Then, have the Owner visit their training repository created earlier,
+and visit the <em>Settings</em> page, and select the <em>Manage access</em> screen, and add
+the username of your Collaborator in the box.</p>
+<p><img src="images/github-collaborators.png" /></p>
+<p>Once the collaborator has been added, they should check their email for an invitation
+from GitHub, and click on the acceptance link, which will enable them to collaborate
+on the repository.</p>
+</div>
+<div id="section-7" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number=""></h3>
+<p>We will start by having the collaborator make some changes and share those with the Owner without generating any conflicts, In an ideal world, this would be the normal workflow. Here are the typical steps.</p>
+</div>
+<div id="step-1-collaborator-clone" class="section level3" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> Step 1: Collaborator clone</h3>
+<p>To be able to contribute to a repository, the collaborator
+must clone the repository from the <strong>Owner’s</strong> github account. To do this, the Collaborator
+should visit the github page for the Owner’s repository, and then copy the clone URL.
+In R Studio, the Collaborator will create a new project from version control by pasting
+this clone URL into the appropriate dialog (see the earlier chapter introducing GitHub).</p>
+<p><img src="images/github-clone-url-owner.png" /></p>
+</div>
+<div id="step-2-collaborator-edits" class="section level3" number="5.3.2">
+<h3><span class="header-section-number">5.3.2</span> Step 2: Collaborator Edits</h3>
+<p>With a clone copied locally, the Collaborator can now make changes to the
+<code>index.Rmd</code> file in the repository, adding a line or statment somewhere noticeable
+near the top. Save your changes.</p>
+</div>
+<div id="step-3-collaborator-commit-and-push" class="section level3" number="5.3.3">
+<h3><span class="header-section-number">5.3.3</span> Step 3: Collaborator commit and push</h3>
+<p>To sync changes, the collaborator will need to add, commit, and
+push their changes to the Owner’s repository. But before doing so, its good practice
+to <code>pull</code> immediately before committing to ensure you have the most recent changes
+from the owner. So, in R Studio’s Git tab, first click the “Diff” button to
+open the git window, and then press the green “Pull” down arrow button. This will
+fetch any recent changes from the origin repository and merge them. Next, add
+the changed index.Rmd file to be committed by cicking the checkbox next to it,
+type in a commit message, and click ‘Commit.’ Once that finishes, then the collaborator can
+immediately click ‘Push’ to send the commits to the Owner’s GitHub repository.</p>
+<p><img src="images/rstudio-commit-push.png" /></p>
+</div>
+<div id="step-4-owner-pull" class="section level3" number="5.3.4">
+<h3><span class="header-section-number">5.3.4</span> Step 4: Owner pull</h3>
+<p>Now, the owner can open their local working copy of the code
+in RStudio, and <code>pull</code> those changes down to their local copy.</p>
+<p><strong>Congrats, the owner now has your changes!</strong></p>
+</div>
+<div id="step-5-owner-edits-commit-and-push" class="section level3" number="5.3.5">
+<h3><span class="header-section-number">5.3.5</span> Step 5: Owner edits, commit, and push</h3>
+<p>Next, the owner should do the same. Make changes to
+a file in the repository, save it, pull to make sure no new changes have been made
+while editing, and then <code>add</code>, <code>commit</code>, and <code>push</code> the Owner changes to GitHub.</p>
+</div>
+<div id="step-6-collaborator-pull" class="section level3" number="5.3.6">
+<h3><span class="header-section-number">5.3.6</span> Step 6: Collaborator pull</h3>
+<p>The collaborator can now <code>pull</code> down those owner changes,
+and all copies are once again fully synced. And you’re off to collaborating.</p>
+</div>
+<div id="challenge-9" class="section level3 unnumbered exercise" number="">
+<h3>Challenge</h3>
+<p>Now that the instructors have demonstrated this conflict-free process, break into
+pairs and try the same with your partner. Start by designating one person as the <code>Owner</code> and one as the <code>Collborator</code>, and then repeat the steps described above:</p>
+<ul>
+<li>Step 0: Setup permissions for your collaborator</li>
+<li>Step 1: Collaborator clones the Owner repository</li>
+<li>Step 2: Collaborator Edits the README file</li>
+<li>Step 3: Collaborator commits and pushes the file to GitHub</li>
+<li>Step 4: Owner pulls the changes that the Collaborator made</li>
+<li>Step 5: Owner edits, commits, and pushes some new changes</li>
+<li>Step 6: Collaborator pulls the owners changes from GitHub</li>
+</ul>
+</div>
+<div id="section-8" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number=""></h3>
+<p><a href="https://xkcd.com/1597/"><img src="https://imgs.xkcd.com/comics/git.png" alt="XKCD 1597" /></a></p>
+</div>
+</div>
+<div id="merge-conflicts" class="section level2" number="5.4">
+<h2><span class="header-section-number">5.4</span> Merge conflicts</h2>
+<p>So things can go wrong, which usually starts with a <strong>merge conflict</strong>, due to
+both collaborators making incompatible changes to a file. While the error messages
+from merge conflicts can be daunting, getting things back to a normal state can be
+straightforward once you’ve got an idea where the problem lies.</p>
+<p>A merge conflict occurs when both the owner and collaborator change the same
+lines in the same file without first pulling the changes that the other has made.
+This is most easily avoided by good communication about who is working on various
+sections of each file, and trying to avoid overlaps. But sometimes it happens,
+and <em>git</em> is there to warn you about potential problems. And git will not allow
+you to overwrite one person’s changes to a file with another’s changes to the same
+file if they were based on the same version.</p>
+<p><img src="images/git-conflict-00-lines-changed.png" /></p>
+<p>The main problem with merge conflicts is that, when the Owner and Collaborator
+both make changes to the same line of a file, git doesn’t know whose changes
+take precedence. You have to tell git whose changes to use for that line.</p>
+</div>
+<div id="how-to-resolve-a-conflict" class="section level2" number="5.5">
+<h2><span class="header-section-number">5.5</span> How to resolve a conflict</h2>
+<div id="abort-abort-abort" class="section level3 unnumbered" number="">
+<h3>Abort, abort, abort…</h3>
+<p>Sometimes you just made a mistake. When you get a merge conflict, the repository
+is placed in a ‘Merging’ state until you resolve it. There’s a commandline command
+to abort doing the merge altogether:</p>
+<pre><code>git merge --abort</code></pre>
+<p>Of course, after doing that you stull haven’t synced with your collaborator’s
+changes, so things are still unresolved. But at least your repository is now
+usable on your local machine.</p>
+</div>
+<div id="checkout" class="section level3 unnumbered" number="">
+<h3>Checkout</h3>
+<p>The simplest way to resolve a conflict, given that you know whose version of the
+file you want to keep, is to use the commandline <code>git</code> program to tell git to
+use either <em>your</em> changes (the person doing the merge), or <em>their</em> changes (the other collaborator).</p>
+<ul>
+<li>keep your collaborators file: <code>git checkout --theirs conflicted_file.Rmd</code></li>
+<li>keep your own file: <code>git checkout --ours conflicted_file.Rmd</code></li>
+</ul>
+<p>Once you have run that command, then run <code>add</code>, <code>commit</code>, and <code>push</code> the changes as normal.</p>
+</div>
+<div id="pull-and-edit-the-file" class="section level3 unnumbered" number="">
+<h3>Pull and edit the file</h3>
+<p>But that requires the commandline. If you want to resolve from RStudio, or if
+you want to pick and choose some of your changes and some of your collaborator’s,
+then instead you can manually edit and fix the file. When you <code>pull</code>ed the file
+with a conflict, git notices that there is a conflict and modifies the file to show
+both your own changes and your collaborator’s changes in the file. It also shows the
+file in the Git tab with an orange <code>U</code> icon, which indicates that the file is <code>Unmerged</code>,
+and therefore awaiting you help to resolve the conflict. It delimits
+these blocks with a series of less than and greater than signs, so they are easy to find:</p>
+<p><img src="images/rstudio-merge-conflict.png" /></p>
+<p>To resolve the conficts, simply find all of these blocks, and edit them so that
+the file looks how you want (either pick your lines, your collaborators lines,
+some combination, or something altogether new), and save. Be sure you removed the
+delimiter lines that started with <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code>, and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>.</p>
+<p>Once you have made those changes, you simply add, commit, and push the files
+to resolve the conflict.</p>
+</div>
+<div id="producing-and-resolving-merge-conflicts" class="section level3" number="5.5.1">
+<h3><span class="header-section-number">5.5.1</span> Producing and resolving merge conflicts</h3>
+<p>To illustrate this process, we’re going to carefully create a merge conflict step
+by step, show how to resolve it, and show how to see the results of the successful
+merge after it is complete. First, we will walk through the exercise to demonstrate
+the issues.</p>
+<div id="owner-and-collaborator-ensure-all-changes-are-updated" class="section level4" number="5.5.1.1">
+<h4><span class="header-section-number">5.5.1.1</span> Owner and collaborator ensure all changes are updated</h4>
+<p>First, start the exercise by ensuring that both the Owner and Collaborator have all
+of the changes synced to their local copies of the Owner’s repositoriy in RStudio.
+This includes doing a <code>git pull</code> to ensure that you have all changes local, and
+make sure that the Git tab in RStudio doesn’t show any changes needing to be committed.</p>
+</div>
+<div id="owner-makes-a-change-and-commits" class="section level4" number="5.5.1.2">
+<h4><span class="header-section-number">5.5.1.2</span> Owner makes a change and commits</h4>
+<p>From that clean slate, the Owner first modifies and commits a small change inlcuding their
+name on a specific line of the README.md file (we will change line 4). Work to only change
+that one line, and add your username to the line in some form and commit the changes
+(but DO NOT push). We are now in the situation where the owner has unpushed changes that
+the collaborator can not yet see.</p>
+</div>
+<div id="collaborator-makes-a-change-and-commits-on-the-same-line" class="section level4" number="5.5.1.3">
+<h4><span class="header-section-number">5.5.1.3</span> Collaborator makes a change and commits <strong>on the same line</strong></h4>
+<p>Now the collaborator also makes changes to the same (line 4) of the README.md file
+in their RStudio copy of the project, adding their name to the line. They then commit.
+At this point, both the owner and collaborator have committed changes based on
+their shared version of the README.md file, but neither has tried to share their changes
+via GitHub.</p>
+</div>
+<div id="collaborator-pushes-the-file-to-github" class="section level4" number="5.5.1.4">
+<h4><span class="header-section-number">5.5.1.4</span> Collaborator pushes the file to GitHub</h4>
+<p>Sharing starts when the Collaborator pushes their changes to the GitHub repo, which
+updates GitHub to their version of the file. The owner is now one revision behind,
+but doesn’t yet know it.</p>
+</div>
+<div id="owner-pushes-their-changes-and-gets-an-error" class="section level4" number="5.5.1.5">
+<h4><span class="header-section-number">5.5.1.5</span> Owner pushes their changes and gets an error</h4>
+<p>At this point, the owner tries to push their change to the repository, which triggers
+an error from GitHub. While the error message is long, it basically tells you everything
+needed (that the owner’s repository doesn’t reflect the changes on GitHub, and that they
+need to <em>pull</em> before they can push).</p>
+<p><img src="images/git-conflict-01-push-error.png" /></p>
+</div>
+<div id="owner-pulls-from-github-to-get-collaborator-changes" class="section level4" number="5.5.1.6">
+<h4><span class="header-section-number">5.5.1.6</span> Owner pulls from GitHub to get Collaborator changes</h4>
+<p>Doing what the message says, the Owner pulls the changes from GitHub, and gets
+another, different error message. In this case, it indicates that there is a merge
+conflict because of the conflicting lines.</p>
+<p><img src="images/git-conflict-02-pull-error.png" /></p>
+<p>In the Git pane of RStudio, the file is also flagged with an orange ‘U’, which stands
+for an unresolved merge conflict.</p>
+<p><img src="images/git-conflict-03-conflict.png" /></p>
+</div>
+<div id="owner-edits-the-file-to-resolve-the-conflict" class="section level4" number="5.5.1.7">
+<h4><span class="header-section-number">5.5.1.7</span> Owner edits the file to resolve the conflict</h4>
+<p>To resolve the conflict, the Owner now needs to edit the file. Again, as indicated above,
+git has flagged the locations in the file where a conflict occcurred
+with <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code>, and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>. The Owner should edit the file, merging whatever
+changes are appropriate until the conflicting lines read how they should, and eliminate
+all of the marker lines with with <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code>, and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>.</p>
+<p><img src="images/git-conflict-04-conflict-tags.png" /></p>
+<p>Of course, for scripts and programs, resolving the changes means more than just
+merging the text – whoever is doing the merging should make sure that the code
+runs properly and none of the logic of the program has been broken.</p>
+<p><img src="images/git-conflict-05-resolved-file.png" /></p>
+</div>
+<div id="owner-commits-the-resolved-changes" class="section level4" number="5.5.1.8">
+<h4><span class="header-section-number">5.5.1.8</span> Owner commits the resolved changes</h4>
+<p>From this point forward, things proceed as normal. The owner first ‘Adds’ the file
+changes to be made, which changes the orange <code>U</code> to a blue <code>M</code> for modified, and then
+commits the changes locally. The owner now has a resolved version of the file on their
+system.</p>
+<p><img src="images/git-conflict-06-commit-resolved.png" /></p>
+</div>
+<div id="owner-pushes-the-resolved-changes-to-github" class="section level4" number="5.5.1.9">
+<h4><span class="header-section-number">5.5.1.9</span> Owner pushes the resolved changes to GitHub</h4>
+<p>Have the Owner push the changes, and it should replicate the changes to GitHub without error.</p>
+<p><img src="images/git-conflict-07-push-resolved.png" /></p>
+</div>
+<div id="collaborator-pulls-the-resolved-changes-from-github" class="section level4" number="5.5.1.10">
+<h4><span class="header-section-number">5.5.1.10</span> Collaborator pulls the resolved changes from GitHub</h4>
+<p>Finally, the Collaborator can pull from GitHub to get the changes the owner made.</p>
+</div>
+<div id="both-can-view-commit-history" class="section level4" number="5.5.1.11">
+<h4><span class="header-section-number">5.5.1.11</span> Both can view commit history</h4>
+<p>When either the Collaborator or the Owner view the history, the conflict, associated
+branch, and the merged changes are clearly visible in the history.</p>
+<p><img src="images/git-conflict-08-history.png" /></p>
+</div>
+</div>
+<div id="merge-conflict-challenge" class="section level3 unnumbered exercise" number="">
+<h3>Merge Conflict Challenge</h3>
+<p>Now it’s your turn. In pairs, intentionally create a merge conflict, and then go
+through the steps needed to resolve the issues and continue developing with the
+merged files. See the sections above for help with each of these steps:</p>
+<ul>
+<li>Step 0: Owner and collaborator ensure all changes are updated</li>
+<li>Step 1: Owner makes a change and commits</li>
+<li>Step 2: Collaborator makes a change and commits <strong>on the same line</strong></li>
+<li>Step 3: Collaborator pushes the file to GitHub</li>
+<li>Step 4: Owner pushes their changes and gets an error</li>
+<li>Step 5: Owner pulls from GitHub to get Collaborator changes</li>
+<li>Step 6: Owner edits the file to resolve the conflict</li>
+<li>Step 7: Owner commits the resolved changes</li>
+<li>Step 8: Owner pushes the resolved changes to GitHub</li>
+<li>Step 9: Collaborator pulls the resolved changes from GitHub</li>
+<li>Step 10: Both can view commit history</li>
+</ul>
+</div>
+<div id="section-9" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number=""></h3>
+</div>
+</div>
+<div id="workflows-to-avoid-merge-conflicts" class="section level2" number="5.6">
+<h2><span class="header-section-number">5.6</span> Workflows to avoid merge conflicts</h2>
+<p>Some basic rules of thumb can avoid the vast majority of merge conflicts, saving
+a lot of time and frustration. These are words our teams live by:</p>
+<ul>
+<li>Communicate often</li>
+<li>Tell each other what you are working on</li>
+<li>Pull immediately before you commit or push</li>
+<li>Commit often in small chunks.</li>
+</ul>
+<p>A good workflow is encapsulated as follows:</p>
+<p><code>Pull -&gt; Edit -&gt; Add -&gt; Pull -&gt; Commit -&gt; Push</code></p>
+<p>Always start your working sessions with a pull to get any outstanding changes, then
+start doing your editing and work. Stage your changes, but before you commit, Pull
+again to see if any new changes have arrived. If so, they should merge in easily
+if you are working in different parts of the program. You can then Commit and
+immediately Push your changes safely. Good luck, and try to not get frustrated. Once
+you figure out how to handle merge conflicts, they can be avoided or dispatched
+when they occur, but it does take a bit of practice.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="session-4-version-control-with-git-and-github.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="session-6-social-aspects-of-collaboration.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

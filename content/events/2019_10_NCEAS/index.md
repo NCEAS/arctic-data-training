@@ -29,9 +29,6 @@ Workshop topics will include:
 
 For more detailed information on how to prepare for the workshop, see preparing for the workshop (below).
 
-## Preliminary Agenda
-
-![](/images/schedule.png)
 
 ## Materials
 

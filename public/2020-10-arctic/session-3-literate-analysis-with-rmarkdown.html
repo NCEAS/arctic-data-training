@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3 Session 3: Literate Analysis with RMarkdown | Arctic Data Center Training</title>
+  <meta name="description" content="3 Session 3: Literate Analysis with RMarkdown | Arctic Data Center Training" />
+  <meta name="generator" content="bookdown 0.20.6 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3 Session 3: Literate Analysis with RMarkdown | Arctic Data Center Training" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3 Session 3: Literate Analysis with RMarkdown | Arctic Data Center Training" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="session-2-documenting-and-publishing-data.html"/>
+<link rel="next" href="session-4-version-control-with-git-and-github.html"/>
+<script src="libs/header-attrs-2.3.11/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Data Science Training for the Arctic Data Center</a>
+<ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#schedule"><i class="fa fa-check"></i><b>0.1</b> Schedule</a>
+<ul>
+<li class="chapter" data-level="0.1.1" data-path="index.html"><a href="index.html#code-of-conduct"><i class="fa fa-check"></i><b>0.1.1</b> Code of Conduct</a></li>
+<li class="chapter" data-level="0.1.2" data-path="index.html"><a href="index.html#logistics"><i class="fa fa-check"></i><b>0.1.2</b> Logistics</a></li>
+<li class="chapter" data-level="0.1.3" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>0.1.3</b> Acknowledgements</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html"><i class="fa fa-check"></i><b>1</b> Session 1: Introduction to the Arctic Data Center</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#introduction-to-the-arctic-data-center-and-nsf-standards-and-policies"><i class="fa fa-check"></i><b>1.1</b> Introduction to the Arctic Data Center and NSF Standards and Policies</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#learning-objectives"><i class="fa fa-check"></i><b>1.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="1.1.2" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#arctic-data-center---history-and-introduction"><i class="fa fa-check"></i><b>1.1.2</b> Arctic Data Center - History and Introduction</a></li>
+<li class="chapter" data-level="1.1.3" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#data-discovery-portal"><i class="fa fa-check"></i><b>1.1.3</b> Data Discovery Portal</a></li>
+<li class="chapter" data-level="1.1.4" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#tools-and-infrastructure"><i class="fa fa-check"></i><b>1.1.4</b> Tools and Infrastructure</a></li>
+<li class="chapter" data-level="1.1.5" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#support-services"><i class="fa fa-check"></i><b>1.1.5</b> Support Services</a></li>
+<li class="chapter" data-level="1.1.6" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#training-and-outreach"><i class="fa fa-check"></i><b>1.1.6</b> Training and Outreach</a></li>
+<li class="chapter" data-level="1.1.7" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#data-rescue"><i class="fa fa-check"></i><b>1.1.7</b> Data Rescue</a></li>
+<li class="chapter" data-level="1.1.8" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#who-must-submit"><i class="fa fa-check"></i><b>1.1.8</b> Who Must Submit</a></li>
+<li class="chapter" data-level="1.1.9" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#summary"><i class="fa fa-check"></i><b>1.1.9</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#writing-good-data-management-plans"><i class="fa fa-check"></i><b>1.2</b> Writing Good Data Management Plans</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#learning-objectives-1"><i class="fa fa-check"></i><b>1.2.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="1.2.2" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#when-to-plan-the-data-life-cycle"><i class="fa fa-check"></i><b>1.2.2</b> When to Plan: The Data Life Cycle</a></li>
+<li class="chapter" data-level="1.2.3" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#why-plan"><i class="fa fa-check"></i><b>1.2.3</b> Why Plan?</a></li>
+<li class="chapter" data-level="1.2.4" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#how-to-plan"><i class="fa fa-check"></i><b>1.2.4</b> How to Plan</a></li>
+<li class="chapter" data-level="1.2.5" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#what-to-include-in-a-dmp"><i class="fa fa-check"></i><b>1.2.5</b> What to include in a DMP</a></li>
+<li class="chapter" data-level="1.2.6" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#nsf-dmp-requirements"><i class="fa fa-check"></i><b>1.2.6</b> NSF DMP requirements</a></li>
+<li class="chapter" data-level="1.2.7" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#tools-in-support-of-creating-a-dmp"><i class="fa fa-check"></i><b>1.2.7</b> Tools in Support of Creating a DMP</a></li>
+<li class="chapter" data-level="1.2.8" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#arctic-data-center-support-for-dmps"><i class="fa fa-check"></i><b>1.2.8</b> Arctic Data Center Support for DMPs</a></li>
+<li class="chapter" data-level="1.2.9" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#sharing-your-dmp"><i class="fa fa-check"></i><b>1.2.9</b> Sharing Your DMP</a></li>
+<li class="chapter" data-level="1.2.10" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#additional-resources"><i class="fa fa-check"></i><b>1.2.10</b> Additional Resources</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html"><i class="fa fa-check"></i><b>2</b> Session 2: Documenting and Publishing Data</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#best-practices-data-and-metadata"><i class="fa fa-check"></i><b>2.1</b> Best Practices: Data and Metadata</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#learning-objectives-2"><i class="fa fa-check"></i><b>2.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="2.1.2" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#best-practices-overview"><i class="fa fa-check"></i><b>2.1.2</b> Best Practices: Overview</a></li>
+<li class="chapter" data-level="2.1.3" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#data-identifiers"><i class="fa fa-check"></i><b>2.1.3</b> Data Identifiers</a></li>
+<li class="chapter" data-level="2.1.4" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#data-citation"><i class="fa fa-check"></i><b>2.1.4</b> Data Citation</a></li>
+<li class="chapter" data-level="2.1.5" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#provanance-preserving-computational-workflows"><i class="fa fa-check"></i><b>2.1.5</b> Provanance &amp; Preserving Computational Workflows</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#data-documentation-and-publishing"><i class="fa fa-check"></i><b>2.2</b> Data Documentation and Publishing</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#learning-objectives-3"><i class="fa fa-check"></i><b>2.2.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="2.2.2" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#data-sharing-and-preservation"><i class="fa fa-check"></i><b>2.2.2</b> Data sharing and preservation</a></li>
+<li class="chapter" data-level="2.2.3" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#data-repositories-built-for-data-and-code"><i class="fa fa-check"></i><b>2.2.3</b> Data repositories: built for data (and code)</a></li>
+<li class="chapter" data-level="2.2.4" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#metadata"><i class="fa fa-check"></i><b>2.2.4</b> Metadata</a></li>
+<li class="chapter" data-level="2.2.5" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#structure-of-a-data-package"><i class="fa fa-check"></i><b>2.2.5</b> Structure of a data package</a></li>
+<li class="chapter" data-level="2.2.6" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#dataone-federation"><i class="fa fa-check"></i><b>2.2.6</b> DataONE Federation</a></li>
+<li class="chapter" data-level="2.2.7" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#publishing-data-from-the-web"><i class="fa fa-check"></i><b>2.2.7</b> Publishing data from the web</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html"><i class="fa fa-check"></i><b>3</b> Session 3: Literate Analysis with RMarkdown</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#rstudio-and-gitgithub-setup-and-motivation"><i class="fa fa-check"></i><b>3.1</b> RStudio and Git/GitHub Setup and Motivation</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#learning-objectives-4"><i class="fa fa-check"></i><b>3.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="3.1.2" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#introduction-to-reproducible-research"><i class="fa fa-check"></i><b>3.1.2</b> Introduction to reproducible research</a></li>
+<li class="chapter" data-level="3.1.3" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#logging-into-the-rstudio-server"><i class="fa fa-check"></i><b>3.1.3</b> Logging into the RStudio server</a></li>
+<li class="chapter" data-level="3.1.4" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#setting-up-the-r-environment-on-your-local-computer"><i class="fa fa-check"></i><b>3.1.4</b> Setting up the R environment on your local computer</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#literate-analysis-with-rmarkdown"><i class="fa fa-check"></i><b>3.2</b> Literate Analysis with RMarkdown</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#learning-objectives-5"><i class="fa fa-check"></i><b>3.2.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="3.2.2" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#introduction-and-motivation"><i class="fa fa-check"></i><b>3.2.2</b> Introduction and motivation</a></li>
+<li class="chapter" data-level="3.2.3" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#basic-rmarkdown-syntax"><i class="fa fa-check"></i><b>3.2.3</b> Basic RMarkdown syntax</a></li>
+<li class="chapter" data-level="3.2.4" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#code-chunks"><i class="fa fa-check"></i><b>3.2.4</b> Code chunks</a></li>
+<li class="chapter" data-level="3.2.5" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#literate-analysis-practice"><i class="fa fa-check"></i><b>3.2.5</b> Literate analysis practice</a></li>
+<li class="chapter" data-level="3.2.6" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#rmarkdown-and-environments"><i class="fa fa-check"></i><b>3.2.6</b> RMarkdown and environments</a></li>
+<li class="chapter" data-level="3.2.7" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#go-further"><i class="fa fa-check"></i><b>3.2.7</b> Go Further</a></li>
+<li class="chapter" data-level="3.2.8" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#resources"><i class="fa fa-check"></i><b>3.2.8</b> Resources</a></li>
+<li class="chapter" data-level="3.2.9" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#troubleshooting"><i class="fa fa-check"></i><b>3.2.9</b> Troubleshooting</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html"><i class="fa fa-check"></i><b>4</b> Session 4: Version Control with git and GitHub</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#learning-objectives-6"><i class="fa fa-check"></i><b>4.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="4.2" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#introduction-to-git"><i class="fa fa-check"></i><b>4.2</b> Introduction to git</a>
+<ul>
+<li class="chapter" data-level="" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#version-control-and-collaboration-using-git-and-github"><i class="fa fa-check"></i>Version control and Collaboration using Git and GitHub</a></li>
+<li class="chapter" data-level="" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#lets-look-at-a-github-repository"><i class="fa fa-check"></i>Let’s look at a GitHub repository</a></li>
+<li class="chapter" data-level="" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#the-git-lifecycle"><i class="fa fa-check"></i>The Git lifecycle</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#create-a-remote-repository-on-github"><i class="fa fa-check"></i><b>4.3</b> Create a remote repository on GitHub</a>
+<ul>
+<li class="chapter" data-level="" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#setup-4"><i class="fa fa-check"></i>Setup</a></li>
+<li><a href="session-4-version-control-with-git-and-github.html#section-1"></a></li>
+<li class="chapter" data-level="" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#challenge-5"><i class="fa fa-check"></i>Challenge</a></li>
+<li><a href="session-4-version-control-with-git-and-github.html#section-2"></a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#working-locally-with-git-via-rstudio"><i class="fa fa-check"></i><b>4.4</b> Working locally with Git via RStudio</a>
+<ul>
+<li class="chapter" data-level="" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#setup-5"><i class="fa fa-check"></i>Setup</a></li>
+<li><a href="session-4-version-control-with-git-and-github.html#section-3"></a></li>
+<li class="chapter" data-level="" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#challenge-6"><i class="fa fa-check"></i>Challenge</a></li>
+<li><a href="session-4-version-control-with-git-and-github.html#section-4"></a></li>
+<li class="chapter" data-level="" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#aside-3"><i class="fa fa-check"></i>Aside</a></li>
+<li class="chapter" data-level="" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#collaboration-and-conflict-free-workflows"><i class="fa fa-check"></i>Collaboration and conflict free workflows</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#setting-up-git-on-an-existing-project"><i class="fa fa-check"></i><b>4.5</b> Setting up git on an existing project</a>
+<ul>
+<li class="chapter" data-level="" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#challenge-7"><i class="fa fa-check"></i>Challenge</a></li>
+<li><a href="session-4-version-control-with-git-and-github.html#section-5"></a></li>
+<li class="chapter" data-level="" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#challenge-8"><i class="fa fa-check"></i>Challenge</a></li>
+<li><a href="session-4-version-control-with-git-and-github.html#section-6"></a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#go-further-1"><i class="fa fa-check"></i><b>4.6</b> Go Further</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html"><i class="fa fa-check"></i><b>5</b> Session 5: Git Collaboration and Conflict Management</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#learning-objectives-7"><i class="fa fa-check"></i><b>5.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="5.2" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#introduction"><i class="fa fa-check"></i><b>5.2</b> Introduction</a></li>
+<li class="chapter" data-level="5.3" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#collaborating-with-a-trusted-colleague-without-conflicts"><i class="fa fa-check"></i><b>5.3</b> Collaborating with a trusted colleague <strong>without conflicts</strong></a>
+<ul>
+<li class="chapter" data-level="" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#setup-6"><i class="fa fa-check"></i>Setup</a></li>
+<li><a href="session-5-git-collaboration-and-conflict-management.html#section-7"></a></li>
+<li class="chapter" data-level="5.3.1" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#step-1-collaborator-clone"><i class="fa fa-check"></i><b>5.3.1</b> Step 1: Collaborator clone</a></li>
+<li class="chapter" data-level="5.3.2" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#step-2-collaborator-edits"><i class="fa fa-check"></i><b>5.3.2</b> Step 2: Collaborator Edits</a></li>
+<li class="chapter" data-level="5.3.3" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#step-3-collaborator-commit-and-push"><i class="fa fa-check"></i><b>5.3.3</b> Step 3: Collaborator commit and push</a></li>
+<li class="chapter" data-level="5.3.4" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#step-4-owner-pull"><i class="fa fa-check"></i><b>5.3.4</b> Step 4: Owner pull</a></li>
+<li class="chapter" data-level="5.3.5" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#step-5-owner-edits-commit-and-push"><i class="fa fa-check"></i><b>5.3.5</b> Step 5: Owner edits, commit, and push</a></li>
+<li class="chapter" data-level="5.3.6" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#step-6-collaborator-pull"><i class="fa fa-check"></i><b>5.3.6</b> Step 6: Collaborator pull</a></li>
+<li class="chapter" data-level="" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#challenge-9"><i class="fa fa-check"></i>Challenge</a></li>
+<li><a href="session-5-git-collaboration-and-conflict-management.html#section-8"></a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#merge-conflicts"><i class="fa fa-check"></i><b>5.4</b> Merge conflicts</a></li>
+<li class="chapter" data-level="5.5" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#how-to-resolve-a-conflict"><i class="fa fa-check"></i><b>5.5</b> How to resolve a conflict</a>
+<ul>
+<li class="chapter" data-level="" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#abort-abort-abort"><i class="fa fa-check"></i>Abort, abort, abort…</a></li>
+<li class="chapter" data-level="" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#checkout"><i class="fa fa-check"></i>Checkout</a></li>
+<li class="chapter" data-level="" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#pull-and-edit-the-file"><i class="fa fa-check"></i>Pull and edit the file</a></li>
+<li class="chapter" data-level="5.5.1" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#producing-and-resolving-merge-conflicts"><i class="fa fa-check"></i><b>5.5.1</b> Producing and resolving merge conflicts</a></li>
+<li class="chapter" data-level="" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#merge-conflict-challenge"><i class="fa fa-check"></i>Merge Conflict Challenge</a></li>
+<li><a href="session-5-git-collaboration-and-conflict-management.html#section-9"></a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#workflows-to-avoid-merge-conflicts"><i class="fa fa-check"></i><b>5.6</b> Workflows to avoid merge conflicts</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="session-6-social-aspects-of-collaboration.html"><a href="session-6-social-aspects-of-collaboration.html"><i class="fa fa-check"></i><b>6</b> Session 6: Social Aspects of Collaboration</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="session-6-social-aspects-of-collaboration.html"><a href="session-6-social-aspects-of-collaboration.html#thinking-preferences"><i class="fa fa-check"></i><b>6.1</b> Thinking preferences</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="session-6-social-aspects-of-collaboration.html"><a href="session-6-social-aspects-of-collaboration.html#learning-objectives-8"><i class="fa fa-check"></i><b>6.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="6.1.2" data-path="session-6-social-aspects-of-collaboration.html"><a href="session-6-social-aspects-of-collaboration.html#thinking-preferences-activity"><i class="fa fa-check"></i><b>6.1.2</b> Thinking Preferences Activity</a></li>
+<li class="chapter" data-level="6.1.3" data-path="session-6-social-aspects-of-collaboration.html"><a href="session-6-social-aspects-of-collaboration.html#about-the-whole-brain-thinking-system"><i class="fa fa-check"></i><b>6.1.3</b> About the Whole Brain Thinking System</a></li>
+<li class="chapter" data-level="6.1.4" data-path="session-6-social-aspects-of-collaboration.html"><a href="session-6-social-aspects-of-collaboration.html#bonus-activity-your-complex-self"><i class="fa fa-check"></i><b>6.1.4</b> Bonus Activity: Your Complex Self</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="session-6-social-aspects-of-collaboration.html"><a href="session-6-social-aspects-of-collaboration.html#additional-resources-collaboration-authorship-and-data-policies"><i class="fa fa-check"></i><b>6.2</b> Additional Resources: Collaboration, authorship and data policies</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="session-6-social-aspects-of-collaboration.html"><a href="session-6-social-aspects-of-collaboration.html#resources-1"><i class="fa fa-check"></i><b>6.2.1</b> Resources</a></li>
+<li class="chapter" data-level="6.2.2" data-path="session-6-social-aspects-of-collaboration.html"><a href="session-6-social-aspects-of-collaboration.html#references"><i class="fa fa-check"></i><b>6.2.2</b> References</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="session-7-data-modeling-essentials.html"><a href="session-7-data-modeling-essentials.html"><i class="fa fa-check"></i><b>7</b> Session 7: Data Modeling Essentials</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="session-7-data-modeling-essentials.html"><a href="session-7-data-modeling-essentials.html#data-modeling-tidy-data"><i class="fa fa-check"></i><b>7.1</b> Data Modeling &amp; Tidy Data</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="session-7-data-modeling-essentials.html"><a href="session-7-data-modeling-essentials.html#learning-objectives-9"><i class="fa fa-check"></i><b>7.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="7.1.2" data-path="session-7-data-modeling-essentials.html"><a href="session-7-data-modeling-essentials.html#introduction-1"><i class="fa fa-check"></i><b>7.1.2</b> Introduction</a></li>
+<li class="chapter" data-level="7.1.3" data-path="session-7-data-modeling-essentials.html"><a href="session-7-data-modeling-essentials.html#recognizing-untidy-data"><i class="fa fa-check"></i><b>7.1.3</b> Recognizing untidy data</a></li>
+<li class="chapter" data-level="7.1.4" data-path="session-7-data-modeling-essentials.html"><a href="session-7-data-modeling-essentials.html#good-enough-data-modeling"><i class="fa fa-check"></i><b>7.1.4</b> Good enough data modeling</a></li>
+<li class="chapter" data-level="7.1.5" data-path="session-7-data-modeling-essentials.html"><a href="session-7-data-modeling-essentials.html#using-normalized-data"><i class="fa fa-check"></i><b>7.1.5</b> Using normalized data</a></li>
+<li class="chapter" data-level="7.1.6" data-path="session-7-data-modeling-essentials.html"><a href="session-7-data-modeling-essentials.html#data-modeling-exercise"><i class="fa fa-check"></i><b>7.1.6</b> Data modeling exercise</a></li>
+<li class="chapter" data-level="7.1.7" data-path="session-7-data-modeling-essentials.html"><a href="session-7-data-modeling-essentials.html#resources-2"><i class="fa fa-check"></i><b>7.1.7</b> Resources</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="session-8-cleaning-and-manipulating-data.html"><a href="session-8-cleaning-and-manipulating-data.html"><i class="fa fa-check"></i><b>8</b> Session 8: Cleaning and Manipulating Data</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="session-8-cleaning-and-manipulating-data.html"><a href="session-8-cleaning-and-manipulating-data.html#data-cleaning-and-manipulation"><i class="fa fa-check"></i><b>8.1</b> Data Cleaning and Manipulation</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="session-8-cleaning-and-manipulating-data.html"><a href="session-8-cleaning-and-manipulating-data.html#learning-objectives-10"><i class="fa fa-check"></i><b>8.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="8.1.2" data-path="session-8-cleaning-and-manipulating-data.html"><a href="session-8-cleaning-and-manipulating-data.html#introduction-2"><i class="fa fa-check"></i><b>8.1.2</b> Introduction</a></li>
+<li class="chapter" data-level="8.1.3" data-path="session-8-cleaning-and-manipulating-data.html"><a href="session-8-cleaning-and-manipulating-data.html#data-cleaning-basics"><i class="fa fa-check"></i><b>8.1.3</b> Data Cleaning Basics</a></li>
+<li class="chapter" data-level="8.1.4" data-path="session-8-cleaning-and-manipulating-data.html"><a href="session-8-cleaning-and-manipulating-data.html#joins-in-dplyr"><i class="fa fa-check"></i><b>8.1.4</b> Joins in dplyr</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html"><i class="fa fa-check"></i><b>9</b> Session 9: Data Visualisation and Publishing to the Web</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html#publishing-analyses-to-the-web"><i class="fa fa-check"></i><b>9.1</b> Publishing Analyses to the Web</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html#learning-objectives-11"><i class="fa fa-check"></i><b>9.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="9.1.2" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html#introduction-3"><i class="fa fa-check"></i><b>9.1.2</b> Introduction</a></li>
+<li class="chapter" data-level="9.1.3" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html#a-minimal-example"><i class="fa fa-check"></i><b>9.1.3</b> A Minimal Example</a></li>
+<li class="chapter" data-level="9.1.4" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html#exercise-sharing-your-work"><i class="fa fa-check"></i><b>9.1.4</b> Exercise: Sharing your work</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html#publication-graphics"><i class="fa fa-check"></i><b>9.2</b> Publication Graphics</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html#learning-objectives-12"><i class="fa fa-check"></i><b>9.2.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="9.2.2" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html#overview-1"><i class="fa fa-check"></i><b>9.2.2</b> Overview</a></li>
+<li class="chapter" data-level="9.2.3" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html#static-figures-using-ggplot2"><i class="fa fa-check"></i><b>9.2.3</b> Static figures using <code>ggplot2</code></a></li>
+<li class="chapter" data-level="9.2.4" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html#interactive-visualization-using-leaflet-and-dt"><i class="fa fa-check"></i><b>9.2.4</b> Interactive visualization using <code>leaflet</code> and <code>DT</code></a></li>
+<li class="chapter" data-level="9.2.5" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html#resources-3"><i class="fa fa-check"></i><b>9.2.5</b> Resources</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html"><i class="fa fa-check"></i><b>10</b> Session 10: Writing Functions and Packages</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#creating-r-functions"><i class="fa fa-check"></i><b>10.1</b> Creating R Functions</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#why-functions"><i class="fa fa-check"></i><b>10.1.1</b> Why functions?</a></li>
+<li class="chapter" data-level="10.1.2" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#documenting-r-functions"><i class="fa fa-check"></i><b>10.1.2</b> Documenting R functions</a></li>
+<li class="chapter" data-level="10.1.3" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#summary-2"><i class="fa fa-check"></i><b>10.1.3</b> Summary</a></li>
+<li class="chapter" data-level="10.1.4" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#examples-minimizing-work-with-functions"><i class="fa fa-check"></i><b>10.1.4</b> Examples: Minimizing work with functions</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#creating-r-packages"><i class="fa fa-check"></i><b>10.2</b> Creating R Packages</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#learning-objectives-13"><i class="fa fa-check"></i><b>10.2.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="10.2.2" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#why-packages"><i class="fa fa-check"></i><b>10.2.2</b> Why packages?</a></li>
+<li class="chapter" data-level="10.2.3" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#install-and-load-packages"><i class="fa fa-check"></i><b>10.2.3</b> Install and load packages</a></li>
+<li class="chapter" data-level="10.2.4" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#create-a-basic-package"><i class="fa fa-check"></i><b>10.2.4</b> Create a basic package</a></li>
+<li class="chapter" data-level="10.2.5" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#add-your-code"><i class="fa fa-check"></i><b>10.2.5</b> Add your code</a></li>
+<li class="chapter" data-level="10.2.6" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#add-documentation"><i class="fa fa-check"></i><b>10.2.6</b> Add documentation</a></li>
+<li class="chapter" data-level="10.2.7" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#test-your-package"><i class="fa fa-check"></i><b>10.2.7</b> Test your package</a></li>
+<li class="chapter" data-level="10.2.8" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#checking-and-installing-your-package"><i class="fa fa-check"></i><b>10.2.8</b> Checking and installing your package</a></li>
+<li class="chapter" data-level="10.2.9" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#sharing-and-releasing-your-package"><i class="fa fa-check"></i><b>10.2.9</b> Sharing and releasing your package</a></li>
+<li class="chapter" data-level="10.2.10" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#more-reading"><i class="fa fa-check"></i><b>10.2.10</b> More reading</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html"><i class="fa fa-check"></i><b>11</b> Session 11: Arctic Data Center Data Portals</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#creating-a-data-portal"><i class="fa fa-check"></i><b>11.1</b> Creating a data portal</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#what-is-a-portal"><i class="fa fa-check"></i><b>11.1.1</b> What is a Portal?</a></li>
+<li class="chapter" data-level="11.1.2" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#portal-uses"><i class="fa fa-check"></i><b>11.1.2</b> Portal Uses</a></li>
+<li class="chapter" data-level="11.1.3" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#portal-main-components"><i class="fa fa-check"></i><b>11.1.3</b> Portal Main Components</a></li>
+<li class="chapter" data-level="11.1.4" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#creating-portals"><i class="fa fa-check"></i><b>11.1.4</b> Creating Portals</a></li>
+<li class="chapter" data-level="11.1.5" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#adding-data-to-portals"><i class="fa fa-check"></i><b>11.1.5</b> Adding Data to Portals</a></li>
+<li class="chapter" data-level="11.1.6" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#creating-unique-freeform-pages"><i class="fa fa-check"></i><b>11.1.6</b> Creating Unique Freeform Pages</a></li>
+<li class="chapter" data-level="11.1.7" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#saving-and-editing-portals"><i class="fa fa-check"></i><b>11.1.7</b> Saving and Editing Portals</a></li>
+<li class="chapter" data-level="11.1.8" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#how-to-publish-portals"><i class="fa fa-check"></i><b>11.1.8</b> How to Publish Portals</a></li>
+<li class="chapter" data-level="11.1.9" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#sharing-portals"><i class="fa fa-check"></i><b>11.1.9</b> Sharing Portals</a></li>
+<li class="chapter" data-level="11.1.10" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#tutorial-videos"><i class="fa fa-check"></i><b>11.1.10</b> Tutorial Videos</a></li>
+<li class="chapter" data-level="11.1.11" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#acknowledgements-1"><i class="fa fa-check"></i><b>11.1.11</b> Acknowledgements</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="session-12-exercise-cleaning-and-manipulating-data.html"><a href="session-12-exercise-cleaning-and-manipulating-data.html"><i class="fa fa-check"></i><b>12</b> Session 12: Exercise - Cleaning and Manipulating Data</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="session-12-exercise-cleaning-and-manipulating-data.html"><a href="session-12-exercise-cleaning-and-manipulating-data.html#hands-on-clean-and-integrate-datasets"><i class="fa fa-check"></i><b>12.1</b> Hands On: Clean and Integrate Datasets</a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="session-12-exercise-cleaning-and-manipulating-data.html"><a href="session-12-exercise-cleaning-and-manipulating-data.html#learning-objectives-14"><i class="fa fa-check"></i><b>12.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="12.1.2" data-path="session-12-exercise-cleaning-and-manipulating-data.html"><a href="session-12-exercise-cleaning-and-manipulating-data.html#outline"><i class="fa fa-check"></i><b>12.1.2</b> Outline</a></li>
+<li class="chapter" data-level="12.1.3" data-path="session-12-exercise-cleaning-and-manipulating-data.html"><a href="session-12-exercise-cleaning-and-manipulating-data.html#full-solution.-warning-spoilers-ahead"><i class="fa fa-check"></i><b>12.1.3</b> Full solution. Warning, spoilers ahead!</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="session-13-geospatial-analysis-in-r.html"><a href="session-13-geospatial-analysis-in-r.html"><i class="fa fa-check"></i><b>13</b> Session 13: Geospatial Analysis in R</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="session-13-geospatial-analysis-in-r.html"><a href="session-13-geospatial-analysis-in-r.html#spatial-vector-analysis-using-sf"><i class="fa fa-check"></i><b>13.1</b> Spatial vector analysis using <code>sf</code></a>
+<ul>
+<li class="chapter" data-level="13.1.1" data-path="session-13-geospatial-analysis-in-r.html"><a href="session-13-geospatial-analysis-in-r.html#learning-objectives-15"><i class="fa fa-check"></i><b>13.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="13.1.2" data-path="session-13-geospatial-analysis-in-r.html"><a href="session-13-geospatial-analysis-in-r.html#introduction-4"><i class="fa fa-check"></i><b>13.1.2</b> Introduction</a></li>
+<li class="chapter" data-level="13.1.3" data-path="session-13-geospatial-analysis-in-r.html"><a href="session-13-geospatial-analysis-in-r.html#working-with-geospatial-data"><i class="fa fa-check"></i><b>13.1.3</b> Working with geospatial data</a></li>
+<li class="chapter" data-level="13.1.4" data-path="session-13-geospatial-analysis-in-r.html"><a href="session-13-geospatial-analysis-in-r.html#sf-the-tidyverse"><i class="fa fa-check"></i><b>13.1.4</b> <code>sf</code> &amp; the Tidyverse</a></li>
+<li class="chapter" data-level="13.1.5" data-path="session-13-geospatial-analysis-in-r.html"><a href="session-13-geospatial-analysis-in-r.html#visualize-with-ggplot"><i class="fa fa-check"></i><b>13.1.5</b> Visualize with ggplot</a></li>
+<li class="chapter" data-level="13.1.6" data-path="session-13-geospatial-analysis-in-r.html"><a href="session-13-geospatial-analysis-in-r.html#visualize-sf-objects-with-leaflet"><i class="fa fa-check"></i><b>13.1.6</b> Visualize <code>sf</code> objects with leaflet</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="session-14-reproducibility-and-provenance.html"><a href="session-14-reproducibility-and-provenance.html"><i class="fa fa-check"></i><b>14</b> Session 14: Reproducibility and Provenance</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="session-14-reproducibility-and-provenance.html"><a href="session-14-reproducibility-and-provenance.html#reproducibility-and-provenance"><i class="fa fa-check"></i><b>14.1</b> Reproducibility and Provenance</a>
+<ul>
+<li class="chapter" data-level="14.1.1" data-path="session-14-reproducibility-and-provenance.html"><a href="session-14-reproducibility-and-provenance.html#learning-objectives-16"><i class="fa fa-check"></i><b>14.1.1</b> Learning Objectives</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Arctic Data Center Training</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="session-3-literate-analysis-with-rmarkdown" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Session 3: Literate Analysis with RMarkdown</h1>
+<div id="rstudio-and-gitgithub-setup-and-motivation" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> RStudio and Git/GitHub Setup and Motivation</h2>
+<div id="learning-objectives-4" class="section level3" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> Learning Objectives</h3>
+<p>In this lesson, you will learn:</p>
+<ul>
+<li>What computational reproducibility is and why it is useful</li>
+<li>How version control can increase computational reproducibility</li>
+<li>How to check to make sure your RStudio environment is set up properly for analysis</li>
+<li>How to set up git</li>
+</ul>
+</div>
+<div id="introduction-to-reproducible-research" class="section level3" number="3.1.2">
+<h3><span class="header-section-number">3.1.2</span> Introduction to reproducible research</h3>
+<p>Reproducibility is the hallmark of science, which is based on empirical observations
+coupled with explanatory models. While reproducibility encompasses
+the full science lifecycle, and includes issues such as methodological consistency and
+treatment of bias, in this course we will focus on <strong>computational reproducibility</strong>:
+the ability to document data, analyses, and models sufficiently for other researchers
+to be able to understand and ideally re-execute the computations that led to
+scientific results and conclusions.</p>
+<div id="what-is-needed-for-computational-reproducibility" class="section level4 unnumbered" number="">
+<h4>What is needed for computational reproducibility?</h4>
+<p>The first step towards addressing these issues is to be able to evaluate the data,
+analyses, and models on which conclusions are drawn. Under current practice,
+this can be difficult because data are typically unavailable, the method sections
+of papers do not detail the computational approaches used, and analyses and models
+are often conducted in graphical programs, or, when scripted analyses are employed,
+the code is not available.</p>
+<p>And yet, this is easily remedied. Researchers can achieve computational
+reproducibility through open science approaches, including straightforward steps
+for archiving data and code openly along with the scientific workflows describing
+the provenance of scientific results (e.g., <span class="citation">Hampton et al. (<a href="#ref-hampton_tao_2015" role="doc-biblioref">2015</a>)</span>, <span class="citation">Munafò et al. (<a href="#ref-munafo_manifesto_2017" role="doc-biblioref">2017</a>)</span>).</p>
+</div>
+<div id="conceptualizing-workflows" class="section level4 unnumbered" number="">
+<h4>Conceptualizing workflows</h4>
+<p>Scientific workflows encapsulate all of the steps from data acquisition, cleaning,
+transformation, integration, analysis, and visualization.</p>
+<p><img src="images/workflow.png" /></p>
+<p>Workflows can range in detail from simple flowcharts
+to fully executable scripts. R scripts and python scripts are a textual form
+of a workflow, and when researchers publish specific versions of the scripts and
+data used in an analysis, it becomes far easier to repeat their computations and
+understand the provenance of their conclusions.</p>
+</div>
+</div>
+<div id="logging-into-the-rstudio-server" class="section level3" number="3.1.3">
+<h3><span class="header-section-number">3.1.3</span> Logging into the RStudio server</h3>
+<p>To help prevent us from spending most of this lesson remotely troubleshooting the myriad of issues that can arise when setting up the R, RStudio, and git environments, we have chosen to have everyone work on a remote server with all of the software you need installed. We will be using a special kind of RStudio just for servers called, aptly, RStudio Server. If you have never worked on a remove server before, you can think of it like working on a different computer via the internet. Note that the server has no knowledge of the files on your local filesystem, but it is easy to transfer files from the server to your local computer, and vice-versa, using the RStudio server interface.</p>
+<p>Here are the instructions for logging in and getting set up:</p>
+<div id="setup" class="section level4 unnumbered setup" number="">
+<h4>Setup</h4>
+<p>You should have received an email prompting you to change your password for your server account. If you did not, please let one of the helpers know on Slack.</p>
+<p>If you were able to successfully change your password, you can log in at: <a href="https://included-crab.nceas.ucsb.edu/">https://included-crab.nceas.ucsb.edu/</a></p>
+</div>
+<div id="section" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number=""></h4>
+<p>In this workshop, we are going to be using R projects to organize our work. An R project is tied to a directory on your local computer, and makes organizing your work and collaborating with others easier.</p>
+<p>We are going to be doing nearly all of the work in this course in one project. Our version of RStudio server allows you to share projects with others. Sharing your project with the instructors of the course will allow for them to jump into your session and type along with you, should you encounter an error you cannot fix.</p>
+</div>
+<div id="setup-1" class="section level4 unnumbered setup" number="">
+<h4>Setup</h4>
+<p>In your RStudio server session, follow these steps to set up your shared project:</p>
+<ul>
+<li>In the “File” menu, select “New Project”</li>
+<li>Click “New Directory”</li>
+<li>Click “New Project”</li>
+<li>Under “Directory name” type: <code>training_{USERNAME}</code>, eg: <code>training_jclark</code></li>
+<li>Leave “Create Project as subdirectory of:” set to <code>~</code></li>
+<li>Click “Create Project”</li>
+</ul>
+<p>Your Rstudio should now open your project. To share your project with the instructor team, locate the “project switcher” dropdown menu in the upper right of your RStudio window. This dropdown has the name if your project (eg: <code>training_clark</code>), and a dropdown arrow. Click the dropdown menu, then “Share Project.” When the dialog box pops up, add the following usernames to your project:</p>
+<ul>
+<li>jclark</li>
+<li>jones</li>
+<li>mecum</li>
+<li>jasminelai</li>
+<li>erinmclean</li>
+<li>scsik</li>
+<li>cwbeltz</li>
+</ul>
+<p>Once those names show up in the list, click “OK”.</p>
+</div>
+<div id="setting-up-git" class="section level4 unnumbered" number="">
+<h4>Setting up git</h4>
+<p>If you haven’t already, go to <a href="http://github.com">github.com</a> and create an account.</p>
+<p>Before using git, you need to tell it who you are, also known as setting the global options. The only way to do this is through the command line. Newer versions of RStudio have a nice feature where you can open a terminal window in your RStudio session. Do this by selecting Tools -&gt; Terminal -&gt; New Terminal.</p>
+<p>A terminal tab should now be open where your console usually is.</p>
+<p>To see if you aleady have your name and email options set, use this command from the terminal:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="session-3-literate-analysis-with-rmarkdown.html#cb2-1"></a><span class="fu">git</span> config --global --list <span class="kw">|</span> <span class="fu">grep</span> user</span></code></pre></div>
+<p>To set the global options, type the following into the command prompt, with your actual name, and press enter:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="session-3-literate-analysis-with-rmarkdown.html#cb3-1"></a><span class="fu">git</span> config --global user.name <span class="st">&quot;Matt Jones&quot;</span></span></code></pre></div>
+<p>Next, enter the following line, with the email address you used when you created your account on github.com:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="session-3-literate-analysis-with-rmarkdown.html#cb4-1"></a><span class="fu">git</span> config --global user.email <span class="st">&quot;gitcode@magisa.org&quot;</span></span></code></pre></div>
+<p>Note that these lines need to be run one at a time.</p>
+<p>Finally, check to make sure everything looks correct by entering these commands, which will return the options that you have set.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="session-3-literate-analysis-with-rmarkdown.html#cb5-1"></a><span class="fu">git</span> config --global user.name</span>
+<span id="cb5-2"><a href="session-3-literate-analysis-with-rmarkdown.html#cb5-2"></a><span class="fu">git</span> config --global user.email</span></code></pre></div>
+</div>
+</div>
+<div id="setting-up-the-r-environment-on-your-local-computer" class="section level3" number="3.1.4">
+<h3><span class="header-section-number">3.1.4</span> Setting up the R environment on your local computer</h3>
+<p>Even though we have you working on a remote server, we still recommend that you set up your own computer with the following software so that you are ready to take the tools you learn in the course into your daily work.</p>
+<div id="r-version" class="section level4 unnumbered" number="">
+<h4>R Version</h4>
+<p>We will use R version 4.0.2, which you can download and install from <a href="https://cran.rstudio.com">CRAN</a>. To check your version, run this in your RStudio console:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="session-3-literate-analysis-with-rmarkdown.html#cb6-1"></a>R.version<span class="op">$</span>version.string</span></code></pre></div>
+<p>If you have R version 4.0.0 that will likely work fine as well.</p>
+</div>
+<div id="rstudio-version" class="section level4 unnumbered" number="">
+<h4>RStudio Version</h4>
+<p>We will be using RStudio version 1.3.1000 or later, which you can download and install <a href="https://www.rstudio.com/products/rstudio/download/">here</a> To check your RStudio version, run the following in your RStudio console:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="session-3-literate-analysis-with-rmarkdown.html#cb7-1"></a><span class="kw">RStudio.Version</span>()<span class="op">$</span>version</span></code></pre></div>
+<p>If the output of this does not say <code>1.2.500</code> or higher, you should update your RStudio. Do this by selecting Help -&gt; Check for Updates and follow the prompts.</p>
+</div>
+<div id="package-installation" class="section level4 unnumbered" number="">
+<h4>Package installation</h4>
+<p>Run the following lines to check that all of the packages we need for the training are installed on your computer.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="session-3-literate-analysis-with-rmarkdown.html#cb8-1"></a>packages &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;dplyr&quot;</span>, <span class="st">&quot;tidyr&quot;</span>, <span class="st">&quot;readr&quot;</span>, <span class="st">&quot;devtools&quot;</span>, <span class="st">&quot;usethis&quot;</span>, <span class="st">&quot;roxygen2&quot;</span>, <span class="st">&quot;leaflet&quot;</span>, <span class="st">&quot;ggplot2&quot;</span>, <span class="st">&quot;DT&quot;</span>, <span class="st">&quot;scales&quot;</span>, <span class="st">&quot;shiny&quot;</span>, <span class="st">&quot;sf&quot;</span>, <span class="st">&quot;ggmap&quot;</span>, <span class="st">&quot;broom&quot;</span>, <span class="st">&quot;captioner&quot;</span>, <span class="st">&quot;MASS&quot;</span>)</span>
+<span id="cb8-2"><a href="session-3-literate-analysis-with-rmarkdown.html#cb8-2"></a></span>
+<span id="cb8-3"><a href="session-3-literate-analysis-with-rmarkdown.html#cb8-3"></a><span class="cf">for</span> (package <span class="cf">in</span> packages) { <span class="cf">if</span> (<span class="op">!</span>(package <span class="op">%in%</span><span class="st"> </span><span class="kw">installed.packages</span>())) { <span class="kw">install.packages</span>(package) } }</span>
+<span id="cb8-4"><a href="session-3-literate-analysis-with-rmarkdown.html#cb8-4"></a><span class="kw">rm</span>(packages) <span class="co">#remove variable from workspace</span></span>
+<span id="cb8-5"><a href="session-3-literate-analysis-with-rmarkdown.html#cb8-5"></a></span>
+<span id="cb8-6"><a href="session-3-literate-analysis-with-rmarkdown.html#cb8-6"></a><span class="co"># Now upgrade any out-of-date packages</span></span>
+<span id="cb8-7"><a href="session-3-literate-analysis-with-rmarkdown.html#cb8-7"></a><span class="kw">update.packages</span>(<span class="dt">ask=</span><span class="ot">FALSE</span>)</span></code></pre></div>
+<p>If you haven’t installed all of the packages, this will automatically start installing them. If they are installed, it won’t do anything.</p>
+<p>Next, create a new R Markdown (File -&gt; New File -&gt; R Markdown). If you have never made an R Markdown document before, a dialog box will pop up asking if you wish to install the required packages. Click yes.</p>
+<p>At this point, RStudio and R should be all set up.</p>
+</div>
+<div id="setting-up-git-locally" class="section level4 unnumbered" number="">
+<h4>Setting up git locally</h4>
+<p>Every time you set up git on a new computer, the steps we took above to set up git are required. See the above section on setting up git to set your git username and email address.</p>
+<div id="note-for-windows-users" class="section level5 unnumbered" number="">
+<h5>Note for Windows Users</h5>
+<p>If you get “command not found” (or similar) when you try these steps through the RStudio terminal tab, you may need to set the type of terminal that gets launched by RStudio. Under some git install scenarios, the git executable may not be available to the default terminal type. Follow the instructions on the RStudio site for <a href="https://support.rstudio.com/hc/en-us/articles/115010737148-Using-the-RStudio-Terminal#appendixe">Windows specific terminal options</a>. In particular, you should choose “New Terminals open with Git Bash” in the Terminal options (<code>Tools-&gt;Global Options-&gt;Terminal</code>).</p>
+<p>In addition, some versions of windows have difficulty with the command line if you are using an account name with spaces in it (such as “Matt Jones”, rather than something like “mbjones”). You may need to use an account name without spaces.</p>
+</div>
+</div>
+<div id="updating-a-previous-r-installation" class="section level4 unnumbered" number="">
+<h4>Updating a previous R installation</h4>
+<p><strong>This is useful for users who already have R with some packages installed and need to upgrade R, but don’t want to lose packages.</strong> If you have never installed R or any R packages before, you can skip this section.</p>
+<p>If you already have R installed, but need to update, and don’t want to lose your packages, these two R functions can help you. The first will save all of your packages to a file. The second loads the packages from the file and installs packages that are missing.</p>
+<p>Save this script to a file (eg <code>package_update.R</code>).</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="session-3-literate-analysis-with-rmarkdown.html#cb9-1"></a><span class="co">#&#39; Save R packages to a file. Useful when updating R version</span></span>
+<span id="cb9-2"><a href="session-3-literate-analysis-with-rmarkdown.html#cb9-2"></a><span class="co">#&#39;</span></span>
+<span id="cb9-3"><a href="session-3-literate-analysis-with-rmarkdown.html#cb9-3"></a><span class="co">#&#39; @param path path to rda file to save packages to. eg: installed_old.rda</span></span>
+<span id="cb9-4"><a href="session-3-literate-analysis-with-rmarkdown.html#cb9-4"></a>save_packages &lt;-<span class="st"> </span><span class="cf">function</span>(path){</span>
+<span id="cb9-5"><a href="session-3-literate-analysis-with-rmarkdown.html#cb9-5"></a>    tmp &lt;-<span class="st"> </span><span class="kw">installed.packages</span>()</span>
+<span id="cb9-6"><a href="session-3-literate-analysis-with-rmarkdown.html#cb9-6"></a>    installedpkgs &lt;-<span class="st"> </span><span class="kw">as.vector</span>(tmp[<span class="kw">is.na</span>(tmp[,<span class="st">&quot;Priority&quot;</span>]), <span class="dv">1</span>])</span>
+<span id="cb9-7"><a href="session-3-literate-analysis-with-rmarkdown.html#cb9-7"></a>    <span class="kw">save</span>(installedpkgs, <span class="dt">file =</span> path)</span>
+<span id="cb9-8"><a href="session-3-literate-analysis-with-rmarkdown.html#cb9-8"></a>}</span>
+<span id="cb9-9"><a href="session-3-literate-analysis-with-rmarkdown.html#cb9-9"></a></span>
+<span id="cb9-10"><a href="session-3-literate-analysis-with-rmarkdown.html#cb9-10"></a><span class="co">#&#39; Update packages from a file. Useful when updating R version</span></span>
+<span id="cb9-11"><a href="session-3-literate-analysis-with-rmarkdown.html#cb9-11"></a><span class="co">#&#39; </span></span>
+<span id="cb9-12"><a href="session-3-literate-analysis-with-rmarkdown.html#cb9-12"></a><span class="co">#&#39; @param path path to rda file where packages were saved</span></span>
+<span id="cb9-13"><a href="session-3-literate-analysis-with-rmarkdown.html#cb9-13"></a>update_packages &lt;-<span class="st"> </span><span class="cf">function</span>(path){</span>
+<span id="cb9-14"><a href="session-3-literate-analysis-with-rmarkdown.html#cb9-14"></a>    tmp &lt;-<span class="st"> </span><span class="kw">new.env</span>()</span>
+<span id="cb9-15"><a href="session-3-literate-analysis-with-rmarkdown.html#cb9-15"></a>    installedpkgs &lt;-<span class="st"> </span><span class="kw">load</span>(<span class="dt">file =</span> path, <span class="dt">envir =</span> tmp)</span>
+<span id="cb9-16"><a href="session-3-literate-analysis-with-rmarkdown.html#cb9-16"></a>    installedpkgs &lt;-<span class="st"> </span>tmp[[<span class="kw">ls</span>(tmp)[<span class="dv">1</span>]]]</span>
+<span id="cb9-17"><a href="session-3-literate-analysis-with-rmarkdown.html#cb9-17"></a>    tmp &lt;-<span class="st"> </span><span class="kw">installed.packages</span>()</span>
+<span id="cb9-18"><a href="session-3-literate-analysis-with-rmarkdown.html#cb9-18"></a></span>
+<span id="cb9-19"><a href="session-3-literate-analysis-with-rmarkdown.html#cb9-19"></a>    installedpkgs.new &lt;-<span class="st"> </span><span class="kw">as.vector</span>(tmp[<span class="kw">is.na</span>(tmp[,<span class="st">&quot;Priority&quot;</span>]), <span class="dv">1</span>])</span>
+<span id="cb9-20"><a href="session-3-literate-analysis-with-rmarkdown.html#cb9-20"></a>    missing &lt;-<span class="st"> </span><span class="kw">setdiff</span>(installedpkgs, installedpkgs.new)</span>
+<span id="cb9-21"><a href="session-3-literate-analysis-with-rmarkdown.html#cb9-21"></a>    <span class="kw">install.packages</span>(missing)</span>
+<span id="cb9-22"><a href="session-3-literate-analysis-with-rmarkdown.html#cb9-22"></a>    <span class="kw">update.packages</span>(<span class="dt">ask=</span><span class="ot">FALSE</span>)</span>
+<span id="cb9-23"><a href="session-3-literate-analysis-with-rmarkdown.html#cb9-23"></a>}</span></code></pre></div>
+<p>Source the file that you saved above (eg: <code>source(package_update.R)</code>). Then, run the <code>save_packages</code> function.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="session-3-literate-analysis-with-rmarkdown.html#cb10-1"></a><span class="kw">save_packages</span>(<span class="st">&quot;installed.rda&quot;</span>)</span></code></pre></div>
+<p>Then quit R, go to <a href="https://cran.rstudio.com">CRAN</a>, and install the latest version of R.</p>
+<p>Source the R script that you saved above again (eg: <code>source(package_update.R)</code>), and then run:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="session-3-literate-analysis-with-rmarkdown.html#cb11-1"></a><span class="kw">update_packages</span>(<span class="st">&quot;installed.rda&quot;</span>)</span></code></pre></div>
+<p>This should install all of your R packages that you had before you upgraded.</p>
+</div>
+</div>
+</div>
+<div id="literate-analysis-with-rmarkdown" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Literate Analysis with RMarkdown</h2>
+<div id="learning-objectives-5" class="section level3" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> Learning Objectives</h3>
+<p>In this lesson we will:</p>
+<ul>
+<li>explore an example of RMarkdown as literate analysis</li>
+<li>learn markdown syntax</li>
+<li>write and run R code in RMarkdown</li>
+<li>build and knit an example document</li>
+</ul>
+</div>
+<div id="introduction-and-motivation" class="section level3" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> Introduction and motivation</h3>
+<p>The concept of literate analysis dates to a <a href="http://www.literateprogramming.com/knuthweb.pdf">1984 article by Donald Knuth</a>. In this article, Knuth proposes a reversal of the programming paradigm.</p>
+<blockquote>
+<p>Instead of imagining that our main task is to instruct a <em>computer</em> what to do, let us concentrate rather on explaining to <em>human beings</em> what we want a computer to do.</p>
+</blockquote>
+<p>If our aim is to make scientific research more transparent, the appeal of this paradigm reversal is immediately apparent. All too often, computational methods are written in such a way as to be borderline incomprehensible - even to the person who originally wrote the code! The reason for this is obvious, computers interpret information very differently than people do. By switching to a literate analysis model, you help enable human understanding of what the computer is doing. As Knuth describes, in the literate analysis model, the author is an “essayist” who chooses variable names carefully, explains what they mean, and introduces concepts in the analysis in a way that facilitates understanding.</p>
+<p>RMarkdown is an excellent way to generate literate analysis, and a reproducible workflow. RMarkdown is a combination of two things - R, the programming language, and markdown, a set of text formatting directives. In R, the language assumes that you are writing R code, unless you specify that you are writing prose (using a comment, designated by <code>#</code>). The paradigm shift of literate analysis comes in the switch to RMarkdown, where instead of assuming you are writing code, Rmarkdown assumes that you are writing prose unless you specify that you are writing code. This, along with the formatting provided by markdown, encourages the “essayist” to write understandable prose to accompany the code that explains to the human-beings reading the document what the author told the computer to do. This is in contrast to writing just R code, where the author telling to the computer what to do with maybe a smattering of terse comments explaining the code to a reader.</p>
+<p>Before we dive in deeper, let’s look at an example of what literate analysis with RMarkdown can look like using a real example. <a href="https://nceas.github.io/sasap-training/materials/reproducible_research_in_r_fairbanks/example-brood-table-analysis.html"><strong>Here</strong></a> is an example of a real analysis workflow written using RMarkdown.</p>
+<p>There are a few things to notice about this document, which assembles a set of similar data sources on salmon brood tables with different formatting into a single data source.</p>
+<ul>
+<li>It introduces the data sources using in-line images, links, interactive tables, and interactive maps.</li>
+<li>An example of data formatting from one source using R is shown.</li>
+<li>The document executes a set of formatting scripts in a directory to generate a single merged file.</li>
+<li>Some simple quality checks are performed (and their output shown) on the merged data.</li>
+<li>Simple analysis and plots are shown.</li>
+</ul>
+<p>In addition to achieving literate analysis, this document also represents a <strong>reproducible analysis.</strong> Because the entire merging and quality control of the data is done using the R code in the RMarkdown, if a new data source and formatting script are added, the document can be run all at once with a single click to re-generate the quality control, plots, and analysis of the updated data.</p>
+<p>RMarkdown is an amazing tool to use for collaborative research, so we will spend some time learning it well now, and use it through the rest of the course.</p>
+<div id="setup-2" class="section level4 unnumbered setup" number="">
+<h4>Setup</h4>
+<p>Open a new RMarkdown file using the following prompts:</p>
+<p>File -&gt; New File -&gt; RMarkdown</p>
+<p>A popup window will appear. You can just click the OK button here, or give your file a new title if you wish. Leave the output format as HTML.</p>
+</div>
+</div>
+<div id="basic-rmarkdown-syntax" class="section level3" number="3.2.3">
+<h3><span class="header-section-number">3.2.3</span> Basic RMarkdown syntax</h3>
+<p>The first thing to notice is that by opening a file, we are seeing the 4th pane of the RStudio console, which is essentially a text editor.</p>
+<p>Let’s have a look at this file — it’s not blank; there is some initial text already provided for you. Notice a few things about it:</p>
+<ul>
+<li>There are white and grey sections. R code is in grey sections, and other text is in white.</li>
+</ul>
+<p><img src="images/rmarkdown.png" /></p>
+<p><br></p>
+<p>Let’s go ahead and “Knit” the document by clicking the blue yarn at the top of the RMarkdown file. When you first click this button, RStudio will prompt you to save this file. Save it in the top level of your home directory on the server, and name it something that you will remember (like <code>rmarkdown-intro.Rmd</code>).</p>
+<p><br></p>
+<p><img src="images/rmarkdown_side_by_side.png" /></p>
+<p>What do you notice between the two?</p>
+<p>First, the knit process produced a second file (an HTML file) that popped up in a second window. You’ll also see this file in your directory with the same name as your Rmd, but with the html extension. In it’s simplest format, RMarkdown files come in pairs - the RMarkdown file, and its rendered version. In this case, we are knitting, or rendering, the file into HTML. You can also knit to PDF or Word files.</p>
+<p>Notice how the grey <strong>R code chunks</strong> are surrounded by 3 backticks and <code>{r LABEL}</code>. These are evaluated and return the output text in the case of <code>summary(cars)</code> and the output plot in the case of <code>plot(pressure)</code>. The label next to the letter r in the code chunk syntax is a chunk label - this can help you navigate your RMarkdown document using the dropdown menu at the bottom of the editor pane.</p>
+<p>Notice how the code <code>plot(pressure)</code> is not shown in the HTML output because of the R code chunk option <code>echo = FALSE</code>. RMarkdown has lots of chunk options, including ones that allow for code to be run but not shown (<code>echo = FALSE</code>), code to be shown but not run (<code>eval = FALSE</code>), code to be run, but results not shown (<code>results = 'hide'</code>), or any combination of those.</p>
+<p>Before we get too deeply into the R side, let’s talk about Markdown. Markdown is a formatting language for plain text, and there are only around 15 rules to know.</p>
+<p>Notice the syntax in the document we just knitted:</p>
+<ul>
+<li><strong>headers</strong> get rendered at multiple levels: <code>#</code>, <code>##</code></li>
+<li><strong>bold</strong>: <code>**word**</code></li>
+</ul>
+<p>There are some good <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Here-Cheatsheet">cheatsheets</a> to get you started, and here is one built into RStudio: Go to Help &gt; Markdown Quick Reference .</p>
+<p><strong>Important</strong>: note that the hash symbol <code>#</code> is used differently in Markdown and in R:</p>
+<ul>
+<li>in R, a hash indicates a comment that will not be evaluated. You can use as many as you want: <code>#</code> is equivalent to <code>######</code>. It’s just a matter of style.</li>
+<li>in Markdown, a hash indicates a level of a header. And the number you use matters: <code>#</code> is a “level one header”, meaning the biggest font and the top of the hierarchy. <code>###</code> is a level three header, and will show up nested below the <code>#</code> and <code>##</code> headers.</li>
+</ul>
+<div id="challenge" class="section level4 unnumbered exercise" number="">
+<h4>Challenge</h4>
+<ol style="list-style-type: decimal">
+<li>In Markdown, Write some italic text, make a numbered list, and add a few sub-headers. Use the Markdown Quick Reference (in the menu bar: Help &gt; Markdown Quick Reference).</li>
+<li>Re-knit your html file and observe your edits.</li>
+</ol>
+</div>
+</div>
+<div id="code-chunks" class="section level3" number="3.2.4">
+<h3><span class="header-section-number">3.2.4</span> Code chunks</h3>
+<p>Next, do what I do every time I open a new RMarkdown: delete everything below the “setup chunk” (line 10). The setup chunk is the one that looks like this:</p>
+<pre><code>knitr::opts_chunk$set(echo = TRUE)</code></pre>
+<p>This is a very useful chunk that will set the default R chunk options for your entire document. I like keeping it in my document so that I can easily modify default chunk options based on the audience for my RMarkdown. For example, if I know my document is going to be a report for a non-technical audience, I might set <code>echo = FALSE</code> in my setup chunk, that way all of the text, plots, and tables appear in the knitted document. The code, on the other hand, is still run, but doesn’t display in the final document.</p>
+<p>Now let’s practice with some R chunks. You can Create a new chunk in your RMarkdown in one of these ways:</p>
+<ul>
+<li>click “Insert &gt; R” at the top of the editor pane</li>
+<li>type by hand ```{r} ```</li>
+<li>use the keyboard shortcut Command + Option + i (for windows, Ctrl + Alt + i)</li>
+</ul>
+<p>Now, let’s write some R code.</p>
+<pre><code>x &lt;- 4*3
+x</code></pre>
+<p>Hitting return does not execute this command; remember, it’s just a text file. To execute it, we need to get what we typed in the the R chunk (the grey R code) down into the console. How do we do it? There are several ways (let’s do each of them):</p>
+<ol style="list-style-type: decimal">
+<li><p>copy-paste this line into the console (generally not recommended as a primary method)</p></li>
+<li><p>select the line (or simply put the cursor there), and click ‘Run’. This is available from</p>
+<ol style="list-style-type: lower-alpha">
+<li>the bar above the file (green arrow)</li>
+<li>the menu bar: Code &gt; Run Selected Line(s)</li>
+<li>keyboard shortcut: command-return</li>
+</ol></li>
+<li><p>click the green arrow at the right of the code chunk</p></li>
+</ol>
+<div id="challenge-1" class="section level4 unnumbered exercise" number="">
+<h4>Challenge</h4>
+<p>Add a few more commands to your code chunk. Execute them by trying the three ways above.</p>
+<p><strong>Question</strong>: What is the difference between running code using the green arrow in the chunk and the command-return keyboard shortcut?</p>
+</div>
+</div>
+<div id="literate-analysis-practice" class="section level3" number="3.2.5">
+<h3><span class="header-section-number">3.2.5</span> Literate analysis practice</h3>
+<p>Now that we have gone over the basics, let’s go a little deeper by building a simple, small RMarkdown document that represents a literate analysis using real data.</p>
+<div id="setup-3" class="section level4 unnumbered setup" number="">
+<h4>Setup</h4>
+<ul>
+<li>Navigate to the following dataset: <a href="https://doi.org/10.18739/A25T3FZ8X">https://doi.org/10.18739/A25T3FZ8X</a></li>
+<li>Download the file “BGchem2008data.csv”</li>
+<li>Click the “Upload” button in your RStudio server file browser.</li>
+<li>In the dialog box, make sure the destination directory is the <strong>same</strong> directory where your RMarkdown file is saved (likely your home directory), click “choose file,” and locate the BGchem2008data.csv file. Press “ok” to upload the file.</li>
+</ul>
+</div>
+<div id="developing-code-in-rmarkdown" class="section level4" number="3.2.5.1">
+<h4><span class="header-section-number">3.2.5.1</span> Developing code in RMarkdown</h4>
+<p>Experienced R users who have never used RMarkdown often struggle a bit in the transition to developing analysis in RMarkdown - which makes sense! It is switching the code paradigm to a new way of thinking. Rather than starting an R chunk and putting all of your code in that single chunk, here I describe what I think is a better way.</p>
+<ol style="list-style-type: decimal">
+<li>Open a document and block out the high-level sections you know you’ll need to include using top level headers.</li>
+<li>Add bullet points for some high level pseudo-code steps you know you’ll need to take.</li>
+<li>Start filling in under each bullet point the code that accomplishes each step. As you write your code, transform your bullet points into prose, and add new bullet points or sections as needed.</li>
+</ol>
+<p>For this mini-analysis, we will just have the following sections and code steps:</p>
+<ul>
+<li>Introduction
+<ul>
+<li>read in data</li>
+</ul></li>
+<li>Analysis
+<ul>
+<li>calculate summary statistics</li>
+<li>calculate mean Redfield ratio</li>
+<li>plot Redfield ratio</li>
+</ul></li>
+</ul>
+</div>
+<div id="challenge-2" class="section level4 unnumbered exercise" number="">
+<h4>Challenge</h4>
+<p>Create the ‘outline’ of your document with the information above. Top level bullet points should be top level sections. The second level points should be a list within each section.</p>
+<p>Next, write a sentence saying where your dataset came from, including a hyperlink, in the introduction section.</p>
+<p>Hint: Navigate to Help &gt; Markdown Quick Reference to lookup the hyperlink syntax.</p>
+</div>
+<div id="read-in-the-data" class="section level4" number="3.2.5.2">
+<h4><span class="header-section-number">3.2.5.2</span> Read in the data</h4>
+<p>Now that we have outlined our document, we can start writing code! To read the data into our environment, we will use a function from the <code>readr</code> package. R packages are the building blocks of computational reproducibility in R. Each package contains a set of related functions that enable you to more easily do a task or set of tasks in R. There are thousands of community-maintained packages out there for just about every imaginable use of R - including many that you have probably never thought of!</p>
+<p>To install a package, we use the syntax <code>install.packages('packge_name')</code>. A package only needs to be installed once, so this code can be run directly in the console if needed. To use a package in our analysis, we need to load it into our environment using <code>library(package_name)</code>. Even though we have installed it, we haven’t yet told our R session to access it. Because there are so many packages (many with conflicting namespaces) R cannot automatically load every single package you have installed. Instead, you load only the ones you need for a particular analysis. Loading the package is a key part of the reproducible aspect of our Rmarkdown, so we will include it as an R chunk. It is generally good practice to include all of your <code>library</code> calls in a single, dedicated R chunk near the top of your document. This lets collaborators know what packages they might need to install before they start running your code.</p>
+<p>You should have already installed <code>readr</code> as part of the setup for this course, so add a new R chunk below your setup chunk that calls the <code>readr</code> library, and run it. It should look like this:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="session-3-literate-analysis-with-rmarkdown.html#cb14-1"></a><span class="kw">library</span>(readr)</span></code></pre></div>
+<p>Now, below the introduction that you wrote, add a chunk that uses the <code>read_csv</code> function to read in your data file.</p>
+<div id="about-rmarkdown-paths" class="section level5 unnumbered" number="">
+<h5>About RMarkdown paths</h5>
+<p>In computing, a path specifies the unique location of a file on the filesystem. A path can come in one of two forms: absolute or relative. <strong>Absolute</strong> paths start at the very top of your file system, and work their way down the directory tree to the file. <strong>Relative</strong> paths start at an arbitrary point in the file system. In R, this point is set by your working directory.</p>
+<p>RMarkdown has a special way of handling relative paths that can be very handy. When working in an RMarkdown document, R will set all paths relative <strong>to the location of the RMarkdown file.</strong> This way, you don’t have to worry about setting a working directory, or changing your colleagues absolute path structure with the correct user name, etc. If your RMarkdown is stored near where the data it analyses are stored (good practice, generally), setting paths becomes much easier!</p>
+<p>If you saved your “BGchem2008data.csv” data file in the same location as your Rmd, you can just write the following to read it in. The help page (<code>?read_csv</code>, in the console) for this function tells you that the first argument should be a pointer to the file. Rstudio has some nice helpers to help you navigate paths. If you open quotes and press ‘tab’ with your cursor between the quotes, a popup menu will appear showing you some options.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="session-3-literate-analysis-with-rmarkdown.html#cb15-1"></a>bg_chem &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;BGchem2008data.csv&quot;</span>)</span></code></pre></div>
+<pre><code>Parsed with column specification:
+cols(
+  Date = col_date(format = &quot;&quot;),
+  Time = col_datetime(format = &quot;&quot;),
+  Station = col_character(),
+  Latitude = col_double(),
+  Longitude = col_double(),
+  Target_Depth = col_double(),
+  CTD_Depth = col_double(),
+  CTD_Salinity = col_double(),
+  CTD_Temperature = col_double(),
+  Bottle_Salinity = col_double(),
+  d18O = col_double(),
+  Ba = col_double(),
+  Si = col_double(),
+  NO3 = col_double(),
+  NO2 = col_double(),
+  NH4 = col_double(),
+  P = col_double(),
+  TA = col_double(),
+  O2 = col_double()
+)
+Warning messages:
+1: In get_engine(options$engine) :
+  Unknown language engine &#39;markdown&#39; (must be registered via knit_engines$set()).
+2: Problem with `mutate()` input `Lower`.
+ℹ NAs introduced by coercion
+ℹ Input `Lower` is `as.integer(Lower)`. 
+3: In mask$eval_all_mutate(dots[[i]]) : NAs introduced by coercion</code></pre>
+<p>If you run this line in your RMarkdown document, you should see the <code>bg_chem</code> object populate in your environment pane. It also spits out lots of text explaining what types the function parsed each column into. This text is important, and should be examined, but we might not want it in our final document.</p>
+</div>
+<div id="challenge-3" class="section level5 unnumbered exercise" number="">
+<h5>Challenge</h5>
+<p>Use one of two methods to figure out how to suppress <strong>warning</strong> and <strong>message</strong> text in your chunk output:</p>
+<ol style="list-style-type: decimal">
+<li>The gear icon in the chunk, next to the play button</li>
+<li>The <a href="https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf">RMarkdown quick reference</a></li>
+</ol>
+</div>
+</div>
+<div id="aside" class="section level4 unnumbered aside" number="">
+<h4>Aside</h4>
+<p><strong>Why not use <code>read.csv</code> from base R?</strong></p>
+<p>We chose to show <code>read_csv</code> from the <code>readr</code> package for a few reasons. One is to introduce the concept of packages and showing how to load them, but <code>read_csv</code> has several advantages over <code>read.csv</code>.</p>
+<ul>
+<li>more reasonable function defaults (no stringsAsFactors!)</li>
+<li>smarter column type parsing, especially for dates</li>
+<li>it is <strong>much</strong> faster than <code>read.csv</code>, which is helpful for large files</li>
+</ul>
+</div>
+<div id="calculate-summary-statistics" class="section level4" number="3.2.5.3">
+<h4><span class="header-section-number">3.2.5.3</span> Calculate Summary Statistics</h4>
+<p>As our “analysis” we are going to calculate some very simple summary statistics and generate a single plot. In this dataset of oceanographic water samples, we will be examining the ratio of nitrogen to phosphate to see how closely the data match the Redfield ratio, which is the consistent 16:1 ratio of nitrogen to phosphorous atoms found in marine phytoplankton.</p>
+<p>Under the appropriate bullet point in your analysis section, create a new R chunk, and use it to calculate the mean nitrate (NO3), nitrite (NO2), ammonium (NH4), and phosphorous (P) measured. Save these mean values as new variables with easily understandable names, and write a (brief) description of your operation using markdown above the chunk.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="session-3-literate-analysis-with-rmarkdown.html#cb17-1"></a>nitrate &lt;-<span class="st"> </span><span class="kw">mean</span>(bg_chem<span class="op">$</span>NO3)</span>
+<span id="cb17-2"><a href="session-3-literate-analysis-with-rmarkdown.html#cb17-2"></a>nitrite &lt;-<span class="st"> </span><span class="kw">mean</span>(bg_chem<span class="op">$</span>NO2)</span>
+<span id="cb17-3"><a href="session-3-literate-analysis-with-rmarkdown.html#cb17-3"></a>amm &lt;-<span class="st"> </span><span class="kw">mean</span>(bg_chem<span class="op">$</span>NH4)</span>
+<span id="cb17-4"><a href="session-3-literate-analysis-with-rmarkdown.html#cb17-4"></a>phos &lt;-<span class="st"> </span><span class="kw">mean</span>(bg_chem<span class="op">$</span>P)</span></code></pre></div>
+<p>In another chunk, use those variables to calculate the nitrogen:phosphate ratio (Redfield ratio).</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="session-3-literate-analysis-with-rmarkdown.html#cb18-1"></a>ratio &lt;-<span class="st"> </span>(nitrate <span class="op">+</span><span class="st"> </span>nitrite <span class="op">+</span><span class="st"> </span>amm)<span class="op">/</span>phos</span></code></pre></div>
+<p>You can access this variable in your Markdown text by using R in-line in your text. The syntax to call R in-line (as opposed to as a chunk) is a single backtick `, the letter “r”, whatever your simple R command is - here we will use <code>round(ratio)</code> to print the calculated ratio, and a closing backtick `. So: ` 6 `. This allows us to access the value stored in this variable in our explanatory text without resorting to the evaluate-copy-paste method so commonly used for this type of task. The text as it looks in your RMrakdown will look like this:</p>
+<p>The Redfield ratio for this dataset is approximately `r <code>round(ratio)</code>`.</p>
+<p>And the rendered text like this:</p>
+<p>The Redfield ratio for this dataset is approximately 6.</p>
+<p>Finally, create a simple plot using base R that plots the ratio of the individual measurements, as opposed to looking at mean ratio.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="session-3-literate-analysis-with-rmarkdown.html#cb19-1"></a><span class="kw">plot</span>(bg_chem<span class="op">$</span>P, bg_chem<span class="op">$</span>NO2 <span class="op">+</span><span class="st"> </span>bg_chem<span class="op">$</span>NO3 <span class="op">+</span><span class="st"> </span>bg_chem<span class="op">$</span>NH4)</span></code></pre></div>
+<p><img src="reproducible-research-short-course_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
+</div>
+<div id="challenge-4" class="section level4 unnumbered exercise" number="">
+<h4>Challenge</h4>
+<p>Decide whether or not you want the plotting code above to show up in your knitted document along with the plot, and implement your decision as a chunk option.</p>
+<p>“Knit” your RMarkdown document (by pressing the Knit button) to observe the results.</p>
+</div>
+<div id="aside-1" class="section level4 unnumbered aside" number="">
+<h4>Aside</h4>
+<p><strong>How do I decide when to make a new chunk?</strong></p>
+<p>Like many of life’s great questions, there is no clear cut answer. My preference is to have one chunk per functional unit of analysis. This functional unit could be 50 lines of code or it could be 1 line, but typically it only does one “thing.” This could be reading in data, making a plot, or defining a function. It could also mean calculating a series of related summary statistics (as above). Ultimately the choice is one related to personal preference and style, but generally you should ensure that code is divided up such that it is easily explainable in a literate analysis as the code is run.</p>
+</div>
+</div>
+<div id="rmarkdown-and-environments" class="section level3" number="3.2.6">
+<h3><span class="header-section-number">3.2.6</span> RMarkdown and environments</h3>
+<p>Let’s walk through an exercise with the document you built together to demonstrate how RMarkdown handles environments. We will be deliberately inducing some errors here for demonstration purposes.</p>
+<p>First, follow these steps:</p>
+<ol style="list-style-type: decimal">
+<li>Restart your R session (Session &gt; Restart R)</li>
+<li>Run the last chunk in your Rmarkdown by pressing the play button on the chunk</li>
+</ol>
+<p>Perhaps not surprisingly, we get an error:</p>
+<pre><code>Error in plot(bg_chem$P, bg_chem$NO2 + bg_chem$NO3 + bg_chem$NH4) : 
+  object &#39;bg_chem&#39; not found</code></pre>
+<p>This is because we have not run the chunk of code that reads in the <code>bg_chem</code> data. The R part of Rmarkdown works just like a regular R script. You have to execute the code, and the order that you run it in matters. It is relatively easy to get mixed up in a large RMarkdown document - running chunks out of order, or forgetting to run chunks. To resolve this, follow the next step:</p>
+<ol start="3" style="list-style-type: decimal">
+<li>Select from the “Run” menu (top right of Rmarkdown editor) “Restart R and run all chunks”</li>
+<li>Observe the <code>bg_chem</code> variable in your environment.</li>
+</ol>
+<p>This is one of my favorite ways to reset and re-run my code when things seem to have gone sideways. This is great practice to do periodically since it helps ensure you are writing code that actually runs.</p>
+<p>For the next demonstration:</p>
+<ol style="list-style-type: decimal">
+<li>Restart your R session (Session &gt; Restart R)</li>
+<li>Press Knit to run all of the code in your document</li>
+<li>Observe the state of your environment pane</li>
+</ol>
+<p>Assuming your document knitted and produced an html page, your code ran. Yet the environment pane is empty. What happened?</p>
+<p>The Knit button is rather special - it doesn’t just run all of the code in your document. It actually spins up a fresh R environment separate from the one you have been working in, runs all of the code in your document, generates the output, and then closes the environment. This is one of the best ways RMarkdown helps ensure you have built a reproducible workflow. If, while you were developing your code, you ran a line in the console as opposed to adding it to your RMarkdown document, the code you develop while working actively in your environment will still work. However, when you knit your document, the environment RStudio spins up doesn’t know anything about that working environment you were in. Thus, your code may error because it doesn’t have that extra piece of information. Commonly, <code>library</code> calls are the source of this kind of frustration when the author runs it in the console, but forgets to add it to the script.</p>
+<p>To further clarify the point on environments, perform the following steps:</p>
+<ol start="4" style="list-style-type: decimal">
+<li>Select from the “Run” menu (top right of Rmarkdown editor) “Run All”</li>
+<li>Observe all of the variables in your environment.</li>
+</ol>
+<div id="aside-2" class="section level4 unnumbered aside" number="">
+<h4>Aside</h4>
+<p><strong>What about all my R scripts?</strong></p>
+<p>Some pieces of R code are better suited for R scripts than RMarkdown. A function you wrote yourself that you use in many different analyses is probably better to define in an R script than repeated across many RMarkdown documents. Some analyses have mundane or repetitive tasks that don’t need to be explained very much. For example, in the document shown in the beginning of this lesson, 15 different excel files needed to be reformatted in slightly different, mundane ways, like renaming columns and removing header text. Instead of including these tasks in the primary markdown, I instead chose to write one R script per file and stored them all in a directory. I took the contents of one script and included it in my literate analysis, using it as an example to explain what the scripts did, and then used the <code>source</code> function to run them all from within my RMarkdown.</p>
+<p>So, just because you know RMarkdown now, doesn’t mean you won’t be using R scripts anymore. Both .R and .Rmd have their roles to play in analysis. With practice, it will become more clear what works well in RMarkdown, and what belongs in a regular R script.</p>
+</div>
+</div>
+<div id="go-further" class="section level3 exercise" number="3.2.7">
+<h3><span class="header-section-number">3.2.7</span> Go Further</h3>
+<p>Create an RMarkdown document with some of your own data. If you don’t have a good dataset handy, use the example dataset here:</p>
+<p><a href="http://doi.org/10.18739/A25T3FZ8X">Craig Tweedie. 2009. North Pole Environmental Observatory Bottle Chemistry. Arctic Data Center. doi:10.18739/A25T3FZ8X.</a></p>
+<p>Your document might contain the following sections:</p>
+<ul>
+<li><p>Introduction to your dataset</p>
+<ul>
+<li>Include an external link</li>
+</ul></li>
+<li><p>Simple analysis</p></li>
+<li><p>Presentation of a result</p>
+<ul>
+<li>A table</li>
+<li>An in-line R command</li>
+</ul></li>
+</ul>
+</div>
+<div id="resources" class="section level3" number="3.2.8">
+<h3><span class="header-section-number">3.2.8</span> Resources</h3>
+<ul>
+<li><a href="https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf">RMarkdown Reference Guide</a></li>
+<li><a href="https://rmarkdown.rstudio.com/">RMarkdown Home Page</a></li>
+<li><a href="https://rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf">RMarkdown Cheat Sheet</a></li>
+</ul>
+</div>
+<div id="troubleshooting" class="section level3" number="3.2.9">
+<h3><span class="header-section-number">3.2.9</span> Troubleshooting</h3>
+<div id="my-rmarkdown-wont-knit-to-pdf" class="section level4" number="3.2.9.1">
+<h4><span class="header-section-number">3.2.9.1</span> My RMarkdown won’t knit to PDF</h4>
+<p>If you get an error when trying to knit to PDF that says your computer doesn’t have a LaTeX installation, one of two things is likely happening:</p>
+<ol style="list-style-type: decimal">
+<li>Your computer doesn’t have LaTeX installed</li>
+<li>You have an installation of LaTeX but RStudio cannot find it (it is not on the path)</li>
+</ol>
+<p>If you already use LaTeX (like to write papers), you fall in the second category. Solving this requires directing RStudio to your installation - and isn’t covered here.</p>
+<p>If you fall in the first category - you are sure you don’t have LaTeX installed - can use the R package <code>tinytex</code> to easily get an installation recognized by RStudio, as long as you have administrative rights to your computer.</p>
+<p>To install <code>tinytex</code> run:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="session-3-literate-analysis-with-rmarkdown.html#cb21-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;tinytex&quot;</span>)</span>
+<span id="cb21-2"><a href="session-3-literate-analysis-with-rmarkdown.html#cb21-2"></a>tinytex<span class="op">::</span><span class="kw">install_tinytex</span>()</span></code></pre></div>
+<p>If you get an error that looks like <code>destination /usr/local/bin not writable</code>, you need to give yourself permission to write to this directory (again, only possible if you have administrative rights). To do this, run this command in the terminal:</p>
+<pre><code>sudo chown -R `whoami`:admin /usr/local/bin</code></pre>
+<p>and then try the above install instructions again. More information about <code>tinytex</code> can be found <a href="https://yihui.name/tinytex/">here</a></p>
+
+</div>
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-hampton_tao_2015">
+<p>Hampton, Stephanie E, Sean Anderson, Sarah C Bagby, Corinna Gries, Xueying Han, Edmund Hart, Matthew B Jones, et al. 2015. “The Tao of Open Science for Ecology.” <em>Ecosphere</em> 6 (July). <a href="https://doi.org/http://dx.doi.org/10.1890/ES14-00402.1">https://doi.org/http://dx.doi.org/10.1890/ES14-00402.1</a>.</p>
+</div>
+<div id="ref-munafo_manifesto_2017">
+<p>Munafò, Marcus R., Brian A. Nosek, Dorothy V. M. Bishop, Katherine S. Button, Christopher D. Chambers, Nathalie Percie du Sert, Uri Simonsohn, Eric-Jan Wagenmakers, Jennifer J. Ware, and John P. A. Ioannidis. 2017. “A Manifesto for Reproducible Science.” <em>Nature Human Behaviour</em> 1 (1): 0021. <a href="https://doi.org/10.1038/s41562-016-0021">https://doi.org/10.1038/s41562-016-0021</a>.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="session-2-documenting-and-publishing-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="session-4-version-control-with-git-and-github.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
