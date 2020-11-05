@@ -1,0 +1,26 @@
+p.caption {
+  color: #777;
+  margin-top: 10px;
+}
+p code {
+  white-space: inherit;
+}
+pre {
+  word-break: normal;
+  word-wrap: normal;
+}
+pre code {
+  white-space: inherit;
+}
+.exercise {
+  background-color: #97f7ee;
+  padding: 1em;
+}
+.setup {
+  background-color: #73ffbc;
+  padding: 1em;
+}
+.aside {
+  background-color: #bfbdbd;
+  padding: 1em;
+}

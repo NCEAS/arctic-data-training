@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>ADC Training</title>
+  <meta name="description" content="description here">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="ADC Training" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="description here" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="ADC Training" />
+  
+  <meta name="twitter:description" content="description here" />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="data-documentation-and-publishing.html">
+<link rel="next" href="query-and-download.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">ADC Training</a></li>
+<li><a href="/arctic-data-training/">← Back to main website</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Data Science Training for the Arctic Data Center</a><ul>
+<li class="chapter" data-level="1.0.1" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>1.0.1</b> Acknowledgements</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html"><i class="fa fa-check"></i><b>2</b> Data Documentation and Publishing</a><ul>
+<li class="chapter" data-level="2.1" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#learning-objectives"><i class="fa fa-check"></i><b>2.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="2.2" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#data-sharing-and-preservation"><i class="fa fa-check"></i><b>2.2</b> Data sharing and preservation</a></li>
+<li class="chapter" data-level="2.3" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#data-repositories-built-for-data-and-code"><i class="fa fa-check"></i><b>2.3</b> Data repositories: built for data (and code)</a></li>
+<li class="chapter" data-level="2.4" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#arctic-data-center"><i class="fa fa-check"></i><b>2.4</b> Arctic Data Center</a></li>
+<li class="chapter" data-level="2.5" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#metadata"><i class="fa fa-check"></i><b>2.5</b> Metadata</a></li>
+<li class="chapter" data-level="2.6" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#structure-of-a-data-package"><i class="fa fa-check"></i><b>2.6</b> Structure of a data package</a></li>
+<li class="chapter" data-level="2.7" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#dataone-federation"><i class="fa fa-check"></i><b>2.7</b> DataONE Federation</a></li>
+<li class="chapter" data-level="2.8" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#publishing-data-from-the-web"><i class="fa fa-check"></i><b>2.8</b> Publishing data from the web</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#download-the-data-to-be-used-for-the-tutorial"><i class="fa fa-check"></i><b>2.8.1</b> Download the data to be used for the tutorial</a></li>
+<li class="chapter" data-level="2.8.2" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#login-via-orcid"><i class="fa fa-check"></i><b>2.8.2</b> Login via ORCID</a></li>
+<li class="chapter" data-level="2.8.3" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#create-and-submit-the-data-set"><i class="fa fa-check"></i><b>2.8.3</b> Create and submit the data set</a></li>
+<li class="chapter" data-level="2.8.4" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#add-workflow-provenance"><i class="fa fa-check"></i><b>2.8.4</b> Add workflow provenance</a></li>
+<li class="chapter" data-level="2.8.5" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#file-and-variable-level-metadata"><i class="fa fa-check"></i><b>2.8.5</b> File and variable level metadata</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#publishing-data-from-r"><i class="fa fa-check"></i><b>2.9</b> Publishing data from R</a><ul>
+<li class="chapter" data-level="2.9.1" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#logging-in"><i class="fa fa-check"></i><b>2.9.1</b> Logging in</a></li>
+<li class="chapter" data-level="2.9.2" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#obtain-an-orcid"><i class="fa fa-check"></i><b>2.9.2</b> Obtain an ORCID</a></li>
+<li class="chapter" data-level="2.9.3" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#log-in-to-the-test-repository-and-copy-your-token"><i class="fa fa-check"></i><b>2.9.3</b> Log in to the test repository and copy your token</a></li>
+<li class="chapter" data-level="2.9.4" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#modifying-metadata"><i class="fa fa-check"></i><b>2.9.4</b> Modifying metadata</a></li>
+<li class="chapter" data-level="2.9.5" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#uploading-a-package-using-r-with-uploaddatapackage"><i class="fa fa-check"></i><b>2.9.5</b> Uploading A Package Using R with <code>uploadDataPackage</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-packaging.html"><a href="data-packaging.html"><i class="fa fa-check"></i><b>3</b> Data Packaging</a><ul>
+<li class="chapter" data-level="3.1" data-path="data-packaging.html"><a href="data-packaging.html#upload-a-single-data-file"><i class="fa fa-check"></i><b>3.1</b> Upload a single data file</a></li>
+<li class="chapter" data-level="3.2" data-path="data-packaging.html"><a href="data-packaging.html#upload-a-simple-data-package"><i class="fa fa-check"></i><b>3.2</b> Upload a simple Data Package</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="query-and-download.html"><a href="query-and-download.html"><i class="fa fa-check"></i><b>4</b> Query and Download</a><ul>
+<li class="chapter" data-level="4.1" data-path="query-and-download.html"><a href="query-and-download.html#query-with-r"><i class="fa fa-check"></i><b>4.1</b> Query with R</a></li>
+<li class="chapter" data-level="4.2" data-path="query-and-download.html"><a href="query-and-download.html#find-data-on-thawing-and-download-it-all"><i class="fa fa-check"></i><b>4.2</b> Find data on thawing and download it all</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">ADC Training</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-packaging" class="section level1">
+<h1><span class="header-section-number">3</span> Data Packaging</h1>
+<p>This document briefly covers two common tasks:</p>
+<ul>
+<li>Uploading a data file to the Arctic Data Center</li>
+<li>Uploading an entire Data Package to the Arctic Data Center</li>
+</ul>
+<p>The R <code>dataone</code> package offers some convenient ways to do this, particularly some custom R classes which encapsulate a lot of the complexity of Objects and Data Packages.</p>
+<p>First, let’s load our usual libraries and connect to our Member Node:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dataone)
+<span class="kw">library</span>(datapack)</code></pre></div>
+<p>Here we use a <code>D1Client</code> which is another way of connecting to a Member Node:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">client &lt;-<span class="st"> </span><span class="kw">D1Client</span>(<span class="st">&quot;STAGING&quot;</span>, <span class="st">&quot;urn:node:mnTestARCTIC&quot;</span>)</code></pre></div>
+<p>Alternatively, we could also create an <code>MNode</code> object directly.</p>
+<div id="upload-a-single-data-file" class="section level2">
+<h2><span class="header-section-number">3.1</span> Upload a single data file</h2>
+<p>First let’s make an example data file (CSV in this case) to upload:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(<span class="st">&quot;co2&quot;</span>) <span class="co"># Built-in dataset in R</span>
+<span class="kw">write.csv</span>(co2, <span class="st">&quot;./co2.csv&quot;</span>)</code></pre></div>
+<p>Every Object we upload then just needs a <code>DataObject</code> class instance for it:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_object &lt;-<span class="st"> </span><span class="kw">new</span>(<span class="st">&quot;DataObject&quot;</span>, 
+                 <span class="dt">filename =</span> <span class="st">&quot;./co2.csv&quot;</span>,
+                 <span class="dt">format =</span> <span class="st">&quot;text/csv&quot;</span>)
+
+my_object &lt;-<span class="st"> </span><span class="kw">setPublicAccess</span>(my_object) <span class="co"># Make it public readable!</span></code></pre></div>
+<p>And then we just need to upload it:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">uploadDataObject</span>(client, my_object)</code></pre></div>
+</div>
+<div id="upload-a-simple-data-package" class="section level2">
+<h2><span class="header-section-number">3.2</span> Upload a simple Data Package</h2>
+<p>The steps to upload an entire package aren’t that much more complex. First, let’s create an example EML file:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(EML)
+
+title &lt;-<span class="st"> &quot;Test dataset to show submitting via R client&quot;</span>
+me &lt;-<span class="st"> </span><span class="kw">as.person</span>(<span class="st">&quot;Bryce Mecum &lt;mecum@nceas.ucsb.edu&gt;&quot;</span>)
+dataset &lt;-<span class="st"> </span><span class="kw">new</span>(<span class="st">&quot;dataset&quot;</span>,
+               <span class="dt">title =</span> title,
+               <span class="dt">creator =</span> me,
+               <span class="dt">contact =</span> me)
+
+eml_pid &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;urn:uuid&quot;</span>, uuid<span class="op">::</span><span class="kw">UUIDgenerate</span>())
+
+eml &lt;-<span class="st"> </span><span class="kw">new</span>(<span class="st">&quot;eml&quot;</span>,
+           <span class="dt">packageId =</span> eml_pid,
+           <span class="dt">system =</span> <span class="st">&quot;uuid&quot;</span>,
+           <span class="dt">dataset =</span> dataset)
+
+eml_path &lt;-<span class="st"> &quot;~/my_eml.xml&quot;</span>
+<span class="kw">write_eml</span>(eml, eml_path)
+<span class="kw">eml_validate</span>(eml_path)</code></pre></div>
+<p>And then we just use the <code>DataPackage</code> class:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_package &lt;-<span class="st"> </span><span class="kw">new</span>(<span class="st">&quot;DataPackage&quot;</span>)
+
+my_metadata &lt;-<span class="st"> </span><span class="kw">new</span>(<span class="st">&quot;DataObject&quot;</span>, 
+                   <span class="dt">format =</span> <span class="st">&quot;eml://ecoinformatics.org/eml-2.1.1&quot;</span>, 
+                   <span class="dt">filename =</span> eml_path)
+
+my_object &lt;-<span class="st"> </span><span class="kw">setPublicAccess</span>(my_object) <span class="co"># Make it public readable!</span>
+
+my_object &lt;-<span class="st"> </span><span class="kw">new</span>(<span class="st">&quot;DataObject&quot;</span>, 
+                 <span class="dt">filename =</span> <span class="st">&quot;./co2.csv&quot;</span>,
+                 <span class="dt">format =</span> <span class="st">&quot;text/csv&quot;</span>)
+
+my_object &lt;-<span class="st"> </span><span class="kw">setPublicAccess</span>(my_object) <span class="co"># Make it public readable!</span>
+
+<span class="kw">addData</span>(my_package, my_metadata)
+<span class="kw">addData</span>(my_package, my_object, <span class="dt">mo =</span> my_metadata)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">uploadDataPackage</span>(client, my_package, <span class="dt">public =</span> <span class="ot">TRUE</span>)</code></pre></div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-documentation-and-publishing.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="query-and-download.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

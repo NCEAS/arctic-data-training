@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>17 Programming Metadata and Data Publishing | Arctic Data Center Training</title>
+  <meta name="description" content="17 Programming Metadata and Data Publishing | Arctic Data Center Training" />
+  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="17 Programming Metadata and Data Publishing | Arctic Data Center Training" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="17 Programming Metadata and Data Publishing | Arctic Data Center Training" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="creating-r-packages.html"/>
+<link rel="next" href="reproducibility-and-provenance.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.9/datatables.js"></script>
+<link href="libs/dt-core-1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.19/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.19/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.0.2/leaflet.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">ADC Training</a></li>
+<li><a href="/">← Back to main website</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Data Science Training for the Arctic Data Center</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#schedule"><i class="fa fa-check"></i><b>1.1</b> Schedule</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#code-of-conduct"><i class="fa fa-check"></i><b>1.1.1</b> Code of Conduct</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="introduction-to-the-arctic-data-center-and-nsf-standards-and-policies.html"><a href="introduction-to-the-arctic-data-center-and-nsf-standards-and-policies.html"><i class="fa fa-check"></i><b>2</b> Introduction to the Arctic Data Center and NSF Standards and Policies</a><ul>
+<li class="chapter" data-level="2.1" data-path="introduction-to-the-arctic-data-center-and-nsf-standards-and-policies.html"><a href="introduction-to-the-arctic-data-center-and-nsf-standards-and-policies.html#learning-objectives"><i class="fa fa-check"></i><b>2.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="2.2" data-path="introduction-to-the-arctic-data-center-and-nsf-standards-and-policies.html"><a href="introduction-to-the-arctic-data-center-and-nsf-standards-and-policies.html#materials"><i class="fa fa-check"></i><b>2.2</b> Materials</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="best-practices-data-and-metadata.html"><a href="best-practices-data-and-metadata.html"><i class="fa fa-check"></i><b>3</b> Best Practices: Data and Metadata</a><ul>
+<li class="chapter" data-level="3.1" data-path="best-practices-data-and-metadata.html"><a href="best-practices-data-and-metadata.html#learning-objectives-1"><i class="fa fa-check"></i><b>3.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="3.2" data-path="best-practices-data-and-metadata.html"><a href="best-practices-data-and-metadata.html#preserving-computational-workflows"><i class="fa fa-check"></i><b>3.2</b> Preserving computational workflows</a></li>
+<li class="chapter" data-level="3.3" data-path="best-practices-data-and-metadata.html"><a href="best-practices-data-and-metadata.html#best-practices-overview"><i class="fa fa-check"></i><b>3.3</b> Best Practices: Overview</a></li>
+<li class="chapter" data-level="3.4" data-path="best-practices-data-and-metadata.html"><a href="best-practices-data-and-metadata.html#organizing-data-best-practices"><i class="fa fa-check"></i><b>3.4</b> Organizing Data: Best Practices</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="thinking-preferences.html"><a href="thinking-preferences.html"><i class="fa fa-check"></i><b>4</b> Thinking preferences</a><ul>
+<li class="chapter" data-level="4.1" data-path="thinking-preferences.html"><a href="thinking-preferences.html#learning-objectives-2"><i class="fa fa-check"></i><b>4.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="4.2" data-path="thinking-preferences.html"><a href="thinking-preferences.html#resources"><i class="fa fa-check"></i><b>4.2</b> Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html"><i class="fa fa-check"></i><b>5</b> Data Documentation and Publishing</a><ul>
+<li class="chapter" data-level="5.1" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#learning-objectives-3"><i class="fa fa-check"></i><b>5.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="5.2" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#data-sharing-and-preservation"><i class="fa fa-check"></i><b>5.2</b> Data sharing and preservation</a></li>
+<li class="chapter" data-level="5.3" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#data-repositories-built-for-data-and-code"><i class="fa fa-check"></i><b>5.3</b> Data repositories: built for data (and code)</a></li>
+<li class="chapter" data-level="5.4" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#metadata"><i class="fa fa-check"></i><b>5.4</b> Metadata</a></li>
+<li class="chapter" data-level="5.5" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#structure-of-a-data-package"><i class="fa fa-check"></i><b>5.5</b> Structure of a data package</a></li>
+<li class="chapter" data-level="5.6" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#dataone-federation"><i class="fa fa-check"></i><b>5.6</b> DataONE Federation</a></li>
+<li class="chapter" data-level="5.7" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#publishing-data-from-the-web"><i class="fa fa-check"></i><b>5.7</b> Publishing data from the web</a><ul>
+<li class="chapter" data-level="5.7.1" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#download-the-data-to-be-used-for-the-tutorial"><i class="fa fa-check"></i><b>5.7.1</b> Download the data to be used for the tutorial</a></li>
+<li class="chapter" data-level="5.7.2" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#login-via-orcid"><i class="fa fa-check"></i><b>5.7.2</b> Login via ORCID</a></li>
+<li class="chapter" data-level="5.7.3" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#create-and-submit-the-dataset"><i class="fa fa-check"></i><b>5.7.3</b> Create and submit the dataset</a></li>
+<li class="chapter" data-level="5.7.4" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#file-and-variable-level-metadata"><i class="fa fa-check"></i><b>5.7.4</b> File and variable level metadata</a></li>
+<li class="chapter" data-level="5.7.5" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#add-workflow-provenance"><i class="fa fa-check"></i><b>5.7.5</b> Add workflow provenance</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="rstudio-and-gitgithub-setup-and-motivation.html"><a href="rstudio-and-gitgithub-setup-and-motivation.html"><i class="fa fa-check"></i><b>6</b> RStudio and Git/GitHub Setup and Motivation</a><ul>
+<li class="chapter" data-level="6.1" data-path="rstudio-and-gitgithub-setup-and-motivation.html"><a href="rstudio-and-gitgithub-setup-and-motivation.html#learning-objectives-4"><i class="fa fa-check"></i><b>6.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="6.2" data-path="rstudio-and-gitgithub-setup-and-motivation.html"><a href="rstudio-and-gitgithub-setup-and-motivation.html#reproducible-research"><i class="fa fa-check"></i><b>6.2</b> Reproducible Research</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="rstudio-and-gitgithub-setup-and-motivation.html"><a href="rstudio-and-gitgithub-setup-and-motivation.html#what-is-needed-for-computational-reproducibility"><i class="fa fa-check"></i><b>6.2.1</b> What is needed for computational reproducibility?</a></li>
+<li class="chapter" data-level="6.2.2" data-path="rstudio-and-gitgithub-setup-and-motivation.html"><a href="rstudio-and-gitgithub-setup-and-motivation.html#conceptualizing-workflows"><i class="fa fa-check"></i><b>6.2.2</b> Conceptualizing workflows</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="rstudio-and-gitgithub-setup-and-motivation.html"><a href="rstudio-and-gitgithub-setup-and-motivation.html#why-use-git"><i class="fa fa-check"></i><b>6.3</b> Why use git?</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="rstudio-and-gitgithub-setup-and-motivation.html"><a href="rstudio-and-gitgithub-setup-and-motivation.html#the-problem-with-filenames"><i class="fa fa-check"></i><b>6.3.1</b> The problem with filenames</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="rstudio-and-gitgithub-setup-and-motivation.html"><a href="rstudio-and-gitgithub-setup-and-motivation.html#checking-the-rstudio-environment"><i class="fa fa-check"></i><b>6.4</b> Checking the RStudio environment</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="rstudio-and-gitgithub-setup-and-motivation.html"><a href="rstudio-and-gitgithub-setup-and-motivation.html#r-version"><i class="fa fa-check"></i><b>6.4.1</b> R Version</a></li>
+<li class="chapter" data-level="6.4.2" data-path="rstudio-and-gitgithub-setup-and-motivation.html"><a href="rstudio-and-gitgithub-setup-and-motivation.html#rstudio-version"><i class="fa fa-check"></i><b>6.4.2</b> RStudio Version</a></li>
+<li class="chapter" data-level="6.4.3" data-path="rstudio-and-gitgithub-setup-and-motivation.html"><a href="rstudio-and-gitgithub-setup-and-motivation.html#package-installation"><i class="fa fa-check"></i><b>6.4.3</b> Package installation</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="rstudio-and-gitgithub-setup-and-motivation.html"><a href="rstudio-and-gitgithub-setup-and-motivation.html#setting-up-git"><i class="fa fa-check"></i><b>6.5</b> Setting up git</a><ul>
+<li class="chapter" data-level="6.5.1" data-path="rstudio-and-gitgithub-setup-and-motivation.html"><a href="rstudio-and-gitgithub-setup-and-motivation.html#note-for-windows-users"><i class="fa fa-check"></i><b>6.5.1</b> Note for Windows Users</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html"><i class="fa fa-check"></i><b>7</b> Introduction to R and RMarkdown</a><ul>
+<li class="chapter" data-level="7.1" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#learning-objectives-5"><i class="fa fa-check"></i><b>7.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="7.2" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#introduction-and-motivation"><i class="fa fa-check"></i><b>7.2</b> Introduction and Motivation</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#resources-1"><i class="fa fa-check"></i><b>7.2.1</b> Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#r-at-the-console"><i class="fa fa-check"></i><b>7.3</b> R at the console</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#error-messages-are-your-friends"><i class="fa fa-check"></i><b>7.3.1</b> Error messages are your friends</a></li>
+<li class="chapter" data-level="7.3.2" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#logical-operators-and-expressions"><i class="fa fa-check"></i><b>7.3.2</b> Logical operators and expressions</a></li>
+<li class="chapter" data-level="7.3.3" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#clearing-the-environment"><i class="fa fa-check"></i><b>7.3.3</b> Clearing the environment</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#rmarkdown"><i class="fa fa-check"></i><b>7.4</b> RMarkdown</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#your-turn"><i class="fa fa-check"></i><b>7.4.1</b> Your Turn</a></li>
+<li class="chapter" data-level="7.4.2" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#code-chunks"><i class="fa fa-check"></i><b>7.4.2</b> Code chunks</a></li>
+<li class="chapter" data-level="7.4.3" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#your-turn-1"><i class="fa fa-check"></i><b>7.4.3</b> Your turn</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#r-functions-help-pages"><i class="fa fa-check"></i><b>7.5</b> R functions, help pages</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#a-simple-example"><i class="fa fa-check"></i><b>7.5.1</b> A simple example</a></li>
+<li class="chapter" data-level="7.5.2" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#getting-help"><i class="fa fa-check"></i><b>7.5.2</b> Getting help</a></li>
+<li class="chapter" data-level="7.5.3" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#your-turn-2"><i class="fa fa-check"></i><b>7.5.3</b> Your turn</a></li>
+<li class="chapter" data-level="7.5.4" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#use-a-function-to-read-a-file-into-r"><i class="fa fa-check"></i><b>7.5.4</b> Use a function to read a file into R</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#using-data.frames"><i class="fa fa-check"></i><b>7.6</b> Using <code>data.frames</code></a><ul>
+<li class="chapter" data-level="7.6.1" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#your-turn-3"><i class="fa fa-check"></i><b>7.6.1</b> Your Turn</a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#troubleshooting"><i class="fa fa-check"></i><b>7.7</b> Troubleshooting</a><ul>
+<li class="chapter" data-level="7.7.1" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#my-rmarkdown-wont-knit-to-pdf"><i class="fa fa-check"></i><b>7.7.1</b> My RMarkdown won’t knit to PDF</a></li>
+<li class="chapter" data-level="7.7.2" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#i-just-entered-a-command-and-nothing-is-happening"><i class="fa fa-check"></i><b>7.7.2</b> I just entered a command and nothing is happening</a></li>
+<li class="chapter" data-level="7.7.3" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#r-says-my-object-is-not-found"><i class="fa fa-check"></i><b>7.7.3</b> R says my object is not found</a></li>
+</ul></li>
+<li class="chapter" data-level="7.8" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#literate-analysis"><i class="fa fa-check"></i><b>7.8</b> Literate Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="version-control-with-git-and-github.html"><a href="version-control-with-git-and-github.html"><i class="fa fa-check"></i><b>8</b> Version Control With git and GitHub</a><ul>
+<li class="chapter" data-level="8.1" data-path="version-control-with-git-and-github.html"><a href="version-control-with-git-and-github.html#learning-objectives-6"><i class="fa fa-check"></i><b>8.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="8.2" data-path="version-control-with-git-and-github.html"><a href="version-control-with-git-and-github.html#the-problem-with-filenames-1"><i class="fa fa-check"></i><b>8.2</b> The problem with filenames</a></li>
+<li class="chapter" data-level="8.3" data-path="version-control-with-git-and-github.html"><a href="version-control-with-git-and-github.html#version-control-and-collaboration-using-git-and-github"><i class="fa fa-check"></i><b>8.3</b> Version control and Collaboration using Git and GitHub</a></li>
+<li class="chapter" data-level="8.4" data-path="version-control-with-git-and-github.html"><a href="version-control-with-git-and-github.html#lets-look-at-a-github-repository"><i class="fa fa-check"></i><b>8.4</b> Let’s look at a GitHub repository</a></li>
+<li class="chapter" data-level="8.5" data-path="version-control-with-git-and-github.html"><a href="version-control-with-git-and-github.html#the-git-lifecycle"><i class="fa fa-check"></i><b>8.5</b> The Git lifecycle</a></li>
+<li class="chapter" data-level="8.6" data-path="version-control-with-git-and-github.html"><a href="version-control-with-git-and-github.html#create-a-remote-repository-on-github"><i class="fa fa-check"></i><b>8.6</b> Create a remote repository on GitHub</a></li>
+<li class="chapter" data-level="8.7" data-path="version-control-with-git-and-github.html"><a href="version-control-with-git-and-github.html#working-locally-with-git-via-rstudio"><i class="fa fa-check"></i><b>8.7</b> Working locally with Git via RStudio</a></li>
+<li class="chapter" data-level="8.8" data-path="version-control-with-git-and-github.html"><a href="version-control-with-git-and-github.html#on-good-commit-messages"><i class="fa fa-check"></i><b>8.8</b> On good commit messages</a></li>
+<li class="chapter" data-level="8.9" data-path="version-control-with-git-and-github.html"><a href="version-control-with-git-and-github.html#collaboration-and-conflict-free-workflows"><i class="fa fa-check"></i><b>8.9</b> Collaboration and conflict free workflows</a></li>
+<li class="chapter" data-level="8.10" data-path="version-control-with-git-and-github.html"><a href="version-control-with-git-and-github.html#exercise"><i class="fa fa-check"></i><b>8.10</b> Exercise</a></li>
+<li class="chapter" data-level="8.11" data-path="version-control-with-git-and-github.html"><a href="version-control-with-git-and-github.html#advanced-topics"><i class="fa fa-check"></i><b>8.11</b> Advanced topics</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="git-collaboration-and-conflict-management.html"><a href="git-collaboration-and-conflict-management.html"><i class="fa fa-check"></i><b>9</b> Git: Collaboration and Conflict Management</a><ul>
+<li class="chapter" data-level="9.1" data-path="git-collaboration-and-conflict-management.html"><a href="git-collaboration-and-conflict-management.html#learning-objectives-7"><i class="fa fa-check"></i><b>9.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="9.2" data-path="git-collaboration-and-conflict-management.html"><a href="git-collaboration-and-conflict-management.html#collaborating-with-git"><i class="fa fa-check"></i><b>9.2</b> Collaborating with Git</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="git-collaboration-and-conflict-management.html"><a href="git-collaboration-and-conflict-management.html#activity-collaborating-with-a-trusted-colleague"><i class="fa fa-check"></i><b>9.2.1</b> Activity: Collaborating with a trusted colleague</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="git-collaboration-and-conflict-management.html"><a href="git-collaboration-and-conflict-management.html#merge-conflicts"><i class="fa fa-check"></i><b>9.3</b> Merge conflicts</a></li>
+<li class="chapter" data-level="9.4" data-path="git-collaboration-and-conflict-management.html"><a href="git-collaboration-and-conflict-management.html#how-to-resolve-a-conflict"><i class="fa fa-check"></i><b>9.4</b> How to resolve a conflict</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="git-collaboration-and-conflict-management.html"><a href="git-collaboration-and-conflict-management.html#abort-abort-abort"><i class="fa fa-check"></i><b>9.4.1</b> Abort, abort, abort…</a></li>
+<li class="chapter" data-level="9.4.2" data-path="git-collaboration-and-conflict-management.html"><a href="git-collaboration-and-conflict-management.html#checkout"><i class="fa fa-check"></i><b>9.4.2</b> Checkout</a></li>
+<li class="chapter" data-level="9.4.3" data-path="git-collaboration-and-conflict-management.html"><a href="git-collaboration-and-conflict-management.html#pull-and-edit-the-file"><i class="fa fa-check"></i><b>9.4.3</b> Pull and edit the file</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="git-collaboration-and-conflict-management.html"><a href="git-collaboration-and-conflict-management.html#workflows-to-avoid-merge-conflicts"><i class="fa fa-check"></i><b>9.5</b> Workflows to avoid merge conflicts</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html"><i class="fa fa-check"></i><b>10</b> Data Modeling &amp; Tidy Data</a><ul>
+<li class="chapter" data-level="10.1" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#learning-objectives-8"><i class="fa fa-check"></i><b>10.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="10.2" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#benefits-of-relational-data-systems"><i class="fa fa-check"></i><b>10.2</b> Benefits of relational data systems</a></li>
+<li class="chapter" data-level="10.3" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#data-organization"><i class="fa fa-check"></i><b>10.3</b> Data Organization</a></li>
+<li class="chapter" data-level="10.4" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#multiple-tables"><i class="fa fa-check"></i><b>10.4</b> Multiple tables</a></li>
+<li class="chapter" data-level="10.5" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#inconsistent-observations"><i class="fa fa-check"></i><b>10.5</b> Inconsistent observations</a></li>
+<li class="chapter" data-level="10.6" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#inconsistent-variables"><i class="fa fa-check"></i><b>10.6</b> Inconsistent variables</a></li>
+<li class="chapter" data-level="10.7" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#marginal-sums-and-statistics"><i class="fa fa-check"></i><b>10.7</b> Marginal sums and statistics</a></li>
+<li class="chapter" data-level="10.8" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#good-enough-data-modeling"><i class="fa fa-check"></i><b>10.8</b> Good enough data modeling</a><ul>
+<li class="chapter" data-level="10.8.1" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#denormalized-data"><i class="fa fa-check"></i><b>10.8.1</b> Denormalized data</a></li>
+<li class="chapter" data-level="10.8.2" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#tabular-data"><i class="fa fa-check"></i><b>10.8.2</b> Tabular data</a></li>
+</ul></li>
+<li class="chapter" data-level="10.9" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#primary-and-foreign-keys"><i class="fa fa-check"></i><b>10.9</b> Primary and Foreign Keys</a></li>
+<li class="chapter" data-level="10.10" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#entity-relationship-model-er"><i class="fa fa-check"></i><b>10.10</b> Entity-Relationship Model (ER)</a></li>
+<li class="chapter" data-level="10.11" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#merging-data"><i class="fa fa-check"></i><b>10.11</b> Merging data</a></li>
+<li class="chapter" data-level="10.12" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#simple-guidelines-for-effective-data"><i class="fa fa-check"></i><b>10.12</b> Simple Guidelines for Effective Data</a></li>
+<li class="chapter" data-level="10.13" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#data-modeling-exercise"><i class="fa fa-check"></i><b>10.13</b> Data modeling exercise</a></li>
+<li class="chapter" data-level="10.14" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#related-resources"><i class="fa fa-check"></i><b>10.14</b> Related resources</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html"><i class="fa fa-check"></i><b>11</b> Data Cleaning and Manipulation</a><ul>
+<li class="chapter" data-level="11.1" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html#learning-objectives-9"><i class="fa fa-check"></i><b>11.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="11.2" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html#introduction"><i class="fa fa-check"></i><b>11.2</b> Introduction</a></li>
+<li class="chapter" data-level="11.3" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html#setup"><i class="fa fa-check"></i><b>11.3</b> Setup</a></li>
+<li class="chapter" data-level="11.4" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html#about-the-pipe-operator"><i class="fa fa-check"></i><b>11.4</b> About the pipe (<code>%&gt;%</code>) operator</a></li>
+<li class="chapter" data-level="11.5" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html#selectingremoving-columns-select"><i class="fa fa-check"></i><b>11.5</b> Selecting/removing columns: <code>select()</code></a></li>
+<li class="chapter" data-level="11.6" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html#quality-check"><i class="fa fa-check"></i><b>11.6</b> Quality Check</a></li>
+<li class="chapter" data-level="11.7" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html#changing-column-content-mutate"><i class="fa fa-check"></i><b>11.7</b> Changing column content: <code>mutate()</code></a></li>
+<li class="chapter" data-level="11.8" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html#changing-shape-pivot_longer-and-pivot_wider"><i class="fa fa-check"></i><b>11.8</b> Changing shape: <code>pivot_longer()</code> and <code>pivot_wider()</code></a></li>
+<li class="chapter" data-level="11.9" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html#renaming-columns-with-rename"><i class="fa fa-check"></i><b>11.9</b> Renaming columns with <code>rename()</code></a></li>
+<li class="chapter" data-level="11.10" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html#adding-columns-mutate"><i class="fa fa-check"></i><b>11.10</b> Adding columns: <code>mutate()</code></a></li>
+<li class="chapter" data-level="11.11" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html#group_by-and-summarise"><i class="fa fa-check"></i><b>11.11</b> <code>group_by</code> and <code>summarise</code></a></li>
+<li class="chapter" data-level="11.12" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html#filtering-rows-filter"><i class="fa fa-check"></i><b>11.12</b> Filtering rows: <code>filter()</code></a></li>
+<li class="chapter" data-level="11.13" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html#sorting-your-data-arrange"><i class="fa fa-check"></i><b>11.13</b> Sorting your data: <code>arrange()</code></a></li>
+<li class="chapter" data-level="11.14" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html#joins-in-dplyr"><i class="fa fa-check"></i><b>11.14</b> Joins in dplyr</a></li>
+<li class="chapter" data-level="11.15" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html#separate-and-unite"><i class="fa fa-check"></i><b>11.15</b> <code>separate()</code> and <code>unite()</code></a></li>
+<li class="chapter" data-level="11.16" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html#summary"><i class="fa fa-check"></i><b>11.16</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="writing-good-data-management-plans.html"><a href="writing-good-data-management-plans.html"><i class="fa fa-check"></i><b>12</b> Writing Good Data Management Plans</a><ul>
+<li class="chapter" data-level="12.1" data-path="writing-good-data-management-plans.html"><a href="writing-good-data-management-plans.html#learning-objectives-10"><i class="fa fa-check"></i><b>12.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="12.2" data-path="writing-good-data-management-plans.html"><a href="writing-good-data-management-plans.html#materials-1"><i class="fa fa-check"></i><b>12.2</b> Materials</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="data-visualization-for-web-based-maps.html"><a href="data-visualization-for-web-based-maps.html"><i class="fa fa-check"></i><b>13</b> Data visualization for web-based maps</a><ul>
+<li class="chapter" data-level="13.1" data-path="data-visualization-for-web-based-maps.html"><a href="data-visualization-for-web-based-maps.html#learning-objectives-11"><i class="fa fa-check"></i><b>13.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="13.2" data-path="data-visualization-for-web-based-maps.html"><a href="data-visualization-for-web-based-maps.html#introduction-1"><i class="fa fa-check"></i><b>13.2</b> Introduction</a></li>
+<li class="chapter" data-level="13.3" data-path="data-visualization-for-web-based-maps.html"><a href="data-visualization-for-web-based-maps.html#a-minimal-example"><i class="fa fa-check"></i><b>13.3</b> A Minimal Example</a></li>
+<li class="chapter" data-level="13.4" data-path="data-visualization-for-web-based-maps.html"><a href="data-visualization-for-web-based-maps.html#a-less-minimal-example"><i class="fa fa-check"></i><b>13.4</b> A Less Minimal Example</a><ul>
+<li class="chapter" data-level="13.4.1" data-path="data-visualization-for-web-based-maps.html"><a href="data-visualization-for-web-based-maps.html#load-salmon-escapement-data"><i class="fa fa-check"></i><b>13.4.1</b> Load salmon escapement data</a></li>
+<li class="chapter" data-level="13.4.2" data-path="data-visualization-for-web-based-maps.html"><a href="data-visualization-for-web-based-maps.html#static-plots"><i class="fa fa-check"></i><b>13.4.2</b> Static Plots</a></li>
+<li class="chapter" data-level="13.4.3" data-path="data-visualization-for-web-based-maps.html"><a href="data-visualization-for-web-based-maps.html#interactive-maps"><i class="fa fa-check"></i><b>13.4.3</b> Interactive Maps</a></li>
+</ul></li>
+<li class="chapter" data-level="13.5" data-path="data-visualization-for-web-based-maps.html"><a href="data-visualization-for-web-based-maps.html#static-maps-with-geom_sf"><i class="fa fa-check"></i><b>13.5</b> Static maps with geom_sf</a></li>
+<li class="chapter" data-level="13.6" data-path="data-visualization-for-web-based-maps.html"><a href="data-visualization-for-web-based-maps.html#resources-2"><i class="fa fa-check"></i><b>13.6</b> Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="social-aspects-of-collaboration-and-data-policies.html"><a href="social-aspects-of-collaboration-and-data-policies.html"><i class="fa fa-check"></i><b>14</b> Social aspects of collaboration and data policies</a><ul>
+<li class="chapter" data-level="14.1" data-path="social-aspects-of-collaboration-and-data-policies.html"><a href="social-aspects-of-collaboration-and-data-policies.html#learning-objectives-12"><i class="fa fa-check"></i><b>14.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="14.2" data-path="social-aspects-of-collaboration-and-data-policies.html"><a href="social-aspects-of-collaboration-and-data-policies.html#resources-3"><i class="fa fa-check"></i><b>14.2</b> Resources</a></li>
+<li class="chapter" data-level="14.3" data-path="social-aspects-of-collaboration-and-data-policies.html"><a href="social-aspects-of-collaboration-and-data-policies.html#references"><i class="fa fa-check"></i><b>14.3</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="creating-r-functions.html"><a href="creating-r-functions.html"><i class="fa fa-check"></i><b>15</b> Creating R Functions</a><ul>
+<li class="chapter" data-level="15.1" data-path="creating-r-functions.html"><a href="creating-r-functions.html#leaning-outcomes"><i class="fa fa-check"></i><b>15.1</b> Leaning outcomes</a></li>
+<li class="chapter" data-level="15.2" data-path="creating-r-functions.html"><a href="creating-r-functions.html#why-functions"><i class="fa fa-check"></i><b>15.2</b> Why functions?</a></li>
+<li class="chapter" data-level="15.3" data-path="creating-r-functions.html"><a href="creating-r-functions.html#temperature-conversion"><i class="fa fa-check"></i><b>15.3</b> Temperature conversion</a></li>
+<li class="chapter" data-level="15.4" data-path="creating-r-functions.html"><a href="creating-r-functions.html#creating-a-function"><i class="fa fa-check"></i><b>15.4</b> Creating a function</a></li>
+<li class="chapter" data-level="15.5" data-path="creating-r-functions.html"><a href="creating-r-functions.html#exercise-1"><i class="fa fa-check"></i><b>15.5</b> Exercise</a></li>
+<li class="chapter" data-level="15.6" data-path="creating-r-functions.html"><a href="creating-r-functions.html#documenting-r-functions"><i class="fa fa-check"></i><b>15.6</b> Documenting R functions</a></li>
+<li class="chapter" data-level="15.7" data-path="creating-r-functions.html"><a href="creating-r-functions.html#summary-1"><i class="fa fa-check"></i><b>15.7</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="creating-r-packages.html"><a href="creating-r-packages.html"><i class="fa fa-check"></i><b>16</b> Creating R Packages</a><ul>
+<li class="chapter" data-level="16.1" data-path="creating-r-packages.html"><a href="creating-r-packages.html#learning-objectives-13"><i class="fa fa-check"></i><b>16.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="16.2" data-path="creating-r-packages.html"><a href="creating-r-packages.html#why-packages"><i class="fa fa-check"></i><b>16.2</b> Why packages?</a></li>
+<li class="chapter" data-level="16.3" data-path="creating-r-packages.html"><a href="creating-r-packages.html#install-and-load-packages"><i class="fa fa-check"></i><b>16.3</b> Install and load packages</a></li>
+<li class="chapter" data-level="16.4" data-path="creating-r-packages.html"><a href="creating-r-packages.html#create-a-basic-package"><i class="fa fa-check"></i><b>16.4</b> Create a basic package</a></li>
+<li class="chapter" data-level="16.5" data-path="creating-r-packages.html"><a href="creating-r-packages.html#add-your-code"><i class="fa fa-check"></i><b>16.5</b> Add your code</a></li>
+<li class="chapter" data-level="16.6" data-path="creating-r-packages.html"><a href="creating-r-packages.html#add-documentation"><i class="fa fa-check"></i><b>16.6</b> Add documentation</a></li>
+<li class="chapter" data-level="16.7" data-path="creating-r-packages.html"><a href="creating-r-packages.html#test-your-package"><i class="fa fa-check"></i><b>16.7</b> Test your package</a></li>
+<li class="chapter" data-level="16.8" data-path="creating-r-packages.html"><a href="creating-r-packages.html#checking-and-installing-your-package"><i class="fa fa-check"></i><b>16.8</b> Checking and installing your package</a></li>
+<li class="chapter" data-level="16.9" data-path="creating-r-packages.html"><a href="creating-r-packages.html#sharing-and-releasing-your-package"><i class="fa fa-check"></i><b>16.9</b> Sharing and releasing your package</a></li>
+<li class="chapter" data-level="16.10" data-path="creating-r-packages.html"><a href="creating-r-packages.html#more-reading"><i class="fa fa-check"></i><b>16.10</b> More reading</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="programming-metadata-and-data-publishing.html"><a href="programming-metadata-and-data-publishing.html"><i class="fa fa-check"></i><b>17</b> Programming Metadata and Data Publishing</a><ul>
+<li class="chapter" data-level="17.1" data-path="programming-metadata-and-data-publishing.html"><a href="programming-metadata-and-data-publishing.html#learning-objectives-14"><i class="fa fa-check"></i><b>17.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="17.2" data-path="programming-metadata-and-data-publishing.html"><a href="programming-metadata-and-data-publishing.html#creating-metadata"><i class="fa fa-check"></i><b>17.2</b> Creating Metadata</a><ul>
+<li class="chapter" data-level="17.2.1" data-path="programming-metadata-and-data-publishing.html"><a href="programming-metadata-and-data-publishing.html#about-ecological-metadata-language-eml"><i class="fa fa-check"></i><b>17.2.1</b> About Ecological Metadata Language (EML)</a></li>
+<li class="chapter" data-level="17.2.2" data-path="programming-metadata-and-data-publishing.html"><a href="programming-metadata-and-data-publishing.html#metadata-in-r-a-simple-example"><i class="fa fa-check"></i><b>17.2.2</b> Metadata in R: a simple example</a></li>
+<li class="chapter" data-level="17.2.3" data-path="programming-metadata-and-data-publishing.html"><a href="programming-metadata-and-data-publishing.html#validation-errors"><i class="fa fa-check"></i><b>17.2.3</b> Validation Errors</a></li>
+<li class="chapter" data-level="17.2.4" data-path="programming-metadata-and-data-publishing.html"><a href="programming-metadata-and-data-publishing.html#metadata-in-r-a-more-complete-example"><i class="fa fa-check"></i><b>17.2.4</b> Metadata in R: A more complete example</a></li>
+</ul></li>
+<li class="chapter" data-level="17.3" data-path="programming-metadata-and-data-publishing.html"><a href="programming-metadata-and-data-publishing.html#publish-data-to-the-arctic-data-center-test-site"><i class="fa fa-check"></i><b>17.3</b> Publish data to the Arctic Data Center test site</a><ul>
+<li class="chapter" data-level="17.3.1" data-path="programming-metadata-and-data-publishing.html"><a href="programming-metadata-and-data-publishing.html#setup-and-introduction"><i class="fa fa-check"></i><b>17.3.1</b> Setup and Introduction</a></li>
+<li class="chapter" data-level="17.3.2" data-path="programming-metadata-and-data-publishing.html"><a href="programming-metadata-and-data-publishing.html#uploading-a-package-using-r-with-uploaddatapackage"><i class="fa fa-check"></i><b>17.3.2</b> Uploading A Package Using R with <code>uploadDataPackage</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="reproducibility-and-provenance.html"><a href="reproducibility-and-provenance.html"><i class="fa fa-check"></i><b>18</b> Reproducibility and Provenance</a><ul>
+<li class="chapter" data-level="18.1" data-path="reproducibility-and-provenance.html"><a href="reproducibility-and-provenance.html#learning-objectives-15"><i class="fa fa-check"></i><b>18.1</b> Learning Objectives</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="references-1.html"><a href="references-1.html"><i class="fa fa-check"></i><b>19</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Arctic Data Center Training</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="programming-metadata-and-data-publishing" class="section level1">
+<h1><span class="header-section-number">17</span> Programming Metadata and Data Publishing</h1>
+<div id="learning-objectives-14" class="section level2">
+<h2><span class="header-section-number">17.1</span> Learning Objectives</h2>
+<p>In this lesson, you will learn:</p>
+<ul>
+<li>How to write standardized metadata in R</li>
+<li>How to publish data packages to the Arctic Data Center programmatically</li>
+</ul>
+<p>For datasets with a relatively small number of files that do not have many columns, the Arctic Data Center web form is the most efficient way to create metadata. However, for datasets that have many hundreds of files with a similar structure, or a large number of attributes, programmatic metadata creation may be more efficent. Creating metadata and publishing programmatically also allows for more a streamlined approach to updating datasets that have been published. By incorporating this documentation and publishing approach into your scientific workflow, you can improve the reproducibility and transparency of your work.</p>
+</div>
+<div id="creating-metadata" class="section level2">
+<h2><span class="header-section-number">17.2</span> Creating Metadata</h2>
+<div id="about-ecological-metadata-language-eml" class="section level3">
+<h3><span class="header-section-number">17.2.1</span> About Ecological Metadata Language (EML)</h3>
+<p>EML, the metadata standard that the Arctic Data Center uses, looks like this:</p>
+<div class="sourceCode" id="cb175"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb175-1" data-line-number="1"><span class="kw">&lt;?xml</span> version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;<span class="kw">?&gt;</span></a>
+<a class="sourceLine" id="cb175-2" data-line-number="2"><span class="kw">&lt;eml:eml</span><span class="ot"> packageId=</span><span class="st">&quot;df35d.442.6&quot;</span><span class="ot"> system=</span><span class="st">&quot;knb&quot;</span></a>
+<a class="sourceLine" id="cb175-3" data-line-number="3"><span class="ot">    xmlns:eml=</span><span class="st">&quot;eml://ecoinformatics.org/eml-2.1.1&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb175-4" data-line-number="4">    <span class="kw">&lt;dataset&gt;</span></a>
+<a class="sourceLine" id="cb175-5" data-line-number="5">        <span class="kw">&lt;title&gt;</span>Improving Preseason Forecasts of Sockeye Salmon Runs through</a>
+<a class="sourceLine" id="cb175-6" data-line-number="6">            Salmon Smolt Monitoring in Kenai River, Alaska: 2005 - 2007<span class="kw">&lt;/title&gt;</span></a>
+<a class="sourceLine" id="cb175-7" data-line-number="7">        <span class="kw">&lt;creator</span><span class="ot"> id=</span><span class="st">&quot;1385594069457&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb175-8" data-line-number="8">            <span class="kw">&lt;individualName&gt;</span></a>
+<a class="sourceLine" id="cb175-9" data-line-number="9">                <span class="kw">&lt;givenName&gt;</span>Mark<span class="kw">&lt;/givenName&gt;</span></a>
+<a class="sourceLine" id="cb175-10" data-line-number="10">                <span class="kw">&lt;surName&gt;</span>Willette<span class="kw">&lt;/surName&gt;</span></a>
+<a class="sourceLine" id="cb175-11" data-line-number="11">            <span class="kw">&lt;/individualName&gt;</span></a>
+<a class="sourceLine" id="cb175-12" data-line-number="12">            <span class="kw">&lt;organizationName&gt;</span>Alaska Department of Fish and Game<span class="kw">&lt;/organizationName&gt;</span></a>
+<a class="sourceLine" id="cb175-13" data-line-number="13">            <span class="kw">&lt;positionName&gt;</span>Fishery Biologist<span class="kw">&lt;/positionName&gt;</span></a>
+<a class="sourceLine" id="cb175-14" data-line-number="14">            <span class="kw">&lt;address&gt;</span></a>
+<a class="sourceLine" id="cb175-15" data-line-number="15">                <span class="kw">&lt;city&gt;</span>Soldotna<span class="kw">&lt;/city&gt;</span></a>
+<a class="sourceLine" id="cb175-16" data-line-number="16">                <span class="kw">&lt;administrativeArea&gt;</span>Alaska<span class="kw">&lt;/administrativeArea&gt;</span></a>
+<a class="sourceLine" id="cb175-17" data-line-number="17">                <span class="kw">&lt;country&gt;</span>USA<span class="kw">&lt;/country&gt;</span></a>
+<a class="sourceLine" id="cb175-18" data-line-number="18">            <span class="kw">&lt;/address&gt;</span></a>
+<a class="sourceLine" id="cb175-19" data-line-number="19">            <span class="kw">&lt;phone</span><span class="ot"> phonetype=</span><span class="st">&quot;voice&quot;</span><span class="kw">&gt;</span>(907)260-2911<span class="kw">&lt;/phone&gt;</span></a>
+<a class="sourceLine" id="cb175-20" data-line-number="20">            <span class="kw">&lt;electronicMailAddress&gt;</span>mark.willette@alaska.gov<span class="kw">&lt;/electronicMailAddress&gt;</span></a>
+<a class="sourceLine" id="cb175-21" data-line-number="21">        <span class="kw">&lt;/creator&gt;</span></a>
+<a class="sourceLine" id="cb175-22" data-line-number="22">        ...</a>
+<a class="sourceLine" id="cb175-23" data-line-number="23">    <span class="kw">&lt;/dataset&gt;</span></a>
+<a class="sourceLine" id="cb175-24" data-line-number="24"><span class="kw">&lt;/eml:eml&gt;</span></a></code></pre></div>
+<p>Earlier in this course we learned how to create an EML document like this using the Arctic Data Center web form. Now, we will learn how to create it using R. This can be especially useful to decrease the repetitiveness of metadata creation when you have many files with the same format, files with many attributes, or many data packages with a similar format.</p>
+<p>When you create metadata using the web form, the form creates valid metadata for you. Valid, structured metadata is what enables computers to predictably parse the information in a metadata document, enabling search, display, and even meta-analysis. When we create metadata in R, there aren’t as many user-friendly checks in place to ensure we create valid EML, so we need to understand the structure of the document more completely in order to make sure that it will be compatible with the Arctic Data Center.</p>
+<p>Let’s look at a simplified version of the example above:</p>
+<div class="sourceCode" id="cb176"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb176-1" data-line-number="1"><span class="kw">&lt;?xml</span> version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;<span class="kw">?&gt;</span></a>
+<a class="sourceLine" id="cb176-2" data-line-number="2"><span class="kw">&lt;eml:eml</span><span class="ot"> packageId=</span><span class="st">&quot;df35d.442.6&quot;</span><span class="ot"> system=</span><span class="st">&quot;knb&quot;</span></a>
+<a class="sourceLine" id="cb176-3" data-line-number="3"><span class="ot">    xmlns:eml=</span><span class="st">&quot;eml://ecoinformatics.org/eml-2.1.1&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb176-4" data-line-number="4">    <span class="kw">&lt;dataset&gt;</span></a>
+<a class="sourceLine" id="cb176-5" data-line-number="5">        <span class="kw">&lt;title&gt;</span>Improving Preseason Forecasts of Sockeye Salmon Runs through</a>
+<a class="sourceLine" id="cb176-6" data-line-number="6">            Salmon Smolt Monitoring in Kenai River, Alaska: 2005 - 2007<span class="kw">&lt;/title&gt;</span></a>
+<a class="sourceLine" id="cb176-7" data-line-number="7">        <span class="kw">&lt;creator</span><span class="ot"> id=</span><span class="st">&quot;1385594069457&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb176-8" data-line-number="8">            <span class="kw">&lt;individualName&gt;</span></a>
+<a class="sourceLine" id="cb176-9" data-line-number="9">                <span class="kw">&lt;givenName&gt;</span>Mark<span class="kw">&lt;/givenName&gt;</span></a>
+<a class="sourceLine" id="cb176-10" data-line-number="10">                <span class="kw">&lt;surName&gt;</span>Willette<span class="kw">&lt;/surName&gt;</span></a>
+<a class="sourceLine" id="cb176-11" data-line-number="11">            <span class="kw">&lt;/individualName&gt;</span></a>
+<a class="sourceLine" id="cb176-12" data-line-number="12">        <span class="kw">&lt;/creator&gt;</span></a>
+<a class="sourceLine" id="cb176-13" data-line-number="13">        ...</a>
+<a class="sourceLine" id="cb176-14" data-line-number="14">    <span class="kw">&lt;/dataset&gt;</span></a>
+<a class="sourceLine" id="cb176-15" data-line-number="15"><span class="kw">&lt;/eml:eml&gt;</span></a></code></pre></div>
+<p>EML is written in XML (eXtensisble Markup Language). One of the key concepts in XML is the element. An XML element is everything that is encompassed by a start tag (<code>&lt;...&gt;</code>) and an end tag (<code>&lt;/...&gt;</code>). So, a simple element in the example above is <code>&lt;surName&gt;Willette&lt;/surName&gt;</code>. The name of this element is <code>surName</code> and the value is simple text, “Willette”. Each element in EML has a specific (case sensitive!) name and description that is specified in the schema. The description of the <code>surName</code> element is: “The surname field is used for the last name of the individual associated with the resource. This is typically the family name of an individual…” The EML schema specifies not only the names and descriptions of all EML elements, but also certain requirements, like which elements must be included, what type of values are allowed within elements, and how the elements are organized. An EML document is valid when it adheres to all of the requirements speficied in the EML schema.</p>
+<p>You’ll notice that some elements, rather than having a simple value, instead contain other elements that are nested within them. Let’s look at <code>individualName</code>.</p>
+<div class="sourceCode" id="cb177"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb177-1" data-line-number="1"><span class="kw">&lt;individualName&gt;</span></a>
+<a class="sourceLine" id="cb177-2" data-line-number="2">    <span class="kw">&lt;givenName&gt;</span>Mark<span class="kw">&lt;/givenName&gt;</span></a>
+<a class="sourceLine" id="cb177-3" data-line-number="3">    <span class="kw">&lt;surName&gt;</span>Willette<span class="kw">&lt;/surName&gt;</span></a>
+<a class="sourceLine" id="cb177-4" data-line-number="4"><span class="kw">&lt;/individualName&gt;</span></a></code></pre></div>
+<p>This element is a collection of other elements (sometimes referred to as child elements). In this example, the <code>individualName</code> element has a <code>givenName</code> and a <code>surName</code> child element. We can check the requirements of any particular element by looking at the <a href="https://eml.ecoinformatics.org/schema/">schema documents</a>, which includes some helpful diagrams.</p>
+<p>The diagram in the <code>individualName</code> <a href="https://eml.ecoinformatics.org/schema/eml-party_xsd.html#ResponsibleParty_individualName">section</a> of the schema looks like this:</p>
+<p><img src="images/individualName_schema.png" /></p>
+<p>This shows that within <code>individualName</code> there are 3 possible child elements: <code>salutation</code>, <code>givenName</code>, and <code>surName</code>. The yellow circle icon with stacked papers tells you that the elements come in series, so you can include one or more of the child elements (as opposed to a switch symbol, which means that you choose one element from a list of options). The bold line tells you that <code>surName</code> is required, and the <code>0..inf</code> indicates that you can include 0 or more <code>salultation</code> or <code>givenName</code> elements.</p>
+<p>So, to summarize, EML is the metadata standard used by the Arctic Data Center. It is written in XML, which consists of a series of nested elements. The element definitions, required elements, and structure are all defined by a schema. When you write EML, in order for it to be valid, your EML document must conform to the requirements given in the schema.</p>
+</div>
+<div id="metadata-in-r-a-simple-example" class="section level3">
+<h3><span class="header-section-number">17.2.2</span> Metadata in R: a simple example</h3>
+<p>Now, let’s learn how the <a href="https://github.com/ropensci/EML">EML package</a> can help us create EML in R.</p>
+<p>First, load the EML package in R.</p>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb178-1" data-line-number="1"><span class="kw">library</span>(EML)</a></code></pre></div>
+<p>The EML package relies on named list structures to generate name-value pairs for elements. “Named list structures” may sound unfamiliar, but they aren’t dissimilar from <code>data.frames</code>. A <code>data.frame</code> is just a named list of vectors of the same length, where the name of the vector is the column name. In this section, we will use the familiar <code>$</code> operator to dig down into the named list structure that we generate.</p>
+<p>To show how this works, let’s create the <code>individualName</code> element, and save it as an object called <code>me</code>. Remember the schema requirements - <code>indvidualName</code> has child elements <code>salutation</code>, <code>givenName</code>, and <code>surName</code>. At least <code>surName</code> is required.</p>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb179-1" data-line-number="1">me &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">givenName =</span> <span class="st">&quot;Jeanette&quot;</span>,</a>
+<a class="sourceLine" id="cb179-2" data-line-number="2">            <span class="dt">surName =</span> <span class="st">&quot;Clark&quot;</span>)</a>
+<a class="sourceLine" id="cb179-3" data-line-number="3">me</a></code></pre></div>
+<pre><code>## $givenName
+## [1] &quot;Jeanette&quot;
+## 
+## $surName
+## [1] &quot;Clark&quot;</code></pre>
+<p>So we have created the contents of an <code>individualName</code> element, with child elements <code>givenName</code> and <code>surName</code>, and assigned the values of those child elements to my name.</p>
+<p>This might look confusing, hard to remember, and if you aren’t intimitely familiar with the EML schema, you are probably feeling a little intimidated. Luckily the <code>EML</code> package has a set of helper list constructor functions which tell you what child elements can be used in a parent element. The helper functions have the format <code>eml$elementName()</code>. When combined with the RStudio autocomplete functionality, the whole process gets a lot easier!</p>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb181-1" data-line-number="1">me &lt;-<span class="st"> </span>eml<span class="op">$</span><span class="kw">individualName</span>(<span class="dt">givenName =</span> <span class="st">&quot;Jeanette&quot;</span>,</a>
+<a class="sourceLine" id="cb181-2" data-line-number="2">                         <span class="dt">surName =</span> <span class="st">&quot;Clark&quot;</span>)</a></code></pre></div>
+<p>We can then use this object <code>me</code>, which represents the <code>individualName</code> element, and insert it into a larger EML document.</p>
+<p>At the top level of a complete EML document are the <code>packageId</code> and <code>system</code> elements. This is how your document can be uniquely identified within whatever system manages it. The <code>packageId</code> element typically contains the DOI (Digital Object Identifier) or other identifier for the dataset. Nested within the top level is the <code>dataset</code> element. All EML documents must have, at a minimum, a <code>title</code>, <code>creator</code>, and <code>contact</code>, in addition to the <code>packageId</code> and <code>system</code>.</p>
+<p>Let’s create a minimal valid EML dataset, with an arbitrary <code>packageId</code> and <code>system</code>.</p>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb182-1" data-line-number="1">doc &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">packageId =</span> <span class="st">&quot;dataset-1&quot;</span>, <span class="dt">system =</span> <span class="st">&quot;local&quot;</span>,</a>
+<a class="sourceLine" id="cb182-2" data-line-number="2">            <span class="dt">dataset =</span> eml<span class="op">$</span><span class="kw">dataset</span>(<span class="dt">title =</span> <span class="st">&quot;A minimial valid EML dataset&quot;</span>,</a>
+<a class="sourceLine" id="cb182-3" data-line-number="3">                                  <span class="dt">creator =</span> eml<span class="op">$</span><span class="kw">creator</span>(<span class="dt">individualName =</span> me),</a>
+<a class="sourceLine" id="cb182-4" data-line-number="4">                                  <span class="dt">contact =</span> eml<span class="op">$</span><span class="kw">contact</span>(<span class="dt">individualName =</span> me)))</a></code></pre></div>
+<p>Unlike the web editor, in R there is nothing stopping you from inserting arbitrary elements into your EML document. A critical step to creating EML is validating your EML document to make sure it conforms to the schema requirements. In R this can be done using the <code>eml_validate</code> function.</p>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb183-1" data-line-number="1"><span class="kw">eml_validate</span>(doc)</a></code></pre></div>
+<pre><code>## [1] TRUE
+## attr(,&quot;errors&quot;)
+## character(0)</code></pre>
+<p>We can write our EML using <code>write_eml</code>.</p>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb185-1" data-line-number="1"><span class="kw">write_eml</span>(doc, <span class="st">&quot;files/simple_example.xml&quot;</span>)</a></code></pre></div>
+<p>Here is what the written file looks like:</p>
+<div class="sourceCode" id="cb186"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb186-1" data-line-number="1"><span class="kw">&lt;?xml</span> version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;<span class="kw">?&gt;</span></a>
+<a class="sourceLine" id="cb186-2" data-line-number="2"><span class="kw">&lt;eml:eml</span><span class="ot"> xmlns:eml=</span><span class="st">&quot;eml://ecoinformatics.org/eml-2.1.1&quot;</span><span class="ot"> xmlns:xsi=</span><span class="st">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><span class="ot"> xmlns:stmml=</span><span class="st">&quot;http://www.xml-cml.org/schema/stmml-1.1&quot;</span><span class="ot"> packageId=</span><span class="st">&quot;id&quot;</span><span class="ot"> system=</span><span class="st">&quot;system&quot;</span><span class="ot"> xsi:schemaLocation=</span><span class="st">&quot;eml://ecoinformatics.org/eml-2.1.1/ eml.xsd&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb186-3" data-line-number="3">  <span class="kw">&lt;dataset&gt;</span></a>
+<a class="sourceLine" id="cb186-4" data-line-number="4">    <span class="kw">&lt;title&gt;</span>A minimial valid EML dataset<span class="kw">&lt;/title&gt;</span></a>
+<a class="sourceLine" id="cb186-5" data-line-number="5">    <span class="kw">&lt;creator&gt;</span></a>
+<a class="sourceLine" id="cb186-6" data-line-number="6">      <span class="kw">&lt;individualName&gt;</span></a>
+<a class="sourceLine" id="cb186-7" data-line-number="7">        <span class="kw">&lt;givenName&gt;</span>Jeanette<span class="kw">&lt;/givenName&gt;</span></a>
+<a class="sourceLine" id="cb186-8" data-line-number="8">        <span class="kw">&lt;surName&gt;</span>Clark<span class="kw">&lt;/surName&gt;</span></a>
+<a class="sourceLine" id="cb186-9" data-line-number="9">      <span class="kw">&lt;/individualName&gt;</span></a>
+<a class="sourceLine" id="cb186-10" data-line-number="10">    <span class="kw">&lt;/creator&gt;</span></a>
+<a class="sourceLine" id="cb186-11" data-line-number="11">    <span class="kw">&lt;contact&gt;</span></a>
+<a class="sourceLine" id="cb186-12" data-line-number="12">      <span class="kw">&lt;individualName&gt;</span></a>
+<a class="sourceLine" id="cb186-13" data-line-number="13">        <span class="kw">&lt;givenName&gt;</span>Jeanette<span class="kw">&lt;/givenName&gt;</span></a>
+<a class="sourceLine" id="cb186-14" data-line-number="14">        <span class="kw">&lt;surName&gt;</span>Clark<span class="kw">&lt;/surName&gt;</span></a>
+<a class="sourceLine" id="cb186-15" data-line-number="15">      <span class="kw">&lt;/individualName&gt;</span></a>
+<a class="sourceLine" id="cb186-16" data-line-number="16">    <span class="kw">&lt;/contact&gt;</span></a>
+<a class="sourceLine" id="cb186-17" data-line-number="17">  <span class="kw">&lt;/dataset&gt;</span></a>
+<a class="sourceLine" id="cb186-18" data-line-number="18"><span class="kw">&lt;/eml:eml&gt;</span></a></code></pre></div>
+</div>
+<div id="validation-errors" class="section level3">
+<h3><span class="header-section-number">17.2.3</span> Validation Errors</h3>
+<p>One of the hardest parts about creating EML in R is diagnosing validation errors. I won’t get into too much detail, but here is a simple example. The <code>eml$...</code> family of helpers can help prevent validation errors, since they have a set list of arguments which are allowed. Here, I bypass the <code>eml$dataset()</code> helper function to show what the error looks like.</p>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb187-1" data-line-number="1">doc &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">packageId =</span> <span class="st">&quot;dataset-1&quot;</span>, <span class="dt">system =</span> <span class="st">&quot;local&quot;</span>,</a>
+<a class="sourceLine" id="cb187-2" data-line-number="2">            <span class="dt">dataset =</span> <span class="kw">list</span>(<span class="dt">title =</span> <span class="st">&quot;A minimial valid EML dataset&quot;</span>,</a>
+<a class="sourceLine" id="cb187-3" data-line-number="3">                           <span class="dt">creator =</span> eml<span class="op">$</span><span class="kw">creator</span>(<span class="dt">individualName =</span> me),</a>
+<a class="sourceLine" id="cb187-4" data-line-number="4">                           <span class="dt">contact =</span> eml<span class="op">$</span><span class="kw">contact</span>(<span class="dt">individualName =</span> me),</a>
+<a class="sourceLine" id="cb187-5" data-line-number="5">                           <span class="dt">arbitrary =</span> <span class="st">&quot;This element isn&#39;t in the schema&quot;</span>))</a>
+<a class="sourceLine" id="cb187-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb187-7" data-line-number="7"><span class="kw">eml_validate</span>(doc)</a></code></pre></div>
+<pre><code>## [1] FALSE
+## attr(,&quot;errors&quot;)
+## [1] &quot;Element &#39;arbitrary&#39;: This element is not expected. Expected is one of ( references, alternateIdentifier, shortName, title ).&quot;</code></pre>
+<p>This error essentially says that the element <code>arbitrary</code> is not expected, and gives you a hint of some elements that were expected. Validation errors can be tricky, especially when there are lots of them. Validate early and often!</p>
+</div>
+<div id="metadata-in-r-a-more-complete-example" class="section level3">
+<h3><span class="header-section-number">17.2.4</span> Metadata in R: A more complete example</h3>
+<p>As you might imagine, creating a complete metadata record like what is shown on <a href="https://arcticdata.io/catalog/view/doi:10.18739/A26W9688B">this page</a> would be pretty tedious if we did it just using the generic <code>list</code> or <code>eml$...</code> helpers, since the nesting structure can be very deep.</p>
+<p>The <code>EML</code> package has a set of higher level helper functions beginning with <code>set_</code> that create some of the more complex elements.</p>
+<p>To demonstrate the use of these we are going to create an EML document that contains the following information:</p>
+<ul>
+<li>title</li>
+<li>creator and contact</li>
+<li>abstract</li>
+<li>methods</li>
+<li>geographic and temporal coverage</li>
+<li>description of a tabular data file and a script</li>
+</ul>
+<p>We will edit these elements using a mix of helpers and generic techniques.</p>
+<p>To get set up, navigate to <a href="https://test.arcticdata.io/view/urn:uuid:da8b9bfc-ddea-4af4-9680-c2dafe4a1225">this dataset</a> and download the CSV file and the R script. Put them in a directory called <code>files</code> that is a sub-directory of the location of this RMarkdown file.</p>
+<div id="title-creator-contact" class="section level4">
+<h4><span class="header-section-number">17.2.4.1</span> Title, creator, contact</h4>
+<p>To start, lets create a basic EML skeleton using our example above, but with more information in the creator and contact information besides just my name.</p>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb189-1" data-line-number="1"><span class="co"># eml creator and contact have identical schema requirements (both fall under `responsibleParty`)</span></a>
+<a class="sourceLine" id="cb189-2" data-line-number="2">me &lt;-<span class="st"> </span>eml<span class="op">$</span><span class="kw">creator</span>(<span class="dt">individualName =</span> eml<span class="op">$</span><span class="kw">individualName</span>(<span class="dt">givenName =</span> <span class="st">&quot;Jeanette&quot;</span>,</a>
+<a class="sourceLine" id="cb189-3" data-line-number="3">                                                      <span class="dt">surName =</span> <span class="st">&quot;Clark&quot;</span>),</a>
+<a class="sourceLine" id="cb189-4" data-line-number="4">                  <span class="dt">organizationName =</span> <span class="st">&quot;National Center for Ecological Analysis and Synthesis&quot;</span>,</a>
+<a class="sourceLine" id="cb189-5" data-line-number="5">                  <span class="dt">electronicMailAddress =</span> <span class="st">&quot;jclark@nceas.ucsb.edu&quot;</span>,</a>
+<a class="sourceLine" id="cb189-6" data-line-number="6">                  <span class="dt">userId =</span> <span class="kw">list</span>(<span class="dt">directory =</span> <span class="st">&quot;https://orcid.org&quot;</span>,</a>
+<a class="sourceLine" id="cb189-7" data-line-number="7">                                <span class="dt">userId =</span> <span class="st">&quot;https://orcid.org/0000-0003-4703-1974&quot;</span>))</a>
+<a class="sourceLine" id="cb189-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb189-9" data-line-number="9">doc &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">packageId =</span> <span class="st">&quot;dataset-1&quot;</span>, <span class="dt">system =</span> <span class="st">&quot;local&quot;</span>,</a>
+<a class="sourceLine" id="cb189-10" data-line-number="10">            <span class="dt">dataset =</span> eml<span class="op">$</span><span class="kw">dataset</span>(<span class="dt">title =</span> <span class="st">&quot;A more robust valid EML dataset&quot;</span>,</a>
+<a class="sourceLine" id="cb189-11" data-line-number="11">                                  <span class="dt">creator =</span> me,</a>
+<a class="sourceLine" id="cb189-12" data-line-number="12">                                  <span class="dt">contact =</span> me))</a></code></pre></div>
+<p>Because we have used the <code>eml$dataset</code> helper, all of the possible sub-elements have been populated in our EML document, allowing us to easily access and edit them using R autocomplete.</p>
+</div>
+<div id="abstract" class="section level4">
+<h4><span class="header-section-number">17.2.4.2</span> Abstract</h4>
+<p>We can use this to dive down into sub-elements and edit them. Let’s do the abstract. This is a simple element so we can just assign the value of the <code>abstract</code> to a character string.</p>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb190-1" data-line-number="1">doc<span class="op">$</span>dataset<span class="op">$</span>abstract &lt;-<span class="st"> &quot;A brief but comprehensive description of the who, what, where, when, why, and how of my dataset.&quot;</span></a></code></pre></div>
+</div>
+<div id="methods-1" class="section level4">
+<h4><span class="header-section-number">17.2.4.3</span> Methods</h4>
+<p>We can use the <code>set_methods</code> function to parse a markdown (or word) document and insert it into the methods section. This way of adding text is especially nice because it preserves formatting.</p>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb191-1" data-line-number="1">doc<span class="op">$</span>dataset<span class="op">$</span>methods &lt;-<span class="st"> </span><span class="kw">set_methods</span>(<span class="st">&quot;files/methods.md&quot;</span>)</a>
+<a class="sourceLine" id="cb191-2" data-line-number="2">doc<span class="op">$</span>dataset<span class="op">$</span>methods</a></code></pre></div>
+<pre><code>## $sampling
+## NULL
+## 
+## $methodStep
+## $methodStep$instrumentation
+## character(0)
+## 
+## $methodStep$software
+## NULL
+## 
+## $methodStep$description
+## $methodStep$description$section
+## $methodStep$description$section[[1]]
+## [1] &quot;&lt;title&gt;Data Collection&lt;/title&gt;\n&lt;para&gt;\n    We collected some data and here is a description\n  &lt;/para&gt;&quot;
+## 
+## $methodStep$description$section[[2]]
+## [1] &quot;&lt;title&gt;Data processing&lt;/title&gt;\n&lt;para&gt;\n    Here is how we processed the data\n  &lt;/para&gt;&quot;
+## 
+## 
+## $methodStep$description$para
+## list()</code></pre>
+</div>
+<div id="coverage" class="section level4">
+<h4><span class="header-section-number">17.2.4.4</span> Coverage</h4>
+<p>The geographic and temporal coverage can be set using <code>set_coverage</code>.</p>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb193-1" data-line-number="1">doc<span class="op">$</span>dataset<span class="op">$</span>coverage &lt;-<span class="st"> </span><span class="kw">set_coverage</span>(<span class="dt">beginDate =</span> <span class="dv">2001</span>,</a>
+<a class="sourceLine" id="cb193-2" data-line-number="2">                                     <span class="dt">endDate =</span> <span class="dv">2010</span>,</a>
+<a class="sourceLine" id="cb193-3" data-line-number="3">                                     <span class="dt">geographicDescription =</span> <span class="st">&quot;Alaska, United States&quot;</span>,</a>
+<a class="sourceLine" id="cb193-4" data-line-number="4">                                     <span class="dt">westBoundingCoordinate =</span> <span class="fl">-179.9</span>,</a>
+<a class="sourceLine" id="cb193-5" data-line-number="5">                                     <span class="dt">eastBoundingCoordinate =</span> <span class="dv">-120</span>,</a>
+<a class="sourceLine" id="cb193-6" data-line-number="6">                                     <span class="dt">northBoundingCoordinate =</span> <span class="dv">75</span>,</a>
+<a class="sourceLine" id="cb193-7" data-line-number="7">                                     <span class="dt">southBoundingCoordinate =</span> <span class="dv">55</span>)</a></code></pre></div>
+</div>
+<div id="data-file-script" class="section level4">
+<h4><span class="header-section-number">17.2.4.5</span> Data file: script</h4>
+<p>Information about data files (or <code>entity</code> level information) can be added in child elements of the <code>dataset</code> element. Here we will use the element <code>otherEntity</code> (other options include <code>spatialVector</code>, <code>spatialRaster</code>, and <code>dataTable</code>) to represent the R script.</p>
+<p>First, some high level information.</p>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb194-1" data-line-number="1">doc<span class="op">$</span>dataset<span class="op">$</span>otherEntity &lt;-<span class="st"> </span>eml<span class="op">$</span><span class="kw">otherEntity</span>(<span class="dt">entityName =</span> <span class="st">&quot;files/datfiles_processing.R&quot;</span>,</a>
+<a class="sourceLine" id="cb194-2" data-line-number="2">                                           <span class="dt">entityDescription =</span> <span class="st">&quot;Data processing script&quot;</span>,</a>
+<a class="sourceLine" id="cb194-3" data-line-number="3">                                           <span class="dt">entityType =</span> <span class="st">&quot;application/R&quot;</span>)</a></code></pre></div>
+<p>We can use the <code>set_physical</code> helper to set more specific information about the file, like its size, delimiter, and checksum. This function automatically detects fundamental characteristics about the file if you give it a path to your file on your system.</p>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb195-1" data-line-number="1">doc<span class="op">$</span>dataset<span class="op">$</span>otherEntity<span class="op">$</span>physical &lt;-<span class="st"> </span><span class="kw">set_physical</span>(<span class="st">&quot;files/datfiles_processing.R&quot;</span>)</a></code></pre></div>
+<pre><code>## Automatically calculated file size using file.size(&quot;files/datfiles_processing.R&quot;)</code></pre>
+<pre><code>## Automatically calculated authentication size using digest::digest(&quot;files/datfiles_processing.R&quot;, algo = &quot;md5&quot;, file = TRUE)</code></pre>
+</div>
+<div id="data-file-tabular" class="section level4">
+<h4><span class="header-section-number">17.2.4.6</span> Data file: tabular</h4>
+<p>Here we will use the element <code>dataTable</code> to describe the tabular data file.</p>
+<p>As before, we set the <code>entityName</code>, <code>entityDescription</code>, and the <code>physical</code> sections.</p>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb198-1" data-line-number="1">doc<span class="op">$</span>dataset<span class="op">$</span>dataTable &lt;-<span class="st"> </span>eml<span class="op">$</span><span class="kw">dataTable</span>(<span class="dt">entityName =</span> <span class="st">&quot;files/my-data.csv&quot;</span>,</a>
+<a class="sourceLine" id="cb198-2" data-line-number="2">                                       <span class="dt">entityDescription =</span> <span class="st">&quot;Temperature data from in-situ loggers&quot;</span>)</a>
+<a class="sourceLine" id="cb198-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb198-4" data-line-number="4">doc<span class="op">$</span>dataset<span class="op">$</span>dataTable<span class="op">$</span>physical &lt;-<span class="st"> </span><span class="kw">set_physical</span>(<span class="st">&quot;files/my-data.csv&quot;</span>)</a></code></pre></div>
+<pre><code>## Automatically calculated file size using file.size(&quot;files/my-data.csv&quot;)</code></pre>
+<pre><code>## Automatically calculated authentication size using digest::digest(&quot;files/my-data.csv&quot;, algo = &quot;md5&quot;, file = TRUE)</code></pre>
+<p>Next, perhaps the most important part of metadata, but frequently the most difficult to document in a metadata standard: attribute level information. An attribute is a variable in your dataset. For tabular data, this is information about columns within data tables, critical to understanding what kind of information is actually in the table!</p>
+<p>The <code>set_attributes</code> function will take a <code>data.frame</code> that gives required attribute information. This <code>data.frame</code> contains rows corresponding to column names (or attributes) in the dataset, and columns:</p>
+<ul>
+<li>attributeName (any text)</li>
+<li>attributeDefinition (any text)</li>
+<li>unit (required for numeric data, use <code>get_unitList()</code> to see a list of standard units)</li>
+<li>numberType (required for numeric data, one of: real, natural, whole, integer)</li>
+<li>formatString (required for dateTime data)</li>
+<li>definition (required for textDomain data)</li>
+</ul>
+<p>Two other sub-elements, the <code>domain</code> and <code>measurementScale</code>, can be inferred from the <code>col_classes</code> argument to <code>set_attributes</code>.</p>
+<p>Let’s create our attributes <code>data.frame</code>.</p>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb201-1" data-line-number="1">atts &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">attributeName =</span> <span class="kw">c</span>(<span class="st">&quot;time&quot;</span>, <span class="st">&quot;temperature&quot;</span>, <span class="st">&quot;site&quot;</span>),</a>
+<a class="sourceLine" id="cb201-2" data-line-number="2">                   <span class="dt">attributeDefinition =</span> <span class="kw">c</span>(<span class="st">&quot;time of measurement&quot;</span>, <span class="st">&quot;measured temperature in degrees Celsius&quot;</span>, <span class="st">&quot;site identifier&quot;</span>),</a>
+<a class="sourceLine" id="cb201-3" data-line-number="3">                   <span class="dt">unit =</span> <span class="kw">c</span>(<span class="ot">NA</span>, <span class="st">&quot;celsius&quot;</span>, <span class="ot">NA</span>),</a>
+<a class="sourceLine" id="cb201-4" data-line-number="4">                   <span class="dt">numberType =</span> <span class="kw">c</span>(<span class="ot">NA</span>, <span class="st">&quot;real&quot;</span>, <span class="ot">NA</span>),</a>
+<a class="sourceLine" id="cb201-5" data-line-number="5">                   <span class="dt">formatString =</span> <span class="kw">c</span>(<span class="st">&quot;HH:MM:SS&quot;</span>, <span class="ot">NA</span>, <span class="ot">NA</span>),</a>
+<a class="sourceLine" id="cb201-6" data-line-number="6">                   <span class="dt">definition =</span> <span class="kw">c</span>(<span class="ot">NA</span>, <span class="ot">NA</span>, <span class="st">&quot;site identifier&quot;</span>))</a></code></pre></div>
+<p>We will then use this in our <code>set_attributes</code> function, along with the <code>col_classes</code> argument, to generate a complete <code>attributeList</code>.</p>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb202-1" data-line-number="1">doc<span class="op">$</span>dataset<span class="op">$</span>dataTable<span class="op">$</span>attributeList &lt;-<span class="st"> </span><span class="kw">set_attributes</span>(<span class="dt">attributes =</span> atts,</a>
+<a class="sourceLine" id="cb202-2" data-line-number="2">                                                      <span class="dt">col_classes =</span> <span class="kw">c</span>(<span class="st">&quot;Date&quot;</span>, <span class="st">&quot;numeric&quot;</span>, <span class="st">&quot;character&quot;</span>))</a></code></pre></div>
+<p>As you might imagine, this can get VERY tedious with wide data tables. The function <code>shiny_attributes</code> calls an interactive table that can not only automatically detect and attempt to fill in attribute information from a <code>data.frame</code>, but also helps with on the fly validation.</p>
+<p>Note: this requires that the <code>shinyjs</code> package is installed.</p>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb203-1" data-line-number="1">atts_shiny &lt;-<span class="st"> </span><span class="kw">shiny_attributes</span>(<span class="dt">data =</span> <span class="kw">read.csv</span>(<span class="st">&quot;files/my-data.csv&quot;</span>))</a></code></pre></div>
+<p>This produces a <code>data.frame</code> that you can insert into <code>set_attributes</code> as above.</p>
+</div>
+<div id="validating-and-writing-the-file" class="section level4">
+<h4><span class="header-section-number">17.2.4.7</span> Validating and writing the file</h4>
+<p>Finally, we need to validate and write our file.</p>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb204-1" data-line-number="1"><span class="kw">eml_validate</span>(doc)</a></code></pre></div>
+<pre><code>## [1] TRUE
+## attr(,&quot;errors&quot;)
+## character(0)</code></pre>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb206-1" data-line-number="1"><span class="kw">write_eml</span>(doc, <span class="st">&quot;files/complex_example.xml&quot;</span>)</a></code></pre></div>
+</div>
+</div>
+</div>
+<div id="publish-data-to-the-arctic-data-center-test-site" class="section level2">
+<h2><span class="header-section-number">17.3</span> Publish data to the Arctic Data Center test site</h2>
+<div id="setup-and-introduction" class="section level3">
+<h3><span class="header-section-number">17.3.1</span> Setup and Introduction</h3>
+<p>Now let’s see how to use the <em>dataone</em> and <em>datapack</em> R packages to upload data to DataONE
+member repositories like the <a href="https://knb.ecoinformatics.org">KNB Data Repository</a> and the <a href="https://arcticdata.io">Arctic Data Center</a>.</p>
+<div id="the-dataone-package" class="section level4">
+<h4><span class="header-section-number">17.3.1.1</span> The <code>dataone</code> package</h4>
+<p>The <em>dataone</em> R package provides methods to enable R scripts to interact with DataONE to search for, download, upload and update data and metadata. The purpose of uploading data from R is to automate the repetitive tasks for large datasets with many files. For small datasets, the web submission form will certainly be simpler.</p>
+<p>The <code>dataone</code> package interacts with two major parts of the DataONE infrastructure: Coordinating Nodes (or <code>cn</code>) and Member Nodes (or <code>mn</code>). Coordinating nodes maintain a complete catalog of all data and provide the core DataONE services, including search and discovery. The <code>cn</code> that is exposed through <a href="https://search.dataone.org">search.dataone.org</a> is called the production (or <code>PROD</code>) <code>cn</code>. Member Nodes expose their data and metadata through a common set of interfaces and services. The Arctic Data Center is an <code>mn</code>. To post data to the Arctic Data Center, we need to interact with both the coordinating and member nodes.</p>
+<p>In addition to the production <code>cn</code>, there are also several test coordinating node environments, and corresponding test member node environments. In this tutorial, we will be posting data to the test Arctic Data Center environment.</p>
+</div>
+<div id="the-datapack-package" class="section level4">
+<h4><span class="header-section-number">17.3.1.2</span> The <code>datapack</code> package</h4>
+<p>The <em>datapack</em> R package represents the set of files in a dataset as a <code>datapack::DataPackage</code>. This <code>DataPackage</code> is just a special R object class that is specified in the <code>datapack</code> package. Each object in that <code>DataPackage</code> is represented as a <code>DataObject</code>, another R object class specified by <code>datapack</code>.</p>
+<p>When you are publishing your dataset, ideally you aren’t only publishing a set of observations. There are many other artifacts of your research, such as scripts, derived data files, and derived figures, that should be archived in a data package. Each of the types of files shown in the workflow below should be considered a data object in your package, including the metadata file that describes the individual components of your workflow.</p>
+<p><img src="images/workflow-metadata.png" /></p>
+<p>Each of the files in the diagram above has a relationship with the other files, and using <code>datapack</code> you can describe these relationships explicitly and unambiguously using controlled vocabularies and conceptual frameworks. For example, we know that the fine “Image 1” was generated by “Mapping Script.” We also know that both “Image 1” and “Mapping Script” are described by the file “Metadata.” Both of these relationsips are represented in <code>datapack</code> using speficic ontologies. Using <code>datapack</code> we will create a <code>DataPackage</code> that represents a (very simple) scientific workflow and the data objects within it, where the relationships between those objects are explicitly described. Then, we will upload this <code>DataPackage</code> to a test version of the Arctic Data Center repository using <code>dataone</code>.</p>
+<p>Before uploading any data to a DataONE repository, you must login to get an <em>authentication token</em>, which is a character string used to identify yourself. This token can be retrieved by logging into the test repository and copying the token into your R session.</p>
+</div>
+<div id="obtain-an-orcid" class="section level4">
+<h4><span class="header-section-number">17.3.1.3</span> Obtain an ORCID</h4>
+<p>ORCID is a researcher identifier that provides a common way to link your researcher identity to your articles and data. An ORCID is to a researcher as a DOI is to a research article. To obtain an ORCID, register at <a href="https://orcid.org" class="uri">https://orcid.org</a>.</p>
+</div>
+<div id="log-in-to-the-test-repository-and-copy-your-token" class="section level4">
+<h4><span class="header-section-number">17.3.1.4</span> Log in to the test repository and copy your token</h4>
+<p>We will be using a test server, so login and retrieve your token at <a href="https://test.arcticdata.io" class="uri">https://test.arcticdata.io</a>.</p>
+<p>Once you are logged in, navigate to your Profile Settings, and locate the “Authentication Token” section, and then copy the token for R to your clipboard.</p>
+<p><img src="images/adc-authtoken.png" /></p>
+<p>Finally, paste the token into the R Console to register it as an option for this R session. You are now logged in. But note that you need to keep this token private; don’t paste it into scripts or check it into git, as it is just as sensitive as your password.</p>
+</div>
+</div>
+<div id="uploading-a-package-using-r-with-uploaddatapackage" class="section level3">
+<h3><span class="header-section-number">17.3.2</span> Uploading A Package Using R with <code>uploadDataPackage</code></h3>
+<p>Datasets and metadata can be uploaded individually or as a collection. Such a collection, whether contained in local R objects or existing on a DataONE repository, will be informally referred to as a <code>package</code>.</p>
+<p>Load the libraries:</p>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb207-1" data-line-number="1"><span class="kw">library</span>(dataone)</a>
+<a class="sourceLine" id="cb207-2" data-line-number="2"><span class="kw">library</span>(datapack)</a></code></pre></div>
+<p>First we need to create an R object that describes what coordinating and member nodes we will be uploading our dataset to. We do this with the <code>dataone</code> function <code>D1Client</code> (DataONE client). The first argument specifies the DataONE coordinating node (in this case a test node called STAGING) and the second specifices the member node.</p>
+<p>We’ll also create an object that only represents the member node, which is helpful for some functions.</p>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb208-1" data-line-number="1">d1c &lt;-<span class="st"> </span><span class="kw">D1Client</span>(<span class="st">&quot;STAGING&quot;</span>, <span class="st">&quot;urn:node:mnTestARCTIC&quot;</span>)</a>
+<a class="sourceLine" id="cb208-2" data-line-number="2">mn &lt;-<span class="st"> </span>d1c<span class="op">@</span>mn</a></code></pre></div>
+<p>Next, we create a <code>DataPackage</code> as a container for our data, metadata, and scripts using the <code>new</code> function. This just creates an empty object with the class <code>DataPackage</code></p>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb209-1" data-line-number="1">dp &lt;-<span class="st"> </span><span class="kw">new</span>(<span class="st">&quot;DataPackage&quot;</span>)</a>
+<a class="sourceLine" id="cb209-2" data-line-number="2">dp</a></code></pre></div>
+<pre><code>## This package does not contain any DataObjects.</code></pre>
+<p>We then need to add a metadata file and data file to this package. First we generate some identifiers for the objects. We’ll use the <code>uuid</code> scheme for all of our objects. If we were uploading to production, you would likely want use an identifier with the <code>doi</code> scheme for your metadata document.</p>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb211-1" data-line-number="1">data_id &lt;-<span class="st"> </span><span class="kw">generateIdentifier</span>(mn, <span class="dt">scheme =</span> <span class="st">&quot;uuid&quot;</span>)</a>
+<a class="sourceLine" id="cb211-2" data-line-number="2">script_id &lt;-<span class="st"> </span><span class="kw">generateIdentifier</span>(mn, <span class="dt">scheme =</span> <span class="st">&quot;uuid&quot;</span>)</a>
+<a class="sourceLine" id="cb211-3" data-line-number="3">metadata_id &lt;-<span class="st"> </span><span class="kw">generateIdentifier</span>(mn, <span class="dt">scheme =</span> <span class="st">&quot;uuid&quot;</span>)</a></code></pre></div>
+<p>Now we need to modify our EML document to include these identifiers. This increases the accessibility of the files in our dataset.</p>
+<p>First read in the EML that we created earlier.</p>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb212-1" data-line-number="1">doc &lt;-<span class="st"> </span><span class="kw">read_eml</span>(<span class="st">&quot;files/complex_example.xml&quot;</span>)</a></code></pre></div>
+<p>Let’s replace the arbitrary <code>packageId</code> and <code>system</code> that we set in the example above to reflect the identifier we created for this package, and the system we are uploading the package to.</p>
+<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb213-1" data-line-number="1">doc<span class="op">$</span>packageId &lt;-<span class="st"> </span>metadata_id</a>
+<a class="sourceLine" id="cb213-2" data-line-number="2">doc<span class="op">$</span>system &lt;-<span class="st"> </span>mn<span class="op">@</span>identifier</a></code></pre></div>
+<p>Now let’s add a distribution URL to the <code>physical</code> section of our entity information. All of the distribution URLs look something like this <code>https://test.arcticdata.io/metacat/d1/mn/v2/object/urn:uuid:A0cc95b46-a318-4dd1-8f8a-0e6c280e1d95</code>, where <code>https://test.arcticdata.io/metacat/d1/mn/v2/</code> is the member node end point, and <code>urn:uuid:A0cc95b46-a318-4dd1-8f8a-0e6c280e1d95</code> is the identifier of the object.</p>
+<p>We can easily construct this URL using the <code>paste0</code> function, and insert it into the <code>physical</code> section of the <code>dataTable</code> element.</p>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb214-1" data-line-number="1"><span class="co"># set url for csv</span></a>
+<a class="sourceLine" id="cb214-2" data-line-number="2">doc<span class="op">$</span>dataset<span class="op">$</span>dataTable<span class="op">$</span>physical<span class="op">$</span>distribution<span class="op">$</span>online<span class="op">$</span>url &lt;-<span class="st"> </span><span class="kw">paste0</span>(mn<span class="op">@</span>endpoint,</a>
+<a class="sourceLine" id="cb214-3" data-line-number="3">                                                                 <span class="st">&quot;object/&quot;</span>,</a>
+<a class="sourceLine" id="cb214-4" data-line-number="4">                                                                 data_id)</a>
+<a class="sourceLine" id="cb214-5" data-line-number="5"><span class="co"># set url for script</span></a>
+<a class="sourceLine" id="cb214-6" data-line-number="6">doc<span class="op">$</span>dataset<span class="op">$</span>otherEntity<span class="op">$</span>physical<span class="op">$</span>distribution<span class="op">$</span>online<span class="op">$</span>url &lt;-<span class="st"> </span><span class="kw">paste0</span>(mn<span class="op">@</span>endpoint,</a>
+<a class="sourceLine" id="cb214-7" data-line-number="7">                                                                   <span class="st">&quot;object/&quot;</span>,</a>
+<a class="sourceLine" id="cb214-8" data-line-number="8">                                                                   script_id)</a>
+<a class="sourceLine" id="cb214-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb214-10" data-line-number="10"><span class="kw">write_eml</span>(doc, <span class="st">&quot;files/complex_example.xml&quot;</span>)</a></code></pre></div>
+<p>Now we have a full metadata document ready to be uploaded. We now need to add our files to the <code>DataPackage</code>.</p>
+<p>First, let’s create a new <code>DataObject</code>, which is another object class specific to <code>datapack</code>. Our metadata file, data file, and script will all need to be added as a <code>DataObject</code>. Remember that all files in a package are considered data objects, not just the ones that we you traditionally think of as being “data”.</p>
+<p>The <code>format</code> argument specifies the type of file, and should match one of the list of DataONE formatIds (listed in the Id field) <a href="https://cn.dataone.org/cn/v2/formats">here</a>.</p>
+<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb215-1" data-line-number="1"><span class="co"># Add the metadata document to the package</span></a>
+<a class="sourceLine" id="cb215-2" data-line-number="2">metadataObj &lt;-<span class="st"> </span><span class="kw">new</span>(<span class="st">&quot;DataObject&quot;</span>,</a>
+<a class="sourceLine" id="cb215-3" data-line-number="3">                   <span class="dt">id =</span> metadata_id,</a>
+<a class="sourceLine" id="cb215-4" data-line-number="4">                   <span class="dt">format =</span><span class="st">&quot;eml://ecoinformatics.org/eml-2.1.1&quot;</span>,</a>
+<a class="sourceLine" id="cb215-5" data-line-number="5">                   <span class="dt">filename =</span> <span class="st">&quot;files/complex_example.xml&quot;</span>)</a></code></pre></div>
+<p>After creating the <code>DataObject</code> that represents the metadata file, we add it to the data package using <code>addMember</code>.</p>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb216-1" data-line-number="1">dp &lt;-<span class="st"> </span><span class="kw">addMember</span>(dp, metadataObj)</a>
+<a class="sourceLine" id="cb216-2" data-line-number="2">dp</a></code></pre></div>
+<pre><code>## Members:
+## 
+## filename        format    mediaType  size     identifier    modified local 
+## comple...le.xml eml...1.1 NA         5841     urn:u...7ffd1 n        y     
+## 
+## Package identifier: NA
+## RightsHolder: NA
+## 
+## 
+## This package does not contain any provenance relationships.</code></pre>
+<p>We add the data file and the script similarly. The only difference is in the <code>addMember</code> function we have to set the <code>mo</code> (metadata object) argument equal to the <code>DataObject</code> that represents the metadata file. Adding our csv file to the package this way not only adds the file to the data package, but it also specifies that the csv is described by the metadata.</p>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb218-1" data-line-number="1"><span class="co"># Add our data file to the package</span></a>
+<a class="sourceLine" id="cb218-2" data-line-number="2">sourceObj &lt;-<span class="st"> </span><span class="kw">new</span>(<span class="st">&quot;DataObject&quot;</span>,</a>
+<a class="sourceLine" id="cb218-3" data-line-number="3">                 <span class="dt">id =</span> data_id,</a>
+<a class="sourceLine" id="cb218-4" data-line-number="4">                 <span class="dt">format =</span> <span class="st">&quot;text/csv&quot;</span>,</a>
+<a class="sourceLine" id="cb218-5" data-line-number="5">                 <span class="dt">filename =</span> <span class="st">&quot;files/my-data.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb218-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb218-7" data-line-number="7">dp &lt;-<span class="st"> </span><span class="kw">addMember</span>(dp, sourceObj, <span class="dt">mo =</span> metadataObj)</a>
+<a class="sourceLine" id="cb218-8" data-line-number="8">dp</a></code></pre></div>
+<pre><code>## Members:
+## 
+## filename        format    mediaType  size     identifier    modified local 
+## my-data.csv     text/csv  NA         45       urn:u...4a4aa n        y     
+## comple...le.xml eml...1.1 NA         5841     urn:u...7ffd1 n        y     
+## 
+## Package identifier: NA
+## RightsHolder: NA
+## 
+## 
+## Relationships (updated):
+## 
+##               subject           predicate              object
+## 1 complex_example.xml      cito:documents         my-data.csv
+## 2         my-data.csv cito:isDocumentedBy complex_example.xml</code></pre>
+<p>Next we add our script in the same way.</p>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb220-1" data-line-number="1"><span class="co"># Add our script to the package</span></a>
+<a class="sourceLine" id="cb220-2" data-line-number="2">scriptObj &lt;-<span class="st"> </span><span class="kw">new</span>(<span class="st">&quot;DataObject&quot;</span>,</a>
+<a class="sourceLine" id="cb220-3" data-line-number="3">                 <span class="dt">id =</span> script_id,</a>
+<a class="sourceLine" id="cb220-4" data-line-number="4">                 <span class="dt">format =</span> <span class="st">&quot;application/R&quot;</span>,</a>
+<a class="sourceLine" id="cb220-5" data-line-number="5">                 <span class="dt">filename =</span> <span class="st">&quot;files/datfiles_processing.R&quot;</span>)</a>
+<a class="sourceLine" id="cb220-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb220-7" data-line-number="7">dp &lt;-<span class="st"> </span><span class="kw">addMember</span>(dp, scriptObj, <span class="dt">mo =</span> metadataObj)</a>
+<a class="sourceLine" id="cb220-8" data-line-number="8">dp</a></code></pre></div>
+<pre><code>## Members:
+## 
+## filename        format    mediaType  size     identifier    modified local 
+## my-data.csv     text/csv  NA         45       urn:u...4a4aa n        y     
+## comple...le.xml eml...1.1 NA         5841     urn:u...7ffd1 n        y     
+## datfil...sing.R app...n/R NA         5625     urn:u...38ed9 n        y     
+## 
+## Package identifier: NA
+## RightsHolder: NA
+## 
+## 
+## Relationships (updated):
+## 
+##                 subject           predicate                object
+## 1   complex_example.xml      cito:documents           my-data.csv
+## 3   complex_example.xml      cito:documents datfiles_processing.R
+## 4 datfiles_processing.R cito:isDocumentedBy   complex_example.xml
+## 2           my-data.csv cito:isDocumentedBy   complex_example.xml</code></pre>
+<p>You can also specify other information about the relationships between files in your data package by adding provenance information. Here, we specify that the R script (<code>program</code>) uses the csv (<code>sources</code>) by including them as the specified arguments in the <code>describeWorkflow</code> function.</p>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb222-1" data-line-number="1">dp &lt;-<span class="st"> </span><span class="kw">describeWorkflow</span>(dp, <span class="dt">sources =</span> sourceObj, <span class="dt">program =</span> scriptObj)</a>
+<a class="sourceLine" id="cb222-2" data-line-number="2">dp</a></code></pre></div>
+<pre><code>## Members:
+## 
+## filename        format    mediaType  size     identifier    modified local 
+## my-data.csv     text/csv  NA         45       urn:u...4a4aa n        y     
+## comple...le.xml eml...1.1 NA         5841     urn:u...7ffd1 n        y     
+## datfil...sing.R app...n/R NA         5625     urn:u...38ed9 n        y     
+## 
+## Package identifier: NA
+## RightsHolder: NA
+## 
+## 
+## Relationships (updated):
+## 
+##                  subject             predicate                object
+## 9  _e193edd0...9ae871047              rdf:type      prov:Association
+## 8  _e193edd0...9ae871047          prov:hadPlan datfiles_processing.R
+## 1    complex_example.xml        cito:documents           my-data.csv
+## 3    complex_example.xml        cito:documents datfiles_processing.R
+## 4  datfiles_processing.R   cito:isDocumentedBy   complex_example.xml
+## 10 datfiles_processing.R              rdf:type       provone:Program
+## 2            my-data.csv   cito:isDocumentedBy   complex_example.xml
+## 5            my-data.csv              rdf:type          provone:Data
+## 11 urn:uuid:...c4ff5b5fb    dcterms:identifier urn:uuid:...c4ff5b5fb
+## 7  urn:uuid:...c4ff5b5fb              rdf:type     provone:Execution
+## 6  urn:uuid:...c4ff5b5fb prov:qual...sociation _e193edd0...9ae871047
+## 12 urn:uuid:...c4ff5b5fb             prov:used           my-data.csv</code></pre>
+<p>Each object in a data package has an access policy. There are three levels of access you can grant either to individual files, or the package as a whole.</p>
+<ul>
+<li>read: the ability to view when published</li>
+<li>write: the ablity to edit after publishing</li>
+<li>changePermission: the ability to grant other people read, write, or changePermission access</li>
+</ul>
+<p>Here, I give my colleague (via his ORCID) “read” and “write” permission to my entire data package using <code>addAccessRule</code>.</p>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb224-1" data-line-number="1">dp &lt;-<span class="st"> </span><span class="kw">addAccessRule</span>(dp,</a>
+<a class="sourceLine" id="cb224-2" data-line-number="2">                    <span class="dt">subject =</span> <span class="st">&quot;http://orcid.org/0000-0003-0077-4738&quot;</span>,</a>
+<a class="sourceLine" id="cb224-3" data-line-number="3">                    <span class="dt">permission =</span> <span class="kw">c</span>(<span class="st">&quot;read&quot;</span>,<span class="st">&quot;write&quot;</span>),</a>
+<a class="sourceLine" id="cb224-4" data-line-number="4">                    <span class="kw">getIdentifiers</span>(dp))</a></code></pre></div>
+<p>Finally, we upload the package to the test server for the Arctic Data Center using <code>uploadDataPackage</code>. This function takes as arguments <code>d1c</code> (the DataONE client which specifies which coordinating and member nodes to use), <code>dp</code> (the data package itself), whether you want the package to include public read access (<code>public = TRUE</code>).</p>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb225-1" data-line-number="1">packageId &lt;-<span class="st"> </span><span class="kw">uploadDataPackage</span>(d1c, dp, <span class="dt">public =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<p>You can now search for and view the package at <a href="https://test.arcticdata.io" class="uri">https://test.arcticdata.io</a>:</p>
+<p><img src="images/data-uploaded-simple.png" /></p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="creating-r-packages.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="reproducibility-and-provenance.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>1 Session 1: Introduction to the Arctic Data Center | Arctic Data Center Training</title>
+  <meta name="description" content="1 Session 1: Introduction to the Arctic Data Center | Arctic Data Center Training" />
+  <meta name="generator" content="bookdown 0.21.4 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="1 Session 1: Introduction to the Arctic Data Center | Arctic Data Center Training" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="1 Session 1: Introduction to the Arctic Data Center | Arctic Data Center Training" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="session-2-documenting-and-publishing-data.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.2/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.16/datatables.js"></script>
+<link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.0.3/leaflet.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Data Science Training for the Arctic Data Center</a><ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#schedule"><i class="fa fa-check"></i><b>0.1</b> Schedule</a><ul>
+<li class="chapter" data-level="0.1.1" data-path="index.html"><a href="index.html#code-of-conduct"><i class="fa fa-check"></i><b>0.1.1</b> Code of Conduct</a></li>
+<li class="chapter" data-level="0.1.2" data-path="index.html"><a href="index.html#logistics"><i class="fa fa-check"></i><b>0.1.2</b> Logistics</a></li>
+<li class="chapter" data-level="0.1.3" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>0.1.3</b> Acknowledgements</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html"><i class="fa fa-check"></i><b>1</b> Session 1: Introduction to the Arctic Data Center</a><ul>
+<li class="chapter" data-level="1.1" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#introduction-to-the-arctic-data-center-and-nsf-standards-and-policies"><i class="fa fa-check"></i><b>1.1</b> Introduction to the Arctic Data Center and NSF Standards and Policies</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#learning-objectives"><i class="fa fa-check"></i><b>1.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="1.1.2" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#arctic-data-center---history-and-introduction"><i class="fa fa-check"></i><b>1.1.2</b> Arctic Data Center - History and Introduction</a></li>
+<li class="chapter" data-level="1.1.3" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#data-discovery-portal"><i class="fa fa-check"></i><b>1.1.3</b> Data Discovery Portal</a></li>
+<li class="chapter" data-level="1.1.4" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#tools-and-infrastructure"><i class="fa fa-check"></i><b>1.1.4</b> Tools and Infrastructure</a></li>
+<li class="chapter" data-level="1.1.5" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#support-services"><i class="fa fa-check"></i><b>1.1.5</b> Support Services</a></li>
+<li class="chapter" data-level="1.1.6" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#training-and-outreach"><i class="fa fa-check"></i><b>1.1.6</b> Training and Outreach</a></li>
+<li class="chapter" data-level="1.1.7" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#data-rescue"><i class="fa fa-check"></i><b>1.1.7</b> Data Rescue</a></li>
+<li class="chapter" data-level="1.1.8" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#who-must-submit"><i class="fa fa-check"></i><b>1.1.8</b> Who Must Submit</a></li>
+<li class="chapter" data-level="1.1.9" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#summary"><i class="fa fa-check"></i><b>1.1.9</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#writing-good-data-management-plans"><i class="fa fa-check"></i><b>1.2</b> Writing Good Data Management Plans</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#learning-objectives-1"><i class="fa fa-check"></i><b>1.2.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="1.2.2" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#when-to-plan-the-data-life-cycle"><i class="fa fa-check"></i><b>1.2.2</b> When to Plan: The Data Life Cycle</a></li>
+<li class="chapter" data-level="1.2.3" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#why-plan"><i class="fa fa-check"></i><b>1.2.3</b> Why Plan?</a></li>
+<li class="chapter" data-level="1.2.4" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#how-to-plan"><i class="fa fa-check"></i><b>1.2.4</b> How to Plan</a></li>
+<li class="chapter" data-level="1.2.5" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#what-to-include-in-a-dmp"><i class="fa fa-check"></i><b>1.2.5</b> What to include in a DMP</a></li>
+<li class="chapter" data-level="1.2.6" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#nsf-dmp-requirements"><i class="fa fa-check"></i><b>1.2.6</b> NSF DMP requirements</a></li>
+<li class="chapter" data-level="1.2.7" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#tools-in-support-of-creating-a-dmp"><i class="fa fa-check"></i><b>1.2.7</b> Tools in Support of Creating a DMP</a></li>
+<li class="chapter" data-level="1.2.8" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#arctic-data-center-support-for-dmps"><i class="fa fa-check"></i><b>1.2.8</b> Arctic Data Center Support for DMPs</a></li>
+<li class="chapter" data-level="1.2.9" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#sharing-your-dmp"><i class="fa fa-check"></i><b>1.2.9</b> Sharing Your DMP</a></li>
+<li class="chapter" data-level="1.2.10" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#additional-resources"><i class="fa fa-check"></i><b>1.2.10</b> Additional Resources</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html"><i class="fa fa-check"></i><b>2</b> Session 2: Documenting and Publishing Data</a><ul>
+<li class="chapter" data-level="2.1" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#best-practices-data-and-metadata"><i class="fa fa-check"></i><b>2.1</b> Best Practices: Data and Metadata</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#learning-objectives-2"><i class="fa fa-check"></i><b>2.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="2.1.2" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#best-practices-overview"><i class="fa fa-check"></i><b>2.1.2</b> Best Practices: Overview</a></li>
+<li class="chapter" data-level="2.1.3" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#data-identifiers"><i class="fa fa-check"></i><b>2.1.3</b> Data Identifiers</a></li>
+<li class="chapter" data-level="2.1.4" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#data-citation"><i class="fa fa-check"></i><b>2.1.4</b> Data Citation</a></li>
+<li class="chapter" data-level="2.1.5" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#provanance-preserving-computational-workflows"><i class="fa fa-check"></i><b>2.1.5</b> Provanance &amp; Preserving Computational Workflows</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#data-documentation-and-publishing"><i class="fa fa-check"></i><b>2.2</b> Data Documentation and Publishing</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#learning-objectives-3"><i class="fa fa-check"></i><b>2.2.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="2.2.2" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#data-sharing-and-preservation"><i class="fa fa-check"></i><b>2.2.2</b> Data sharing and preservation</a></li>
+<li class="chapter" data-level="2.2.3" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#data-repositories-built-for-data-and-code"><i class="fa fa-check"></i><b>2.2.3</b> Data repositories: built for data (and code)</a></li>
+<li class="chapter" data-level="2.2.4" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#metadata"><i class="fa fa-check"></i><b>2.2.4</b> Metadata</a></li>
+<li class="chapter" data-level="2.2.5" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#structure-of-a-data-package"><i class="fa fa-check"></i><b>2.2.5</b> Structure of a data package</a></li>
+<li class="chapter" data-level="2.2.6" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#dataone-federation"><i class="fa fa-check"></i><b>2.2.6</b> DataONE Federation</a></li>
+<li class="chapter" data-level="2.2.7" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#publishing-data-from-the-web"><i class="fa fa-check"></i><b>2.2.7</b> Publishing data from the web</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html"><i class="fa fa-check"></i><b>3</b> Session 3: Literate Analysis with RMarkdown</a><ul>
+<li class="chapter" data-level="3.1" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#rstudio-and-gitgithub-setup-and-motivation"><i class="fa fa-check"></i><b>3.1</b> RStudio and Git/GitHub Setup and Motivation</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#learning-objectives-4"><i class="fa fa-check"></i><b>3.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="3.1.2" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#introduction-to-reproducible-research"><i class="fa fa-check"></i><b>3.1.2</b> Introduction to reproducible research</a></li>
+<li class="chapter" data-level="3.1.3" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#logging-into-the-rstudio-server"><i class="fa fa-check"></i><b>3.1.3</b> Logging into the RStudio server</a></li>
+<li class="chapter" data-level="3.1.4" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#setting-up-the-r-environment-on-your-local-computer"><i class="fa fa-check"></i><b>3.1.4</b> Setting up the R environment on your local computer</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#literate-analysis-with-rmarkdown"><i class="fa fa-check"></i><b>3.2</b> Literate Analysis with RMarkdown</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#learning-objectives-5"><i class="fa fa-check"></i><b>3.2.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="3.2.2" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#introduction-and-motivation"><i class="fa fa-check"></i><b>3.2.2</b> Introduction and motivation</a></li>
+<li class="chapter" data-level="3.2.3" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#basic-rmarkdown-syntax"><i class="fa fa-check"></i><b>3.2.3</b> Basic RMarkdown syntax</a></li>
+<li class="chapter" data-level="3.2.4" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#code-chunks"><i class="fa fa-check"></i><b>3.2.4</b> Code chunks</a></li>
+<li class="chapter" data-level="3.2.5" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#literate-analysis-practice"><i class="fa fa-check"></i><b>3.2.5</b> Literate analysis practice</a></li>
+<li class="chapter" data-level="3.2.6" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#rmarkdown-and-environments"><i class="fa fa-check"></i><b>3.2.6</b> RMarkdown and environments</a></li>
+<li class="chapter" data-level="3.2.7" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#go-further"><i class="fa fa-check"></i><b>3.2.7</b> Go Further</a></li>
+<li class="chapter" data-level="3.2.8" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#resources"><i class="fa fa-check"></i><b>3.2.8</b> Resources</a></li>
+<li class="chapter" data-level="3.2.9" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#troubleshooting"><i class="fa fa-check"></i><b>3.2.9</b> Troubleshooting</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html"><i class="fa fa-check"></i><b>4</b> Session 4: Version Control with git and GitHub</a><ul>
+<li class="chapter" data-level="4.1" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#learning-objectives-6"><i class="fa fa-check"></i><b>4.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="4.2" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#introduction-to-git"><i class="fa fa-check"></i><b>4.2</b> Introduction to git</a><ul>
+<li class="chapter" data-level="" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#version-control-and-collaboration-using-git-and-github"><i class="fa fa-check"></i>Version control and Collaboration using Git and GitHub</a></li>
+<li class="chapter" data-level="" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#lets-look-at-a-github-repository"><i class="fa fa-check"></i>Let’s look at a GitHub repository</a></li>
+<li class="chapter" data-level="" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#the-git-lifecycle"><i class="fa fa-check"></i>The Git lifecycle</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#create-a-remote-repository-on-github"><i class="fa fa-check"></i><b>4.3</b> Create a remote repository on GitHub</a><ul>
+<li class="chapter" data-level="" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#setup-4"><i class="fa fa-check"></i>Setup</a></li>
+<li><a href="session-4-version-control-with-git-and-github.html#section-1"></a></li>
+<li class="chapter" data-level="" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#challenge-5"><i class="fa fa-check"></i>Challenge</a></li>
+<li><a href="session-4-version-control-with-git-and-github.html#section-2"></a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#working-locally-with-git-via-rstudio"><i class="fa fa-check"></i><b>4.4</b> Working locally with Git via RStudio</a><ul>
+<li class="chapter" data-level="" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#setup-5"><i class="fa fa-check"></i>Setup</a></li>
+<li><a href="session-4-version-control-with-git-and-github.html#section-3"></a></li>
+<li class="chapter" data-level="" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#challenge-6"><i class="fa fa-check"></i>Challenge</a></li>
+<li><a href="session-4-version-control-with-git-and-github.html#section-4"></a></li>
+<li class="chapter" data-level="" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#aside-3"><i class="fa fa-check"></i>Aside</a></li>
+<li class="chapter" data-level="" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#collaboration-and-conflict-free-workflows"><i class="fa fa-check"></i>Collaboration and conflict free workflows</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#setting-up-git-on-an-existing-project"><i class="fa fa-check"></i><b>4.5</b> Setting up git on an existing project</a><ul>
+<li class="chapter" data-level="" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#challenge-7"><i class="fa fa-check"></i>Challenge</a></li>
+<li><a href="session-4-version-control-with-git-and-github.html#section-5"></a></li>
+<li class="chapter" data-level="" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#challenge-8"><i class="fa fa-check"></i>Challenge</a></li>
+<li><a href="session-4-version-control-with-git-and-github.html#section-6"></a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#go-further-1"><i class="fa fa-check"></i><b>4.6</b> Go Further</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html"><i class="fa fa-check"></i><b>5</b> Session 5: Git Collaboration and Conflict Management</a><ul>
+<li class="chapter" data-level="5.1" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#learning-objectives-7"><i class="fa fa-check"></i><b>5.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="5.2" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#introduction"><i class="fa fa-check"></i><b>5.2</b> Introduction</a></li>
+<li class="chapter" data-level="5.3" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#collaborating-with-a-trusted-colleague-without-conflicts"><i class="fa fa-check"></i><b>5.3</b> Collaborating with a trusted colleague <strong>without conflicts</strong></a><ul>
+<li class="chapter" data-level="" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#setup-6"><i class="fa fa-check"></i>Setup</a></li>
+<li><a href="session-5-git-collaboration-and-conflict-management.html#section-7"></a></li>
+<li class="chapter" data-level="5.3.1" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#step-1-collaborator-clone"><i class="fa fa-check"></i><b>5.3.1</b> Step 1: Collaborator clone</a></li>
+<li class="chapter" data-level="5.3.2" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#step-2-collaborator-edits"><i class="fa fa-check"></i><b>5.3.2</b> Step 2: Collaborator Edits</a></li>
+<li class="chapter" data-level="5.3.3" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#step-3-collaborator-commit-and-push"><i class="fa fa-check"></i><b>5.3.3</b> Step 3: Collaborator commit and push</a></li>
+<li class="chapter" data-level="5.3.4" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#step-4-owner-pull"><i class="fa fa-check"></i><b>5.3.4</b> Step 4: Owner pull</a></li>
+<li class="chapter" data-level="5.3.5" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#step-5-owner-edits-commit-and-push"><i class="fa fa-check"></i><b>5.3.5</b> Step 5: Owner edits, commit, and push</a></li>
+<li class="chapter" data-level="5.3.6" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#step-6-collaborator-pull"><i class="fa fa-check"></i><b>5.3.6</b> Step 6: Collaborator pull</a></li>
+<li class="chapter" data-level="" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#challenge-9"><i class="fa fa-check"></i>Challenge</a></li>
+<li><a href="session-5-git-collaboration-and-conflict-management.html#section-8"></a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#merge-conflicts"><i class="fa fa-check"></i><b>5.4</b> Merge conflicts</a></li>
+<li class="chapter" data-level="5.5" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#how-to-resolve-a-conflict"><i class="fa fa-check"></i><b>5.5</b> How to resolve a conflict</a><ul>
+<li class="chapter" data-level="" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#abort-abort-abort"><i class="fa fa-check"></i>Abort, abort, abort…</a></li>
+<li class="chapter" data-level="" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#checkout"><i class="fa fa-check"></i>Checkout</a></li>
+<li class="chapter" data-level="" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#pull-and-edit-the-file"><i class="fa fa-check"></i>Pull and edit the file</a></li>
+<li class="chapter" data-level="5.5.1" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#producing-and-resolving-merge-conflicts"><i class="fa fa-check"></i><b>5.5.1</b> Producing and resolving merge conflicts</a></li>
+<li class="chapter" data-level="" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#merge-conflict-challenge"><i class="fa fa-check"></i>Merge Conflict Challenge</a></li>
+<li><a href="session-5-git-collaboration-and-conflict-management.html#section-9"></a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#workflows-to-avoid-merge-conflicts"><i class="fa fa-check"></i><b>5.6</b> Workflows to avoid merge conflicts</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="session-6-social-aspects-of-collaboration.html"><a href="session-6-social-aspects-of-collaboration.html"><i class="fa fa-check"></i><b>6</b> Session 6: Social Aspects of Collaboration</a><ul>
+<li class="chapter" data-level="6.1" data-path="session-6-social-aspects-of-collaboration.html"><a href="session-6-social-aspects-of-collaboration.html#thinking-preferences"><i class="fa fa-check"></i><b>6.1</b> Thinking preferences</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="session-6-social-aspects-of-collaboration.html"><a href="session-6-social-aspects-of-collaboration.html#learning-objectives-8"><i class="fa fa-check"></i><b>6.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="6.1.2" data-path="session-6-social-aspects-of-collaboration.html"><a href="session-6-social-aspects-of-collaboration.html#thinking-preferences-activity"><i class="fa fa-check"></i><b>6.1.2</b> Thinking Preferences Activity</a></li>
+<li class="chapter" data-level="6.1.3" data-path="session-6-social-aspects-of-collaboration.html"><a href="session-6-social-aspects-of-collaboration.html#about-the-whole-brain-thinking-system"><i class="fa fa-check"></i><b>6.1.3</b> About the Whole Brain Thinking System</a></li>
+<li class="chapter" data-level="6.1.4" data-path="session-6-social-aspects-of-collaboration.html"><a href="session-6-social-aspects-of-collaboration.html#bonus-activity-your-complex-self"><i class="fa fa-check"></i><b>6.1.4</b> Bonus Activity: Your Complex Self</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="session-6-social-aspects-of-collaboration.html"><a href="session-6-social-aspects-of-collaboration.html#additional-resources-collaboration-authorship-and-data-policies"><i class="fa fa-check"></i><b>6.2</b> Additional Resources: Collaboration, authorship and data policies</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="session-6-social-aspects-of-collaboration.html"><a href="session-6-social-aspects-of-collaboration.html#resources-1"><i class="fa fa-check"></i><b>6.2.1</b> Resources</a></li>
+<li class="chapter" data-level="6.2.2" data-path="session-6-social-aspects-of-collaboration.html"><a href="session-6-social-aspects-of-collaboration.html#references"><i class="fa fa-check"></i><b>6.2.2</b> References</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="session-7-data-modeling-essentials.html"><a href="session-7-data-modeling-essentials.html"><i class="fa fa-check"></i><b>7</b> Session 7: Data Modeling Essentials</a><ul>
+<li class="chapter" data-level="7.1" data-path="session-7-data-modeling-essentials.html"><a href="session-7-data-modeling-essentials.html#data-modeling-tidy-data"><i class="fa fa-check"></i><b>7.1</b> Data Modeling &amp; Tidy Data</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="session-7-data-modeling-essentials.html"><a href="session-7-data-modeling-essentials.html#learning-objectives-9"><i class="fa fa-check"></i><b>7.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="7.1.2" data-path="session-7-data-modeling-essentials.html"><a href="session-7-data-modeling-essentials.html#introduction-1"><i class="fa fa-check"></i><b>7.1.2</b> Introduction</a></li>
+<li class="chapter" data-level="7.1.3" data-path="session-7-data-modeling-essentials.html"><a href="session-7-data-modeling-essentials.html#recognizing-untidy-data"><i class="fa fa-check"></i><b>7.1.3</b> Recognizing untidy data</a></li>
+<li class="chapter" data-level="7.1.4" data-path="session-7-data-modeling-essentials.html"><a href="session-7-data-modeling-essentials.html#good-enough-data-modeling"><i class="fa fa-check"></i><b>7.1.4</b> Good enough data modeling</a></li>
+<li class="chapter" data-level="7.1.5" data-path="session-7-data-modeling-essentials.html"><a href="session-7-data-modeling-essentials.html#using-normalized-data"><i class="fa fa-check"></i><b>7.1.5</b> Using normalized data</a></li>
+<li class="chapter" data-level="7.1.6" data-path="session-7-data-modeling-essentials.html"><a href="session-7-data-modeling-essentials.html#data-modeling-exercise"><i class="fa fa-check"></i><b>7.1.6</b> Data modeling exercise</a></li>
+<li class="chapter" data-level="7.1.7" data-path="session-7-data-modeling-essentials.html"><a href="session-7-data-modeling-essentials.html#resources-2"><i class="fa fa-check"></i><b>7.1.7</b> Resources</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="session-8-cleaning-and-manipulating-data.html"><a href="session-8-cleaning-and-manipulating-data.html"><i class="fa fa-check"></i><b>8</b> Session 8: Cleaning and Manipulating Data</a><ul>
+<li class="chapter" data-level="8.1" data-path="session-8-cleaning-and-manipulating-data.html"><a href="session-8-cleaning-and-manipulating-data.html#data-cleaning-and-manipulation"><i class="fa fa-check"></i><b>8.1</b> Data Cleaning and Manipulation</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="session-8-cleaning-and-manipulating-data.html"><a href="session-8-cleaning-and-manipulating-data.html#learning-objectives-10"><i class="fa fa-check"></i><b>8.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="8.1.2" data-path="session-8-cleaning-and-manipulating-data.html"><a href="session-8-cleaning-and-manipulating-data.html#introduction-2"><i class="fa fa-check"></i><b>8.1.2</b> Introduction</a></li>
+<li class="chapter" data-level="8.1.3" data-path="session-8-cleaning-and-manipulating-data.html"><a href="session-8-cleaning-and-manipulating-data.html#data-cleaning-basics"><i class="fa fa-check"></i><b>8.1.3</b> Data Cleaning Basics</a></li>
+<li class="chapter" data-level="8.1.4" data-path="session-8-cleaning-and-manipulating-data.html"><a href="session-8-cleaning-and-manipulating-data.html#joins-in-dplyr"><i class="fa fa-check"></i><b>8.1.4</b> Joins in dplyr</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html"><i class="fa fa-check"></i><b>9</b> Session 9: Data Visualisation and Publishing to the Web</a><ul>
+<li class="chapter" data-level="9.1" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html#publishing-analyses-to-the-web"><i class="fa fa-check"></i><b>9.1</b> Publishing Analyses to the Web</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html#learning-objectives-11"><i class="fa fa-check"></i><b>9.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="9.1.2" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html#introduction-3"><i class="fa fa-check"></i><b>9.1.2</b> Introduction</a></li>
+<li class="chapter" data-level="9.1.3" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html#a-minimal-example"><i class="fa fa-check"></i><b>9.1.3</b> A Minimal Example</a></li>
+<li class="chapter" data-level="9.1.4" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html#exercise-sharing-your-work"><i class="fa fa-check"></i><b>9.1.4</b> Exercise: Sharing your work</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html#publication-graphics"><i class="fa fa-check"></i><b>9.2</b> Publication Graphics</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html#learning-objectives-12"><i class="fa fa-check"></i><b>9.2.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="9.2.2" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html#overview-1"><i class="fa fa-check"></i><b>9.2.2</b> Overview</a></li>
+<li class="chapter" data-level="9.2.3" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html#static-figures-using-ggplot2"><i class="fa fa-check"></i><b>9.2.3</b> Static figures using <code>ggplot2</code></a></li>
+<li class="chapter" data-level="9.2.4" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html#interactive-visualization-using-leaflet-and-dt"><i class="fa fa-check"></i><b>9.2.4</b> Interactive visualization using <code>leaflet</code> and <code>DT</code></a></li>
+<li class="chapter" data-level="9.2.5" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html#resources-3"><i class="fa fa-check"></i><b>9.2.5</b> Resources</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html"><i class="fa fa-check"></i><b>10</b> Session 10: Writing Functions and Packages</a><ul>
+<li class="chapter" data-level="10.1" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#creating-r-functions"><i class="fa fa-check"></i><b>10.1</b> Creating R Functions</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#why-functions"><i class="fa fa-check"></i><b>10.1.1</b> Why functions?</a></li>
+<li class="chapter" data-level="10.1.2" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#documenting-r-functions"><i class="fa fa-check"></i><b>10.1.2</b> Documenting R functions</a></li>
+<li class="chapter" data-level="10.1.3" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#summary-2"><i class="fa fa-check"></i><b>10.1.3</b> Summary</a></li>
+<li class="chapter" data-level="10.1.4" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#examples-minimizing-work-with-functions"><i class="fa fa-check"></i><b>10.1.4</b> Examples: Minimizing work with functions</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#creating-r-packages"><i class="fa fa-check"></i><b>10.2</b> Creating R Packages</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#learning-objectives-13"><i class="fa fa-check"></i><b>10.2.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="10.2.2" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#why-packages"><i class="fa fa-check"></i><b>10.2.2</b> Why packages?</a></li>
+<li class="chapter" data-level="10.2.3" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#install-and-load-packages"><i class="fa fa-check"></i><b>10.2.3</b> Install and load packages</a></li>
+<li class="chapter" data-level="10.2.4" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#create-a-basic-package"><i class="fa fa-check"></i><b>10.2.4</b> Create a basic package</a></li>
+<li class="chapter" data-level="10.2.5" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#add-your-code"><i class="fa fa-check"></i><b>10.2.5</b> Add your code</a></li>
+<li class="chapter" data-level="10.2.6" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#add-documentation"><i class="fa fa-check"></i><b>10.2.6</b> Add documentation</a></li>
+<li class="chapter" data-level="10.2.7" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#test-your-package"><i class="fa fa-check"></i><b>10.2.7</b> Test your package</a></li>
+<li class="chapter" data-level="10.2.8" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#checking-and-installing-your-package"><i class="fa fa-check"></i><b>10.2.8</b> Checking and installing your package</a></li>
+<li class="chapter" data-level="10.2.9" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#sharing-and-releasing-your-package"><i class="fa fa-check"></i><b>10.2.9</b> Sharing and releasing your package</a></li>
+<li class="chapter" data-level="10.2.10" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#more-reading"><i class="fa fa-check"></i><b>10.2.10</b> More reading</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html"><i class="fa fa-check"></i><b>11</b> Session 11: Arctic Data Center Data Portals</a><ul>
+<li class="chapter" data-level="11.1" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#creating-a-data-portal"><i class="fa fa-check"></i><b>11.1</b> Creating a data portal</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#what-is-a-portal"><i class="fa fa-check"></i><b>11.1.1</b> What is a Portal?</a></li>
+<li class="chapter" data-level="11.1.2" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#portal-uses"><i class="fa fa-check"></i><b>11.1.2</b> Portal Uses</a></li>
+<li class="chapter" data-level="11.1.3" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#portal-main-components"><i class="fa fa-check"></i><b>11.1.3</b> Portal Main Components</a></li>
+<li class="chapter" data-level="11.1.4" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#creating-portals"><i class="fa fa-check"></i><b>11.1.4</b> Creating Portals</a></li>
+<li class="chapter" data-level="11.1.5" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#adding-data-to-portals"><i class="fa fa-check"></i><b>11.1.5</b> Adding Data to Portals</a></li>
+<li class="chapter" data-level="11.1.6" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#creating-unique-freeform-pages"><i class="fa fa-check"></i><b>11.1.6</b> Creating Unique Freeform Pages</a></li>
+<li class="chapter" data-level="11.1.7" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#saving-and-editing-portals"><i class="fa fa-check"></i><b>11.1.7</b> Saving and Editing Portals</a></li>
+<li class="chapter" data-level="11.1.8" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#how-to-publish-portals"><i class="fa fa-check"></i><b>11.1.8</b> How to Publish Portals</a></li>
+<li class="chapter" data-level="11.1.9" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#sharing-portals"><i class="fa fa-check"></i><b>11.1.9</b> Sharing Portals</a></li>
+<li class="chapter" data-level="11.1.10" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#tutorial-videos"><i class="fa fa-check"></i><b>11.1.10</b> Tutorial Videos</a></li>
+<li class="chapter" data-level="11.1.11" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#acknowledgements-1"><i class="fa fa-check"></i><b>11.1.11</b> Acknowledgements</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="session-12-exercise-cleaning-and-manipulating-data.html"><a href="session-12-exercise-cleaning-and-manipulating-data.html"><i class="fa fa-check"></i><b>12</b> Session 12: Exercise - Cleaning and Manipulating Data</a><ul>
+<li class="chapter" data-level="12.1" data-path="session-12-exercise-cleaning-and-manipulating-data.html"><a href="session-12-exercise-cleaning-and-manipulating-data.html#hands-on-clean-and-integrate-datasets"><i class="fa fa-check"></i><b>12.1</b> Hands On: Clean and Integrate Datasets</a><ul>
+<li class="chapter" data-level="12.1.1" data-path="session-12-exercise-cleaning-and-manipulating-data.html"><a href="session-12-exercise-cleaning-and-manipulating-data.html#learning-objectives-14"><i class="fa fa-check"></i><b>12.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="12.1.2" data-path="session-12-exercise-cleaning-and-manipulating-data.html"><a href="session-12-exercise-cleaning-and-manipulating-data.html#outline"><i class="fa fa-check"></i><b>12.1.2</b> Outline</a></li>
+<li class="chapter" data-level="12.1.3" data-path="session-12-exercise-cleaning-and-manipulating-data.html"><a href="session-12-exercise-cleaning-and-manipulating-data.html#full-solution.-warning-spoilers-ahead"><i class="fa fa-check"></i><b>12.1.3</b> Full solution. Warning, spoilers ahead!</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="session-13-geospatial-analysis-in-r.html"><a href="session-13-geospatial-analysis-in-r.html"><i class="fa fa-check"></i><b>13</b> Session 13: Geospatial Analysis in R</a><ul>
+<li class="chapter" data-level="13.1" data-path="session-13-geospatial-analysis-in-r.html"><a href="session-13-geospatial-analysis-in-r.html#spatial-vector-analysis-using-sf"><i class="fa fa-check"></i><b>13.1</b> Spatial vector analysis using <code>sf</code></a><ul>
+<li class="chapter" data-level="13.1.1" data-path="session-13-geospatial-analysis-in-r.html"><a href="session-13-geospatial-analysis-in-r.html#learning-objectives-15"><i class="fa fa-check"></i><b>13.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="13.1.2" data-path="session-13-geospatial-analysis-in-r.html"><a href="session-13-geospatial-analysis-in-r.html#introduction-4"><i class="fa fa-check"></i><b>13.1.2</b> Introduction</a></li>
+<li class="chapter" data-level="13.1.3" data-path="session-13-geospatial-analysis-in-r.html"><a href="session-13-geospatial-analysis-in-r.html#working-with-geospatial-data"><i class="fa fa-check"></i><b>13.1.3</b> Working with geospatial data</a></li>
+<li class="chapter" data-level="13.1.4" data-path="session-13-geospatial-analysis-in-r.html"><a href="session-13-geospatial-analysis-in-r.html#sf-the-tidyverse"><i class="fa fa-check"></i><b>13.1.4</b> <code>sf</code> &amp; the Tidyverse</a></li>
+<li class="chapter" data-level="13.1.5" data-path="session-13-geospatial-analysis-in-r.html"><a href="session-13-geospatial-analysis-in-r.html#visualize-with-ggplot"><i class="fa fa-check"></i><b>13.1.5</b> Visualize with ggplot</a></li>
+<li class="chapter" data-level="13.1.6" data-path="session-13-geospatial-analysis-in-r.html"><a href="session-13-geospatial-analysis-in-r.html#visualize-sf-objects-with-leaflet"><i class="fa fa-check"></i><b>13.1.6</b> Visualize <code>sf</code> objects with leaflet</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="session-14-reproducibility-and-provenance.html"><a href="session-14-reproducibility-and-provenance.html"><i class="fa fa-check"></i><b>14</b> Session 14: Reproducibility and Provenance</a><ul>
+<li class="chapter" data-level="14.1" data-path="session-14-reproducibility-and-provenance.html"><a href="session-14-reproducibility-and-provenance.html#reproducibility-and-provenance"><i class="fa fa-check"></i><b>14.1</b> Reproducibility and Provenance</a><ul>
+<li class="chapter" data-level="14.1.1" data-path="session-14-reproducibility-and-provenance.html"><a href="session-14-reproducibility-and-provenance.html#learning-objectives-16"><i class="fa fa-check"></i><b>14.1.1</b> Learning Objectives</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Arctic Data Center Training</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="session-1-introduction-to-the-arctic-data-center" class="section level1">
+<h1><span class="header-section-number">1</span> Session 1: Introduction to the Arctic Data Center</h1>
+<div id="introduction-to-the-arctic-data-center-and-nsf-standards-and-policies" class="section level2">
+<h2><span class="header-section-number">1.1</span> Introduction to the Arctic Data Center and NSF Standards and Policies</h2>
+<div id="learning-objectives" class="section level3">
+<h3><span class="header-section-number">1.1.1</span> Learning Objectives</h3>
+<p>In this lesson, you will learn:</p>
+<ul>
+<li>About the mission and structure of the Arctic Data Center</li>
+<li>How the Arctic Data Center supports the research community</li>
+<li>About data policies from the NSF Arctic program</li>
+</ul>
+</div>
+<div id="arctic-data-center---history-and-introduction" class="section level3">
+<h3><span class="header-section-number">1.1.2</span> Arctic Data Center - History and Introduction</h3>
+<p>The Arctic Data Center is the primary data and software repository for the Arctic section of National Science Foundation’s Office of Polar Programs (NSF OPP).</p>
+<p>We’re best known in the research community as a data archive – researchers upload their data to preserve it for the future and make it available for re-use. This isn’t the end of that data’s life, though. These data can then be downloaded for different analyses or synthesis projects. In addition to being a data discovery portal, we also offer top-notch tools, support services, and training opportunities. We also provide data rescue services.</p>
+<p><img src="images/arctic-data-center/ADC-features.png" /></p>
+<p>NSF has long had a commitment to data reuse and sharing. Since our start in 2016, we’ve grown substantially – from that original 4 TB of data from ACADIS to now over 39 TB. In the last year alone, we’ve seen a 16% growth in dataset count, and about a 30% growth in data volume. This increase has come from advances in tools – both ours and of the scientific community, plus active community outreach and a strong culture of data preservation from NSF and from researchers. We plan to add more storage capacity in the coming months, as researchers are coming to us with datasets in the terabytes, and we’re excited to preserve these research products in our archive. We’re projecting our growth to be around several hundred TB this year, which has a big impact on processing time. Give us a heads up if you’re planning on having larger submissions so that we can work with you and be prepared for a large influx of data.</p>
+<p><img src="images/arctic-data-center/ADC-growth.png" /></p>
+<p>The data that we have in the Arctic Data Center comes from a wide variety of disciplines. These different programs within NSF all have different focuses – the Arctic Observing Network supports scientific and community-based observations of biodiversity, ecosystems, human societies, land, ice, marine and freshwater systems, and the atmosphere as well as their social, natural, and/or physical environments, so that encompasses a lot right there in just that one program. We’re also working on a way right now to classify the datasets by discipline, so keep an eye out for that coming soon.</p>
+<p><img src="images/arctic-data-center/ADC-disciplines.png" /></p>
+<p>Along with that diversity of disciplines comes a diversity of file types. The most common file type we have are image files in four different file types. Probably less than 200-300 of the datasets have the majority of those images – we have some large datasets that have image and/or audio files from drones. Most of those 5800+ datasets are tabular datasets. There’s a large diversity of data files, though, whether you want to look at remote sensing images, listen to passive acoustic audio files, or run applications – or something else entirely. We also cover a long period of time, at least by human standards. The data represented in our repository spans across centuries.</p>
+<p><img src="images/arctic-data-center/ADC-filetypes.png" /></p>
+<p>We also have data that spans the entire Arctic, as well as the sub-Arctic, regions.</p>
+<p><img src="images/arctic-data-center/ADC-panarctic.png" /></p>
+</div>
+<div id="data-discovery-portal" class="section level3">
+<h3><span class="header-section-number">1.1.3</span> Data Discovery Portal</h3>
+<p>To browse the data catalog, navigate to <a href="https://arcticdata.io/">arcticdata.io</a>. Go to the top of the page and under data, go to search. Right now, you’re looking at the whole catalog. You can narrow your search down by the map area, a general search, or searching by an attribute.</p>
+<p><img src="images/arctic-data-center/ADC-datacatalog1.png" />
+Clicking on a dataset brings you to this page. You have the option to download all the files by clicking the green “Download All” button, which will zip together all the files in the dataset to your Downloads folder. You can also pick and choose to download just specific files.</p>
+<p>All the raw data is in open formats to make it easily accessible and compliant with <a href="https://www.go-fair.org/fair-principles/">FAIR</a> principles – for example, tabular documents are in .csv (comma separated values) rather than Excel documents.</p>
+<p>The metrics at the top give info about the number of citations with this data, the number of downloads, and the number of views. This is what it looks like when you click on the Downloads tab for more information.</p>
+<p><img src="images/arctic-data-center/ADC-datacatalog2.png" /></p>
+<p>Scroll down for more info about the dataset – abstract, keywords. Then you’ll see more info about the data itself. This shows the data with a description, as well as info about the attributes (or variables or parameters) that were measured. The green check mark indicates that those attributes have been annotated, which means the measurements have a precise definition to them. Scrolling further, we also see who collected the data, where they collected it, and when they collected it, as well as any funding information like a grant number. For biological data, there is the option to add taxa.</p>
+</div>
+<div id="tools-and-infrastructure" class="section level3">
+<h3><span class="header-section-number">1.1.4</span> Tools and Infrastructure</h3>
+<p>We have a number of tools available to submitters and researchers who are there to download data. We also partner with other organizations, like <a href="https://makedatacount.org/">Make Data Count</a> and <a href="https://www.dataone.org/">DataONE</a>, and leverage those partnerships to create a better data experience.</p>
+<p><img src="images/arctic-data-center/ADC-infrastructure.png" /></p>
+<p>One of those tools is provenance tracking. With provenance tracking, users of the Arctic Data Center can see exactly what datasets led to what product, using the particular script that the researcher ran.</p>
+<p><img src="images/provenance.png" /></p>
+<p>Another tool are our Metadata Quality Checks. We know that data quality is important for researchers to find datasets and to have trust in them to use them for another analysis. For every submitted dataset, the metadata is run through a quality check to increase the completeness of submitted metadata records. These checks are seen by the submitter as well as are available to those that view the data, which helps to increase knowledge of how complete their metadata is before submission. That way, the metadata that is uploaded to the Arctic Data Center is as complete as possible, and close to following the guideline of being understandable to any reasonable scientist.</p>
+<p><img src="images/arctic-data-center/ADC-metadataquality.png" /></p>
+</div>
+<div id="support-services" class="section level3">
+<h3><span class="header-section-number">1.1.5</span> Support Services</h3>
+<p>Metadata quality checks are the automatic way that we ensure quality of data in the repository, but the real quality and curation support is done by our curation <a href="https://arcticdata.io/team/">team</a>. The process by which data gets into the Arctic Data Center is iterative, meaning that our team works with the submitter to ensure good quality and completeness of data. When a submitter submits data, our team gets a notification and beings to evaluate the data for upload. They then go in and format it for input into the catalog, communicating back and forth with the researcher if anything is incomplete or not communicated well. This process can take anywhere from a few days or a few weeks, depending on the size of the dataset and how quickly the researcher gets back to us. Once that process has been completed, the dataset is published with a DOI (digital object identifier).</p>
+<p><img src="images/arctic-data-center/ADC-supportflow.png" /></p>
+</div>
+<div id="training-and-outreach" class="section level3">
+<h3><span class="header-section-number">1.1.6</span> Training and Outreach</h3>
+<p>In addition to the tools and support services, we also interact with the community via trainings like this one and outreach events. We run workshops at conferences like the Ecological Society of America and the American Geophysical Union. We also run an intern and fellows program, and webinars with different organizations. We’re invested in helping to train the Arctic science community in reproducible techniques, since it facilitates a more open culture of data sharing and reuse.</p>
+<p><img src="images/arctic-data-center/ADC-trainingpeople.png" /></p>
+<p>We also strive to keep our fingers on the pulse of what researchers like yourselves are looking for in terms of support. We’re active on <a href="https://twitter.com/arcticdatactr">Twitter</a> to share Arctic updates, data science updates, and specifically Arctic Data Center updates, but we’re also happy to feature new papers or successes that you all have had with working with the data. We can also take data science questions if you’re running into those in the course of your research, or how to make a quality data management plan. Follow us on Twitter and interact with us – we love to be involved in your research as it’s happening as well as after it’s completed.</p>
+<p>Furthermore, we have a robust Data Fellows program to train early career researchers or recently graduated students in data science.</p>
+<p><img src="images/arctic-data-center/ADC-fellows2020.png" /></p>
+</div>
+<div id="data-rescue" class="section level3">
+<h3><span class="header-section-number">1.1.7</span> Data Rescue</h3>
+<p>We also run data rescue operations. We digitiazed Autin Post’s collection of glacier photos that were taken from 1964 to 1997. There were 100,000+ files and almost 5 TB of data to ingest, and we reconstructed flight paths, digitized the images of his notes, and documented image metadata, including the camera specifications.</p>
+<p><img src="images/arctic-data-center/ADC-datarescue.png" /></p>
+</div>
+<div id="who-must-submit" class="section level3">
+<h3><span class="header-section-number">1.1.8</span> Who Must Submit</h3>
+<p>Projects that have to submit their data include all Arctic Research Opportunities through the NSF Office of Polar Programs. That data has to be uploaded within two years of collection. The Arctic Observing Network has a shorter timeline – their data products must be uploaded within 6 months of collection.</p>
+<p><img src="images/arctic-data-center/ADC-whosubmits1.png" /></p>
+<p>Additionally, we have social science data, though that data often has special exceptions due to sensitive human subjects data. At the very least, the metadata has to be deposited with us.</p>
+<p><img src="images/arctic-data-center/ADC-whosubmits2.png" /></p>
+</div>
+<div id="summary" class="section level3">
+<h3><span class="header-section-number">1.1.9</span> Summary</h3>
+<p>All the above informtion can be found on our website or if you need help, ask our support team at <a href="mailto:support@arcticdata.io">support@arcticdata.io</a> or tweet us @arcticdatactr!</p>
+<p><img src="images/arctic-data-center/ADC-overallmetrics.png" /></p>
+<p>Download slides: <a href="files/October-2019-ADC-Data-Science-Training_Intro_Policies.pdf">Arctic Data Center Overview and NSF Policies</a></p>
+</div>
+</div>
+<div id="writing-good-data-management-plans" class="section level2">
+<h2><span class="header-section-number">1.2</span> Writing Good Data Management Plans</h2>
+<div id="learning-objectives-1" class="section level3">
+<h3><span class="header-section-number">1.2.1</span> Learning Objectives</h3>
+<p>In this lesson, you will learn:</p>
+<ul>
+<li>Why create data management plans</li>
+<li>The major components of data management plans</li>
+<li>Tools that can help create a data management plan</li>
+<li>Features and functionality of the DMPTool</li>
+</ul>
+</div>
+<div id="when-to-plan-the-data-life-cycle" class="section level3">
+<h3><span class="header-section-number">1.2.2</span> When to Plan: The Data Life Cycle</h3>
+<p>Shown below is one version of the <a href="https://www.dataone.org/data-life-cycle">Data Life Cycle</a> that was developed by DataONE. The data life cycle provides a high level overview of the stages involved in successful management and preservation of data for use and reuse. Multiple versions of a data life cycle exist with differences attributable to variation in practices across domains or communities. It is not neccesary for researchers to move through the data life cycle in a cylical fashion and some research activities might use only part of the life cycle. For instance, a project involving meta-analysis might focus on the Discover, Integrate, and Analyze steps, while a project focused on primary data collection and analysis might bypass the Discover and Integrate steps. However, ‘Plan’ is at the top of the data life cycle as it is advisable to initiate your data management planning at the beginning of your research process, before any data has been collected.</p>
+<p><img src="images/DLC.png" /></p>
+</div>
+<div id="why-plan" class="section level3">
+<h3><span class="header-section-number">1.2.3</span> Why Plan?</h3>
+<p>Planning data management in advance povides a number of benefits to the researcher.</p>
+<ul>
+<li><strong>Saves time and increases efficiency</strong>; Data management planning requires that a researcher think about data handling in advance of data collection, potentially raising any challenges before they are encountered.</li>
+<li><strong>Engages your team</strong>; Being able to plan effectively will require conversation with multiple parties, engaging project participants from the outset.</li>
+<li><strong>Allows you to stay organized</strong>; It will be easier to organize your data for analysis and reuse.</li>
+<li><strong>Meet funder requirements</strong>; Funders require a data management plan as part of the proposal process.</li>
+<li><strong>Share data</strong>; Information in the DMP is the foundation for archiving and sharing data with community.</li>
+</ul>
+</div>
+<div id="how-to-plan" class="section level3">
+<h3><span class="header-section-number">1.2.4</span> How to Plan</h3>
+<ol style="list-style-type: decimal">
+<li>As indicated above, engaging your team is a benefit of data management planning. Collaborators involved in the data collection and processing of your research data bring diverse expertise. Therefore, <strong>plan in collaboration</strong> with these individuals.</li>
+<li>Make sure to <strong>plan from the start</strong> to avoid confusion, data loss, and increase efficiency. Given DMPs are a requirement of funding agencies, it is nearly always neccesary to plan from the start. However, the same should apply to research that is being undertaken outside of a specific funded proposal.</li>
+<li>Make sure to <strong>utilize resources</strong> that are available to assist you in helping to write a good DMP. These might include your institutional library or organization data manager, online resources or education materials such as these.</li>
+<li><strong>Use tools</strong> available to you; you don’t have to reinvent the wheel.</li>
+<li><strong>Revise your plan</strong> as situations change and you potentially adapt/alter your project. Like your research projects, data management plans are not static, they require changes and updates throughout the research project process.</li>
+</ol>
+</div>
+<div id="what-to-include-in-a-dmp" class="section level3">
+<h3><span class="header-section-number">1.2.5</span> What to include in a DMP</h3>
+<p>If you are writing a data management plan as part of a solicitation proposal, the funding agency will have guidelines for the information they want to be provided in the plan. A good plan will provide information on the study design; data to be collected; metadata; policies for access, sharing &amp; reuse; long-term storage &amp; data management; and budget.</p>
+<p><em>A note on Metadata:</em>
+Both basic metadata (such as title and researcher contact information) and comprehensive metadata (such as complete methods of data collection) are critical for accurate interpretation and understanding. The full definitions of variables, especially units, inside each dataset are also critical as they relate to the methods used for creation. Knowing certain blocking or grouping methods, for example, would be necessary to understand studies for proper comparisons and synthesis.</p>
+</div>
+<div id="nsf-dmp-requirements" class="section level3">
+<h3><span class="header-section-number">1.2.6</span> NSF DMP requirements</h3>
+<p>In the 2014 Proposal Preparation Instructions, Section J <a href="https://www.nsf.gov/pubs/policydocs/pappguide/nsf14001/gpg_2.jsp#IIC2j">‘Special Information and Supplementary Documentation’</a> NSF put foward the baseline requirements for a data management plan. In addition, there are specific divison and program requirements that provide additional detail. If you are working on a research project with funding that does not require a data management plan, or are developing a plan for unfunded research, the NSF generic requirements are a good set of guidelines to follow.</p>
+<p><strong>Five Sections of the NSF DMP Requirements</strong></p>
+<p><strong>1. Products of research</strong><br />
+Types of data, samples, physical collections, software, curriculum materials, other materials produced during project</p>
+<p><strong>2. Data formats and standards</strong><br />
+Standards to be used for data and metadata format and content (for initial data collection, as well as subsequent storageand processing)</p>
+<p><strong>3. Policies for access and sharing</strong><br />
+Provisions for appropriate protection of privacy, confidentiality, security, intellectual property, or other rights or requirements</p>
+<p><strong>4. Policies and provisions for re-use</strong><br />
+Including re-distribution and the production of derivatives</p>
+<p><strong>5. Archiving of data</strong><br />
+Plans for archiving data, samples, research products and for preservation of access</p>
+</div>
+<div id="tools-in-support-of-creating-a-dmp" class="section level3">
+<h3><span class="header-section-number">1.2.7</span> Tools in Support of Creating a DMP</h3>
+<p><img src="images/dmptools.jpg" /></p>
+<p>The <a href="https://dmptool.org">DMP Tool</a> and <a href="https://dmponline.dcc.ac.uk">DMP Online</a> are both easy to use web based tools that support the development of a DMP. The tools are partnered and share a code base; the DMPTool incorporates templates from US funding agencies and the DMP Online is focussed on EU requirements.</p>
+<p><img src="images/DMP_1.png" /></p>
+</div>
+<div id="arctic-data-center-support-for-dmps" class="section level3">
+<h3><span class="header-section-number">1.2.8</span> Arctic Data Center Support for DMPs</h3>
+<p>To support researchers in creating Data Management Plans that fulfils NSF template requirements and provides guidance on how to work with the Arctic Data Center for preservation, we have created an Arctic Data Center template within the DMPTool. This template walks researchers through the questions required by NSF and includes recommendations directly from the Arctic Data Center team.</p>
+<p><img src="images/DMP_5.png" /></p>
+<p>When creating a new plan, indicate that your funding agency is the National Science Foundation and you will then have the option to select a template. Here you can choose the Arctic Data Center.</p>
+<p><img src="images/DMP_8.png" /></p>
+<p>As you answer the questions posed, guidance information from the Arctic Data Center will be visible under the ‘NSF’ tab on the right hand side. An example answer is also provided at the bottom. It is not intended that you copy and paste this verbatim. Rather, this is example prose that you can refer to for answering the question.</p>
+<p><img src="images/DMP_14.png" /></p>
+</div>
+<div id="sharing-your-dmp" class="section level3">
+<h3><span class="header-section-number">1.2.9</span> Sharing Your DMP</h3>
+<p>The DMPTool allows you to collaborate with authorized individuals on your plan and also to publish it (make it publicly accessible) via the website. If your research activity is funded, it is also useful to share your DMP with the Arctic Data Center. This is not an NSF requirement, but can greatly help the Arctic Data Center team prepare for your data submission. Especially if you are anticipating a high volume of data.</p>
+</div>
+<div id="additional-resources" class="section level3">
+<h3><span class="header-section-number">1.2.10</span> Additional Resources</h3>
+<p>The article <a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004525">Ten Simple Rules for Creating a Good Data Management Plan</a> is a great resource for thinking about writing a data management plan and the information you should include within the plan.</p>
+<p><img src="images/DMPSimpleRules.png" /></p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="session-2-documenting-and-publishing-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

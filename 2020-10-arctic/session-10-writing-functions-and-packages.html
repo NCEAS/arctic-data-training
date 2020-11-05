@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>10 Session 10: Writing Functions and Packages | Arctic Data Center Training</title>
+  <meta name="description" content="10 Session 10: Writing Functions and Packages | Arctic Data Center Training" />
+  <meta name="generator" content="bookdown 0.21.4 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="10 Session 10: Writing Functions and Packages | Arctic Data Center Training" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="10 Session 10: Writing Functions and Packages | Arctic Data Center Training" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="session-9-data-visualisation-and-publishing-to-the-web.html"/>
+<link rel="next" href="session-11-arctic-data-center-data-portals.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.2/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.16/datatables.js"></script>
+<link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.0.3/leaflet.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Data Science Training for the Arctic Data Center</a><ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#schedule"><i class="fa fa-check"></i><b>0.1</b> Schedule</a><ul>
+<li class="chapter" data-level="0.1.1" data-path="index.html"><a href="index.html#code-of-conduct"><i class="fa fa-check"></i><b>0.1.1</b> Code of Conduct</a></li>
+<li class="chapter" data-level="0.1.2" data-path="index.html"><a href="index.html#logistics"><i class="fa fa-check"></i><b>0.1.2</b> Logistics</a></li>
+<li class="chapter" data-level="0.1.3" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>0.1.3</b> Acknowledgements</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html"><i class="fa fa-check"></i><b>1</b> Session 1: Introduction to the Arctic Data Center</a><ul>
+<li class="chapter" data-level="1.1" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#introduction-to-the-arctic-data-center-and-nsf-standards-and-policies"><i class="fa fa-check"></i><b>1.1</b> Introduction to the Arctic Data Center and NSF Standards and Policies</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#learning-objectives"><i class="fa fa-check"></i><b>1.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="1.1.2" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#arctic-data-center---history-and-introduction"><i class="fa fa-check"></i><b>1.1.2</b> Arctic Data Center - History and Introduction</a></li>
+<li class="chapter" data-level="1.1.3" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#data-discovery-portal"><i class="fa fa-check"></i><b>1.1.3</b> Data Discovery Portal</a></li>
+<li class="chapter" data-level="1.1.4" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#tools-and-infrastructure"><i class="fa fa-check"></i><b>1.1.4</b> Tools and Infrastructure</a></li>
+<li class="chapter" data-level="1.1.5" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#support-services"><i class="fa fa-check"></i><b>1.1.5</b> Support Services</a></li>
+<li class="chapter" data-level="1.1.6" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#training-and-outreach"><i class="fa fa-check"></i><b>1.1.6</b> Training and Outreach</a></li>
+<li class="chapter" data-level="1.1.7" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#data-rescue"><i class="fa fa-check"></i><b>1.1.7</b> Data Rescue</a></li>
+<li class="chapter" data-level="1.1.8" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#who-must-submit"><i class="fa fa-check"></i><b>1.1.8</b> Who Must Submit</a></li>
+<li class="chapter" data-level="1.1.9" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#summary"><i class="fa fa-check"></i><b>1.1.9</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#writing-good-data-management-plans"><i class="fa fa-check"></i><b>1.2</b> Writing Good Data Management Plans</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#learning-objectives-1"><i class="fa fa-check"></i><b>1.2.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="1.2.2" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#when-to-plan-the-data-life-cycle"><i class="fa fa-check"></i><b>1.2.2</b> When to Plan: The Data Life Cycle</a></li>
+<li class="chapter" data-level="1.2.3" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#why-plan"><i class="fa fa-check"></i><b>1.2.3</b> Why Plan?</a></li>
+<li class="chapter" data-level="1.2.4" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#how-to-plan"><i class="fa fa-check"></i><b>1.2.4</b> How to Plan</a></li>
+<li class="chapter" data-level="1.2.5" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#what-to-include-in-a-dmp"><i class="fa fa-check"></i><b>1.2.5</b> What to include in a DMP</a></li>
+<li class="chapter" data-level="1.2.6" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#nsf-dmp-requirements"><i class="fa fa-check"></i><b>1.2.6</b> NSF DMP requirements</a></li>
+<li class="chapter" data-level="1.2.7" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#tools-in-support-of-creating-a-dmp"><i class="fa fa-check"></i><b>1.2.7</b> Tools in Support of Creating a DMP</a></li>
+<li class="chapter" data-level="1.2.8" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#arctic-data-center-support-for-dmps"><i class="fa fa-check"></i><b>1.2.8</b> Arctic Data Center Support for DMPs</a></li>
+<li class="chapter" data-level="1.2.9" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#sharing-your-dmp"><i class="fa fa-check"></i><b>1.2.9</b> Sharing Your DMP</a></li>
+<li class="chapter" data-level="1.2.10" data-path="session-1-introduction-to-the-arctic-data-center.html"><a href="session-1-introduction-to-the-arctic-data-center.html#additional-resources"><i class="fa fa-check"></i><b>1.2.10</b> Additional Resources</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html"><i class="fa fa-check"></i><b>2</b> Session 2: Documenting and Publishing Data</a><ul>
+<li class="chapter" data-level="2.1" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#best-practices-data-and-metadata"><i class="fa fa-check"></i><b>2.1</b> Best Practices: Data and Metadata</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#learning-objectives-2"><i class="fa fa-check"></i><b>2.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="2.1.2" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#best-practices-overview"><i class="fa fa-check"></i><b>2.1.2</b> Best Practices: Overview</a></li>
+<li class="chapter" data-level="2.1.3" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#data-identifiers"><i class="fa fa-check"></i><b>2.1.3</b> Data Identifiers</a></li>
+<li class="chapter" data-level="2.1.4" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#data-citation"><i class="fa fa-check"></i><b>2.1.4</b> Data Citation</a></li>
+<li class="chapter" data-level="2.1.5" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#provanance-preserving-computational-workflows"><i class="fa fa-check"></i><b>2.1.5</b> Provanance &amp; Preserving Computational Workflows</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#data-documentation-and-publishing"><i class="fa fa-check"></i><b>2.2</b> Data Documentation and Publishing</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#learning-objectives-3"><i class="fa fa-check"></i><b>2.2.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="2.2.2" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#data-sharing-and-preservation"><i class="fa fa-check"></i><b>2.2.2</b> Data sharing and preservation</a></li>
+<li class="chapter" data-level="2.2.3" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#data-repositories-built-for-data-and-code"><i class="fa fa-check"></i><b>2.2.3</b> Data repositories: built for data (and code)</a></li>
+<li class="chapter" data-level="2.2.4" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#metadata"><i class="fa fa-check"></i><b>2.2.4</b> Metadata</a></li>
+<li class="chapter" data-level="2.2.5" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#structure-of-a-data-package"><i class="fa fa-check"></i><b>2.2.5</b> Structure of a data package</a></li>
+<li class="chapter" data-level="2.2.6" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#dataone-federation"><i class="fa fa-check"></i><b>2.2.6</b> DataONE Federation</a></li>
+<li class="chapter" data-level="2.2.7" data-path="session-2-documenting-and-publishing-data.html"><a href="session-2-documenting-and-publishing-data.html#publishing-data-from-the-web"><i class="fa fa-check"></i><b>2.2.7</b> Publishing data from the web</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html"><i class="fa fa-check"></i><b>3</b> Session 3: Literate Analysis with RMarkdown</a><ul>
+<li class="chapter" data-level="3.1" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#rstudio-and-gitgithub-setup-and-motivation"><i class="fa fa-check"></i><b>3.1</b> RStudio and Git/GitHub Setup and Motivation</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#learning-objectives-4"><i class="fa fa-check"></i><b>3.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="3.1.2" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#introduction-to-reproducible-research"><i class="fa fa-check"></i><b>3.1.2</b> Introduction to reproducible research</a></li>
+<li class="chapter" data-level="3.1.3" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#logging-into-the-rstudio-server"><i class="fa fa-check"></i><b>3.1.3</b> Logging into the RStudio server</a></li>
+<li class="chapter" data-level="3.1.4" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#setting-up-the-r-environment-on-your-local-computer"><i class="fa fa-check"></i><b>3.1.4</b> Setting up the R environment on your local computer</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#literate-analysis-with-rmarkdown"><i class="fa fa-check"></i><b>3.2</b> Literate Analysis with RMarkdown</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#learning-objectives-5"><i class="fa fa-check"></i><b>3.2.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="3.2.2" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#introduction-and-motivation"><i class="fa fa-check"></i><b>3.2.2</b> Introduction and motivation</a></li>
+<li class="chapter" data-level="3.2.3" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#basic-rmarkdown-syntax"><i class="fa fa-check"></i><b>3.2.3</b> Basic RMarkdown syntax</a></li>
+<li class="chapter" data-level="3.2.4" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#code-chunks"><i class="fa fa-check"></i><b>3.2.4</b> Code chunks</a></li>
+<li class="chapter" data-level="3.2.5" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#literate-analysis-practice"><i class="fa fa-check"></i><b>3.2.5</b> Literate analysis practice</a></li>
+<li class="chapter" data-level="3.2.6" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#rmarkdown-and-environments"><i class="fa fa-check"></i><b>3.2.6</b> RMarkdown and environments</a></li>
+<li class="chapter" data-level="3.2.7" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#go-further"><i class="fa fa-check"></i><b>3.2.7</b> Go Further</a></li>
+<li class="chapter" data-level="3.2.8" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#resources"><i class="fa fa-check"></i><b>3.2.8</b> Resources</a></li>
+<li class="chapter" data-level="3.2.9" data-path="session-3-literate-analysis-with-rmarkdown.html"><a href="session-3-literate-analysis-with-rmarkdown.html#troubleshooting"><i class="fa fa-check"></i><b>3.2.9</b> Troubleshooting</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html"><i class="fa fa-check"></i><b>4</b> Session 4: Version Control with git and GitHub</a><ul>
+<li class="chapter" data-level="4.1" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#learning-objectives-6"><i class="fa fa-check"></i><b>4.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="4.2" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#introduction-to-git"><i class="fa fa-check"></i><b>4.2</b> Introduction to git</a><ul>
+<li class="chapter" data-level="" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#version-control-and-collaboration-using-git-and-github"><i class="fa fa-check"></i>Version control and Collaboration using Git and GitHub</a></li>
+<li class="chapter" data-level="" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#lets-look-at-a-github-repository"><i class="fa fa-check"></i>Let’s look at a GitHub repository</a></li>
+<li class="chapter" data-level="" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#the-git-lifecycle"><i class="fa fa-check"></i>The Git lifecycle</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#create-a-remote-repository-on-github"><i class="fa fa-check"></i><b>4.3</b> Create a remote repository on GitHub</a><ul>
+<li class="chapter" data-level="" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#setup-4"><i class="fa fa-check"></i>Setup</a></li>
+<li><a href="session-4-version-control-with-git-and-github.html#section-1"></a></li>
+<li class="chapter" data-level="" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#challenge-5"><i class="fa fa-check"></i>Challenge</a></li>
+<li><a href="session-4-version-control-with-git-and-github.html#section-2"></a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#working-locally-with-git-via-rstudio"><i class="fa fa-check"></i><b>4.4</b> Working locally with Git via RStudio</a><ul>
+<li class="chapter" data-level="" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#setup-5"><i class="fa fa-check"></i>Setup</a></li>
+<li><a href="session-4-version-control-with-git-and-github.html#section-3"></a></li>
+<li class="chapter" data-level="" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#challenge-6"><i class="fa fa-check"></i>Challenge</a></li>
+<li><a href="session-4-version-control-with-git-and-github.html#section-4"></a></li>
+<li class="chapter" data-level="" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#aside-3"><i class="fa fa-check"></i>Aside</a></li>
+<li class="chapter" data-level="" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#collaboration-and-conflict-free-workflows"><i class="fa fa-check"></i>Collaboration and conflict free workflows</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#setting-up-git-on-an-existing-project"><i class="fa fa-check"></i><b>4.5</b> Setting up git on an existing project</a><ul>
+<li class="chapter" data-level="" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#challenge-7"><i class="fa fa-check"></i>Challenge</a></li>
+<li><a href="session-4-version-control-with-git-and-github.html#section-5"></a></li>
+<li class="chapter" data-level="" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#challenge-8"><i class="fa fa-check"></i>Challenge</a></li>
+<li><a href="session-4-version-control-with-git-and-github.html#section-6"></a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="session-4-version-control-with-git-and-github.html"><a href="session-4-version-control-with-git-and-github.html#go-further-1"><i class="fa fa-check"></i><b>4.6</b> Go Further</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html"><i class="fa fa-check"></i><b>5</b> Session 5: Git Collaboration and Conflict Management</a><ul>
+<li class="chapter" data-level="5.1" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#learning-objectives-7"><i class="fa fa-check"></i><b>5.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="5.2" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#introduction"><i class="fa fa-check"></i><b>5.2</b> Introduction</a></li>
+<li class="chapter" data-level="5.3" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#collaborating-with-a-trusted-colleague-without-conflicts"><i class="fa fa-check"></i><b>5.3</b> Collaborating with a trusted colleague <strong>without conflicts</strong></a><ul>
+<li class="chapter" data-level="" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#setup-6"><i class="fa fa-check"></i>Setup</a></li>
+<li><a href="session-5-git-collaboration-and-conflict-management.html#section-7"></a></li>
+<li class="chapter" data-level="5.3.1" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#step-1-collaborator-clone"><i class="fa fa-check"></i><b>5.3.1</b> Step 1: Collaborator clone</a></li>
+<li class="chapter" data-level="5.3.2" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#step-2-collaborator-edits"><i class="fa fa-check"></i><b>5.3.2</b> Step 2: Collaborator Edits</a></li>
+<li class="chapter" data-level="5.3.3" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#step-3-collaborator-commit-and-push"><i class="fa fa-check"></i><b>5.3.3</b> Step 3: Collaborator commit and push</a></li>
+<li class="chapter" data-level="5.3.4" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#step-4-owner-pull"><i class="fa fa-check"></i><b>5.3.4</b> Step 4: Owner pull</a></li>
+<li class="chapter" data-level="5.3.5" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#step-5-owner-edits-commit-and-push"><i class="fa fa-check"></i><b>5.3.5</b> Step 5: Owner edits, commit, and push</a></li>
+<li class="chapter" data-level="5.3.6" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#step-6-collaborator-pull"><i class="fa fa-check"></i><b>5.3.6</b> Step 6: Collaborator pull</a></li>
+<li class="chapter" data-level="" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#challenge-9"><i class="fa fa-check"></i>Challenge</a></li>
+<li><a href="session-5-git-collaboration-and-conflict-management.html#section-8"></a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#merge-conflicts"><i class="fa fa-check"></i><b>5.4</b> Merge conflicts</a></li>
+<li class="chapter" data-level="5.5" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#how-to-resolve-a-conflict"><i class="fa fa-check"></i><b>5.5</b> How to resolve a conflict</a><ul>
+<li class="chapter" data-level="" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#abort-abort-abort"><i class="fa fa-check"></i>Abort, abort, abort…</a></li>
+<li class="chapter" data-level="" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#checkout"><i class="fa fa-check"></i>Checkout</a></li>
+<li class="chapter" data-level="" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#pull-and-edit-the-file"><i class="fa fa-check"></i>Pull and edit the file</a></li>
+<li class="chapter" data-level="5.5.1" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#producing-and-resolving-merge-conflicts"><i class="fa fa-check"></i><b>5.5.1</b> Producing and resolving merge conflicts</a></li>
+<li class="chapter" data-level="" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#merge-conflict-challenge"><i class="fa fa-check"></i>Merge Conflict Challenge</a></li>
+<li><a href="session-5-git-collaboration-and-conflict-management.html#section-9"></a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="session-5-git-collaboration-and-conflict-management.html"><a href="session-5-git-collaboration-and-conflict-management.html#workflows-to-avoid-merge-conflicts"><i class="fa fa-check"></i><b>5.6</b> Workflows to avoid merge conflicts</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="session-6-social-aspects-of-collaboration.html"><a href="session-6-social-aspects-of-collaboration.html"><i class="fa fa-check"></i><b>6</b> Session 6: Social Aspects of Collaboration</a><ul>
+<li class="chapter" data-level="6.1" data-path="session-6-social-aspects-of-collaboration.html"><a href="session-6-social-aspects-of-collaboration.html#thinking-preferences"><i class="fa fa-check"></i><b>6.1</b> Thinking preferences</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="session-6-social-aspects-of-collaboration.html"><a href="session-6-social-aspects-of-collaboration.html#learning-objectives-8"><i class="fa fa-check"></i><b>6.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="6.1.2" data-path="session-6-social-aspects-of-collaboration.html"><a href="session-6-social-aspects-of-collaboration.html#thinking-preferences-activity"><i class="fa fa-check"></i><b>6.1.2</b> Thinking Preferences Activity</a></li>
+<li class="chapter" data-level="6.1.3" data-path="session-6-social-aspects-of-collaboration.html"><a href="session-6-social-aspects-of-collaboration.html#about-the-whole-brain-thinking-system"><i class="fa fa-check"></i><b>6.1.3</b> About the Whole Brain Thinking System</a></li>
+<li class="chapter" data-level="6.1.4" data-path="session-6-social-aspects-of-collaboration.html"><a href="session-6-social-aspects-of-collaboration.html#bonus-activity-your-complex-self"><i class="fa fa-check"></i><b>6.1.4</b> Bonus Activity: Your Complex Self</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="session-6-social-aspects-of-collaboration.html"><a href="session-6-social-aspects-of-collaboration.html#additional-resources-collaboration-authorship-and-data-policies"><i class="fa fa-check"></i><b>6.2</b> Additional Resources: Collaboration, authorship and data policies</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="session-6-social-aspects-of-collaboration.html"><a href="session-6-social-aspects-of-collaboration.html#resources-1"><i class="fa fa-check"></i><b>6.2.1</b> Resources</a></li>
+<li class="chapter" data-level="6.2.2" data-path="session-6-social-aspects-of-collaboration.html"><a href="session-6-social-aspects-of-collaboration.html#references"><i class="fa fa-check"></i><b>6.2.2</b> References</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="session-7-data-modeling-essentials.html"><a href="session-7-data-modeling-essentials.html"><i class="fa fa-check"></i><b>7</b> Session 7: Data Modeling Essentials</a><ul>
+<li class="chapter" data-level="7.1" data-path="session-7-data-modeling-essentials.html"><a href="session-7-data-modeling-essentials.html#data-modeling-tidy-data"><i class="fa fa-check"></i><b>7.1</b> Data Modeling &amp; Tidy Data</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="session-7-data-modeling-essentials.html"><a href="session-7-data-modeling-essentials.html#learning-objectives-9"><i class="fa fa-check"></i><b>7.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="7.1.2" data-path="session-7-data-modeling-essentials.html"><a href="session-7-data-modeling-essentials.html#introduction-1"><i class="fa fa-check"></i><b>7.1.2</b> Introduction</a></li>
+<li class="chapter" data-level="7.1.3" data-path="session-7-data-modeling-essentials.html"><a href="session-7-data-modeling-essentials.html#recognizing-untidy-data"><i class="fa fa-check"></i><b>7.1.3</b> Recognizing untidy data</a></li>
+<li class="chapter" data-level="7.1.4" data-path="session-7-data-modeling-essentials.html"><a href="session-7-data-modeling-essentials.html#good-enough-data-modeling"><i class="fa fa-check"></i><b>7.1.4</b> Good enough data modeling</a></li>
+<li class="chapter" data-level="7.1.5" data-path="session-7-data-modeling-essentials.html"><a href="session-7-data-modeling-essentials.html#using-normalized-data"><i class="fa fa-check"></i><b>7.1.5</b> Using normalized data</a></li>
+<li class="chapter" data-level="7.1.6" data-path="session-7-data-modeling-essentials.html"><a href="session-7-data-modeling-essentials.html#data-modeling-exercise"><i class="fa fa-check"></i><b>7.1.6</b> Data modeling exercise</a></li>
+<li class="chapter" data-level="7.1.7" data-path="session-7-data-modeling-essentials.html"><a href="session-7-data-modeling-essentials.html#resources-2"><i class="fa fa-check"></i><b>7.1.7</b> Resources</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="session-8-cleaning-and-manipulating-data.html"><a href="session-8-cleaning-and-manipulating-data.html"><i class="fa fa-check"></i><b>8</b> Session 8: Cleaning and Manipulating Data</a><ul>
+<li class="chapter" data-level="8.1" data-path="session-8-cleaning-and-manipulating-data.html"><a href="session-8-cleaning-and-manipulating-data.html#data-cleaning-and-manipulation"><i class="fa fa-check"></i><b>8.1</b> Data Cleaning and Manipulation</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="session-8-cleaning-and-manipulating-data.html"><a href="session-8-cleaning-and-manipulating-data.html#learning-objectives-10"><i class="fa fa-check"></i><b>8.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="8.1.2" data-path="session-8-cleaning-and-manipulating-data.html"><a href="session-8-cleaning-and-manipulating-data.html#introduction-2"><i class="fa fa-check"></i><b>8.1.2</b> Introduction</a></li>
+<li class="chapter" data-level="8.1.3" data-path="session-8-cleaning-and-manipulating-data.html"><a href="session-8-cleaning-and-manipulating-data.html#data-cleaning-basics"><i class="fa fa-check"></i><b>8.1.3</b> Data Cleaning Basics</a></li>
+<li class="chapter" data-level="8.1.4" data-path="session-8-cleaning-and-manipulating-data.html"><a href="session-8-cleaning-and-manipulating-data.html#joins-in-dplyr"><i class="fa fa-check"></i><b>8.1.4</b> Joins in dplyr</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html"><i class="fa fa-check"></i><b>9</b> Session 9: Data Visualisation and Publishing to the Web</a><ul>
+<li class="chapter" data-level="9.1" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html#publishing-analyses-to-the-web"><i class="fa fa-check"></i><b>9.1</b> Publishing Analyses to the Web</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html#learning-objectives-11"><i class="fa fa-check"></i><b>9.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="9.1.2" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html#introduction-3"><i class="fa fa-check"></i><b>9.1.2</b> Introduction</a></li>
+<li class="chapter" data-level="9.1.3" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html#a-minimal-example"><i class="fa fa-check"></i><b>9.1.3</b> A Minimal Example</a></li>
+<li class="chapter" data-level="9.1.4" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html#exercise-sharing-your-work"><i class="fa fa-check"></i><b>9.1.4</b> Exercise: Sharing your work</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html#publication-graphics"><i class="fa fa-check"></i><b>9.2</b> Publication Graphics</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html#learning-objectives-12"><i class="fa fa-check"></i><b>9.2.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="9.2.2" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html#overview-1"><i class="fa fa-check"></i><b>9.2.2</b> Overview</a></li>
+<li class="chapter" data-level="9.2.3" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html#static-figures-using-ggplot2"><i class="fa fa-check"></i><b>9.2.3</b> Static figures using <code>ggplot2</code></a></li>
+<li class="chapter" data-level="9.2.4" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html#interactive-visualization-using-leaflet-and-dt"><i class="fa fa-check"></i><b>9.2.4</b> Interactive visualization using <code>leaflet</code> and <code>DT</code></a></li>
+<li class="chapter" data-level="9.2.5" data-path="session-9-data-visualisation-and-publishing-to-the-web.html"><a href="session-9-data-visualisation-and-publishing-to-the-web.html#resources-3"><i class="fa fa-check"></i><b>9.2.5</b> Resources</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html"><i class="fa fa-check"></i><b>10</b> Session 10: Writing Functions and Packages</a><ul>
+<li class="chapter" data-level="10.1" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#creating-r-functions"><i class="fa fa-check"></i><b>10.1</b> Creating R Functions</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#why-functions"><i class="fa fa-check"></i><b>10.1.1</b> Why functions?</a></li>
+<li class="chapter" data-level="10.1.2" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#documenting-r-functions"><i class="fa fa-check"></i><b>10.1.2</b> Documenting R functions</a></li>
+<li class="chapter" data-level="10.1.3" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#summary-2"><i class="fa fa-check"></i><b>10.1.3</b> Summary</a></li>
+<li class="chapter" data-level="10.1.4" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#examples-minimizing-work-with-functions"><i class="fa fa-check"></i><b>10.1.4</b> Examples: Minimizing work with functions</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#creating-r-packages"><i class="fa fa-check"></i><b>10.2</b> Creating R Packages</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#learning-objectives-13"><i class="fa fa-check"></i><b>10.2.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="10.2.2" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#why-packages"><i class="fa fa-check"></i><b>10.2.2</b> Why packages?</a></li>
+<li class="chapter" data-level="10.2.3" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#install-and-load-packages"><i class="fa fa-check"></i><b>10.2.3</b> Install and load packages</a></li>
+<li class="chapter" data-level="10.2.4" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#create-a-basic-package"><i class="fa fa-check"></i><b>10.2.4</b> Create a basic package</a></li>
+<li class="chapter" data-level="10.2.5" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#add-your-code"><i class="fa fa-check"></i><b>10.2.5</b> Add your code</a></li>
+<li class="chapter" data-level="10.2.6" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#add-documentation"><i class="fa fa-check"></i><b>10.2.6</b> Add documentation</a></li>
+<li class="chapter" data-level="10.2.7" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#test-your-package"><i class="fa fa-check"></i><b>10.2.7</b> Test your package</a></li>
+<li class="chapter" data-level="10.2.8" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#checking-and-installing-your-package"><i class="fa fa-check"></i><b>10.2.8</b> Checking and installing your package</a></li>
+<li class="chapter" data-level="10.2.9" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#sharing-and-releasing-your-package"><i class="fa fa-check"></i><b>10.2.9</b> Sharing and releasing your package</a></li>
+<li class="chapter" data-level="10.2.10" data-path="session-10-writing-functions-and-packages.html"><a href="session-10-writing-functions-and-packages.html#more-reading"><i class="fa fa-check"></i><b>10.2.10</b> More reading</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html"><i class="fa fa-check"></i><b>11</b> Session 11: Arctic Data Center Data Portals</a><ul>
+<li class="chapter" data-level="11.1" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#creating-a-data-portal"><i class="fa fa-check"></i><b>11.1</b> Creating a data portal</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#what-is-a-portal"><i class="fa fa-check"></i><b>11.1.1</b> What is a Portal?</a></li>
+<li class="chapter" data-level="11.1.2" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#portal-uses"><i class="fa fa-check"></i><b>11.1.2</b> Portal Uses</a></li>
+<li class="chapter" data-level="11.1.3" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#portal-main-components"><i class="fa fa-check"></i><b>11.1.3</b> Portal Main Components</a></li>
+<li class="chapter" data-level="11.1.4" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#creating-portals"><i class="fa fa-check"></i><b>11.1.4</b> Creating Portals</a></li>
+<li class="chapter" data-level="11.1.5" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#adding-data-to-portals"><i class="fa fa-check"></i><b>11.1.5</b> Adding Data to Portals</a></li>
+<li class="chapter" data-level="11.1.6" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#creating-unique-freeform-pages"><i class="fa fa-check"></i><b>11.1.6</b> Creating Unique Freeform Pages</a></li>
+<li class="chapter" data-level="11.1.7" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#saving-and-editing-portals"><i class="fa fa-check"></i><b>11.1.7</b> Saving and Editing Portals</a></li>
+<li class="chapter" data-level="11.1.8" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#how-to-publish-portals"><i class="fa fa-check"></i><b>11.1.8</b> How to Publish Portals</a></li>
+<li class="chapter" data-level="11.1.9" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#sharing-portals"><i class="fa fa-check"></i><b>11.1.9</b> Sharing Portals</a></li>
+<li class="chapter" data-level="11.1.10" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#tutorial-videos"><i class="fa fa-check"></i><b>11.1.10</b> Tutorial Videos</a></li>
+<li class="chapter" data-level="11.1.11" data-path="session-11-arctic-data-center-data-portals.html"><a href="session-11-arctic-data-center-data-portals.html#acknowledgements-1"><i class="fa fa-check"></i><b>11.1.11</b> Acknowledgements</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="session-12-exercise-cleaning-and-manipulating-data.html"><a href="session-12-exercise-cleaning-and-manipulating-data.html"><i class="fa fa-check"></i><b>12</b> Session 12: Exercise - Cleaning and Manipulating Data</a><ul>
+<li class="chapter" data-level="12.1" data-path="session-12-exercise-cleaning-and-manipulating-data.html"><a href="session-12-exercise-cleaning-and-manipulating-data.html#hands-on-clean-and-integrate-datasets"><i class="fa fa-check"></i><b>12.1</b> Hands On: Clean and Integrate Datasets</a><ul>
+<li class="chapter" data-level="12.1.1" data-path="session-12-exercise-cleaning-and-manipulating-data.html"><a href="session-12-exercise-cleaning-and-manipulating-data.html#learning-objectives-14"><i class="fa fa-check"></i><b>12.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="12.1.2" data-path="session-12-exercise-cleaning-and-manipulating-data.html"><a href="session-12-exercise-cleaning-and-manipulating-data.html#outline"><i class="fa fa-check"></i><b>12.1.2</b> Outline</a></li>
+<li class="chapter" data-level="12.1.3" data-path="session-12-exercise-cleaning-and-manipulating-data.html"><a href="session-12-exercise-cleaning-and-manipulating-data.html#full-solution.-warning-spoilers-ahead"><i class="fa fa-check"></i><b>12.1.3</b> Full solution. Warning, spoilers ahead!</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="session-13-geospatial-analysis-in-r.html"><a href="session-13-geospatial-analysis-in-r.html"><i class="fa fa-check"></i><b>13</b> Session 13: Geospatial Analysis in R</a><ul>
+<li class="chapter" data-level="13.1" data-path="session-13-geospatial-analysis-in-r.html"><a href="session-13-geospatial-analysis-in-r.html#spatial-vector-analysis-using-sf"><i class="fa fa-check"></i><b>13.1</b> Spatial vector analysis using <code>sf</code></a><ul>
+<li class="chapter" data-level="13.1.1" data-path="session-13-geospatial-analysis-in-r.html"><a href="session-13-geospatial-analysis-in-r.html#learning-objectives-15"><i class="fa fa-check"></i><b>13.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="13.1.2" data-path="session-13-geospatial-analysis-in-r.html"><a href="session-13-geospatial-analysis-in-r.html#introduction-4"><i class="fa fa-check"></i><b>13.1.2</b> Introduction</a></li>
+<li class="chapter" data-level="13.1.3" data-path="session-13-geospatial-analysis-in-r.html"><a href="session-13-geospatial-analysis-in-r.html#working-with-geospatial-data"><i class="fa fa-check"></i><b>13.1.3</b> Working with geospatial data</a></li>
+<li class="chapter" data-level="13.1.4" data-path="session-13-geospatial-analysis-in-r.html"><a href="session-13-geospatial-analysis-in-r.html#sf-the-tidyverse"><i class="fa fa-check"></i><b>13.1.4</b> <code>sf</code> &amp; the Tidyverse</a></li>
+<li class="chapter" data-level="13.1.5" data-path="session-13-geospatial-analysis-in-r.html"><a href="session-13-geospatial-analysis-in-r.html#visualize-with-ggplot"><i class="fa fa-check"></i><b>13.1.5</b> Visualize with ggplot</a></li>
+<li class="chapter" data-level="13.1.6" data-path="session-13-geospatial-analysis-in-r.html"><a href="session-13-geospatial-analysis-in-r.html#visualize-sf-objects-with-leaflet"><i class="fa fa-check"></i><b>13.1.6</b> Visualize <code>sf</code> objects with leaflet</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="session-14-reproducibility-and-provenance.html"><a href="session-14-reproducibility-and-provenance.html"><i class="fa fa-check"></i><b>14</b> Session 14: Reproducibility and Provenance</a><ul>
+<li class="chapter" data-level="14.1" data-path="session-14-reproducibility-and-provenance.html"><a href="session-14-reproducibility-and-provenance.html#reproducibility-and-provenance"><i class="fa fa-check"></i><b>14.1</b> Reproducibility and Provenance</a><ul>
+<li class="chapter" data-level="14.1.1" data-path="session-14-reproducibility-and-provenance.html"><a href="session-14-reproducibility-and-provenance.html#learning-objectives-16"><i class="fa fa-check"></i><b>14.1.1</b> Learning Objectives</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Arctic Data Center Training</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="session-10-writing-functions-and-packages" class="section level1">
+<h1><span class="header-section-number">10</span> Session 10: Writing Functions and Packages</h1>
+<div id="creating-r-functions" class="section level2">
+<h2><span class="header-section-number">10.1</span> Creating R Functions</h2>
+<p>Many people write R code as a single, continuous stream of commands, often drawn
+from the R Console itself and simply pasted into a script. While any script
+brings benefits over non-scripted solutions, there are advantages to breaking
+code into small, reusable modules. This is the role of a <code>function</code> in R. In
+this lesson, we will review the advantages of coding with functions, practice
+by creating some functions and show how to call them, and then do some exercises
+to build other simple functions.</p>
+<div id="learning-outcomes" class="section level4">
+<h4><span class="header-section-number">10.1.0.1</span> Learning outcomes</h4>
+<ul>
+<li>Learn why we should write code in small functions</li>
+<li>Write code for one or more functions</li>
+<li>Document functions to improve understanding and code communication</li>
+</ul>
+</div>
+<div id="why-functions" class="section level3">
+<h3><span class="header-section-number">10.1.1</span> Why functions?</h3>
+<p>In a word:</p>
+<ul>
+<li>DRY: Don’t Repeat Yourself</li>
+</ul>
+<p>By creating small functions that only one logical task and do it well, we quickly
+gain:</p>
+<ul>
+<li>Improved understanding</li>
+<li>Reuse via decomposing tasks into bite-sized chunks</li>
+<li>Improved error testing</li>
+</ul>
+<div id="temperature-conversion" class="section level4 unnumbered">
+<h4>Temperature conversion</h4>
+<p>Imagine you have a bunch of data measured in Fahrenheit and you want to convert
+that for analytical purposes to Celsius. You might have an R script
+that does this for you.</p>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb119-1" data-line-number="1">airtemps &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">212</span>, <span class="fl">30.3</span>, <span class="dv">78</span>, <span class="dv">32</span>)</a>
+<a class="sourceLine" id="cb119-2" data-line-number="2">celsius1 &lt;-<span class="st"> </span>(airtemps[<span class="dv">1</span>]<span class="op">-</span><span class="dv">32</span>)<span class="op">*</span><span class="dv">5</span><span class="op">/</span><span class="dv">9</span></a>
+<a class="sourceLine" id="cb119-3" data-line-number="3">celsius2 &lt;-<span class="st"> </span>(airtemps[<span class="dv">2</span>]<span class="op">-</span><span class="dv">32</span>)<span class="op">*</span><span class="dv">5</span><span class="op">/</span><span class="dv">9</span></a>
+<a class="sourceLine" id="cb119-4" data-line-number="4">celsius3 &lt;-<span class="st"> </span>(airtemps[<span class="dv">3</span>]<span class="op">-</span><span class="dv">32</span>)<span class="op">*</span><span class="dv">5</span><span class="op">/</span><span class="dv">9</span></a></code></pre></div>
+<p>Note the duplicated code, where the same formula is repeated three times. This
+code would be both more compact and more reliable if we didn’t repeat ourselves.</p>
+</div>
+<div id="creating-a-function" class="section level4 unnumbered">
+<h4>Creating a function</h4>
+<p>Functions in R are a mechanism to process some input and return a value. Similarly
+to other variables, functions can be assigned to a variable so that they can be used
+throughout code by reference. To create a function in R, you use the <code>function</code> function (so meta!) and assign its result to a variable. Let’s create a function that calculates
+celsius temperature outputs from fahrenheit temperature inputs.</p>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb120-1" data-line-number="1">fahr_to_celsius &lt;-<span class="st"> </span><span class="cf">function</span>(fahr) {</a>
+<a class="sourceLine" id="cb120-2" data-line-number="2">  celsius &lt;-<span class="st"> </span>(fahr<span class="dv">-32</span>)<span class="op">*</span><span class="dv">5</span><span class="op">/</span><span class="dv">9</span></a>
+<a class="sourceLine" id="cb120-3" data-line-number="3">  <span class="kw">return</span>(celsius)</a>
+<a class="sourceLine" id="cb120-4" data-line-number="4">}</a></code></pre></div>
+<p>By running this code, we have created a function and stored it in R’s global environment. The <code>fahr</code> argument to the <code>function</code> function indicates that the function we are creating takes a single parameter (the temperature in fahrenheit), and the <code>return</code> statement indicates that the function should return the value in the <code>celsius</code> variable that was calculated inside the function. Let’s use it, and check if we got the same value as before:</p>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb121-1" data-line-number="1">celsius4 &lt;-<span class="st"> </span><span class="kw">fahr_to_celsius</span>(airtemps[<span class="dv">1</span>])</a>
+<a class="sourceLine" id="cb121-2" data-line-number="2">celsius4</a></code></pre></div>
+<pre><code>## [1] 100</code></pre>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb123-1" data-line-number="1">celsius1 <span class="op">==</span><span class="st"> </span>celsius4</a></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>Excellent. So now we have a conversion function we can use. Note that, because
+most operations in R can take multiple types as inputs, we can also pass the original vector of <code>airtemps</code>, and calculate all of the results at once:</p>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb125-1" data-line-number="1">celsius &lt;-<span class="st"> </span><span class="kw">fahr_to_celsius</span>(airtemps)</a>
+<a class="sourceLine" id="cb125-2" data-line-number="2">celsius</a></code></pre></div>
+<pre><code>## [1] 100.0000000  -0.9444444  25.5555556   0.0000000</code></pre>
+<p>This takes a vector of temperatures in fahrenheit, and returns a vector of temperatures in celsius.</p>
+</div>
+<div id="challenge-21" class="section level4 unnumbered exercise">
+<h4>Challenge</h4>
+<p>Now, create a function named <code>celsius_to_fahr</code> that does the reverse, it takes temperature data in celsius as input, and returns the data converted to fahrenheit. Then use that formula to convert the <code>celsius</code> vector back into a vector of fahrenheit values, and compare it to the original <code>airtemps</code> vector to ensure that your answers are correct. Hint: the formula for C to F conversions is <code>celsius*9/5 + 32</code>.</p>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb127-1" data-line-number="1"><span class="co"># Your code goes here</span></a></code></pre></div>
+<p>Did you encounter any issues with rounding or precision?</p>
+</div>
+</div>
+<div id="documenting-r-functions" class="section level3">
+<h3><span class="header-section-number">10.1.2</span> Documenting R functions</h3>
+<p>Functions need documentation so that we can communicate what they do, and why. The <code>roxygen2</code> package provides a simple means to document your functions so that you can explain what the function does, the assumptions about the input values, a description of the value that is returned, and the rationale for decisions made about implementation.</p>
+<p>Documentation in ROxygen is placed immediately before the function definition, and is indicated by a special comment line that always starts with the characters <code>#'</code>. Here’s a documented version of a function:</p>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb128-1" data-line-number="1"><span class="co">#&#39; Convert temperature data from Fahrenheit to Celsius</span></a>
+<a class="sourceLine" id="cb128-2" data-line-number="2"><span class="co">#&#39;</span></a>
+<a class="sourceLine" id="cb128-3" data-line-number="3"><span class="co">#&#39; @param fahr Temperature data in degrees Fahrenheit to be converted</span></a>
+<a class="sourceLine" id="cb128-4" data-line-number="4"><span class="co">#&#39; @return temperature value in degrees Celsius</span></a>
+<a class="sourceLine" id="cb128-5" data-line-number="5"><span class="co">#&#39; @keywords conversion</span></a>
+<a class="sourceLine" id="cb128-6" data-line-number="6"><span class="co">#&#39; @export</span></a>
+<a class="sourceLine" id="cb128-7" data-line-number="7"><span class="co">#&#39; @examples</span></a>
+<a class="sourceLine" id="cb128-8" data-line-number="8"><span class="co">#&#39; fahr_to_celsius(32)</span></a>
+<a class="sourceLine" id="cb128-9" data-line-number="9"><span class="co">#&#39; fahr_to_celsius(c(32, 212, 72))</span></a>
+<a class="sourceLine" id="cb128-10" data-line-number="10">fahr_to_celsius &lt;-<span class="st"> </span><span class="cf">function</span>(fahr) {</a>
+<a class="sourceLine" id="cb128-11" data-line-number="11">  celsius &lt;-<span class="st"> </span>(fahr<span class="dv">-32</span>)<span class="op">*</span><span class="dv">5</span><span class="op">/</span><span class="dv">9</span></a>
+<a class="sourceLine" id="cb128-12" data-line-number="12">  <span class="kw">return</span>(celsius)</a>
+<a class="sourceLine" id="cb128-13" data-line-number="13">}</a></code></pre></div>
+<p>Note the use of the <code>@param</code> keyword to define the expectations of input data, and the <code>@return</code> keyword for defining the value that is returned from the function. The <code>@examples</code> function is useful as a reminder as to how to use the function. Finally, the <code>@export</code> keyword indicates that, if this function were added to a package, then the function should be available to other code and packages to utilize.</p>
+</div>
+<div id="summary-2" class="section level3">
+<h3><span class="header-section-number">10.1.3</span> Summary</h3>
+<ul>
+<li>Functions are useful to reduce redundancy, reuse code, and reduce errors</li>
+<li>Build functions with the <code>function</code> function</li>
+<li>Document functions with <code>roxygen2</code> comments</li>
+</ul>
+<div id="spoiler-the-exercise-answered" class="section level4 unnumbered">
+<h4>Spoiler – the exercise answered</h4>
+<p>Don’t peek until you write your own…</p>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb129-1" data-line-number="1"><span class="co"># Your code goes here</span></a>
+<a class="sourceLine" id="cb129-2" data-line-number="2">celsius_to_fahr &lt;-<span class="st"> </span><span class="cf">function</span>(celsius) {</a>
+<a class="sourceLine" id="cb129-3" data-line-number="3">    fahr &lt;-<span class="st"> </span>celsius<span class="op">*</span><span class="dv">9</span><span class="op">/</span><span class="dv">5</span> <span class="op">+</span><span class="st"> </span><span class="dv">32</span></a>
+<a class="sourceLine" id="cb129-4" data-line-number="4">    <span class="kw">return</span>(fahr)</a>
+<a class="sourceLine" id="cb129-5" data-line-number="5">}</a>
+<a class="sourceLine" id="cb129-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb129-7" data-line-number="7">result &lt;-<span class="st"> </span><span class="kw">celsius_to_fahr</span>(celsius)</a>
+<a class="sourceLine" id="cb129-8" data-line-number="8">airtemps <span class="op">==</span><span class="st"> </span>result</a></code></pre></div>
+<pre><code>## [1] TRUE TRUE TRUE TRUE</code></pre>
+</div>
+</div>
+<div id="examples-minimizing-work-with-functions" class="section level3">
+<h3><span class="header-section-number">10.1.4</span> Examples: Minimizing work with functions</h3>
+<p>Functions can of course be as simple or complex as needed. They can be be very effective
+in repeatedly performing calculations, or for bundling a group of commands that are used
+on many different input data sources. For example, we might create a simple function that
+takes fahrenheit temperatures as input, and calculates both celsius and Kelvin temperatures.
+All three values are then returned in a list, making it very easy to create a comparison
+table among the three scales.</p>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb131-1" data-line-number="1">convert_temps &lt;-<span class="st"> </span><span class="cf">function</span>(fahr) {</a>
+<a class="sourceLine" id="cb131-2" data-line-number="2">  celsius &lt;-<span class="st"> </span>(fahr<span class="dv">-32</span>)<span class="op">*</span><span class="dv">5</span><span class="op">/</span><span class="dv">9</span></a>
+<a class="sourceLine" id="cb131-3" data-line-number="3">  kelvin &lt;-<span class="st"> </span>celsius <span class="op">+</span><span class="st"> </span><span class="fl">273.15</span></a>
+<a class="sourceLine" id="cb131-4" data-line-number="4">  <span class="kw">return</span>(<span class="kw">list</span>(<span class="dt">fahr=</span>fahr, <span class="dt">celsius=</span>celsius, <span class="dt">kelvin=</span>kelvin))</a>
+<a class="sourceLine" id="cb131-5" data-line-number="5">}</a>
+<a class="sourceLine" id="cb131-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb131-7" data-line-number="7">temps_df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="kw">convert_temps</span>(<span class="kw">seq</span>(<span class="op">-</span><span class="dv">100</span>,<span class="dv">100</span>,<span class="dv">10</span>)))</a>
+<a class="sourceLine" id="cb131-8" data-line-number="8"><span class="kw">datatable</span>(temps_df)</a></code></pre></div>
+<div id="htmlwidget-85414f7ad59cec7aa207" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-85414f7ad59cec7aa207">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21"],[-100,-90,-80,-70,-60,-50,-40,-30,-20,-10,0,10,20,30,40,50,60,70,80,90,100],[-73.3333333333333,-67.7777777777778,-62.2222222222222,-56.6666666666667,-51.1111111111111,-45.5555555555556,-40,-34.4444444444444,-28.8888888888889,-23.3333333333333,-17.7777777777778,-12.2222222222222,-6.66666666666667,-1.11111111111111,4.44444444444444,10,15.5555555555556,21.1111111111111,26.6666666666667,32.2222222222222,37.7777777777778],[199.816666666667,205.372222222222,210.927777777778,216.483333333333,222.038888888889,227.594444444444,233.15,238.705555555556,244.261111111111,249.816666666667,255.372222222222,260.927777777778,266.483333333333,272.038888888889,277.594444444444,283.15,288.705555555556,294.261111111111,299.816666666667,305.372222222222,310.927777777778]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>fahr<\/th>\n      <th>celsius<\/th>\n      <th>kelvin<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2,3]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<p>Once we have a dataset like that, we might want to plot it. One thing that we do
+repeatedly is set a consistent set of display elements for creating graphs and plots.
+By using a function to create a custom <code>ggplot</code> theme, we can enable to keep key
+parts of the formatting flexible. FOr example, in the <code>custom_theme</code> function,
+we provide a <code>base_size</code> argument that defaults to using a font size of 9 points.
+Because it has a default set, it can safely be omitted. But if it is provided,
+then that value is used to set the base font size for the plot.</p>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb132-1" data-line-number="1">custom_theme &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">base_size =</span> <span class="dv">9</span>) {</a>
+<a class="sourceLine" id="cb132-2" data-line-number="2">    ggplot2<span class="op">::</span><span class="kw">theme</span>(</a>
+<a class="sourceLine" id="cb132-3" data-line-number="3">      <span class="dt">axis.ticks       =</span> ggplot2<span class="op">::</span><span class="kw">element_blank</span>(),</a>
+<a class="sourceLine" id="cb132-4" data-line-number="4">      <span class="dt">text             =</span> ggplot2<span class="op">::</span><span class="kw">element_text</span>(<span class="dt">family =</span> <span class="st">&#39;Helvetica&#39;</span>, <span class="dt">color =</span> <span class="st">&#39;gray30&#39;</span>, <span class="dt">size =</span> base_size),</a>
+<a class="sourceLine" id="cb132-5" data-line-number="5">      <span class="dt">plot.title       =</span> ggplot2<span class="op">::</span><span class="kw">element_text</span>(<span class="dt">size =</span> ggplot2<span class="op">::</span><span class="kw">rel</span>(<span class="fl">1.25</span>), <span class="dt">hjust =</span> <span class="fl">0.5</span>, <span class="dt">face =</span> <span class="st">&#39;bold&#39;</span>),</a>
+<a class="sourceLine" id="cb132-6" data-line-number="6">      <span class="dt">panel.background =</span> ggplot2<span class="op">::</span><span class="kw">element_blank</span>(),</a>
+<a class="sourceLine" id="cb132-7" data-line-number="7">      <span class="dt">legend.position  =</span> <span class="st">&#39;right&#39;</span>,</a>
+<a class="sourceLine" id="cb132-8" data-line-number="8">      <span class="dt">panel.border     =</span> ggplot2<span class="op">::</span><span class="kw">element_blank</span>(),</a>
+<a class="sourceLine" id="cb132-9" data-line-number="9">      <span class="dt">panel.grid.minor =</span> ggplot2<span class="op">::</span><span class="kw">element_blank</span>(),</a>
+<a class="sourceLine" id="cb132-10" data-line-number="10">      <span class="dt">panel.grid.major =</span> ggplot2<span class="op">::</span><span class="kw">element_line</span>(<span class="dt">colour =</span> <span class="st">&#39;grey90&#39;</span>, <span class="dt">size =</span> <span class="fl">.25</span>),</a>
+<a class="sourceLine" id="cb132-11" data-line-number="11">      <span class="dt">legend.key       =</span> ggplot2<span class="op">::</span><span class="kw">element_rect</span>(<span class="dt">colour =</span> <span class="ot">NA</span>, <span class="dt">fill =</span> <span class="ot">NA</span>),</a>
+<a class="sourceLine" id="cb132-12" data-line-number="12">      <span class="dt">axis.line        =</span> ggplot2<span class="op">::</span><span class="kw">element_blank</span>()</a>
+<a class="sourceLine" id="cb132-13" data-line-number="13">      )</a>
+<a class="sourceLine" id="cb132-14" data-line-number="14">}</a>
+<a class="sourceLine" id="cb132-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb132-16" data-line-number="16"><span class="kw">ggplot</span>(temps_df, <span class="dt">mapping=</span><span class="kw">aes</span>(<span class="dt">x=</span>fahr, <span class="dt">y=</span>celsius, <span class="dt">color=</span>kelvin)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb132-17" data-line-number="17"><span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb132-18" data-line-number="18"><span class="st">    </span><span class="kw">custom_theme</span>(<span class="dv">10</span>)</a></code></pre></div>
+<p><img src="reproducible-research-short-course_files/figure-html/unnamed-chunk-84-1.png" width="672" /></p>
+<p>In this case, we set the font size to 10, and plotted the air temperatures. The <code>custom_theme</code>
+function can be used anywhere that one needs to consistently format a plot.</p>
+<p>But we can go further. One can wrap the entire call to ggplot in a function,
+enabling one to create many plots of the same type with a consistent structure. For
+example, we can create a <code>scatterplot</code> function that takes a data frame as input,
+along with a point_size for the points on the plot, and a font_size for the text.</p>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb133-1" data-line-number="1">scatterplot &lt;-<span class="st"> </span><span class="cf">function</span>(df, <span class="dt">point_size =</span> <span class="dv">2</span>, <span class="dt">font_size=</span><span class="dv">9</span>) {</a>
+<a class="sourceLine" id="cb133-2" data-line-number="2">  <span class="kw">ggplot</span>(df, <span class="dt">mapping=</span><span class="kw">aes</span>(<span class="dt">x=</span>fahr, <span class="dt">y=</span>celsius, <span class="dt">color=</span>kelvin)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb133-3" data-line-number="3"><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">size=</span>point_size) <span class="op">+</span></a>
+<a class="sourceLine" id="cb133-4" data-line-number="4"><span class="st">    </span><span class="kw">custom_theme</span>(font_size)</a>
+<a class="sourceLine" id="cb133-5" data-line-number="5">}</a></code></pre></div>
+<p>Calling that let’s us, in a single line of code, create a highly customized plot
+but maintain flexibiity via the arguments passed in to the function. Let’s set
+the point size to 3 and font to 16 to make the plot more legible.</p>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb134-1" data-line-number="1"><span class="kw">scatterplot</span>(temps_df, <span class="dt">point_size=</span><span class="dv">3</span>, <span class="dt">font_size =</span> <span class="dv">16</span>)</a></code></pre></div>
+<p><img src="reproducible-research-short-course_files/figure-html/unnamed-chunk-86-1.png" width="672" /></p>
+<p>Once these functions are set up, all of the plots built with them can be reformatted
+by changing the settings in just the functions, whether they were used to
+create 1, 10, or 100 plots.</p>
+</div>
+</div>
+<div id="creating-r-packages" class="section level2">
+<h2><span class="header-section-number">10.2</span> Creating R Packages</h2>
+<div id="learning-objectives-13" class="section level3">
+<h3><span class="header-section-number">10.2.1</span> Learning Objectives</h3>
+<p>In this lesson, you will learn:</p>
+<ul>
+<li>The advantages of using R packages for organizing code</li>
+<li>Simple techniques for creating R packages</li>
+<li>Approaches to documenting code in packages</li>
+</ul>
+</div>
+<div id="why-packages" class="section level3">
+<h3><span class="header-section-number">10.2.2</span> Why packages?</h3>
+<p>Most R users are familiar with loading and utilizing packages in their work. And they know how rich CRAN is in providing for many conceivable needs. Most people have never created a package for their own work, and most think the process is too complicated. Really it’s pretty straighforward and super useful in your personal work. Creating packages serves two main use cases:</p>
+<ul>
+<li>Mechanism to redistribute reusable code (even if just for yourself)</li>
+<li>Mechanism to reproducibly document analysis and models and their results</li>
+</ul>
+<p>At a minimum, you can easily produce a package for just your own useful code functions,
+which makes it easy to maintain and use utilities that span your own projects.</p>
+<p>The <code>usethis</code>, <code>devtools</code> and <code>roxygen2</code> packages make creating and maintining a package to be a straightforward experience.</p>
+</div>
+<div id="install-and-load-packages" class="section level3">
+<h3><span class="header-section-number">10.2.3</span> Install and load packages</h3>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb135-1" data-line-number="1"><span class="kw">library</span>(devtools)</a>
+<a class="sourceLine" id="cb135-2" data-line-number="2"><span class="kw">library</span>(usethis)</a>
+<a class="sourceLine" id="cb135-3" data-line-number="3"><span class="kw">library</span>(roxygen2)</a></code></pre></div>
+</div>
+<div id="create-a-basic-package" class="section level3">
+<h3><span class="header-section-number">10.2.4</span> Create a basic package</h3>
+<p>Thanks to the great <a href="https://github.com/r-lib/usethis">usethis</a> package, it only takes one function call to create the skeleton of an R package using <code>create_package()</code>. Which eliminates pretty much all reasons for procrastination. To create a package called
+<code>mytools</code>, all you do is:</p>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb136-1" data-line-number="1"><span class="kw">setwd</span>(<span class="st">&#39;..&#39;</span>)</a>
+<a class="sourceLine" id="cb136-2" data-line-number="2"><span class="kw">create_package</span>(<span class="st">&quot;mytools&quot;</span>)</a></code></pre></div>
+<pre><code>✔ Setting active project to &#39;/Users/jones/development/mytools&#39;
+✔ Creating &#39;R/&#39;
+✔ Creating &#39;man/&#39;
+✔ Writing &#39;DESCRIPTION&#39;
+✔ Writing &#39;NAMESPACE&#39;
+✔ Writing &#39;mytools.Rproj&#39;
+✔ Adding &#39;.Rproj.user&#39; to &#39;.gitignore&#39;
+✔ Adding &#39;^mytools\\.Rproj$&#39;, &#39;^\\.Rproj\\.user$&#39; to &#39;.Rbuildignore&#39;
+✔ Opening new project &#39;mytools&#39; in RStudio</code></pre>
+<p>Note that this will open a new project (<code>mytools</code>) and a new session in RStudio server.</p>
+<p>The <code>create_package</code> function created a top-level directory structure, including a number of critical files under the <a href="http://cran.r-project.org/doc/manuals/r-release/R-exts.html#Package-structure">standard R package structure</a>. The most important of which is the <code>DESCRIPTION</code> file, which provides metadata about your package. Edit the <code>DESCRIPTION</code> file to provide reasonable values for each of the fields,
+including your own contact information.</p>
+<p>Information about choosing a LICENSE is provided in the <a href="http://cran.r-project.org/doc/manuals/r-release/R-exts.html#Licensing">Extending R</a> documentation.
+The DESCRIPTION file expects the license to be chose from a predefined list, but
+you can use it’s various utility methods for setting a specific license file, such
+as the <code>Apacxhe 2</code> license:</p>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb138-1" data-line-number="1">usethis<span class="op">::</span><span class="kw">use_apl2_license</span>(<span class="dt">name=</span><span class="st">&quot;Matthew Jones&quot;</span>)</a></code></pre></div>
+<pre><code>✔ Setting License field in DESCRIPTION to &#39;Apache License (&gt;= 2.0)&#39;
+✔ Writing &#39;LICENSE.md&#39;
+✔ Adding &#39;^LICENSE\\.md$&#39; to &#39;.Rbuildignore&#39;</code></pre>
+<p>Once your license has been chosen, and you’ve edited your DESCRIPTION file with your contact information, a title, and a description, it will look like this:</p>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb140-1" data-line-number="1">Package<span class="op">:</span><span class="st"> </span>mytools</a>
+<a class="sourceLine" id="cb140-2" data-line-number="2">Title<span class="op">:</span><span class="st"> </span>Utility Functions Created by Matt Jones</a>
+<a class="sourceLine" id="cb140-3" data-line-number="3">Version<span class="op">:</span><span class="st"> </span><span class="fl">0.1</span></a>
+<a class="sourceLine" id="cb140-4" data-line-number="4">Authors<span class="op">@</span>R<span class="op">:</span><span class="st"> &quot;Matthew Jones &lt;jones@nceas.ucsb.edu&gt; [aut, cre]&quot;</span></a>
+<a class="sourceLine" id="cb140-5" data-line-number="5">Description<span class="op">:</span><span class="st"> </span>Package mytools contains a suite of utility functions useful whenever I need stuff to get done.</a>
+<a class="sourceLine" id="cb140-6" data-line-number="6">Depends<span class="op">:</span><span class="st"> </span><span class="kw">R</span> (<span class="op">&gt;=</span><span class="st"> </span><span class="dv">3</span>.<span class="fl">5.0</span>)</a>
+<a class="sourceLine" id="cb140-7" data-line-number="7">License<span class="op">:</span><span class="st"> </span>Apache <span class="kw">License</span> (<span class="op">&gt;=</span><span class="st"> </span><span class="fl">2.0</span>)</a>
+<a class="sourceLine" id="cb140-8" data-line-number="8">LazyData<span class="op">:</span><span class="st"> </span>true</a></code></pre></div>
+</div>
+<div id="add-your-code" class="section level3">
+<h3><span class="header-section-number">10.2.5</span> Add your code</h3>
+<p>The skeleton package created contains a directory <code>R</code> which should contain your source files. Add your functions and classes in files to this directory, attempting to choose names that don’t conflict with existing packages. For example, you might add a file <code>environemnt_info.R</code> that contains a function <code>environment_info()</code> that you might want to reuse. This one might leave something to be desired…, but you get the point… The
+<code>usethis::use_r()</code> function will help set up you files in the right places. For example, running:</p>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb141-1" data-line-number="1">usethis<span class="op">::</span><span class="kw">use_r</span>(<span class="st">&quot;environment_info&quot;</span>)</a></code></pre></div>
+<pre><code>● Modify &#39;R/environment_info.R&#39;</code></pre>
+<p>creates the file <code>R/environment_info.R</code>, which you can then modify to add the implementation fo the following function:</p>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb143-1" data-line-number="1">environment_info &lt;-<span class="st"> </span><span class="cf">function</span>(msg) {</a>
+<a class="sourceLine" id="cb143-2" data-line-number="2">    <span class="kw">print</span>(devtools<span class="op">::</span><span class="kw">session_info</span>())</a>
+<a class="sourceLine" id="cb143-3" data-line-number="3">    <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;Also print the incoming message: &quot;</span>, msg))</a>
+<a class="sourceLine" id="cb143-4" data-line-number="4">}</a></code></pre></div>
+<p>If your R code depends on functions from another package, then you must declare so
+in the <code>Imports</code> list in the <code>DESCRIPTION</code> file for your package. In our example
+above, we depend on the <code>devtools</code> package, and so we need to list it as a dependency.
+Once again, <code>usethis</code> provides a handy helper method:</p>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb144-1" data-line-number="1">usethis<span class="op">::</span><span class="kw">use_package</span>(<span class="st">&quot;devtools&quot;</span>)</a></code></pre></div>
+<pre><code>✔ Adding &#39;devtools&#39; to Imports field in DESCRIPTION
+● Refer to functions with `devtools::fun()`</code></pre>
+</div>
+<div id="add-documentation" class="section level3">
+<h3><span class="header-section-number">10.2.6</span> Add documentation</h3>
+<p>You should provide documentation for each of your functions and classes. This is done in the <code>roxygen2</code> approach of providing embedded comments in the source code files, which are in turn converted into manual pages and other R documentation artifacts. Be sure to define the overall purpose of the function, and each of its parameters.</p>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb146-1" data-line-number="1"><span class="co">#&#39; A function to print information about the current environment.</span></a>
+<a class="sourceLine" id="cb146-2" data-line-number="2"><span class="co">#&#39;</span></a>
+<a class="sourceLine" id="cb146-3" data-line-number="3"><span class="co">#&#39; This function prints current environment information, and a message.</span></a>
+<a class="sourceLine" id="cb146-4" data-line-number="4"><span class="co">#&#39; @param msg The message that should be printed</span></a>
+<a class="sourceLine" id="cb146-5" data-line-number="5"><span class="co">#&#39; @keywords debugging</span></a>
+<a class="sourceLine" id="cb146-6" data-line-number="6"><span class="co">#&#39; @import devtools</span></a>
+<a class="sourceLine" id="cb146-7" data-line-number="7"><span class="co">#&#39; @export</span></a>
+<a class="sourceLine" id="cb146-8" data-line-number="8"><span class="co">#&#39; @examples</span></a>
+<a class="sourceLine" id="cb146-9" data-line-number="9"><span class="co">#&#39; environment_info(&quot;This is an important message from your sponsor.&quot;)</span></a>
+<a class="sourceLine" id="cb146-10" data-line-number="10">environment_info &lt;-<span class="st"> </span><span class="cf">function</span>(msg) {</a>
+<a class="sourceLine" id="cb146-11" data-line-number="11">    <span class="kw">print</span>(devtools<span class="op">::</span><span class="kw">session_info</span>())</a>
+<a class="sourceLine" id="cb146-12" data-line-number="12">    <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;Also print the incoming message: &quot;</span>, msg))</a>
+<a class="sourceLine" id="cb146-13" data-line-number="13">}</a></code></pre></div>
+<p>Once your files are documented, you can then process the documentation using the <code>document()</code> function to generate the appropriate .Rd files that your package needs.</p>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb147-1" data-line-number="1">devtools<span class="op">::</span><span class="kw">document</span>()</a></code></pre></div>
+<pre><code>Updating mytools documentation
+Updating roxygen version in /Users/jones/development/mytools/DESCRIPTION
+Writing NAMESPACE
+Loading mytools
+Writing NAMESPACE
+Writing environment_info.Rd</code></pre>
+<p>That’s really it. You now have a package that you can <code>check()</code> and <code>install()</code> and <code>release()</code>. See below for these helper utilities.</p>
+</div>
+<div id="test-your-package" class="section level3">
+<h3><span class="header-section-number">10.2.7</span> Test your package</h3>
+<p>You can tests your code using the <code>tetsthat</code> testing framework. The <code>ussethis::use_testthat()</code>
+function will set up your package for testing, and then you can use the <code>use_test()</code> function
+to setup individual test files. For example, if you want to create tests of our
+environment_info functions, set it up like this:</p>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb149-1" data-line-number="1">usethis<span class="op">::</span><span class="kw">use_testthat</span>()</a></code></pre></div>
+<pre><code>✔ Adding &#39;testthat&#39; to Suggests field in DESCRIPTION
+✔ Creating &#39;tests/testthat/&#39;
+✔ Writing &#39;tests/testthat.R&#39;</code></pre>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb151-1" data-line-number="1">usethis<span class="op">::</span><span class="kw">use_test</span>(<span class="st">&quot;environment_info&quot;</span>)</a></code></pre></div>
+<pre><code>✔ Writing &#39;tests/testthat/test-environment_info.R&#39;
+● Modify &#39;tests/testthat/test-environment_info.R&#39;</code></pre>
+<p>You can now add tests to the <code>test-environment_info.R</code>, and you can run all of the
+tests using <code>devtools::test()</code>. For example, if you add a test to the <code>test-environment_info.R</code> file:</p>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb153-1" data-line-number="1"><span class="kw">test_that</span>(<span class="st">&quot;A message is present&quot;</span>, {</a>
+<a class="sourceLine" id="cb153-2" data-line-number="2">    <span class="kw">capture.output</span>(result &lt;-<span class="st"> </span><span class="kw">environment_info</span>(<span class="st">&quot;A unique message&quot;</span>))</a>
+<a class="sourceLine" id="cb153-3" data-line-number="3">    <span class="kw">expect_match</span>(result, <span class="st">&quot;A unique message&quot;</span>)</a>
+<a class="sourceLine" id="cb153-4" data-line-number="4">})</a></code></pre></div>
+<p>Then you can run the tests to be sure all of your functions are working using <code>devtools::test()</code>:</p>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb154-1" data-line-number="1">devtools<span class="op">::</span><span class="kw">test</span>()</a></code></pre></div>
+<pre><code>Loading mytools
+Testing mytools
+✔ | OK F W S | Context
+✔ |  2       | test-environment_info [0.1 s]
+
+══ Results ════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+Duration: 0.1 s
+
+OK:       2
+Failed:   0
+Warnings: 0
+Skipped:  0</code></pre>
+<p>Yay, all tests passed!</p>
+</div>
+<div id="checking-and-installing-your-package" class="section level3">
+<h3><span class="header-section-number">10.2.8</span> Checking and installing your package</h3>
+<p>Now that your package is built, you can check it for consistency and completeness using <code>check()</code>, and then you can install it locally using <code>install()</code>, which needs to be run from the parent directory of your module.</p>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb156-1" data-line-number="1">devtools<span class="op">::</span><span class="kw">check</span>()</a>
+<a class="sourceLine" id="cb156-2" data-line-number="2">devtools<span class="op">::</span><span class="kw">install</span>()</a></code></pre></div>
+<p>Your package is now available for use in your local environment.</p>
+</div>
+<div id="sharing-and-releasing-your-package" class="section level3">
+<h3><span class="header-section-number">10.2.9</span> Sharing and releasing your package</h3>
+<p>The simplest way to share your package with others is to upload it to a <a href="https://github.com">GitHub repository</a>, which allows others to install your package using the <code>install_github('mytools','github_username')</code> function from <code>devtools</code>.</p>
+<p>If your package might be broadly useful, also consider releasing it to CRAN, using the <code>release()</code> method from `devtools(). Releasing a package to CRAN requires a significant amoutn of work to ensure it follows the standards set by the R community, but it is entirely tractable and a valuable contribution to the science community. If you are considering releasing a package more broadly, you may find that the supportive community at <a href="https://ropensci.org">ROpenSci</a> provides incredible help and valuable feeback through their onboarding process.</p>
+<div id="challenge-22" class="section level4 unnumbered exercise">
+<h4>Challenge</h4>
+<p>Add temperature conversion functions with full documentation to your package, write tests to ensure the functions work properly, and then
+<code>document()</code>, <code>check()</code>, and <code>install()</code> the new version of the package. Don’t forget to update the version number before you install!</p>
+</div>
+</div>
+<div id="more-reading" class="section level3">
+<h3><span class="header-section-number">10.2.10</span> More reading</h3>
+<ul>
+<li>Hadley Wickham’s awesome book: <a href="http://r-pkgs.had.co.nz/">R Packages</a></li>
+<li>Thomas Westlake’s blog <a href="https://r-mageddon.netlify.com/post/writing-an-r-package-from-scratch/">Writing an R package from scratch</a></li>
+</ul>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="session-9-data-visualisation-and-publishing-to-the-web.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="session-11-arctic-data-center-data-portals.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

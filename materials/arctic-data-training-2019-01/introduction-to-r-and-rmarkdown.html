@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Arctic Data Center Training</title>
+  <meta name="description" content="Arctic Data Center Training">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="Arctic Data Center Training" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Arctic Data Center Training" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="rstudio-and-gitgithub-setup-and-motivation.html">
+<link rel="next" href="writing-good-data-management-plans.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.4/datatables.js"></script>
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.0.2/leaflet.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">ADC Training</a></li>
+<li><a href="/">← Back to main website</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Data Science Training for the Arctic Data Center</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#schedule"><i class="fa fa-check"></i><b>1.1</b> Schedule</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>1.1.1</b> Acknowledgements</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="introduction-to-the-arctic-data-center-and-nsf-standards-and-policies.html"><a href="introduction-to-the-arctic-data-center-and-nsf-standards-and-policies.html"><i class="fa fa-check"></i><b>2</b> Introduction to the Arctic Data Center and NSF Standards and Policies</a><ul>
+<li class="chapter" data-level="2.1" data-path="introduction-to-the-arctic-data-center-and-nsf-standards-and-policies.html"><a href="introduction-to-the-arctic-data-center-and-nsf-standards-and-policies.html#learning-objectives"><i class="fa fa-check"></i><b>2.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="2.2" data-path="introduction-to-the-arctic-data-center-and-nsf-standards-and-policies.html"><a href="introduction-to-the-arctic-data-center-and-nsf-standards-and-policies.html#materials"><i class="fa fa-check"></i><b>2.2</b> Materials</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="best-practices-data-and-metadata.html"><a href="best-practices-data-and-metadata.html"><i class="fa fa-check"></i><b>3</b> Best Practices: Data and Metadata</a><ul>
+<li class="chapter" data-level="3.1" data-path="best-practices-data-and-metadata.html"><a href="best-practices-data-and-metadata.html#learning-objectives-1"><i class="fa fa-check"></i><b>3.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="3.2" data-path="best-practices-data-and-metadata.html"><a href="best-practices-data-and-metadata.html#preserving-computational-workflows"><i class="fa fa-check"></i><b>3.2</b> Preserving computational workflows</a></li>
+<li class="chapter" data-level="3.3" data-path="best-practices-data-and-metadata.html"><a href="best-practices-data-and-metadata.html#best-practices-overview"><i class="fa fa-check"></i><b>3.3</b> Best Practices: Overview</a></li>
+<li class="chapter" data-level="3.4" data-path="best-practices-data-and-metadata.html"><a href="best-practices-data-and-metadata.html#organizing-data-best-practices"><i class="fa fa-check"></i><b>3.4</b> Organizing Data: Best Practices</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html"><i class="fa fa-check"></i><b>4</b> Data Documentation and Publishing</a><ul>
+<li class="chapter" data-level="4.1" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#learning-objectives-2"><i class="fa fa-check"></i><b>4.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="4.2" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#data-sharing-and-preservation"><i class="fa fa-check"></i><b>4.2</b> Data sharing and preservation</a></li>
+<li class="chapter" data-level="4.3" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#data-repositories-built-for-data-and-code"><i class="fa fa-check"></i><b>4.3</b> Data repositories: built for data (and code)</a></li>
+<li class="chapter" data-level="4.4" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#metadata"><i class="fa fa-check"></i><b>4.4</b> Metadata</a></li>
+<li class="chapter" data-level="4.5" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#structure-of-a-data-package"><i class="fa fa-check"></i><b>4.5</b> Structure of a data package</a></li>
+<li class="chapter" data-level="4.6" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#dataone-federation"><i class="fa fa-check"></i><b>4.6</b> DataONE Federation</a></li>
+<li class="chapter" data-level="4.7" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#publishing-data-from-the-web"><i class="fa fa-check"></i><b>4.7</b> Publishing data from the web</a><ul>
+<li class="chapter" data-level="4.7.1" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#download-the-data-to-be-used-for-the-tutorial"><i class="fa fa-check"></i><b>4.7.1</b> Download the data to be used for the tutorial</a></li>
+<li class="chapter" data-level="4.7.2" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#login-via-orcid"><i class="fa fa-check"></i><b>4.7.2</b> Login via ORCID</a></li>
+<li class="chapter" data-level="4.7.3" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#create-and-submit-the-dataset"><i class="fa fa-check"></i><b>4.7.3</b> Create and submit the dataset</a></li>
+<li class="chapter" data-level="4.7.4" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#file-and-variable-level-metadata"><i class="fa fa-check"></i><b>4.7.4</b> File and variable level metadata</a></li>
+<li class="chapter" data-level="4.7.5" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#add-workflow-provenance"><i class="fa fa-check"></i><b>4.7.5</b> Add workflow provenance</a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#publishing-data-from-r"><i class="fa fa-check"></i><b>4.8</b> Publishing data from R</a><ul>
+<li class="chapter" data-level="4.8.1" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#logging-in"><i class="fa fa-check"></i><b>4.8.1</b> Logging in</a></li>
+<li class="chapter" data-level="4.8.2" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#obtain-an-orcid"><i class="fa fa-check"></i><b>4.8.2</b> Obtain an ORCID</a></li>
+<li class="chapter" data-level="4.8.3" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#log-in-to-the-test-repository-and-copy-your-token"><i class="fa fa-check"></i><b>4.8.3</b> Log in to the test repository and copy your token</a></li>
+<li class="chapter" data-level="4.8.4" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#modifying-metadata"><i class="fa fa-check"></i><b>4.8.4</b> Modifying metadata</a></li>
+<li class="chapter" data-level="4.8.5" data-path="data-documentation-and-publishing.html"><a href="data-documentation-and-publishing.html#uploading-a-package-using-r-with-uploaddatapackage"><i class="fa fa-check"></i><b>4.8.5</b> Uploading A Package Using R with <code>uploadDataPackage</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="rstudio-and-gitgithub-setup-and-motivation.html"><a href="rstudio-and-gitgithub-setup-and-motivation.html"><i class="fa fa-check"></i><b>5</b> RStudio and Git/GitHub Setup and Motivation</a><ul>
+<li class="chapter" data-level="5.1" data-path="rstudio-and-gitgithub-setup-and-motivation.html"><a href="rstudio-and-gitgithub-setup-and-motivation.html#learning-objectives-3"><i class="fa fa-check"></i><b>5.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="5.2" data-path="rstudio-and-gitgithub-setup-and-motivation.html"><a href="rstudio-and-gitgithub-setup-and-motivation.html#reproducible-research"><i class="fa fa-check"></i><b>5.2</b> Reproducible Research</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="rstudio-and-gitgithub-setup-and-motivation.html"><a href="rstudio-and-gitgithub-setup-and-motivation.html#what-is-needed-for-computational-reproducibility"><i class="fa fa-check"></i><b>5.2.1</b> What is needed for computational reproducibility?</a></li>
+<li class="chapter" data-level="5.2.2" data-path="rstudio-and-gitgithub-setup-and-motivation.html"><a href="rstudio-and-gitgithub-setup-and-motivation.html#conceptualizing-workflows"><i class="fa fa-check"></i><b>5.2.2</b> Conceptualizing workflows</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="rstudio-and-gitgithub-setup-and-motivation.html"><a href="rstudio-and-gitgithub-setup-and-motivation.html#why-use-git"><i class="fa fa-check"></i><b>5.3</b> Why use git?</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="rstudio-and-gitgithub-setup-and-motivation.html"><a href="rstudio-and-gitgithub-setup-and-motivation.html#the-problem-with-filenames"><i class="fa fa-check"></i><b>5.3.1</b> The problem with filenames</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="rstudio-and-gitgithub-setup-and-motivation.html"><a href="rstudio-and-gitgithub-setup-and-motivation.html#checking-the-rstudio-environment"><i class="fa fa-check"></i><b>5.4</b> Checking the RStudio environment</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="rstudio-and-gitgithub-setup-and-motivation.html"><a href="rstudio-and-gitgithub-setup-and-motivation.html#r-version"><i class="fa fa-check"></i><b>5.4.1</b> R Version</a></li>
+<li class="chapter" data-level="5.4.2" data-path="rstudio-and-gitgithub-setup-and-motivation.html"><a href="rstudio-and-gitgithub-setup-and-motivation.html#rstudio-version"><i class="fa fa-check"></i><b>5.4.2</b> RStudio Version</a></li>
+<li class="chapter" data-level="5.4.3" data-path="rstudio-and-gitgithub-setup-and-motivation.html"><a href="rstudio-and-gitgithub-setup-and-motivation.html#package-installation"><i class="fa fa-check"></i><b>5.4.3</b> Package installation</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="rstudio-and-gitgithub-setup-and-motivation.html"><a href="rstudio-and-gitgithub-setup-and-motivation.html#setting-up-git"><i class="fa fa-check"></i><b>5.5</b> Setting up git</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="rstudio-and-gitgithub-setup-and-motivation.html"><a href="rstudio-and-gitgithub-setup-and-motivation.html#note-for-windows-users"><i class="fa fa-check"></i><b>5.5.1</b> Note for Windows Users</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html"><i class="fa fa-check"></i><b>6</b> Introduction to R and RMarkdown</a><ul>
+<li class="chapter" data-level="6.1" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#learning-objectives-4"><i class="fa fa-check"></i><b>6.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="6.2" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#introduction-and-motivation"><i class="fa fa-check"></i><b>6.2</b> Introduction and Motivation</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#resources"><i class="fa fa-check"></i><b>6.2.1</b> Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#r-at-the-console"><i class="fa fa-check"></i><b>6.3</b> R at the console</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#error-messages-are-your-friends"><i class="fa fa-check"></i><b>6.3.1</b> Error messages are your friends</a></li>
+<li class="chapter" data-level="6.3.2" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#logical-operators-and-expressions"><i class="fa fa-check"></i><b>6.3.2</b> Logical operators and expressions</a></li>
+<li class="chapter" data-level="6.3.3" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#clearing-the-environment"><i class="fa fa-check"></i><b>6.3.3</b> Clearing the environment</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#rmarkdown"><i class="fa fa-check"></i><b>6.4</b> RMarkdown</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#your-turn"><i class="fa fa-check"></i><b>6.4.1</b> Your Turn</a></li>
+<li class="chapter" data-level="6.4.2" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#code-chunks"><i class="fa fa-check"></i><b>6.4.2</b> Code chunks</a></li>
+<li class="chapter" data-level="6.4.3" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#your-turn-1"><i class="fa fa-check"></i><b>6.4.3</b> Your turn</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#r-functions-help-pages"><i class="fa fa-check"></i><b>6.5</b> R functions, help pages</a><ul>
+<li class="chapter" data-level="6.5.1" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#a-simple-example"><i class="fa fa-check"></i><b>6.5.1</b> A simple example</a></li>
+<li class="chapter" data-level="6.5.2" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#getting-help"><i class="fa fa-check"></i><b>6.5.2</b> Getting help</a></li>
+<li class="chapter" data-level="6.5.3" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#your-turn-2"><i class="fa fa-check"></i><b>6.5.3</b> Your turn</a></li>
+<li class="chapter" data-level="6.5.4" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#use-a-function-to-read-a-file-into-r"><i class="fa fa-check"></i><b>6.5.4</b> Use a function to read a file into R</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#using-data.frames"><i class="fa fa-check"></i><b>6.6</b> Using <code>data.frames</code></a><ul>
+<li class="chapter" data-level="6.6.1" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#your-turn-3"><i class="fa fa-check"></i><b>6.6.1</b> Your Turn</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#troubleshooting"><i class="fa fa-check"></i><b>6.7</b> Troubleshooting</a><ul>
+<li class="chapter" data-level="6.7.1" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#my-rmarkdown-wont-knit-to-pdf"><i class="fa fa-check"></i><b>6.7.1</b> My RMarkdown won’t knit to PDF</a></li>
+<li class="chapter" data-level="6.7.2" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#i-just-entered-a-command-and-nothing-is-happening"><i class="fa fa-check"></i><b>6.7.2</b> I just entered a command and nothing is happening</a></li>
+<li class="chapter" data-level="6.7.3" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#r-says-my-object-is-not-found"><i class="fa fa-check"></i><b>6.7.3</b> R says my object is not found</a></li>
+</ul></li>
+<li class="chapter" data-level="6.8" data-path="introduction-to-r-and-rmarkdown.html"><a href="introduction-to-r-and-rmarkdown.html#literate-analysis"><i class="fa fa-check"></i><b>6.8</b> Literate Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="writing-good-data-management-plans.html"><a href="writing-good-data-management-plans.html"><i class="fa fa-check"></i><b>7</b> Writing Good Data Management Plans</a><ul>
+<li class="chapter" data-level="7.1" data-path="writing-good-data-management-plans.html"><a href="writing-good-data-management-plans.html#learning-objectives-5"><i class="fa fa-check"></i><b>7.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="7.2" data-path="writing-good-data-management-plans.html"><a href="writing-good-data-management-plans.html#materials-1"><i class="fa fa-check"></i><b>7.2</b> Materials</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="version-control-with-git-and-github.html"><a href="version-control-with-git-and-github.html"><i class="fa fa-check"></i><b>8</b> Version Control With git and GitHub</a><ul>
+<li class="chapter" data-level="8.1" data-path="version-control-with-git-and-github.html"><a href="version-control-with-git-and-github.html#learning-objectives-6"><i class="fa fa-check"></i><b>8.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="8.2" data-path="version-control-with-git-and-github.html"><a href="version-control-with-git-and-github.html#the-problem-with-filenames-1"><i class="fa fa-check"></i><b>8.2</b> The problem with filenames</a></li>
+<li class="chapter" data-level="8.3" data-path="version-control-with-git-and-github.html"><a href="version-control-with-git-and-github.html#version-control-and-collaboration-using-git-and-github"><i class="fa fa-check"></i><b>8.3</b> Version control and Collaboration using Git and GitHub</a></li>
+<li class="chapter" data-level="8.4" data-path="version-control-with-git-and-github.html"><a href="version-control-with-git-and-github.html#lets-look-at-a-github-repository"><i class="fa fa-check"></i><b>8.4</b> Let’s look at a GitHub repository</a></li>
+<li class="chapter" data-level="8.5" data-path="version-control-with-git-and-github.html"><a href="version-control-with-git-and-github.html#the-git-lifecycle"><i class="fa fa-check"></i><b>8.5</b> The Git lifecycle</a></li>
+<li class="chapter" data-level="8.6" data-path="version-control-with-git-and-github.html"><a href="version-control-with-git-and-github.html#create-a-remote-repository-on-github"><i class="fa fa-check"></i><b>8.6</b> Create a remote repository on GitHub</a></li>
+<li class="chapter" data-level="8.7" data-path="version-control-with-git-and-github.html"><a href="version-control-with-git-and-github.html#working-locally-with-git-via-rstudio"><i class="fa fa-check"></i><b>8.7</b> Working locally with Git via RStudio</a></li>
+<li class="chapter" data-level="8.8" data-path="version-control-with-git-and-github.html"><a href="version-control-with-git-and-github.html#on-good-commit-messages"><i class="fa fa-check"></i><b>8.8</b> On good commit messages</a></li>
+<li class="chapter" data-level="8.9" data-path="version-control-with-git-and-github.html"><a href="version-control-with-git-and-github.html#collaboration-and-conflict-free-workflows"><i class="fa fa-check"></i><b>8.9</b> Collaboration and conflict free workflows</a></li>
+<li class="chapter" data-level="8.10" data-path="version-control-with-git-and-github.html"><a href="version-control-with-git-and-github.html#exercise"><i class="fa fa-check"></i><b>8.10</b> Exercise</a></li>
+<li class="chapter" data-level="8.11" data-path="version-control-with-git-and-github.html"><a href="version-control-with-git-and-github.html#advanced-topics"><i class="fa fa-check"></i><b>8.11</b> Advanced topics</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="git-collaboration-and-conflict-management.html"><a href="git-collaboration-and-conflict-management.html"><i class="fa fa-check"></i><b>9</b> Git: Collaboration and Conflict Management</a><ul>
+<li class="chapter" data-level="9.1" data-path="git-collaboration-and-conflict-management.html"><a href="git-collaboration-and-conflict-management.html#learning-objectives-7"><i class="fa fa-check"></i><b>9.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="9.2" data-path="git-collaboration-and-conflict-management.html"><a href="git-collaboration-and-conflict-management.html#collaborating-with-git"><i class="fa fa-check"></i><b>9.2</b> Collaborating with Git</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="git-collaboration-and-conflict-management.html"><a href="git-collaboration-and-conflict-management.html#activity-collaborating-with-a-trusted-colleague"><i class="fa fa-check"></i><b>9.2.1</b> Activity: Collaborating with a trusted colleague</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="git-collaboration-and-conflict-management.html"><a href="git-collaboration-and-conflict-management.html#merge-conflicts"><i class="fa fa-check"></i><b>9.3</b> Merge conflicts</a></li>
+<li class="chapter" data-level="9.4" data-path="git-collaboration-and-conflict-management.html"><a href="git-collaboration-and-conflict-management.html#how-to-resolve-a-conflict"><i class="fa fa-check"></i><b>9.4</b> How to resolve a conflict</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="git-collaboration-and-conflict-management.html"><a href="git-collaboration-and-conflict-management.html#abort-abort-abort"><i class="fa fa-check"></i><b>9.4.1</b> Abort, abort, abort…</a></li>
+<li class="chapter" data-level="9.4.2" data-path="git-collaboration-and-conflict-management.html"><a href="git-collaboration-and-conflict-management.html#checkout"><i class="fa fa-check"></i><b>9.4.2</b> Checkout</a></li>
+<li class="chapter" data-level="9.4.3" data-path="git-collaboration-and-conflict-management.html"><a href="git-collaboration-and-conflict-management.html#pull-and-edit-the-file"><i class="fa fa-check"></i><b>9.4.3</b> Pull and edit the file</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="git-collaboration-and-conflict-management.html"><a href="git-collaboration-and-conflict-management.html#workflows-to-avoid-merge-conflicts"><i class="fa fa-check"></i><b>9.5</b> Workflows to avoid merge conflicts</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html"><i class="fa fa-check"></i><b>10</b> Data Modeling &amp; Tidy Data</a><ul>
+<li class="chapter" data-level="10.1" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#learning-objectives-8"><i class="fa fa-check"></i><b>10.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="10.2" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#benefits-of-relational-data-systems"><i class="fa fa-check"></i><b>10.2</b> Benefits of relational data systems</a></li>
+<li class="chapter" data-level="10.3" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#data-organization"><i class="fa fa-check"></i><b>10.3</b> Data Organization</a></li>
+<li class="chapter" data-level="10.4" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#multiple-tables"><i class="fa fa-check"></i><b>10.4</b> Multiple tables</a></li>
+<li class="chapter" data-level="10.5" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#inconsistent-observations"><i class="fa fa-check"></i><b>10.5</b> Inconsistent observations</a></li>
+<li class="chapter" data-level="10.6" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#inconsistent-variables"><i class="fa fa-check"></i><b>10.6</b> Inconsistent variables</a></li>
+<li class="chapter" data-level="10.7" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#marginal-sums-and-statistics"><i class="fa fa-check"></i><b>10.7</b> Marginal sums and statistics</a></li>
+<li class="chapter" data-level="10.8" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#good-enough-data-modeling"><i class="fa fa-check"></i><b>10.8</b> Good enough data modeling</a><ul>
+<li class="chapter" data-level="10.8.1" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#denormalized-data"><i class="fa fa-check"></i><b>10.8.1</b> Denormalized data</a></li>
+<li class="chapter" data-level="10.8.2" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#tabular-data"><i class="fa fa-check"></i><b>10.8.2</b> Tabular data</a></li>
+</ul></li>
+<li class="chapter" data-level="10.9" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#primary-and-foreign-keys"><i class="fa fa-check"></i><b>10.9</b> Primary and Foreign Keys</a></li>
+<li class="chapter" data-level="10.10" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#entity-relationship-model-er"><i class="fa fa-check"></i><b>10.10</b> Entity-Relationship Model (ER)</a></li>
+<li class="chapter" data-level="10.11" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#merging-data"><i class="fa fa-check"></i><b>10.11</b> Merging data</a></li>
+<li class="chapter" data-level="10.12" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#simple-guidelines-for-effective-data"><i class="fa fa-check"></i><b>10.12</b> Simple Guidelines for Effective Data</a></li>
+<li class="chapter" data-level="10.13" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#data-modeling-exercise"><i class="fa fa-check"></i><b>10.13</b> Data modeling exercise</a></li>
+<li class="chapter" data-level="10.14" data-path="data-modeling-tidy-data.html"><a href="data-modeling-tidy-data.html#related-resources"><i class="fa fa-check"></i><b>10.14</b> Related resources</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html"><i class="fa fa-check"></i><b>11</b> Data Cleaning and Manipulation</a><ul>
+<li class="chapter" data-level="11.1" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html#learning-objectives-9"><i class="fa fa-check"></i><b>11.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="11.2" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html#introduction"><i class="fa fa-check"></i><b>11.2</b> Introduction</a></li>
+<li class="chapter" data-level="11.3" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html#setup"><i class="fa fa-check"></i><b>11.3</b> Setup</a></li>
+<li class="chapter" data-level="11.4" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html#about-the-pipe-operator"><i class="fa fa-check"></i><b>11.4</b> About the pipe (<code>%&gt;%</code>) operator</a></li>
+<li class="chapter" data-level="11.5" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html#selectingremoving-columns-select"><i class="fa fa-check"></i><b>11.5</b> Selecting/removing columns: <code>select()</code></a></li>
+<li class="chapter" data-level="11.6" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html#changing-shape-gather-and-spread"><i class="fa fa-check"></i><b>11.6</b> Changing shape: <code>gather()</code> and <code>spread()</code></a></li>
+<li class="chapter" data-level="11.7" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html#renaming-columns-with-rename"><i class="fa fa-check"></i><b>11.7</b> Renaming columns with <code>rename()</code></a></li>
+<li class="chapter" data-level="11.8" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html#adding-columns-mutate"><i class="fa fa-check"></i><b>11.8</b> Adding columns: <code>mutate()</code></a></li>
+<li class="chapter" data-level="11.9" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html#group_by-and-summarise"><i class="fa fa-check"></i><b>11.9</b> <code>group_by</code> and <code>summarise</code></a></li>
+<li class="chapter" data-level="11.10" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html#filtering-rows-filter"><i class="fa fa-check"></i><b>11.10</b> Filtering rows: <code>filter()</code></a></li>
+<li class="chapter" data-level="11.11" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html#sorting-your-data-arrange"><i class="fa fa-check"></i><b>11.11</b> Sorting your data: <code>arrange()</code></a></li>
+<li class="chapter" data-level="11.12" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html#joins-in-dplyr"><i class="fa fa-check"></i><b>11.12</b> Joins in dplyr</a></li>
+<li class="chapter" data-level="11.13" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html#separate-and-unite"><i class="fa fa-check"></i><b>11.13</b> <code>separate()</code> and <code>unite()</code></a></li>
+<li class="chapter" data-level="11.14" data-path="data-cleaning-and-manipulation.html"><a href="data-cleaning-and-manipulation.html#summary"><i class="fa fa-check"></i><b>11.14</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="creating-r-functions.html"><a href="creating-r-functions.html"><i class="fa fa-check"></i><b>12</b> Creating R Functions</a><ul>
+<li class="chapter" data-level="12.1" data-path="creating-r-functions.html"><a href="creating-r-functions.html#leaning-outcomes"><i class="fa fa-check"></i><b>12.1</b> Leaning outcomes</a></li>
+<li class="chapter" data-level="12.2" data-path="creating-r-functions.html"><a href="creating-r-functions.html#why-functions"><i class="fa fa-check"></i><b>12.2</b> Why functions?</a></li>
+<li class="chapter" data-level="12.3" data-path="creating-r-functions.html"><a href="creating-r-functions.html#temperature-conversion"><i class="fa fa-check"></i><b>12.3</b> Temperature conversion</a></li>
+<li class="chapter" data-level="12.4" data-path="creating-r-functions.html"><a href="creating-r-functions.html#creating-a-function"><i class="fa fa-check"></i><b>12.4</b> Creating a function</a></li>
+<li class="chapter" data-level="12.5" data-path="creating-r-functions.html"><a href="creating-r-functions.html#exercise-1"><i class="fa fa-check"></i><b>12.5</b> Exercise</a></li>
+<li class="chapter" data-level="12.6" data-path="creating-r-functions.html"><a href="creating-r-functions.html#documenting-r-functions"><i class="fa fa-check"></i><b>12.6</b> Documenting R functions</a></li>
+<li class="chapter" data-level="12.7" data-path="creating-r-functions.html"><a href="creating-r-functions.html#summary-1"><i class="fa fa-check"></i><b>12.7</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="data-visualization-for-web-based-maps.html"><a href="data-visualization-for-web-based-maps.html"><i class="fa fa-check"></i><b>13</b> Data visualization for web-based maps</a><ul>
+<li class="chapter" data-level="13.1" data-path="data-visualization-for-web-based-maps.html"><a href="data-visualization-for-web-based-maps.html#learning-objectives-10"><i class="fa fa-check"></i><b>13.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="13.2" data-path="data-visualization-for-web-based-maps.html"><a href="data-visualization-for-web-based-maps.html#introduction-1"><i class="fa fa-check"></i><b>13.2</b> Introduction</a></li>
+<li class="chapter" data-level="13.3" data-path="data-visualization-for-web-based-maps.html"><a href="data-visualization-for-web-based-maps.html#a-minimal-example"><i class="fa fa-check"></i><b>13.3</b> A Minimal Example</a></li>
+<li class="chapter" data-level="13.4" data-path="data-visualization-for-web-based-maps.html"><a href="data-visualization-for-web-based-maps.html#a-less-minimal-example"><i class="fa fa-check"></i><b>13.4</b> A Less Minimal Example</a><ul>
+<li class="chapter" data-level="13.4.1" data-path="data-visualization-for-web-based-maps.html"><a href="data-visualization-for-web-based-maps.html#load-salmon-escapement-data"><i class="fa fa-check"></i><b>13.4.1</b> Load salmon escapement data</a></li>
+<li class="chapter" data-level="13.4.2" data-path="data-visualization-for-web-based-maps.html"><a href="data-visualization-for-web-based-maps.html#static-plots"><i class="fa fa-check"></i><b>13.4.2</b> Static Plots</a></li>
+<li class="chapter" data-level="13.4.3" data-path="data-visualization-for-web-based-maps.html"><a href="data-visualization-for-web-based-maps.html#interactive-maps"><i class="fa fa-check"></i><b>13.4.3</b> Interactive Maps</a></li>
+</ul></li>
+<li class="chapter" data-level="13.5" data-path="data-visualization-for-web-based-maps.html"><a href="data-visualization-for-web-based-maps.html#resources-1"><i class="fa fa-check"></i><b>13.5</b> Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="thinking-preferences-and-meeting-facilitation.html"><a href="thinking-preferences-and-meeting-facilitation.html"><i class="fa fa-check"></i><b>14</b> Thinking preferences and meeting facilitation</a><ul>
+<li class="chapter" data-level="14.1" data-path="thinking-preferences-and-meeting-facilitation.html"><a href="thinking-preferences-and-meeting-facilitation.html#learning-objectives-11"><i class="fa fa-check"></i><b>14.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="14.2" data-path="thinking-preferences-and-meeting-facilitation.html"><a href="thinking-preferences-and-meeting-facilitation.html#resources-2"><i class="fa fa-check"></i><b>14.2</b> Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="social-aspects-of-collaboration-and-data-policies.html"><a href="social-aspects-of-collaboration-and-data-policies.html"><i class="fa fa-check"></i><b>15</b> Social aspects of collaboration and data policies</a><ul>
+<li class="chapter" data-level="15.1" data-path="social-aspects-of-collaboration-and-data-policies.html"><a href="social-aspects-of-collaboration-and-data-policies.html#learning-objectives-12"><i class="fa fa-check"></i><b>15.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="15.2" data-path="social-aspects-of-collaboration-and-data-policies.html"><a href="social-aspects-of-collaboration-and-data-policies.html#resources-3"><i class="fa fa-check"></i><b>15.2</b> Resources</a></li>
+<li class="chapter" data-level="15.3" data-path="social-aspects-of-collaboration-and-data-policies.html"><a href="social-aspects-of-collaboration-and-data-policies.html#references"><i class="fa fa-check"></i><b>15.3</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="creating-r-packages.html"><a href="creating-r-packages.html"><i class="fa fa-check"></i><b>16</b> Creating R Packages</a><ul>
+<li class="chapter" data-level="16.1" data-path="creating-r-packages.html"><a href="creating-r-packages.html#learning-objectives-13"><i class="fa fa-check"></i><b>16.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="16.2" data-path="creating-r-packages.html"><a href="creating-r-packages.html#why-packages"><i class="fa fa-check"></i><b>16.2</b> Why packages?</a></li>
+<li class="chapter" data-level="16.3" data-path="creating-r-packages.html"><a href="creating-r-packages.html#install-and-load-packages"><i class="fa fa-check"></i><b>16.3</b> Install and load packages</a></li>
+<li class="chapter" data-level="16.4" data-path="creating-r-packages.html"><a href="creating-r-packages.html#create-a-basic-package"><i class="fa fa-check"></i><b>16.4</b> Create a basic package</a></li>
+<li class="chapter" data-level="16.5" data-path="creating-r-packages.html"><a href="creating-r-packages.html#add-your-code"><i class="fa fa-check"></i><b>16.5</b> Add your code</a></li>
+<li class="chapter" data-level="16.6" data-path="creating-r-packages.html"><a href="creating-r-packages.html#add-documentation"><i class="fa fa-check"></i><b>16.6</b> Add documentation</a></li>
+<li class="chapter" data-level="16.7" data-path="creating-r-packages.html"><a href="creating-r-packages.html#checking-and-installing-your-package"><i class="fa fa-check"></i><b>16.7</b> Checking and installing your package</a></li>
+<li class="chapter" data-level="16.8" data-path="creating-r-packages.html"><a href="creating-r-packages.html#sharing-and-releasing-your-package"><i class="fa fa-check"></i><b>16.8</b> Sharing and releasing your package</a></li>
+<li class="chapter" data-level="16.9" data-path="creating-r-packages.html"><a href="creating-r-packages.html#more-reading"><i class="fa fa-check"></i><b>16.9</b> More reading</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="open-data-in-r-and-ropensci.html"><a href="open-data-in-r-and-ropensci.html"><i class="fa fa-check"></i><b>17</b> Open Data in R and ROpenSci</a><ul>
+<li class="chapter" data-level="17.1" data-path="open-data-in-r-and-ropensci.html"><a href="open-data-in-r-and-ropensci.html#learning-objectives-14"><i class="fa fa-check"></i><b>17.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="17.2" data-path="open-data-in-r-and-ropensci.html"><a href="open-data-in-r-and-ropensci.html#introduction-2"><i class="fa fa-check"></i><b>17.2</b> Introduction</a></li>
+<li class="chapter" data-level="17.3" data-path="open-data-in-r-and-ropensci.html"><a href="open-data-in-r-and-ropensci.html#open-data"><i class="fa fa-check"></i><b>17.3</b> Open data</a></li>
+<li class="chapter" data-level="17.4" data-path="open-data-in-r-and-ropensci.html"><a href="open-data-in-r-and-ropensci.html#what-is-ropensci"><i class="fa fa-check"></i><b>17.4</b> What is rOpenSci?</a></li>
+<li class="chapter" data-level="17.5" data-path="open-data-in-r-and-ropensci.html"><a href="open-data-in-r-and-ropensci.html#overview-of-some-of-the-interetsing-packages-ropensci-provides"><i class="fa fa-check"></i><b>17.5</b> Overview of some of the interetsing packages rOpenSci provides</a><ul>
+<li class="chapter" data-level="17.5.1" data-path="open-data-in-r-and-ropensci.html"><a href="open-data-in-r-and-ropensci.html#rnoaa-r-interface-to-many-noaa-data-apis"><i class="fa fa-check"></i><b>17.5.1</b> <code>rnoaa</code>: R interface to many NOAA data APIs</a></li>
+<li class="chapter" data-level="17.5.2" data-path="open-data-in-r-and-ropensci.html"><a href="open-data-in-r-and-ropensci.html#mapr-mapping-species-occurrence-data"><i class="fa fa-check"></i><b>17.5.2</b> <code>mapr</code>: Mapping Species Occurrence Data</a></li>
+</ul></li>
+<li class="chapter" data-level="17.6" data-path="open-data-in-r-and-ropensci.html"><a href="open-data-in-r-and-ropensci.html#summary-2"><i class="fa fa-check"></i><b>17.6</b> Summary</a></li>
+<li class="chapter" data-level="17.7" data-path="open-data-in-r-and-ropensci.html"><a href="open-data-in-r-and-ropensci.html#resources-4"><i class="fa fa-check"></i><b>17.7</b> Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="reproducibility-and-provenance.html"><a href="reproducibility-and-provenance.html"><i class="fa fa-check"></i><b>18</b> Reproducibility and Provenance</a><ul>
+<li class="chapter" data-level="18.1" data-path="reproducibility-and-provenance.html"><a href="reproducibility-and-provenance.html#learning-objectives-15"><i class="fa fa-check"></i><b>18.1</b> Learning Objectives</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="using-netcdf-files.html"><a href="using-netcdf-files.html"><i class="fa fa-check"></i><b>19</b> Using NetCDF files</a><ul>
+<li class="chapter" data-level="19.1" data-path="using-netcdf-files.html"><a href="using-netcdf-files.html#learning-objectives-16"><i class="fa fa-check"></i><b>19.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="19.2" data-path="using-netcdf-files.html"><a href="using-netcdf-files.html#introduction-3"><i class="fa fa-check"></i><b>19.2</b> Introduction</a></li>
+<li class="chapter" data-level="19.3" data-path="using-netcdf-files.html"><a href="using-netcdf-files.html#reading-in-data"><i class="fa fa-check"></i><b>19.3</b> Reading in data</a></li>
+<li class="chapter" data-level="19.4" data-path="using-netcdf-files.html"><a href="using-netcdf-files.html#reshaping-the-data-into-a-data.frame"><i class="fa fa-check"></i><b>19.4</b> Reshaping the data into a data.frame</a></li>
+<li class="chapter" data-level="19.5" data-path="using-netcdf-files.html"><a href="using-netcdf-files.html#plotting"><i class="fa fa-check"></i><b>19.5</b> Plotting</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="references-1.html"><a href="references-1.html"><i class="fa fa-check"></i><b>20</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Arctic Data Center Training</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="introduction-to-r-and-rmarkdown" class="section level1">
+<h1><span class="header-section-number">6</span> Introduction to R and RMarkdown</h1>
+<div id="learning-objectives-4" class="section level2">
+<h2><span class="header-section-number">6.1</span> Learning Objectives</h2>
+<p>In this lesson we will:</p>
+<ul>
+<li>get oriented to the RStudio interface</li>
+<li>work with R in the console</li>
+<li>explore RMarkdown</li>
+<li>be introduced to built-in R functions</li>
+<li>learn to use the help pages</li>
+</ul>
+</div>
+<div id="introduction-and-motivation" class="section level2">
+<h2><span class="header-section-number">6.2</span> Introduction and Motivation</h2>
+<p>There is a vibrant community out there that is collectively developing increasingly easy to use and powerful open source programming tools. The changing landscape of programming is making learning how to code easier than it ever has been. Incorporating programming into analysis workflows not only makes science more efficient, but also more computationally reproducible. In this course, we will use the programming language R, and the accompanying integrated development environment (IDE) RStudio. R is a great language to learn for data-oriented programming because it is widely adopted, user-friendly, and (most importantly) open source!</p>
+<p>So what is the difference between R and RStudio? Here is an analogy to start us off. <strong>If you were a chef, R is a knife.</strong> You have food to prepare, and the knife is one of the tools that you’ll use to accomplish your task.</p>
+<p>And <strong>if R were a knife, RStudio is the kitchen</strong>. RStudio provides a place to do your work! Other tools, communication, community, it makes your life as a chef easier. RStudio makes your life as a researcher easier by bringing together other tools you need to do your work efficiently - like a file browser, data viewer, help pages, terminal, community, support, the list goes on. So it’s not just the infrastructure (the user interface or IDE), although it is a great way to learn and interact with your variables, files, and interact directly with git. It’s also data science philosophy, R packages, community, and more. So although you can prepare food without a kitchen and we could learn R without RStudio, that’s not what we’re going to do. We are going to take advantage of the great RStudio support, and learn R and RStudio together.</p>
+<p>Something else to start us off is to mention that you are learning a new language here. It’s an ongoing process, it takes time, you’ll make mistakes, it can be frustrating, but it will be overwhelmingly awesome in the long run. We all speak at least one language; it’s a similar process, really. And no matter how fluent you are, you’ll always be learning, you’ll be trying things in new contexts, learning words that mean the same as others, etc, just like everybody else. And just like any form of communication, there will be miscommunications that can be frustrating, but hands down we are all better off because of it.</p>
+<p>While language is a familiar concept, programming languages are in a different context from spoken languages, but you will get to know this context with time. For example: you have a concept that there is a first meal of the day, and there is a name for that: in English it’s “breakfast”. So if you’re learning Spanish, you could expect there is a word for this concept of a first meal. (And you’d be right: ‘desayuno’). <strong>We will get you to expect that programming languages also have words (called functions in R) for concepts as well</strong>. You’ll soon expect that there is a way to order values numerically. Or alphabetically. Or search for patterns in text. Or calculate the median. Or reorganize columns to rows. Or subset exactly what you want. We will get you increase your expectations and learn to ask and find what you’re looking for.</p>
+<div id="resources" class="section level3">
+<h3><span class="header-section-number">6.2.1</span> Resources</h3>
+<p>This lesson is a combination of excellent lessons by others. Huge thanks to Julie Lowndes for writing most of this content and letting us build on her material, which in turn was built on Jenny Bryan’s materials. I definitely recommend reading through the original lessons and using them as reference:</p>
+<p><a href="http://ohi-science.org/data-science-training/">Julie Lowndes’ Data Science Training for the Ocean Health Index</a></p>
+<ul>
+<li><a href="http://ohi-science.org/data-science-training/rstudio.html">R, RStudio, RMarkdown</a></li>
+<li><a href="http://ohi-science.org/data-science-training/programming.html">Programming in R</a></li>
+</ul>
+<p><a href="https://stat545-ubc.github.io/">Jenny Bryan’s lectures from STAT545 at UBC</a></p>
+<ul>
+<li><a href="http://stat545-ubc.github.io/block002_hello-r-workspace-wd-project.html">R basics, workspace and working directory, RStudio projects</a></li>
+<li><a href="http://stat545-ubc.github.io/block006_care-feeding-data.html">Basic care and feeding of data in R</a></li>
+</ul>
+<p>RStudio has great resources as well:</p>
+<ul>
+<li><a href="https://www.rstudio.com/resources/webinars/">webinars</a></li>
+<li><a href="https://www.rstudio.com/resources/cheatsheets/">cheatsheets</a></li>
+</ul>
+<p>Finally, Hadley Wickham’s book R for Data Science is a great resource to get more in depth.</p>
+<p>-<a href="http://r4ds.had.co.nz/">R for Data Science</a></p>
+<p>Other resources:</p>
+<ul>
+<li><a href="https://www.caam.rice.edu/~heinken/latex/symbols.pdf">LaTeX Equation Formatting</a></li>
+<li><a href="https://www.rstudio.com/wp-content/uploads/2016/05/base-r.pdf">Base R Cheatsheet</a></li>
+<li><a href="https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf">RMarkdown Reference Guide</a></li>
+<li><a href="http://mathesaurus.sourceforge.net/octave-r.html">MATLAB/R Translation Cheat Sheet</a></li>
+</ul>
+</div>
+</div>
+<div id="r-at-the-console" class="section level2">
+<h2><span class="header-section-number">6.3</span> R at the console</h2>
+<p>Launch RStudio/R.</p>
+<div class="figure">
+<img src="images/RStudio_IDE.png" />
+
+</div>
+<p>Notice the default panes:</p>
+<ul>
+<li>Console (entire left)</li>
+<li>Environment/History (tabbed in upper right)</li>
+<li>Files/Plots/Packages/Help (tabbed in lower right)</li>
+</ul>
+<p>FYI: you can change the default location of the panes, among many other things: <a href="https://support.rstudio.com/hc/en-us/articles/200549016-Customizing-RStudio">Customizing RStudio</a>.</p>
+<p>An important first question: <strong>where are we?</strong></p>
+<p>If you’ve just opened RStudio for the first time, you’ll be in your Home directory. This is noted by the <code>~/</code> at the top of the console. You can see too that the Files pane in the lower right shows what is in the Home directory where you are. You can navigate around within that Files pane and explore, but note that you won’t change where you are: even as you click through you’ll still be Home: <code>~/</code>.</p>
+<div class="figure">
+<img src="images/RStudio_IDE_homedir.png" />
+
+</div>
+<p>OK let’s go into the Console, where we interact with the live R process.</p>
+<p>We use R to calculate things for us, so let’s do some simple math.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">3</span><span class="op">*</span><span class="dv">4</span></code></pre></div>
+<pre><code>## [1] 12</code></pre>
+<p>You can assign the value of that mathematic operation to a variable, or object, in R. You do this using the assignment operator, <code>&lt;-</code>.</p>
+<p>Make an assignment and then inspect the object you just created.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="dv">3</span> <span class="op">*</span><span class="st"> </span><span class="dv">4</span>
+x</code></pre></div>
+<pre><code>## [1] 12</code></pre>
+<p>In my head I hear, e.g., “x gets 12”.</p>
+<p>All R statements where you create objects – “assignments” – have this form: <code>objectName &lt;- value</code>.</p>
+<p>I’ll write it in the console with a hash <code>#</code>, which is the way R comments so it won’t be evaluated.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## objectName &lt;- value
+
+## This is also how you write notes in your code to explain what you are doing.</code></pre></div>
+<p>Object names cannot start with a digit and cannot contain certain other characters such as a comma or a space. You will be wise to adopt a <a href="http://en.wikipedia.org/wiki/Snake_case">convention for demarcating words</a> in names.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># i_use_snake_case</span>
+<span class="co"># other.people.use.periods</span>
+<span class="co"># evenOthersUseCamelCase</span></code></pre></div>
+<p>Make an assignment</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">this_is_a_really_long_name &lt;-<span class="st"> </span><span class="fl">2.5</span></code></pre></div>
+<p>To inspect this variable, instead of typing it, we can press the up arrow key and call your command history, with the most recent commands first. Let’s do that, and then delete the assignment:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">this_is_a_really_long_name</code></pre></div>
+<pre><code>## [1] 2.5</code></pre>
+<p>Another way to inspect this variable is to begin typing <code>this_</code>…and RStudio will automagically have suggested completions for you that you can select by hitting the tab key, then press return.</p>
+<p>One more:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">science_rocks &lt;-<span class="st"> &quot;yes it does!&quot;</span></code></pre></div>
+<p>You can see that we can assign an object to be a word, not a number. In R, this is called a “string”, and R knows it’s a word and not a number because it has quotes <code>&quot; &quot;</code>. You can work with strings in your data in R pretty easily, thanks to the <a href="http://stringr.tidyverse.org/"><code>stringr</code></a> and <a href="https://github.com/juliasilge/tidytext#tidytext-text-mining-using-dplyr-ggplot2-and-other-tidy-tools"><code>tidytext</code></a> packages. We won’t talk about strings very much specifically, but know that R can handle text, and it can work with text and numbers together.</p>
+<p>Strings and numbers lead us to an important concept in programming: that there are different “classes” or types of objects. An object is a variable, function, data structure, or method that you have written to your environment. You can see what objects you have loaded by looking in the “environment” pane in RStudio. The operations you can do with an object will depend on what type of object it is. This makes sense! Just like you wouldn’t do certain things with your car (like use it to eat soup), you won’t do certain operations with character objects (strings), for example.</p>
+<p>Try running the following line in your console:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="st">&quot;Hello world!&quot;</span> <span class="op">*</span><span class="st"> </span><span class="dv">3</span></code></pre></div>
+<p>What happened? Why?</p>
+<p>You may have noticed that when assigning a value to an object, R does not print anything. You can force R to print the value by using parentheses or by typing the object name:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">weight_kg &lt;-<span class="st"> </span><span class="dv">55</span>    <span class="co"># doesn&#39;t print anything</span>
+(weight_kg &lt;-<span class="st"> </span><span class="dv">55</span>)  <span class="co"># but putting parenthesis around the call prints the value of `weight_kg`</span></code></pre></div>
+<pre><code>## [1] 55</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">weight_kg          <span class="co"># and so does typing the name of the object</span></code></pre></div>
+<pre><code>## [1] 55</code></pre>
+<p>Now that R has <code>weight_kg</code> in memory, we can do arithmetic with it. For instance, we may want to convert this weight into pounds (weight in pounds is 2.2 times the weight in kg):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="fl">2.2</span> <span class="op">*</span><span class="st"> </span>weight_kg</code></pre></div>
+<pre><code>## [1] 121</code></pre>
+<p>We can also change a variable’s value by assigning it a new one:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">weight_kg &lt;-<span class="st"> </span><span class="fl">57.5</span>
+<span class="fl">2.2</span> <span class="op">*</span><span class="st"> </span>weight_kg</code></pre></div>
+<pre><code>## [1] 126.5</code></pre>
+<p>This means that assigning a value to one variable does not change the values of other variables. For example, let’s store the animal’s weight in pounds in a new variable, <code>weight_lb</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">weight_lb &lt;-<span class="st"> </span><span class="fl">2.2</span> <span class="op">*</span><span class="st"> </span>weight_kg</code></pre></div>
+<p>and then change <code>weight_kg</code> to 100.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">weight_kg &lt;-<span class="st"> </span><span class="dv">100</span></code></pre></div>
+<p>What do you think is the current content of the object <code>weight_lb</code>? 126.5 or 220? Why?</p>
+<p>You can also store more than one value in a single object. Storing a series of weights in a single object is a convenient way to perform the same operation on multiple values at the same time. One way to create such an object is the function <code>c()</code>, which stands for combine or concatenate.</p>
+<p>Here we will create a <em>vector</em> of weights in kilograms, and convert them to pounds, saving the weight in pounds as a new object.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">weight_kg &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">55</span>, <span class="dv">25</span>, <span class="dv">12</span>)
+weight_kg</code></pre></div>
+<pre><code>## [1] 55 25 12</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">weight_lb &lt;-<span class="st"> </span>weight_kg <span class="op">*</span><span class="st"> </span><span class="fl">2.2</span>
+weight_lb</code></pre></div>
+<pre><code>## [1] 121.0  55.0  26.4</code></pre>
+<div id="error-messages-are-your-friends" class="section level3">
+<h3><span class="header-section-number">6.3.1</span> Error messages are your friends</h3>
+<p>Implicit contract with the computer/scripting language: Computer will do tedious computation for you. In return, you will be completely precise in your instructions. Typos matter. Case matters. Pay attention to how you type.</p>
+<p>Remember that this is a language, not unsimilar to English! There are times you aren’t understood – it’s going to happen. There are different ways this can happen. Sometimes you’ll get an error. This is like someone saying ‘What?’ or ‘Pardon’? Error messages can also be more useful, like when they say ‘I didn’t understand this specific part of what you said, I was expecting something else’. That is a great type of error message. Error messages are your friend. Google them (copy-and-paste!) to figure out what they mean.</p>
+<div style="width:400px">
+<div class="figure">
+<img src="images/practicalDev_googleErrorMessage.jpg" />
+
+</div>
+</div>
+<p>And also know that there are errors that can creep in more subtly, without an error message right away, when you are giving information that is understood, but not in the way you meant. Like if I’m telling a story about tables and you’re picturing where you eat breakfast and I’m talking about data. This can leave me thinking I’ve gotten something across that the listener (or R) interpreted very differently. And as I continue telling my story you get more and more confused… So write clean code and check your work as you go to minimize these circumstances!</p>
+</div>
+<div id="logical-operators-and-expressions" class="section level3">
+<h3><span class="header-section-number">6.3.2</span> Logical operators and expressions</h3>
+<p>A moment about <strong>logical operators and expressions</strong>. We can ask questions about the objects we just made.</p>
+<ul>
+<li><code>==</code> means ‘is equal to’</li>
+<li><code>!=</code> means ‘is not equal to’</li>
+<li><code>&lt;</code> means ` is less than’</li>
+<li><code>&gt;</code> means ` is greater than’</li>
+<li><code>&lt;=</code> means ` is less than or equal to’</li>
+<li><code>&gt;=</code> means ` is greater than or equal to’</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">weight_kg <span class="op">==</span><span class="st"> </span><span class="dv">2</span></code></pre></div>
+<pre><code>## [1] FALSE FALSE FALSE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">weight_kg <span class="op">&gt;=</span><span class="st"> </span><span class="dv">30</span></code></pre></div>
+<pre><code>## [1]  TRUE FALSE FALSE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">weight_kg <span class="op">!=</span><span class="st"> </span><span class="dv">5</span></code></pre></div>
+<pre><code>## [1] TRUE TRUE TRUE</code></pre>
+<blockquote>
+<p>Shortcuts You will make lots of assignments and the operator <code>&lt;-</code> is a pain to type. Don’t be lazy and use <code>=</code>, although it would work, because it will just sow confusion later. Instead, utilize <strong>RStudio’s keyboard shortcut: Alt + - (the minus sign)</strong>. Notice that RStudio automagically surrounds <code>&lt;-</code> with spaces, which demonstrates a useful code formatting practice. Code is miserable to read on a good day. Give your eyes a break and use spaces. RStudio offers many handy <a href="https://support.rstudio.com/hc/en-us/articles/200711853-Keyboard-Shortcuts">keyboard shortcuts</a>. Also, Alt+Shift+K brings up a keyboard shortcut reference card.</p>
+</blockquote>
+</div>
+<div id="clearing-the-environment" class="section level3">
+<h3><span class="header-section-number">6.3.3</span> Clearing the environment</h3>
+<p>Now look at the objects in your environment (workspace) – in the upper right pane. The workspace is where user-defined objects accumulate.</p>
+<div class="figure">
+<img src="images/RStudio_IDE_env.png" />
+
+</div>
+<p>You can also get a listing of these objects with a few different R commands:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">objects</span>()</code></pre></div>
+<pre><code>## [1] &quot;science_rocks&quot;              &quot;this_is_a_really_long_name&quot;
+## [3] &quot;weight_kg&quot;                  &quot;weight_lb&quot;                 
+## [5] &quot;x&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ls</span>()</code></pre></div>
+<pre><code>## [1] &quot;science_rocks&quot;              &quot;this_is_a_really_long_name&quot;
+## [3] &quot;weight_kg&quot;                  &quot;weight_lb&quot;                 
+## [5] &quot;x&quot;</code></pre>
+<p>If you want to remove the object named <code>weight_kg</code>, you can do this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rm</span>(weight_kg)</code></pre></div>
+<p>To remove everything:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>())</code></pre></div>
+<p>or click the broom in RStudio’s Environment pane.</p>
+</div>
+</div>
+<div id="rmarkdown" class="section level2">
+<h2><span class="header-section-number">6.4</span> RMarkdown</h2>
+<p>Now that we know some basic R syntax, let’s learn a little about RMarkdown. You will drive yourself crazy (and fail to generate a reproducible workflow!) running code directly in the console. RMarkdown is really key for collaborative research, so we’re going to get started with it early and then use it for the rest of the course.</p>
+<p>An RMarkdown file will allow us to weave markdown text with chunks of R code to be evaluated and output content like tables and plots.</p>
+<p>File -&gt; New File -&gt; RMarkdown… -&gt; Document of output format HTML, OK.</p>
+<div style="width:300px">
+<div class="figure">
+<img src="images/rstudio_new-rmd-doc-html.png" />
+
+</div>
+</div>
+<p>You can give it a Title like “My Project”. Then click OK.</p>
+<p>OK, first off: by opening a file, we are seeing the 4th pane of the RStudio console, which is essentially a text editor. This lets us organize our files within RStudio instead of having a bunch of different windows open.</p>
+<p>Let’s have a look at this file — it’s not blank; there is some initial text is already provided for you. Notice a few things about it:</p>
+<ul>
+<li>There are white and grey sections. R code is in grey sections, and other text is in white.</li>
+</ul>
+<div class="figure">
+<img src="images/rmarkdown.png" />
+
+</div>
+<p><br></p>
+<p>Let’s go ahead and “Knit HTML” by clicking the blue yarn at the top of the RMarkdown file. When you first click this button, RStudio will prompt you to save this file. Create a new folder for it somewhere that you will be able to find again (such as your Desktop or Documents), and name that folder something you’ll remember (like <code>arctic_training_files</code>).</p>
+<p><br></p>
+<div class="figure">
+<img src="images/rmarkdown_side_by_side.png" />
+
+</div>
+<p>What do you notice between the two?</p>
+<p>Notice how the grey <strong>R code chunks</strong> are surrounded by 3 backticks and <code>{r LABEL}</code>. These are evaluated and return the output text in the case of <code>summary(cars)</code> and the output plot in the case of <code>plot(pressure)</code>.</p>
+<p>Notice how the code <code>plot(pressure)</code> is not shown in the HTML output because of the R code chunk option <code>echo=FALSE</code>.</p>
+<p>More details…</p>
+<p>This RMarkdown file has 2 different languages within it: <strong>R</strong> and <strong>Markdown</strong>.</p>
+<p>We don’t know that much R yet, but you can see that we are taking a summary of some data called ‘cars’, and then plotting. There’s a lot more to learn about R, and we’ll get into it for the next few days.</p>
+<p>The second language is Markdown. This is a formatting language for plain text, and there are only about 15 rules to know.</p>
+<p>Notice the syntax for:</p>
+<ul>
+<li><strong>headers</strong> get rendered at multiple levels: <code>#</code>, <code>##</code></li>
+<li><strong>bold</strong>: <code>**word**</code></li>
+</ul>
+<p>There are some good <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Here-Cheatsheet">cheatsheets</a> to get you started, and here is one built into RStudio: Go to Help &gt; Markdown Quick Reference <br /> <br /></p>
+<p><strong>Important</strong>: note that the hashtag <code>#</code> is used differently in Markdown and in R:</p>
+<ul>
+<li>in R, a hashtag indicates a comment that will not be evaluated. You can use as many as you want: <code>#</code> is equivalent to <code>######</code>. It’s just a matter of style.</li>
+<li>in Markdown, a hashtag indicates a level of a header. And the number you use matters: <code>#</code> is a “level one header”, meaning the biggest font and the top of the hierarchy. <code>###</code> is a level three header, and will show up nested below the <code>#</code> and <code>##</code> headers.</li>
+</ul>
+<p>Learn more: <a href="http://rmarkdown.rstudio.com/" class="uri">http://rmarkdown.rstudio.com/</a></p>
+<div id="your-turn" class="section level3">
+<h3><span class="header-section-number">6.4.1</span> Your Turn</h3>
+<ol style="list-style-type: decimal">
+<li>In Markdown, Write some italic text, and make a numbered list. And add a few subheaders. Use the Markdown Quick Reference (in the menu bar: Help &gt; Markdown Quick Reference).</li>
+<li>Reknit your html file.</li>
+</ol>
+</div>
+<div id="code-chunks" class="section level3">
+<h3><span class="header-section-number">6.4.2</span> Code chunks</h3>
+<p>OK. Now let’s practice with some of those commands.</p>
+<p>Create a new chunk in your RMarkdown first in one of these ways:</p>
+<ul>
+<li>click “Insert &gt; R” at the top of the editor pane</li>
+<li>type by hand ```{r} ```</li>
+<li>if you haven’t deleted a chunk that came with the new file, edit that one</li>
+</ul>
+<p>Now, let’s write some R code.</p>
+<pre><code>x &lt;- 4*3
+x</code></pre>
+<p>Now, hitting return does not execute this command; remember, it’s just a text file. To execute it, we need to get what we typed in the the R chunk (the grey R code) down into the console. How do we do it? There are several ways (let’s do each of them):</p>
+<ol style="list-style-type: decimal">
+<li>copy-paste this line into the console.</li>
+<li>select the line (or simply put the cursor there), and click ‘Run’. This is available from
+<ol style="list-style-type: lower-alpha">
+<li>the bar above the file (green arrow)</li>
+<li>the menu bar: Code &gt; Run Selected Line(s)</li>
+<li>keyboard shortcut: command-return</li>
+</ol></li>
+<li>click the green arrow at the right of the code chunk</li>
+</ol>
+</div>
+<div id="your-turn-1" class="section level3">
+<h3><span class="header-section-number">6.4.3</span> Your turn</h3>
+<p>Add a few more commands to your file. Execute them by trying the three ways above. Then, save your R Markdown file.</p>
+</div>
+</div>
+<div id="r-functions-help-pages" class="section level2">
+<h2><span class="header-section-number">6.5</span> R functions, help pages</h2>
+<p>So far we’ve learned some of the basic syntax and concepts of R programming, how to navigate RStudio, and RMarkdown, but we haven’t done any complicated or interesting programming processes yet. This is where functions come in!</p>
+<p>A function is a way to group a set of commands together to undertake a task in a reusable way. When a function is executed, it produces a return value. We often say that we are “calling” a function when it is executed. Functions can be user defined and saved to an object using the assignment operator, so you can write whatever functions you need, but R also has a mind-blowing collection of built-in functions ready to use. To start, we will be using some built in R functions.</p>
+<p>All functions are called using the same syntax: function name with parentheses around what the function needs in order to do what it was built to do. The pieces of information that the function needs to do its job are called arguments. So the syntax will look something like: <code>result_value &lt;- function_name(argument1 = value1, argument2 = value2, ...)</code>.</p>
+<div id="a-simple-example" class="section level3">
+<h3><span class="header-section-number">6.5.1</span> A simple example</h3>
+<p>To take a very simple example, let’s look at the <code>mean()</code> function. As you might expect, this is a function that will take the mean of a set of numbers. Very convenient!</p>
+<p>Let’s create our vector of weights again:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">weight_kg &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">55</span>, <span class="dv">25</span>, <span class="dv">12</span>)</code></pre></div>
+<p>and use the <code>mean</code> function to calculate the mean weight.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(weight_kg)</code></pre></div>
+<pre><code>## [1] 30.66667</code></pre>
+</div>
+<div id="getting-help" class="section level3">
+<h3><span class="header-section-number">6.5.2</span> Getting help</h3>
+<p>What if you know the name of the function that you want to use, but don’t know exactly how to use it? Thankfully RStudio provides an easy way to access the help documentation for functions.</p>
+<p>To access the help page for <code>mean</code>, enter the following into your console:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">?mean</code></pre></div>
+<p>The help pane will show up in the lower right hand corner of your RStudio.</p>
+<p>The help page is broken down into sections:</p>
+<ul>
+<li>Description: An extended description of what the function does.</li>
+<li>Usage: The arguments of the function(s) and their default values.</li>
+<li>Arguments: An explanation of the data each argument is expecting.</li>
+<li>Details: Any important details to be aware of.</li>
+<li>Value: The data the function returns.</li>
+<li>See Also: Any related functions you might find useful.</li>
+<li>Examples: Some examples for how to use the function.</li>
+</ul>
+</div>
+<div id="your-turn-2" class="section level3">
+<h3><span class="header-section-number">6.5.3</span> Your turn</h3>
+<blockquote>
+<p>Exercise: Talk to your neighbor(s) and look up the help file for a function that you know or expect to exist. Here are some ideas: <code>?getwd()</code>, <code>?plot()</code>, <code>min()</code>, <code>max()</code>, <code>?log()</code>).</p>
+</blockquote>
+<p>And there’s also help for when you only sort of remember the function name: double-questionmark:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">??install </code></pre></div>
+<p>Not all functions have (or require) arguments:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">date</span>()</code></pre></div>
+<pre><code>## [1] &quot;Tue Jan 22 09:38:34 2019&quot;</code></pre>
+</div>
+<div id="use-a-function-to-read-a-file-into-r" class="section level3">
+<h3><span class="header-section-number">6.5.4</span> Use a function to read a file into R</h3>
+<p>So far we have learned how to assign values to objects in R, and what a function is, but we haven’t quite put it all together yet with real data yet. To do this, we will introduce the function <code>read.csv</code>, which will be in the first lines of many of your future scripts. It does exactly what it says, it reads in a csv file to R.</p>
+<p>Since this is our irst time using this function, first access the help page for <code>read.csv</code>. This has a lot of information in it, as this function has a lot of arguments, and the first one is especially important - we have to tell it what file to look for. Let’s get a file!</p>
+<div id="download-a-file-from-the-arctic-data-center" class="section level4">
+<h4><span class="header-section-number">6.5.4.1</span> Download a file from the Arctic Data Center</h4>
+<p>Navigate to this dataset by Craig Tweedie that is published on the Arctic Data Center. <a href="http://doi.org/10.18739/A25T3FZ8X">Craig Tweedie. 2009. North Pole Environmental Observatory Bottle Chemistry. Arctic Data Center. doi:10.18739/A25T3FZ8X.</a>, and download the first csv file called “BGchem2008data.csv”</p>
+<p>Move this file from your Downloads folder into a place you can more easily find it. I recommend creating a folder called <code>data</code> in your previously-created directory <code>arctic_training_files</code>, and putting the file there.</p>
+<p>Now we have to tell <code>read.csv</code> how to find the file. We do this using the <code>file</code> argument which you can see in usage section in the help page. In RMarkdown, you can either use absolute paths (which will start with your home directory <code>~/</code>) or paths <strong>relative to the location of the RMarkdown.</strong> RStudio and RMarkdown have some great autocomplete capabilities when using relative paths, so we will go that route. Assuming you have moved your file to a folder within <code>arctic_training_files</code> called <code>data</code>, your <code>read.csv</code> call will look like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bg_chem &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/BGchem2008data.csv&quot;</span>)</code></pre></div>
+<p>You should now have an object of the class <code>data.frame</code> in your environment called <code>bg_chem</code>. Check your environment pane to ensure this is true.</p>
+<p>Note that in the help page there are a whole bunch of arguments that we didn’t use in the call above. Some of the arguments in function calls are optional, and some are required. Optional arguments will be shown in the usage section with a <code>name = value</code> pair, with the default value shown. If you do not specify a <code>name = value</code> pair for that argument in your function call, the function will assume the default value (example: <code>header = TRUE</code> for <code>read.csv</code>). Required arguments will only show the name of the argument, without a value. Note that the only required argument for <code>read.csv</code> is <code>file</code>.</p>
+<p>You can always specify arguments in <code>name = value</code> form. But if you do not, R attempts to resolve by position. So above, it is assumed that we want <code>file = &quot;data/BGchem2008data.csv&quot;</code>, since file is the first argument. If we wanted to add another argument, say <code>stringsAsFactors</code>, we need to specify it explicitly using the <code>name = value</code> pair, since the second argument is <code>header</code>. For functions I call often, I use this resolve by position for the first argument or maybe the first two. After that, I always use <code>name = value</code>.</p>
+<p>Many R users (including myself) will override the default <code>stringsAsFactors</code> argument using the following call:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bg_chem &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/BGchem2008data.csv&quot;</span>, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</code></pre></div>
+</div>
+</div>
+</div>
+<div id="using-data.frames" class="section level2">
+<h2><span class="header-section-number">6.6</span> Using <code>data.frames</code></h2>
+<p>A <code>data.frame</code> is a two dimensional data structure in R that mimics spreadsheet behavior. It is a collection of rows and columns of data, where each column has a name and represents a variable, and each row represents a measurement of that variable. When we ran <code>read.csv</code>, the object <code>bg_chem</code> that we created is a <code>data.frame</code>. There are a a bunch of ways R and RStudio help you explore data frames. Here are a few, give them each a try:</p>
+<ul>
+<li>click on the word <code>bg_chem</code> in the environment pane</li>
+<li>click on the arrow next to <code>bg_chem</code> in the environment pane</li>
+<li>execute <code>head(bg_chem)</code> in the console</li>
+<li>execute <code>View(bg_chem)</code> in the console</li>
+</ul>
+<p>Usually we will want to run functions on individual columns in a <code>data.frame</code>. To call a specific column, we use the list subset operator <code>$</code>. Say you want to look at the first few rows of the <code>Date</code> column only. This would do the trick:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(bg_chem<span class="op">$</span>Date)</code></pre></div>
+<pre><code>## [1] &quot;2008-03-21&quot; &quot;2008-03-21&quot; &quot;2008-03-21&quot; &quot;2008-03-21&quot; &quot;2008-03-21&quot;
+## [6] &quot;2008-03-22&quot;</code></pre>
+<p>How about calculating the mean temperature of all the CTD samples?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(bg_chem<span class="op">$</span>CTD_Temperature)</code></pre></div>
+<pre><code>## [1] -0.9646915</code></pre>
+<p>Or, if we want to save this to a variable to use later:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mean_temp &lt;-<span class="st"> </span><span class="kw">mean</span>(bg_chem<span class="op">$</span>CTD_Temperature)</code></pre></div>
+<p>You can also create basic plots using the list subset operator.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(bg_chem<span class="op">$</span>CTD_Depth, bg_chem<span class="op">$</span>CTD_Temperature)</code></pre></div>
+<p><img src="arctic-data-center-training_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
+<p>There are many more advancted tools and functions in R that will enable you to make better plots using cleaner syntax, we will cover some of these later in the course.</p>
+<div id="your-turn-3" class="section level3">
+<h3><span class="header-section-number">6.6.1</span> Your Turn</h3>
+<blockquote>
+<p>Exercise: Spend a few minutes exploring this dataset. Try out different functions on columns using the list subset operator and experiment with different plots.</p>
+</blockquote>
+</div>
+</div>
+<div id="troubleshooting" class="section level2">
+<h2><span class="header-section-number">6.7</span> Troubleshooting</h2>
+<div id="my-rmarkdown-wont-knit-to-pdf" class="section level3">
+<h3><span class="header-section-number">6.7.1</span> My RMarkdown won’t knit to PDF</h3>
+<p>If you get an error when trying to knit to PDF that says your computer doesn’t have a LaTeX installation, one of two things is likely happening:</p>
+<ol style="list-style-type: decimal">
+<li>Your computer doesn’t have LaTeX installed</li>
+<li>You have an installation of LaTeX but RStudio cannot find it (it is not on the path)</li>
+</ol>
+<p>If you already use LaTeX (like to write papers), you fall in the second category. Solving this requires directing RStudio to your installation - and isn’t covered here.</p>
+<p>If you fall in the first category - you are sure you don’t have LaTeX installed - can use the R package <code>tinytex</code> to easily get an installation recognized by RStudio, as long as you have administrative rights to your computer.</p>
+<p>To install <code>tinytex</code> run:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;tinytex&quot;</span>)
+tinytex<span class="op">::</span><span class="kw">install_tinytex</span>()</code></pre></div>
+<p>If you get an error that looks like <code>destination /usr/local/bin not writable</code>, you need to give yourself permission to write to this directory (again, only possible if you have administrative rights). To do this, run this command in the terminal:</p>
+<pre><code>sudo chown -R `whoami`:admin /usr/local/bin</code></pre>
+<p>and then try the above install instructions again. More information about <code>tinytex</code> can be found <a href="https://yihui.name/tinytex/">here</a></p>
+</div>
+<div id="i-just-entered-a-command-and-nothing-is-happening" class="section level3">
+<h3><span class="header-section-number">6.7.2</span> I just entered a command and nothing is happening</h3>
+<p>It may be because you didn’t complete a command: is there a little <code>+</code> in your console? R is saying that it is waiting for you to finish. In the example below, I need to close that parenthesis.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="op">&gt;</span><span class="st"> </span>x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">10</span>
+<span class="op">+</span><span class="st"> </span></code></pre></div>
+<p>You can either just type the closing parentheses here and push return, or push the <code>esc</code> button twice.</p>
+</div>
+<div id="r-says-my-object-is-not-found" class="section level3">
+<h3><span class="header-section-number">6.7.3</span> R says my object is not found</h3>
+<p>New users will frequently see errors that look like this: <code>Error in mean(myobject) : object 'myobject' not found</code></p>
+<p>This means that you do not have an object called <code>myobject</code> saved in your environment. The common reasons for this are:</p>
+<ul>
+<li><strong>typeo</strong>: make sure your object name is spelled exactly like what shows up in the console. Remember R is case sensitive.</li>
+<li><strong>not writing to a variable</strong>: note that the object is only saved in the environment if you use the assignment operator, eg: <code>myobject &lt;- read.csv(...)</code></li>
+<li><strong>not executing the line in your RMarkdown</strong>: remember that writing a line of code in RMarkdown is not the same as writing in the console, you have to execute the line of code using command + enter, running the chunk, or one of the other ways outlined in the RMarkdown section of this training</li>
+</ul>
+</div>
+</div>
+<div id="literate-analysis" class="section level2">
+<h2><span class="header-section-number">6.8</span> Literate Analysis</h2>
+<p>RMarkdown is an excellent way to generate literate analysis, and a reproducible workflow. <a href="https://nceas.github.io/sasap-training/materials/reproducible_research_in_r_fairbanks/example-brood-table-analysis.html">Here</a> is an example of a real analysis workflow written using RMarkdown.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="rstudio-and-gitgithub-setup-and-motivation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="writing-good-data-management-plans.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

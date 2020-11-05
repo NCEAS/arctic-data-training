@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Arctic Data Center</title>
+    <link>https://training.arcticdata.io/</link>
+    <description>Recent content on Arctic Data Center</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://training.arcticdata.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Arctic Data Center Training (October 2020)</title>
+      <link>https://training.arcticdata.io/events/2020_10_nceas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://training.arcticdata.io/events/2020_10_nceas/</guid>
+      <description>Dates: October 19 - October 23, 2020
+Location: Online
+Venue: NCEAS, 735 State St., Suite 300, UC Santa Barbara The Arctic Data Center provides training in data science and data management, as these are critical skills for the stewardship of the data, software, and other research products that are preserved in the Arctic Data Center. A goal of the Arctic Data Center is to advance data archiving and promote reproducible science and data reuse.</description>
+    </item>
+    
+    <item>
+      <title>Arctic Data Center Training (October 2019)</title>
+      <link>https://training.arcticdata.io/events/2019_10_nceas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://training.arcticdata.io/events/2019_10_nceas/</guid>
+      <description>Dates: October 7 - October 11, 2019
+Location: Santa Barbara, CA
+Venue: NCEAS, 735 State St., Suite 300, UC Santa Barbara The Arctic Data Center provides training in data science and data management, as these are critical skills for the stewardship of the data, software, and other research products that are preserved in the Arctic Data Center. A goal of the Arctic Data Center is to advance data archiving and promote reproducible science and data reuse.</description>
+    </item>
+    
+    <item>
+      <title>Arctic Data Center Training (February 2019)</title>
+      <link>https://training.arcticdata.io/events/2019_02_nceas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://training.arcticdata.io/events/2019_02_nceas/</guid>
+      <description>Dates: February 11 - February 15, 2019
+Location: Santa Barbara, CA
+Venue: NCEAS, 735 State St., Suite 300, UC Santa Barbara The Arctic Data Center provides training in data science and data management, as these are critical skills for the stewardship of the data, software, and other research products that are preserved in the Arctic Data Center. A goal of the Arctic Data Center is to advance data archiving and promote reproducible science and data reuse.</description>
+    </item>
+    
+    <item>
+      <title>Arctic Data Center Training (January 2019)</title>
+      <link>https://training.arcticdata.io/events/2019_01_nceas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://training.arcticdata.io/events/2019_01_nceas/</guid>
+      <description>Dates: January 14 - January 18, 2019
+Location: Santa Barbara, CA
+Venue: NCEAS, 735 State St., Suite 300, UC Santa Barbara The Arctic Data Center provides training in data science and data management, as these are critical skills for the stewardship of the data, software, and other research products that are preserved in the Arctic Data Center. A goal of the Arctic Data Center is to advance data archiving and promote reproducible science and data reuse.</description>
+    </item>
+    
+    <item>
+      <title>Arctic Data Center Training (August 2018)</title>
+      <link>https://training.arcticdata.io/events/2018_08_nceas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://training.arcticdata.io/events/2018_08_nceas/</guid>
+      <description>Dates: August 13 - August 17, 2018
+Location: Santa Barbara, CA
+Venue: NCEAS, 735 State St., Suite 300, UC Santa Barbara The Arctic Data Center provides training in data science and data management, as these are critical skills for the stewardship of the data, software, and other research products that are preserved in the Arctic Data Center. A goal of the Arctic Data Center is to advance data archiving and promote reproducible science and data reuse.</description>
+    </item>
+    
+    <item>
+      <title>Dataset Publishing with the Arctic Data Center (June 2018)</title>
+      <link>https://training.arcticdata.io/events/2018_06_polar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://training.arcticdata.io/events/2018_06_polar/</guid>
+      <description>Dates: June 22, 2018 12:30 to 14:00
+Location: Davos, Switzerland
+Venue: POLAR 2018 Open Science Conference
+This hands-on session will cover (1) Open data archives, especially the Arctic Data Center; (2) What science metadata is and how it can be used; (3) How data and code can be documented and published in open data archives; (4) Web-based submission, and (5) Submission using R (pending sufficient time).
+Course overview The Arctic Data Center conducts training in data science and management, both of which are critical skills for stewardship of data, software, and other products of research that are preserved at the Arctic Data Center.</description>
+    </item>
+    
+    <item>
+      <title>Tools for Data Science in Arctic Research (July 2017)</title>
+      <link>https://training.arcticdata.io/events/2017_07_nceas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://training.arcticdata.io/events/2017_07_nceas/</guid>
+      <description>Dates: July 31 - Aug 1, 2017
+Location: Santa Barbara, CA
+Venue: NCEAS, 735 State St., Suite 300, UC Santa Barbara The Arctic Data Center provides training in data science and data management, as these are critical skills for the stewardship of the data, software, and other research products that are preserved in the Arctic Data Center. A goal of the Arctic Data Center is to advance data archiving and promote reproducible science and data reuse.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://training.arcticdata.io/materials/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://training.arcticdata.io/materials/</guid>
+      <description> Materials  Arctic Data Center Training  </description>
+    </item>
+    
+  </channel>
+</rss>
