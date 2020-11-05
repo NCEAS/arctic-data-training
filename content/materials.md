@@ -1,3 +1,3 @@
 ## Materials
 
-- [Arctic Data Center Training](/materials/arctic-data-center-training)
+- [Arctic Data Center Training](/2020-10-arctic)
