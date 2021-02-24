@@ -5,7 +5,7 @@ git:
   depth: false
 branches:
   only:
-  - master
+  - main
 addons:
   apt:
     packages:
